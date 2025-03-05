@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "w3c-api"
+require "w3c/api/cli"
+
+W3c::Api::CLI.start(ARGV)

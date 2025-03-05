@@ -1,0 +1,171 @@
+= W3C API in Ruby
+
+image:https://img.shields.io/gem/v/w3c-api.svg["Gem Version", link="https://rubygems.org/gems/w3c-api"]
+image:https://github.com/relaton/w3c-api/workflows/rake/badge.svg["Build Status", link="https://github.com/relaton/w3c-api/actions?workflow=rake"]
+image:https://codeclimate.com/github/relaton/w3c-api/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/relaton/w3c-api"]
+
+== Purpose
+
+A Ruby wrapper for the W3C web API with a CLI interface. This gem provides:
+
+* A complete client for the W3C API similar to GitHub's Octokit gem
+* Data models created with lutaml-model for all W3C API resources
+* A command-line interface using Thor following GitHub CLI patterns
+
+This gem is developed against the W3C API documented at https://api.w3.org/doc.
+
+== Usage
+
+=== Ruby API
+
+[source,ruby]
+----
+require 'w3c-api'
+
+# Create a client
+client = W3c::Api::Client.new
+
+# Get specifications
+specifications = client.specifications
+specification = client.specification('html5')
+versions = client.specification_versions('html5')
+
+# Get groups
+groups = client.groups
+group = client.group(123)
+users = client.group_users(123)
+specifications = client.group_specifications(123)
+
+# Get users
+users = client.users
+user = client.user(456)
+groups = client.user_groups(456)
+
+# Work with other resources
+translations = client.translations
+ecosystems = client.ecosystems
+services = client.services
+----
+
+=== Command line interface
+
+W3C API provides a command-line interface (CLI) for various operations.
+
+The main executable is `w3c-api`.
+
+[source,shell]
+----
+Commands:
+  w3c-api specification SUBCOMMAND ...ARGS  # Work with W3C specifications
+  w3c-api group SUBCOMMAND ...ARGS          # Work with W3C groups
+  w3c-api user SUBCOMMAND ...ARGS           # Work with W3C users
+  w3c-api translation SUBCOMMAND ...ARGS    # Work with W3C translations
+  w3c-api ecosystem SUBCOMMAND ...ARGS      # Work with W3C ecosystems
+  w3c-api service SUBCOMMAND ...ARGS        # Work with W3C services
+  w3c-api help [COMMAND]                    # Describe available commands or one specific command
+----
+
+==== Specifications
+
+[source,shell]
+----
+Commands:
+  w3c-api specification fetch [OPTIONS]              # Fetch specifications
+  w3c-api specification versions --shortname=SHORTNAME  # Fetch versions of a specification
+----
+
+Usage:
+
+[source,shell]
+----
+# Get specifications
+$ w3c-api specification fetch
+$ w3c-api specification fetch --shortname=html5
+$ w3c-api specification fetch --format=json
+$ w3c-api specification fetch --format=yaml
+
+# Get versions of a specification
+$ w3c-api specification versions --shortname=html5
+----
+
+==== Groups
+
+[source,shell]
+----
+Commands:
+  w3c-api group fetch [OPTIONS]                # Fetch groups
+  w3c-api group users --id=ID                  # Fetch users in a group
+  w3c-api group specifications --id=ID         # Fetch specifications produced by a group
+  w3c-api group charters --id=ID               # Fetch charters of a group
+----
+
+Usage:
+
+[source,shell]
+----
+# Get groups
+$ w3c-api group fetch
+$ w3c-api group fetch --id=123
+$ w3c-api group fetch --format=json
+$ w3c-api group fetch --format=yaml
+
+# Get users in a group
+$ w3c-api group users --id=123
+
+# Get specifications produced by a group
+$ w3c-api group specifications --id=123
+
+# Get charters of a group
+$ w3c-api group charters --id=123
+----
+
+==== Users
+
+[source,shell]
+----
+Commands:
+  w3c-api user fetch [OPTIONS]                 # Fetch users
+  w3c-api user groups --id=ID                  # Fetch groups a user is a member of
+  w3c-api user specifications --id=ID          # Fetch specifications a user has contributed to
+----
+
+Usage:
+
+[source,shell]
+----
+# Get users
+$ w3c-api user fetch
+$ w3c-api user fetch --id=456
+$ w3c-api user fetch --format=json
+$ w3c-api user fetch --format=yaml
+
+# Get groups a user is a member of
+$ w3c-api user groups --id=456
+
+# Get specifications a user has contributed to
+$ w3c-api user specifications --id=456
+----
+
+=== Models
+
+The gem provides models for all W3C API resources, including:
+
+* Specification - represents a W3C specification
+* SpecVersion - represents a specific version of a specification
+* Group - represents a W3C group
+* User - represents a W3C user
+* Charter - represents a group charter
+* Translation - represents a translation of a specification
+* CallForTranslation - represents a call for translation
+* Ecosystem - represents a W3C ecosystem
+* Service - represents a W3C service
+
+Each model provides methods for accessing related resources and helper methods for common operations.
+
+== Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+== License
+
+Copyright Ribose.

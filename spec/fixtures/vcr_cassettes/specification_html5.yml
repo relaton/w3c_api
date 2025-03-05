@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 Mar 2025 14:02:05 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Wed, 05 Mar 2025 14:02:05 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=UyHS071s4i4OIRvAd_9z9_x7A3VDoso0yb0d.Flrs2I-1741183325-1.0.1.1-AjhGhLERSo.G3hkcZhPdSn4buhpBBZLbnZQ9RpM5WdEzyNiO9OMOdiUv0NO0W_AwGPqCSextFd7hzHMc9q6zI0lqnyNRLLqHgNg41wL1348;
+        path=/; expires=Wed, 05-Mar-25 14:32:05 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91ba26250c8fd49a-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "description": "<p>This specification defines the 5th major revision of the core language of the World Wide Web: the Hypertext Markup Language (HTML). In this version, new features are introduced to help Web application authors, new elements are introduced based on research into prevailing authoring practices, and special attention has been given to defining clear conformance criteria for user agents in an effort to improve interoperability.</p>",
+            "title": "HTML5",
+            "shortname": "html5",
+            "series-version": "5",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "version-history": {
+                    "href": "https://api.w3.org/specifications/html5/versions"
+                },
+                "first-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20080122",
+                    "title": "Working Draft"
+                },
+                "latest-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327",
+                    "title": "Retired"
+                },
+                "supersedes": {
+                    "href": "https://api.w3.org/specifications/html5/supersedes"
+                },
+                "series": {
+                    "href": "https://api.w3.org/specification-series/html"
+                }
+            }
+        }
+  recorded_at: Wed, 05 Mar 2025 14:02:05 GMT
+recorded_with: VCR 6.3.1
