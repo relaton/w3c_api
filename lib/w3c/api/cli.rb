@@ -1,15 +1,43 @@
 # frozen_string_literal: true
 
-require_relative 'cli/commands'
+require 'thor'
+require_relative 'commands/specification'
+require_relative 'commands/group'
+require_relative 'commands/user'
+require_relative 'commands/translation'
+require_relative 'commands/ecosystem'
+require_relative 'commands/series'
+require_relative 'commands/affiliation'
+require_relative 'commands/participation'
 
 module W3c
   module Api
-    # Main CLI class entry point
+    # Main CLI class that registers all subcommands
     class Cli < Thor
-      # Delegate to the Cli::Commands class
-      def self.start(given_args = ARGV, config = {})
-        Cli::Commands.start(given_args, config)
-      end
+      # Register subcommands
+      desc 'specification SUBCOMMAND ...ARGS', 'Work with W3C specifications'
+      subcommand 'specification', Commands::Specification
+
+      desc 'group SUBCOMMAND ...ARGS', 'Work with W3C groups'
+      subcommand 'group', Commands::Group
+
+      desc 'user SUBCOMMAND ...ARGS', 'Work with W3C users'
+      subcommand 'user', Commands::User
+
+      desc 'translation SUBCOMMAND ...ARGS', 'Work with W3C translations'
+      subcommand 'translation', Commands::Translation
+
+      desc 'ecosystem SUBCOMMAND ...ARGS', 'Work with W3C ecosystems'
+      subcommand 'ecosystem', Commands::Ecosystem
+
+      desc 'series SUBCOMMAND ...ARGS', 'Work with W3C specification series'
+      subcommand 'series', Commands::Series
+
+      desc 'affiliation SUBCOMMAND ...ARGS', 'Work with W3C affiliations'
+      subcommand 'affiliation', Commands::Affiliation
+
+      desc 'participation SUBCOMMAND ...ARGS', 'Work with W3C participations'
+      subcommand 'participation', Commands::Participation
     end
   end
 end

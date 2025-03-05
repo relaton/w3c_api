@@ -1,12 +1,41 @@
 # frozen_string_literal: true
 
+require_relative 'base'
 require_relative 'extension'
+require_relative 'link'
+
+# Example charter response format - specific fields may vary by group:
+# {
+#     "end": "2025-10-31"
+#     "title": "Accessibility Guidelines Working Group Charter"
+#     "start": "1997-10-06"
+#     "initial_end": "1999-10-06"
+#     "uri": "https://www.w3.org/2022/05/accessibility-guidelines-wg-charter.html"
+#     "cfp_uri": "https://lists.w3.org/Archives/Member/w3c-ac-members/..."
+#     "extensions": [...]
+#     "required_new_commitments": false
+#     "patent_policy": "pre-2020"
+#     "_links": {
+#         "self": {
+#             "href": "https://api.w3.org/groups/wg/ag/charters/492"
+#         },
+#         "group": {
+#             "href": "https://api.w3.org/groups/wg/ag"
+#         }
+#     }
+# }
 
 module W3c
   module Api
     module Models
+      class CharterLinks < Lutaml::Model::Serializable
+        attribute :self, Link
+        attribute :group, Link
+      end
+
       class Charter < Base
         attribute :end, :string # Date-time format
+        attribute :href, :string
         attribute :title, :string
         attribute :start, :string # Date-time format
         attribute :initial_end, :string # Date-time format
@@ -15,6 +44,17 @@ module W3c
         attribute :extensions, Extension, collection: true
         attribute :required_new_commitments, :boolean
         attribute :patent_policy, :string
+        attribute :_links, CharterLinks
+
+        # Return the group this charter belongs to
+        def group(client = nil)
+          return nil unless client && _links&.group
+
+          group_href = _links.group.href
+          group_id = group_href.split('/').last
+
+          client.group(group_id)
+        end
 
         # Parse date strings to Date objects
         def end_date
@@ -47,6 +87,24 @@ module W3c
         # Check if this charter has been extended
         def extended?
           !extensions.nil? && !extensions.empty?
+        end
+
+        def self.from_response(response)
+          transformed_response = transform_keys(response)
+
+          charter = new
+          transformed_response.each do |key, value|
+            case key
+            when :_links
+              links = value.each_with_object({}) do |(link_name, link_data), acc|
+                acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
+              end
+              charter._links = CharterLinks.new(links)
+            else
+              charter.send("#{key}=", value) if charter.respond_to?("#{key}=")
+            end
+          end
+          charter
         end
       end
     end

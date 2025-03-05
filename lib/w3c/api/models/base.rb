@@ -10,10 +10,8 @@ module W3c
       class Base < Lutaml::Model::Serializable
         # Common methods for all W3C API models
 
-        # Create a model instance from a JSON string or hash
+        # Create a model instance from a JSON hash
         def self.from_response(data)
-          data = JSON.parse(data) if data.is_a?(String)
-
           # Convert keys with hyphens to snake_case for Ruby
           transformed_data = transform_keys(data)
 
@@ -63,16 +61,6 @@ module W3c
             result[api_key] = transformed_value
           end
           result
-        end
-
-        # JSON serialization
-        def to_json(*_args)
-          JSON.pretty_generate(to_hash)
-        end
-
-        # YAML serialization
-        def to_yaml(*_args)
-          YAML.dump(to_hash)
         end
       end
     end
