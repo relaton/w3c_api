@@ -1,8 +1,11 @@
-Encoding.default_external = Encoding::UTF_8
-Encoding.default_internal = Encoding::UTF_8
+source 'https://rubygems.org'
 
-source "https://rubygems.org"
-  
 # Specify your gem's dependencies in gemspec
 gemspec
 
+gem 'bundler'
+gem 'rake'
+gem 'rspec'
+gem 'rubocop'
+gem 'simplecov'
+gem 'vcr'
