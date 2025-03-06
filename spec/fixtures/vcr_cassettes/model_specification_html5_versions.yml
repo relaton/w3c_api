@@ -1,0 +1,230 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:28:56 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 06 Mar 2025 15:27:58 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '58'
+      set-cookie:
+      - __cf_bm=XIlBjf1CqKnGdnv8jZIiDulNqwdy2v9AqrLdF3Zejx8-1741274936-1.0.1.1-pvEVl45GgCoHRdlC5LXNgcp8E9WmIGDsvj70KGRhluNUPmxBk4EDSJLC4UjR8Et9eFbHQ3OAHnR4IPcRL67rP_bqid7p6sAFuXckaPDxlDE;
+        path=/; expires=Thu, 06-Mar-25 15:58:56 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2e2be8f74e38d-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "description": "<p>This specification defines the 5th major revision of the core language of the World Wide Web: the Hypertext Markup Language (HTML). In this version, new features are introduced to help Web application authors, new elements are introduced based on research into prevailing authoring practices, and special attention has been given to defining clear conformance criteria for user agents in an effort to improve interoperability.</p>",
+            "title": "HTML5",
+            "shortname": "html5",
+            "series-version": "5",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "version-history": {
+                    "href": "https://api.w3.org/specifications/html5/versions"
+                },
+                "first-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20080122",
+                    "title": "Working Draft"
+                },
+                "latest-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327",
+                    "title": "Retired"
+                },
+                "supersedes": {
+                    "href": "https://api.w3.org/specifications/html5/supersedes"
+                },
+                "series": {
+                    "href": "https://api.w3.org/specification-series/html"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:28:56 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:28:56 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 06 Mar 2025 15:22:12 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '404'
+      set-cookie:
+      - __cf_bm=jKd1PZkgPmNTgWMszEixnChwneIzH5yiNXMt5yjXRx4-1741274936-1.0.1.1-obsePzW__k0Dzo7p9alIk6NHjJcb_QqQXUW2IUKkIPpipWKHlB6B1RtyOppL2Y3P76v6JH9HkvIY3GPT4Qwyov.N0Znt5rQX80zUVmlGPwk;
+        path=/; expires=Thu, 06-Mar-25 15:58:56 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2e2c06dc6d774-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 20,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "version-history": [
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20180327",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20141028",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20140916",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20140731",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20140617",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20140429",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20121217",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20121025",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20120329",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20110525",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20110405",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20110113",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20101019",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20100624",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20100304",
+                        "title": "HTML5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20090825",
+                        "title": "HTML 5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20090423",
+                        "title": "HTML 5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20090212",
+                        "title": "HTML 5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20080610",
+                        "title": "HTML 5"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20080122",
+                        "title": "HTML 5"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications/html5/versions?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications/html5/versions?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:28:56 GMT
+recorded_with: VCR 6.3.1

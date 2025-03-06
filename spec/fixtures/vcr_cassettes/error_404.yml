@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/nonexistent-endpoint
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:31 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding
+      cache-control:
+      - no-cache, private
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=LmQa32LQcUKzaUpBDPrN2hsW_qQi1HL1eSI889ZeZQs-1741274551-1.0.1.1-x5lTOH7m32XH1JYblBimscJwcAZ5zan29W3ADR_LFgGOu_e5YkgwR_c3Dymdiw8KH5qElMPQlZUBAgTaXS32ShdIxLB3959NZq5uxIdaj8w;
+        path=/; expires=Thu, 06-Mar-25 15:52:31 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d9580ca5f5ab-NRT
+      content-encoding:
+      - gzip
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"https:\/\/tools.ietf.org\/html\/rfc2616#section-10","title":"An
+        error occurred","status":404,"detail":"Not Found"}'
+  recorded_at: Thu, 06 Mar 2025 15:22:31 GMT
+recorded_with: VCR 6.3.1

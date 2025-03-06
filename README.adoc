@@ -1,8 +1,8 @@
 = W3C API in Ruby
 
-image:https://img.shields.io/gem/v/w3c-api.svg["Gem Version", link="https://rubygems.org/gems/w3c-api"]
-image:https://github.com/relaton/w3c-api/workflows/rake/badge.svg["Build Status", link="https://github.com/relaton/w3c-api/actions?workflow=rake"]
-image:https://codeclimate.com/github/relaton/w3c-api/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/relaton/w3c-api"]
+image:https://img.shields.io/gem/v/w3c_api.svg["Gem Version", link="https://rubygems.org/gems/w3c_api"]
+image:https://github.com/relaton/w3c_api/workflows/rake/badge.svg["Build Status", link="https://github.com/relaton/w3c_api/actions?workflow=rake"]
+image:https://codeclimate.com/github/relaton/w3c_api/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/relaton/w3c_api"]
 
 == Purpose
 
@@ -19,10 +19,10 @@ This gem is developed against the W3C API documented at https://api.w3.org/doc.
 
 [source,ruby]
 ----
-require 'w3c-api'
+require 'w3c_api'
 
 # Create a client
-client = W3c::Api::Client.new
+client = W3cApi::Client.new
 
 # Get specifications
 specifications = client.specifications
@@ -74,27 +74,27 @@ ecosystem = client.ecosystem('data')
 
 W3C API provides a command-line interface (CLI) for various operations.
 
-The main executable is `w3c-api`.
+The main executable is `w3c_api`.
 
 [source,shell]
 ----
 Commands:
   # Work with W3C specifications
-  w3c-api specification SUBCOMMAND ...ARGS
+  w3c_api specification SUBCOMMAND ...ARGS
   # Work with W3C specification series
-  w3c-api series SUBCOMMAND ...ARGS
+  w3c_api series SUBCOMMAND ...ARGS
   # Work with W3C groups
-  w3c-api group SUBCOMMAND ...ARGS
+  w3c_api group SUBCOMMAND ...ARGS
   # Work with W3C users
-  w3c-api user SUBCOMMAND ...ARGS
+  w3c_api user SUBCOMMAND ...ARGS
   # Work with W3C affiliations
-  w3c-api affiliation SUBCOMMAND ...ARGS
+  w3c_api affiliation SUBCOMMAND ...ARGS
   # Work with W3C translations
-  w3c-api translation SUBCOMMAND ...ARGS
+  w3c_api translation SUBCOMMAND ...ARGS
   # Work with W3C ecosystems
-  w3c-api ecosystem SUBCOMMAND ...ARGS
+  w3c_api ecosystem SUBCOMMAND ...ARGS
   # Describe available commands or one specific command
-  w3c-api help [COMMAND]
+  w3c_api help [COMMAND]
 ----
 
 === Specifications
@@ -109,20 +109,20 @@ When fetching an index of specifications, for every specification, only the
 [source,shell]
 ----
 # Fetch specifications
-w3c-api specification fetch [OPTIONS]
+$ w3c_api specification fetch [OPTIONS]
 # Fetch specifications in JSON format
-w3c-api specification fetch --format=json
+$ w3c_api specification fetch --format=json
 # Fetch specifications in YAML format
-w3c-api specification fetch --format=yaml
+$ w3c_api specification fetch --format=yaml
 # Fetch specifications with a specific status
-w3c-api specification fetch --status=Recommendation
+$ w3c_api specification fetch --status=Recommendation
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api specification fetch --format=yaml
+$ w3c_api specification fetch --format=yaml
 - href: https://www.w3.org/TR/html5/
   title: HTML5
 - href: https://www.w3.org/TR/css3-color/
@@ -137,20 +137,20 @@ Getting a specification provides all attributes of the specification.
 [source,shell]
 ----
 # Fetch a specification
-w3c-api specification fetch --shortname=webrtc
+$ w3c_api specification fetch --shortname=webrtc
 # Fetch a specification in JSON format
-w3c-api specification fetch --shortname=webrtc --format=json
+$ w3c_api specification fetch --shortname=webrtc --format=json
 # Fetch a specification in YAML format
-w3c-api specification fetch --shortname=webrtc --format=yaml
+$ w3c_api specification fetch --shortname=webrtc --format=yaml
 # Fetch a specific version of a specification
-w3c-api specification fetch --shortname=webrtc --version=20241008
+$ w3c_api specification fetch --shortname=webrtc --version=20241008
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api specification fetch --shortname=webrtc --format=yaml
+$ w3c_api specification fetch --shortname=webrtc --format=yaml
 ---
 shortlink: https://www.w3.org/TR/webrtc/
 description: "<p>This document defines a set of ECMAScript APIs in WebIDL to allow
@@ -186,18 +186,18 @@ This command provides access to W3C specification versions given a shortname.
 [source,shell]
 ----
 # Fetch versions of a specification
-w3c-api specification versions --shortname=webrtc
+$ w3c_api specification versions --shortname=webrtc
 # Fetch versions in JSON format
-w3c-api specification versions --shortname=webrtc --format=json
+$ w3c_api specification versions --shortname=webrtc --format=json
 # Fetch versions in YAML format
-w3c-api specification versions --shortname=webrtc --format=yaml
+$ w3c_api specification versions --shortname=webrtc --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api specification versions --shortname=webrtc --format=yaml
+$ w3c_api specification versions --shortname=webrtc --format=yaml
 spec_versions:
 - title: 'WebRTC: Real-Time Communication in Browsers'
   href: https://api.w3.org/specifications/webrtc/versions/20241008
@@ -216,18 +216,18 @@ This command provides access to W3C specifications by status.
 [source,shell]
 ----
 # Fetch specifications with a specific status
-w3c-api specification fetch --status=Recommendation
+$ w3c_api specification fetch --status=Recommendation
 # Fetch specifications with a specific status in JSON format
-w3c-api specification fetch --status=Recommendation --format=json
+$ w3c_api specification fetch --status=Recommendation --format=json
 # Fetch specifications with a specific status in YAML format
-w3c-api specification fetch --status=Recommendation --format=yaml
+$ w3c_api specification fetch --status=Recommendation --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api specification fetch --status=Recommendation --format=yaml
+$ w3c_api specification fetch --status=Recommendation --format=yaml
 specifications:
 - title: 'XML Schema Part 1: Structures Second Edition'
   href: https://api.w3.org/specifications/xmlschema-1
@@ -250,18 +250,18 @@ Fetching an index of specification series.
 [source,shell]
 ----
 # Fetch specification series
-w3c-api series fetch [OPTIONS]
+$ w3c_api series fetch [OPTIONS]
 # Fetch specification series in JSON format
-w3c-api series fetch --format=json
+$ w3c_api series fetch --format=json
 # Fetch specification series in YAML format
-w3c-api series fetch --format=yaml
+$ w3c_api series fetch --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api series fetch --format=yaml
+$ w3c_api series fetch --format=yaml
 - shortname: html
   name: HTML
 - shortname: css
@@ -277,18 +277,18 @@ Getting a specification series by shortname.
 [source,shell]
 ----
 # Fetch a specification series
-w3c-api series fetch --shortname=webrtc
+$ w3c_api series fetch --shortname=webrtc
 # Fetch a specification series in JSON format
-w3c-api series fetch --shortname=webrtc --format=json
+$ w3c_api series fetch --shortname=webrtc --format=json
 # Fetch a specification series in YAML format
-w3c-api series fetch --shortname=webrtc --format=yaml
+$ w3c_api series fetch --shortname=webrtc --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api series fetch --shortname=webrtc --format=yaml
+$ w3c_api series fetch --shortname=webrtc --format=yaml
 ---
 shortname: webrtc
 name: 'WebRTC: Real-Time Communication Between Browsers'
@@ -309,18 +309,18 @@ This command provides access to specifications in a series.
 [source,shell]
 ----
 # Fetch specifications in a series
-w3c-api series specifications --shortname=webrtc
+$ w3c_api series specifications --shortname=webrtc
 # Fetch specifications in a series in JSON format
-w3c-api series specifications --shortname=webrtc --format=json
+$ w3c_api series specifications --shortname=webrtc --format=json
 # Fetch specifications in a series in YAML format
-w3c-api series specifications --shortname=webrtc --format=yaml
+$ w3c_api series specifications --shortname=webrtc --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api series specifications --shortname=webrtc --format=yaml
+$ w3c_api series specifications --shortname=webrtc --format=yaml
 ---
 specifications:
 - title: 'WebRTC: Real-Time Communication in Browsers'
@@ -345,20 +345,20 @@ Getting a user by ID.
 [source,shell]
 ----
 # Fetch a user with a numeric ID
-w3c-api user fetch --id=128112
+$ w3c_api user fetch --id=128112
 # Fetch a user with a string ID
-w3c-api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w
+$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 # Fetch a user in JSON format
-w3c-api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
+$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
 # Fetch a user in YAML format
-w3c-api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ---
 id: 128112
 name: Jennifer Strickland
@@ -401,18 +401,18 @@ Getting groups a user is a member of.
 [source,shell]
 ----
 # Fetch groups a user is a member of
-w3c-api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
+$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 # Fetch groups a user is a member of in JSON format
-w3c-api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
+$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
 # Fetch groups a user is a member of in YAML format
-w3c-api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ---
 groups:
 - href: https://api.w3.org/groups/wg/ag
@@ -457,18 +457,18 @@ Getting specifications a user has contributed to.
 [source,shell]
 ----
 # Fetch specifications a user has contributed to
-w3c-api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w
+$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 # Fetch specifications a user has contributed to in JSON format
-w3c-api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
+$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
 # Fetch specifications a user has contributed to in YAML format
-w3c-api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 specifications:
 - title: HTML 5.2
   href: https://api.w3.org/specifications/html52
@@ -485,18 +485,18 @@ Getting affiliations of a user.
 [source,shell]
 ----
 # Fetch affiliations of a user
-w3c-api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
+$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 # Fetch affiliations of a user in JSON format
-w3c-api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
+$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
 # Fetch affiliations of a user in YAML format
-w3c-api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ---
 affiliations:
 - href: https://api.w3.org/affiliations/1092
@@ -511,18 +511,18 @@ Getting participations of a user.
 [source,shell]
 ----
 # Fetch participations of a user
-w3c-api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
+$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 # Fetch participations of a user in JSON format
-w3c-api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
+$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
 # Fetch participations of a user in YAML format
-w3c-api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ---
 participations:
 - title: Silver Community Group
@@ -567,18 +567,18 @@ Getting groups a user chairs.
 [source,shell]
 ----
 # Fetch groups a user chairs
-w3c-api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
+$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 # Fetch groups a user chairs in JSON format
-w3c-api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
+$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
 # Fetch groups a user chairs in YAML format
-w3c-api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ---
 groups:
 - href: https://api.w3.org/groups/cg/equity
@@ -593,18 +593,18 @@ Getting groups a user is a team contact of.
 [source,shell]
 ----
 # Fetch groups a user is a team contact of
-w3c-api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
+$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 # Fetch groups a user is a team contact of in JSON format
-w3c-api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
+$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
 # Fetch groups a user is a team contact of in YAML format
-w3c-api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 groups:
 - name: Web Platform Working Group
   href: https://api.w3.org/groups/72825
@@ -625,18 +625,18 @@ Fetching an index of groups.
 [source,shell]
 ----
 # Fetch groups
-w3c-api group fetch [OPTIONS]
+$ w3c_api group fetch [OPTIONS]
 # Fetch groups in JSON format
-w3c-api group fetch --format=json
+$ w3c_api group fetch --format=json
 # Fetch groups in YAML format
-w3c-api group fetch --format=yaml
+$ w3c_api group fetch --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api group fetch --format=yaml
+$ w3c_api group fetch --format=yaml
 ---
 groups:
 - href: https://api.w3.org/groups/tf/ab-liaisons-to-bod
@@ -658,11 +658,11 @@ Getting a group by ID.
 [source,shell]
 ----
 # Fetch a group
-w3c-api group fetch --id=109735
+$ w3c_api group fetch --id=109735
 # Fetch a group in JSON format
-w3c-api group fetch --id=109735 --format=json
+$ w3c_api group fetch --id=109735 --format=json
 # Fetch a group in YAML format
-w3c-api group fetch --id=109735 --format=yaml
+$ w3c_api group fetch --id=109735 --format=yaml
 ----
 
 [example]
@@ -716,18 +716,18 @@ Getting users in a group.
 [source,shell]
 ----
 # Fetch users in a group
-w3c-api group users --id=109735
+$ w3c_api group users --id=109735
 # Fetch users in a group in JSON format
-w3c-api group users --id=109735 --format=json
+$ w3c_api group users --id=109735 --format=json
 # Fetch users in a group in YAML format
-w3c-api group users --id=109735 --format=yaml
+$ w3c_api group users --id=109735 --format=yaml
 ----
 
 [example]
 ====
 [source,sh]
 ----
-$ w3c-api group users --id=109735 --format=yaml
+$ w3c_api group users --id=109735 --format=yaml
 ---
 users:
 - href: https://api.w3.org/users/9o1jsmhi8ysk088w0k4g00wsssk4c8c
@@ -754,18 +754,18 @@ Getting specifications of a group.
 [source,shell]
 ----
 # Fetch specifications of a group
-w3c-api group specifications --id=109735
+$ w3c_api group specifications --id=109735
 # Fetch specifications of a group in JSON format
-w3c-api group specifications --id=109735 --format=json
+$ w3c_api group specifications --id=109735 --format=json
 # Fetch specifications of a group in YAML format
-w3c-api group specifications --id=109735 --format=yaml
+$ w3c_api group specifications --id=109735 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api group specifications --id=109735 --format=yaml
+$ w3c_api group specifications --id=109735 --format=yaml
 ---
 specifications:
 - title: WebXR Lighting Estimation API Level 1
@@ -787,18 +787,18 @@ Getting charters of a group.
 [source,shell]
 ----
 # Fetch charters of a group
-w3c-api group charters --id=109735
+$ w3c_api group charters --id=109735
 # Fetch charters of a group in JSON format
-w3c-api group charters --id=109735 --format=json
+$ w3c_api group charters --id=109735 --format=json
 # Fetch charters of a group in YAML format
-w3c-api group charters --id=109735 --format=yaml
+$ w3c_api group charters --id=109735 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api group charters --id=109735 --format=yaml
+$ w3c_api group charters --id=109735 --format=yaml
 ---
 charters:
 - href: https://api.w3.org/groups/109735/charters/361
@@ -819,18 +819,18 @@ Getting chairs of a group.
 [source,shell]
 ----
 # Fetch chairs of a group
-w3c-api group chairs --id=109735
+$ w3c_api group chairs --id=109735
 # Fetch chairs of a group in JSON format
-w3c-api group chairs --id=109735 --format=json
+$ w3c_api group chairs --id=109735 --format=json
 # Fetch chairs of a group in YAML format
-w3c-api group chairs --id=109735 --format=yaml
+$ w3c_api group chairs --id=109735 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api group chairs --id=109735 --format=yaml
+$ w3c_api group chairs --id=109735 --format=yaml
 ---
 users:
 - href: https://api.w3.org/users/basy63arxl448c8co0og8ocosocgc0w
@@ -850,18 +850,18 @@ Getting team contacts of a group.
 [source,shell]
 ----
 # Fetch team contacts of a group
-w3c-api group team_contacts --id=109735
+$ w3c_api group team_contacts --id=109735
 # Fetch team contacts of a group in JSON format
-w3c-api group team_contacts --id=109735 --format=json
+$ w3c_api group team_contacts --id=109735 --format=json
 # Fetch team contacts of a group in YAML format
-w3c-api group team_contacts --id=109735 --format=yaml
+$ w3c_api group team_contacts --id=109735 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api group team_contacts --id=109735 --format=yaml
+$ w3c_api group team_contacts --id=109735 --format=yaml
 ---
 users:
 - href: https://api.w3.org/users/1eb2xr7ab6zo0k8440o48swso408ksc
@@ -880,18 +880,18 @@ Fetching an index of affiliations.
 [source,shell]
 ----
 # Fetch affiliations
-w3c-api affiliation fetch [OPTIONS]
+$ w3c_api affiliation fetch [OPTIONS]
 # Fetch affiliations in JSON format
-w3c-api affiliation fetch --format=json
+$ w3c_api affiliation fetch --format=json
 # Fetch affiliations in YAML format
-w3c-api affiliation fetch --format=yaml
+$ w3c_api affiliation fetch --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api affiliation fetch --format=yaml
+$ w3c_api affiliation fetch --format=yaml
 ---
 affiliations:
 - href: https://api.w3.org/affiliations/1001
@@ -917,18 +917,18 @@ Getting an affiliation by ID.
 [source,shell]
 ----
 # Fetch an affiliation
-w3c-api affiliation fetch --id=35662
+$ w3c_api affiliation fetch --id=35662
 # Fetch an affiliation in JSON format
-w3c-api affiliation fetch --id=35662 --format=json
+$ w3c_api affiliation fetch --id=35662 --format=json
 # Fetch an affiliation in YAML format
-w3c-api affiliation fetch --id=35662 --format=yaml
+$ w3c_api affiliation fetch --id=35662 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api affiliation fetch --id=35662 --format=yaml
+$ w3c_api affiliation fetch --id=35662 --format=yaml
 ---
 affiliations:
 - id: 35662
@@ -953,18 +953,18 @@ Getting participants of an affiliation.
 [source,shell]
 ----
 # Fetch participants of an affiliation
-w3c-api affiliation participants --id=35662
+$ w3c_api affiliation participants --id=35662
 # Fetch participants of an affiliation in JSON format
-w3c-api affiliation participants --id=35662 --format=json
+$ w3c_api affiliation participants --id=35662 --format=json
 # Fetch participants of an affiliation in YAML format
-w3c-api affiliation participants --id=35662 --format=yaml
+$ w3c_api affiliation participants --id=35662 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api affiliation participants --id=35662 --format=yaml
+$ w3c_api affiliation participants --id=35662 --format=yaml
 ---
 users:
 - href: https://api.w3.org/users/p3dte6mpoj4sgw888w8kw4w4skwosck
@@ -988,18 +988,18 @@ Getting participations of an affiliation.
 [source,shell]
 ----
 # Fetch participations of an affiliation
-w3c-api affiliation participations --id=35662
+$ w3c_api affiliation participations --id=35662
 # Fetch participations of an affiliation in JSON format
-w3c-api affiliation participations --id=35662 --format=json
+$ w3c_api affiliation participations --id=35662 --format=json
 # Fetch participations of an affiliation in YAML format
-w3c-api affiliation participations --id=35662 --format=yaml
+$ w3c_api affiliation participations --id=35662 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api affiliation participations --id=35662 --format=yaml
+$ w3c_api affiliation participations --id=35662 --format=yaml
 ---
 participations:
 - title: Patents and Standards Interest Group
@@ -1024,18 +1024,18 @@ Fetching an index of ecosystems.
 [source,shell]
 ----
 # Fetch ecosystems
-w3c-api ecosystem fetch
+$ w3c_api ecosystem fetch
 # Fetch ecosystems in JSON format
-w3c-api ecosystem fetch --format=json
+$ w3c_api ecosystem fetch --format=json
 # Fetch ecosystems in YAML format
-w3c-api ecosystem fetch --format=yaml
+$ w3c_api ecosystem fetch --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api ecosystem fetch --format=yaml
+$ w3c_api ecosystem fetch --format=yaml
 ---
 ecosystems:
 - href: https://api.w3.org/ecosystems/advertising
@@ -1066,18 +1066,18 @@ Getting an ecosystem by shortname.
 [source,shell]
 ----
 # Fetch an ecosystem
-w3c-api ecosystem fetch --shortname=data
+$ w3c_api ecosystem fetch --shortname=data
 # Fetch an ecosystem in JSON format
-w3c-api ecosystem fetch --shortname=data --format=json
+$ w3c_api ecosystem fetch --shortname=data --format=json
 # Fetch an ecosystem in YAML format
-w3c-api ecosystem fetch --shortname=data --format=yaml
+$ w3c_api ecosystem fetch --shortname=data --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api ecosystem fetch --shortname=data --format=yaml
+$ w3c_api ecosystem fetch --shortname=data --format=yaml
 ---
 name: Data and knowledge
 shortname: data
@@ -1103,18 +1103,18 @@ Getting groups in an ecosystem.
 [source,shell]
 ----
 # Fetch groups in an ecosystem
-w3c-api ecosystem groups --shortname=data
+$ w3c_api ecosystem groups --shortname=data
 # Fetch groups in an ecosystem in JSON format
-w3c-api ecosystem groups --shortname=data --format=json
+$ w3c_api ecosystem groups --shortname=data --format=json
 # Fetch groups in an ecosystem in YAML format
-w3c-api ecosystem groups --shortname=data --format=yaml
+$ w3c_api ecosystem groups --shortname=data --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api ecosystem groups --shortname=data --format=yaml
+$ w3c_api ecosystem groups --shortname=data --format=yaml
 ---
 groups:
 - href: https://api.w3.org/groups/wg/data-shapes
@@ -1140,18 +1140,18 @@ Fetching an index of translations.
 [source,shell]
 ----
 # Fetch translations
-w3c-api translation fetch
+$ w3c_api translation fetch
 # Fetch translations in JSON format
-w3c-api translation fetch --format=json
+$ w3c_api translation fetch --format=json
 # Fetch translations in YAML format
-w3c-api translation fetch --format=yaml
+$ w3c_api translation fetch --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api translation fetch --format=yaml
+$ w3c_api translation fetch --format=yaml
 ---
 translations:
 - title: 'Vidéo : introduction à l’accessibilité web et aux standards du W3C'
@@ -1177,18 +1177,18 @@ Getting a translation by ID.
 [source,shell]
 ----
 # Fetch a translation
-w3c-api translation fetch --id=2
+$ w3c_api translation fetch --id=2
 # Fetch a translation in JSON format
-w3c-api translation fetch --id=2 --format=json
+$ w3c_api translation fetch --id=2 --format=json
 # Fetch a translation in YAML format
-w3c-api translation fetch --id=2 --format=yaml
+$ w3c_api translation fetch --id=2 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c-api translation fetch --id=2 --format=yaml
+$ w3c_api translation fetch --id=2 --format=yaml
 ---
 uri: https://github.com/w3c/wai-video-standards-and-benefits/blob/master/index.fr.md
 title: 'Vidéo : introduction à l’accessibilité web et aux standards du W3C'
@@ -1245,7 +1245,7 @@ If a user has no specifications, the command will still complete successfully bu
 
 [source,shell]
 ----
-$ w3c-api user specifications --id=128112 --format=yaml
+$ w3c_api user specifications --id=128112 --format=yaml
 specifications: []
 ----
 ====

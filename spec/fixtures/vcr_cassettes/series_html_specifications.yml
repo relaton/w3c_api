@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series/html/specifications?items=3000&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:15 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 06 Mar 2025 15:22:15 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=4LcNgEHkufSjAZnXMm6VxIBKxbOD1uGMjebb6ByZOfM-1741274535-1.0.1.1-NOW6hNQCTEXpKIbjtFB871Ft6v8HRqc2pT0zIrBmgRr0OYOgl0WuEHKf95QMQJb7AOcO1QPvAYP6Jyttl5KPBiRNI7uCBrknVt6qqgx.W8c;
+        path=/; expires=Thu, 06-Mar-25 15:52:15 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d8f82bf5d766-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInBhZ2UiOiAxLAogICAgImxpbWl0IjogMTAwMCwKICAgICJwYWdlcyI6IDEsCiAgICAidG90YWwiOiAxMiwKICAgICJfbGlua3MiOiB7CiAgICAgICAgInVwIjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbi1zZXJpZXMvaHRtbCIKICAgICAgICB9LAogICAgICAgICJzcGVjaWZpY2F0aW9ucyI6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2h0bWwiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkhUTUwiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9SRUMtaHRtbDMyIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIVE1MIDMuMiBSZWZlcmVuY2UgU3BlY2lmaWNhdGlvbiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2h0bWw0MCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiSFRNTCA0LjAgUmVjb21tZW5kYXRpb24iCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9odG1sNDAxIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIVE1MIDQuMDEgU3BlY2lmaWNhdGlvbiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2h0bWw1MSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiSFRNTCA1LjEgMm5kIEVkaXRpb24iCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9odG1sNTIiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkhUTUwgNS4yIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvaHRtbDUzIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIVE1MIDUuMyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL05PVEUtaHRtbCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiSFRNTCBEVEQgd2l0aCBzdXBwb3J0IGZvciBTdHlsZSBTaGVldHMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9odG1sNSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiSFRNTDUiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy94aHRtbDEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIlhIVE1M4oSiIDEuMCBUaGUgRXh0ZW5zaWJsZSBIeXBlclRleHQgTWFya3VwIExhbmd1YWdlIChTZWNvbmQgRWRpdGlvbikiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy94aHRtbDExIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJYSFRNTOKEoiAxLjEgLSBNb2R1bGUtYmFzZWQgWEhUTUwgLSBTZWNvbmQgRWRpdGlvbiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL3hodG1sMiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiWEhUTUzihKIgMi4wIgogICAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAic2VsZiI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb24tc2VyaWVzL2h0bWwvc3BlY2lmaWNhdGlvbnM/cGFnZT0xJml0ZW1zPTEwMDAiCiAgICAgICAgfSwKICAgICAgICAiZmlyc3QiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9uLXNlcmllcy9odG1sL3NwZWNpZmljYXRpb25zP3BhZ2U9MSZpdGVtcz0xMDAwIgogICAgICAgIH0sCiAgICAgICAgImxhc3QiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9uLXNlcmllcy9odG1sL3NwZWNpZmljYXRpb25zP3BhZ2U9MSZpdGVtcz0xMDAwIgogICAgICAgIH0KICAgIH0KfQ==
+  recorded_at: Thu, 06 Mar 2025 15:22:15 GMT
+recorded_with: VCR 6.3.1

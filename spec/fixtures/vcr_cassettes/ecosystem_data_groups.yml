@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/ecosystems/data/groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:28 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Thu, 06 Feb 2025 19:26:46 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=ytXIFi3u6c4EBuYO_9WVqKrrP0W1htF8X7szsGRwffQ-1741274548-1.0.1.1-ALnsr_Z1_4nqEur7bcaiWaj4Nw0VYYMscn1_.fX36OW_dTfx3It.vXRU516SFn4yx5cREwQ.v2ftnoOpPIA8RXikVSIsbdnMQTcieFWB63I;
+        path=/; expires=Thu, 06-Mar-25 15:52:28 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d9496bf4e389-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 10,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/ecosystems/data"
+                },
+                "groups": [
+                    {
+                        "href": "https://api.w3.org/groups/wg/data-shapes",
+                        "title": "Data Shapes Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/dx",
+                        "title": "Dataset Exchange Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/did",
+                        "title": "Decentralized Identifier Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/json-ld",
+                        "title": "JSON-LD Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/lws",
+                        "title": "Linked Web Storage Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/rch",
+                        "title": "RDF Dataset Canonicalization and Hash Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/rdf-star",
+                        "title": "RDF-star Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/sdw",
+                        "title": "Spatio-temporal Data on the Web Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/vc",
+                        "title": "Verifiable Credentials Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/webmachinelearning",
+                        "title": "Web Machine Learning Working Group"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/ecosystems/data/groups?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/ecosystems/data/groups?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/ecosystems/data/groups?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:28 GMT
+recorded_with: VCR 6.3.1

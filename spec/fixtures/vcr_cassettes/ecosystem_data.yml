@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/ecosystems/data
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:28 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Mon, 16 Dec 2024 13:17:48 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=LRMGgLc.kmM6BQCZmWS2xLWwmhFSfc9YsljMf6CNdzI-1741274548-1.0.1.1-eEUdyCqhSZbO7jYKtCJVKWzwDEDC5NrZmU6AIRyXQ9LRry81FrEJfsGFC.PIgO7OMbNBYzAliMy19.yFoIrBK8uwsjVI9namqTNF.9y_4E4;
+        path=/; expires=Thu, 06-Mar-25 15:52:28 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d9461dccd798-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "name": "Data and knowledge",
+            "shortname": "data",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/ecosystems/data"
+                },
+                "champion": {
+                    "href": "https://api.w3.org/users/t891ludoisggsccsw44o8goccc0s0ks",
+                    "title": "Pierre-Antoine Champin"
+                },
+                "evangelists": {
+                    "href": "https://api.w3.org/ecosystems/data/evangelists"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/ecosystems/data/groups"
+                },
+                "member-organizations": {
+                    "href": "https://api.w3.org/ecosystems/data/member-organizations"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:28 GMT
+recorded_with: VCR 6.3.1

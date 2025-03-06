@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:21 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Tue, 04 Mar 2025 16:13:24 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=i0aKNmwOmVURxuFuAh7O0eb1Qwi.YIqv_0lEQy1Q4IE-1741274541-1.0.1.1-3b7Cpg6C4bbEWb6LdAWJZ1PlbCGPvV9XB3hBRgUCow7h0sA3ypjvNn82iIoKO5Buyc7HKMhIFuNNwv3ixfS8J4tueIC2GS9iXx_t2sH_qko;
+        path=/; expires=Thu, 06-Mar-25 15:52:21 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d91dab49e381-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 16,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w"
+                },
+                "groups": [
+                    {
+                        "href": "https://api.w3.org/groups/wg/ag",
+                        "title": "Accessibility Guidelines Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/global-inclusion",
+                        "title": "Accessibility Internationalization Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/apa",
+                        "title": "Accessible Platform Architectures Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/css",
+                        "title": "Cascading Style Sheets (CSS) Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/coga-community",
+                        "title": "Cognitive Accessibility Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/equity",
+                        "title": "Equity Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/immersive-web",
+                        "title": "Immersive Web Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/pwe",
+                        "title": "Positive Work Environment Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/silver",
+                        "title": "Silver Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/sdw",
+                        "title": "Spatio-temporal Data on the Web Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/sustainability",
+                        "title": "Sustainability Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/ig/sustainableweb",
+                        "title": "Sustainable Web Interest Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/w3process",
+                        "title": "W3C Process Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/webapps",
+                        "title": "Web Applications Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/webcomponents",
+                        "title": "Web Components Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/wg/webperf",
+                        "title": "Web Performance Working Group"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:21 GMT
+recorded_with: VCR 6.3.1

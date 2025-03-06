@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups/109735/specifications
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:17 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Mon, 21 Oct 2024 18:57:40 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=eAoD4wJ5KI2qGCOurlB0bcTD1W4ieHD728hifDnrLnU-1741274537-1.0.1.1-DpgSPiFo.C5hNSvbjT6BHvmW2HHmgIcSpVR8PHM4j5xJgAcplVDGWzZnSTKr.VHgVdnGTa5tXKm0ZZ5OPRTRvJuT4gmiXxvvQcxh61A2qcs;
+        path=/; expires=Thu, 06-Mar-25 15:52:17 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d8ff383fe395-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 9,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/groups/109735"
+                },
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-lighting-estimation-1",
+                        "title": "WebXR Lighting Estimation API Level 1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-ar-module-1",
+                        "title": "WebXR Augmented Reality Module - Level 1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-gamepads-module-1",
+                        "title": "WebXR Gamepads Module - Level 1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxrlayers-1",
+                        "title": "WebXR Layers API Level 1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-hand-input-1",
+                        "title": "WebXR Hand Input Module - Level 1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-hit-test-1",
+                        "title": "WebXR Hit Test Module"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-depth-sensing-1",
+                        "title": "WebXR Depth Sensing Module"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-dom-overlays-1",
+                        "title": "WebXR DOM Overlays Module"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr",
+                        "title": "WebXR Device API"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups/109735/specifications?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups/109735/specifications?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups/109735/specifications?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:17 GMT
+recorded_with: VCR 6.3.1

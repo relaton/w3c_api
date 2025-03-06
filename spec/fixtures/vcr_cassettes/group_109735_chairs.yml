@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups/109735/chairs
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:19 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Tue, 07 Feb 2023 13:42:28 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=mfxDUJxapiArl5.VUStyekCIsP3vC.4Nh56mcZjsfUg-1741274539-1.0.1.1-SSdR3Eq46HoKbOdprdwVQpQiBzVGaLGGYQ4BAZy9p_WL2ojmPujhXeerjdzjudAzvXVsplEfRbx9b.l9g9XZ4MTJ.wp0yvHhTuODwDQ_mlk;
+        path=/; expires=Thu, 06-Mar-25 15:52:19 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d90c1dd080ed-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInBhZ2UiOiAxLAogICAgImxpbWl0IjogMTAwLAogICAgInBhZ2VzIjogMSwKICAgICJ0b3RhbCI6IDMsCiAgICAiX2xpbmtzIjogewogICAgICAgICJ1cCI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy8xMDk3MzUiCiAgICAgICAgfSwKICAgICAgICAiY2hhaXJzIjogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvdXNlcnMvYmFzeTYzYXJ4bDQ0OGM4Y28wb2c4b2Nvc29jZ2MwdyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWRhIFJvc2UgQ2Fubm9uIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvdXNlcnMvbDg4Y2EyN24yYjRzazAwY29nb3NrMHNrdzRzOG9zYyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2hyaXMgV2lsc29uIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvdXNlcnMvbTk5anFrcGk5bThvd3c4NGt3NGd3Y2NnYzRnMG9ncyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXnFn2Vnw7xsIFnDtm5ldCIKICAgICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgInNlbGYiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvMTA5NzM1L2NoYWlycz9wYWdlPTEmaXRlbXM9MTAwIgogICAgICAgIH0sCiAgICAgICAgImZpcnN0IjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzLzEwOTczNS9jaGFpcnM/cGFnZT0xJml0ZW1zPTEwMCIKICAgICAgICB9LAogICAgICAgICJsYXN0IjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzLzEwOTczNS9jaGFpcnM/cGFnZT0xJml0ZW1zPTEwMCIKICAgICAgICB9CiAgICB9Cn0=
+  recorded_at: Thu, 06 Mar 2025 15:22:19 GMT
+recorded_with: VCR 6.3.1

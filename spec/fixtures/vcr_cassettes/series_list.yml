@@ -1,0 +1,4071 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series?items=3000&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:14 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 06 Mar 2025 15:22:14 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=2.G4fN26VWBRrHO8.LpQNyiCXfbCSHhv7QHCTarBzFA-1741274534-1.0.1.1-Cq_ZUvfADGMi2zmpI6iLi95ZIjXuFw10kUjsCDzoqOoCQqWzV33W42gUPYUci_.KxQYUw3YQs9SaJ8f7Qr5tNHAZL7bfaaHFjnh7TlxXX8U;
+        path=/; expires=Thu, 06-Mar-25 15:52:14 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d8ef09f6f6c9-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 1000,
+            "pages": 2,
+            "total": 1426,
+            "_links": {
+                "specification-series": [
+                    {
+                        "href": "https://api.w3.org/specification-series/2dcontext",
+                        "title": "2dcontext"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/abstract-ui",
+                        "title": "abstract-ui"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cors",
+                        "title": "cors"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/accessibility-metrics-report",
+                        "title": "accessibility-metrics-report"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/accname",
+                        "title": "accname"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/acdi",
+                        "title": "acdi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/acss",
+                        "title": "acss"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/activitystreams-core",
+                        "title": "activitystreams-core"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/activitystreams-vocabulary",
+                        "title": "activitystreams-vocabulary"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/AERT",
+                        "title": "AERT"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ambient-light",
+                        "title": "ambient-light"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/animation-timing",
+                        "title": "animation-timing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/annotation-model",
+                        "title": "annotation-model"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/api-design",
+                        "title": "api-design"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/api-perms",
+                        "title": "api-perms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/app-privacy-bp",
+                        "title": "app-privacy-bp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/app-uri",
+                        "title": "app-uri"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/appmanifest",
+                        "title": "appmanifest"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/arabic-math",
+                        "title": "arabic-math"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/using-aria",
+                        "title": "using-aria"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wai-aria-roadmap",
+                        "title": "wai-aria-roadmap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/AS",
+                        "title": "AS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ATAG",
+                        "title": "ATAG"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ATAG-wombat",
+                        "title": "ATAG-wombat"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/audio-output",
+                        "title": "audio-output"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/audioproc",
+                        "title": "audioproc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/authentform",
+                        "title": "authentform"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/backplane",
+                        "title": "backplane"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/battery-status",
+                        "title": "battery-status"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/beacon",
+                        "title": "beacon"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/becss",
+                        "title": "becss"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/C14N-issues",
+                        "title": "C14N-issues"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/calendar-api",
+                        "title": "calendar-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/call-control-reqs",
+                        "title": "call-control-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/capability-urls",
+                        "title": "capability-urls"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-media-capture",
+                        "title": "html-media-capture"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/capture-scenarios",
+                        "title": "capture-scenarios"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPP-COORDINATION",
+                        "title": "CCPP-COORDINATION"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPP-ra",
+                        "title": "CCPP-ra"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPP-ta",
+                        "title": "CCPP-ta"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPP-trust",
+                        "title": "CCPP-trust"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ccxml",
+                        "title": "ccxml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CDFReqs",
+                        "title": "CDFReqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CDR",
+                        "title": "CDR"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CDRReqs",
+                        "title": "CDRReqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/charcol",
+                        "title": "charcol"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/charmod",
+                        "title": "charmod"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/charmod-norm",
+                        "title": "charmod-norm"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/charmod-resid",
+                        "title": "charmod-resid"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/charreq",
+                        "title": "charreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/chips",
+                        "title": "chips"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/clipboard-apis",
+                        "title": "clipboard-apis"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/coga-user-research",
+                        "title": "coga-user-research"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/compactHTML",
+                        "title": "compactHTML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/components-intro",
+                        "title": "components-intro"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/compositing",
+                        "title": "compositing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/contacts-api",
+                        "title": "contacts-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/contacts-manager-api",
+                        "title": "contacts-manager-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Content-in-RDF",
+                        "title": "Content-in-RDF"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cooluris",
+                        "title": "cooluris"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/core-aam",
+                        "title": "core-aam"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cpc-req",
+                        "title": "cpc-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/credential-management",
+                        "title": "credential-management"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cselection",
+                        "title": "cselection"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cselection-primer",
+                        "title": "cselection-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cselection-xaf",
+                        "title": "cselection-xaf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/csp-pinning",
+                        "title": "csp-pinning"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-2d-transforms",
+                        "title": "css-2d-transforms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-3d-transforms",
+                        "title": "css-3d-transforms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-align",
+                        "title": "css-align"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-animations",
+                        "title": "css-animations"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-backgrounds",
+                        "title": "css-backgrounds"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-beijing",
+                        "title": "css-beijing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-border",
+                        "title": "css-border"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-box",
+                        "title": "css-box"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-break",
+                        "title": "css-break"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-cascade",
+                        "title": "css-cascade"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-conditional",
+                        "title": "css-conditional"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-content",
+                        "title": "css-content"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-counter-styles",
+                        "title": "css-counter-styles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-device-adapt",
+                        "title": "css-device-adapt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-display",
+                        "title": "css-display"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-exclusions",
+                        "title": "css-exclusions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-flexbox",
+                        "title": "css-flexbox"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-font-loading",
+                        "title": "css-font-loading"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-gcpm",
+                        "title": "css-gcpm"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-hyperlinks",
+                        "title": "css-hyperlinks"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-images",
+                        "title": "css-images"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-inline",
+                        "title": "css-inline"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-line-grid",
+                        "title": "css-line-grid"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-linebox",
+                        "title": "css-linebox"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-lists",
+                        "title": "css-lists"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-marquee",
+                        "title": "css-marquee"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-masking",
+                        "title": "css-masking"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-mobile",
+                        "title": "css-mobile"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-multicol",
+                        "title": "css-multicol"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-namespaces",
+                        "title": "css-namespaces"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-overflow",
+                        "title": "css-overflow"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-page",
+                        "title": "css-page"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-position",
+                        "title": "css-position"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CSS-potential",
+                        "title": "CSS-potential"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-preslev",
+                        "title": "css-preslev"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-print",
+                        "title": "css-print"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-pseudo",
+                        "title": "css-pseudo"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-reader",
+                        "title": "css-reader"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-regions",
+                        "title": "css-regions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-roadmap",
+                        "title": "css-roadmap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-ruby",
+                        "title": "css-ruby"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-scoping",
+                        "title": "css-scoping"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-scroll-snap",
+                        "title": "css-scroll-snap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-shapes",
+                        "title": "css-shapes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-sizing",
+                        "title": "css-sizing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CSS-smil",
+                        "title": "CSS-smil"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-speech",
+                        "title": "css-speech"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-style-attr",
+                        "title": "css-style-attr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-syntax",
+                        "title": "css-syntax"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-template",
+                        "title": "css-template"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-text",
+                        "title": "css-text"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-text-decor",
+                        "title": "css-text-decor"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-transforms",
+                        "title": "css-transforms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-transitions",
+                        "title": "css-transitions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-tv",
+                        "title": "css-tv"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-userint",
+                        "title": "css-userint"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-variables",
+                        "title": "css-variables"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-will-change",
+                        "title": "css-will-change"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cssom",
+                        "title": "cssom"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cssom-view",
+                        "title": "cssom-view"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/csv2json",
+                        "title": "csv2json"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/csv2rdf",
+                        "title": "csv2rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/csvw-ucr",
+                        "title": "csvw-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ct-guidelines",
+                        "title": "ct-guidelines"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ct-landscape",
+                        "title": "ct-landscape"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cuap",
+                        "title": "cuap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/curie",
+                        "title": "curie"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/custom-elements",
+                        "title": "custom-elements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CX",
+                        "title": "CX"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dap-api-reqs",
+                        "title": "dap-api-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dap-policy-reqs",
+                        "title": "dap-policy-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dap-privacy-reqs",
+                        "title": "dap-privacy-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/data-extraction",
+                        "title": "data-extraction"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DataCache",
+                        "title": "DataCache"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/datetime",
+                        "title": "datetime"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dcd",
+                        "title": "dcd"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dcontology",
+                        "title": "dcontology"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dd-ecosystem",
+                        "title": "dd-ecosystem"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dd-landscape",
+                        "title": "dd-landscape"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dd-structures",
+                        "title": "dd-structures"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ddml",
+                        "title": "ddml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ddr-core-vocabulary",
+                        "title": "ddr-core-vocabulary"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DDR-requirements",
+                        "title": "DDR-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DDR-Simple-API",
+                        "title": "DDR-Simple-API"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dfaui",
+                        "title": "dfaui"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/di-atdi",
+                        "title": "di-atdi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/di-dco",
+                        "title": "di-dco"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/di-gloss",
+                        "title": "di-gloss"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/di-princ",
+                        "title": "di-princ"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/di-testing",
+                        "title": "di-testing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dial",
+                        "title": "dial"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dial-primer",
+                        "title": "dial-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/discovery-api",
+                        "title": "discovery-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-HTML",
+                        "title": "DOM-HTML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Style",
+                        "title": "DOM-Style"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Traversal-Range",
+                        "title": "DOM-Traversal-Range"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Views",
+                        "title": "DOM-Views"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-AS",
+                        "title": "DOM-AS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-ASLS",
+                        "title": "DOM-ASLS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Content-Models-and-Load-Save",
+                        "title": "DOM-Content-Models-and-Load-Save"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/uievents-code",
+                        "title": "uievents-code"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/uievents-key",
+                        "title": "uievents-key"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Val",
+                        "title": "DOM-Val"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-XPath",
+                        "title": "DOM-XPath"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Parsing",
+                        "title": "DOM-Parsing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DPF",
+                        "title": "DPF"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dpub-annotation-uc",
+                        "title": "dpub-annotation-uc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dpub-latinreq",
+                        "title": "dpub-latinreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dpub-metadata",
+                        "title": "dpub-metadata"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/drawml",
+                        "title": "drawml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DSig-label",
+                        "title": "DSig-label"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DSig-usage",
+                        "title": "DSig-usage"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dt4dtd",
+                        "title": "dt4dtd"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dwbp",
+                        "title": "dwbp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dwbp-ucr",
+                        "title": "dwbp-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/EARL-Guide",
+                        "title": "EARL-Guide"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/EARL-Requirements",
+                        "title": "EARL-Requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/EARL-Schema",
+                        "title": "EARL-Schema"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/EC-related-activities",
+                        "title": "EC-related-activities"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/edge-arch",
+                        "title": "edge-arch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/EGIX",
+                        "title": "EGIX"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/egov-improving",
+                        "title": "egov-improving"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ElementTraversal",
+                        "title": "ElementTraversal"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/emma",
+                        "title": "emma"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/emma-usecases",
+                        "title": "emma-usecases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/EMMAreqs",
+                        "title": "EMMAreqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/emotion-voc",
+                        "title": "emotion-voc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/emotionml",
+                        "title": "emotionml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/encoding",
+                        "title": "encoding"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/epr",
+                        "title": "epr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/esi-invp",
+                        "title": "esi-invp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/esi-lang",
+                        "title": "esi-lang"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/eventsource",
+                        "title": "eventsource"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi",
+                        "title": "exi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi-best-practices",
+                        "title": "exi-best-practices"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi-c14n",
+                        "title": "exi-c14n"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi-evaluation",
+                        "title": "exi-evaluation"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi-impacts",
+                        "title": "exi-impacts"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi-measurements",
+                        "title": "exi-measurements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi-primer",
+                        "title": "exi-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/exi-profile",
+                        "title": "exi-profile"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/file-system-api",
+                        "title": "file-system-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/file-writer-api",
+                        "title": "file-writer-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/FileAPI",
+                        "title": "FileAPI"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/filter-effects",
+                        "title": "filter-effects"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/font",
+                        "title": "font"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/form-http-extensions",
+                        "title": "form-http-extensions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/fragid-best-practices",
+                        "title": "fragid-best-practices"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/frame-timing",
+                        "title": "frame-timing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/from-origin",
+                        "title": "from-origin"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/fullscreen",
+                        "title": "fullscreen"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/gallery",
+                        "title": "gallery"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/gamepad",
+                        "title": "gamepad"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/geofencing",
+                        "title": "geofencing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/geometry",
+                        "title": "geometry"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/gov-data",
+                        "title": "gov-data"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/speech-grammar",
+                        "title": "speech-grammar"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/grddl",
+                        "title": "grddl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/grddl-primer",
+                        "title": "grddl-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/grddl-scenarios",
+                        "title": "grddl-scenarios"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/grddl-tests",
+                        "title": "grddl-tests"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hash-in-uri",
+                        "title": "hash-in-uri"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hcls-dataset",
+                        "title": "hcls-dataset"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hcls-kb",
+                        "title": "hcls-kb"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hcls-orb",
+                        "title": "hcls-orb"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hcls-senselab",
+                        "title": "hcls-senselab"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hcls-sioc",
+                        "title": "hcls-sioc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hcls-swan",
+                        "title": "hcls-swan"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hcls-swansioc",
+                        "title": "hcls-swansioc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HGML",
+                        "title": "HGML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hlink",
+                        "title": "hlink"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/hnreq",
+                        "title": "hnreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-aam",
+                        "title": "html-aam"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-aapi",
+                        "title": "html-aapi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-alt-techniques",
+                        "title": "html-alt-techniques"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-aria",
+                        "title": "html-aria"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-bidi",
+                        "title": "html-bidi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-data-guide",
+                        "title": "html-data-guide"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-design-principles",
+                        "title": "html-design-principles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-imports",
+                        "title": "html-imports"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-json-forms",
+                        "title": "html-json-forms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-lan",
+                        "title": "html-lan"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-longdesc",
+                        "title": "html-longdesc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-main-element",
+                        "title": "html-main-element"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-markup",
+                        "title": "html-markup"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-picture-element",
+                        "title": "html-picture-element"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-polyglot",
+                        "title": "html-polyglot"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-ruby-extensions",
+                        "title": "html-ruby-extensions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-srcset",
+                        "title": "html-srcset"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-templates",
+                        "title": "html-templates"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-xml-tf-report",
+                        "title": "html-xml-tf-report"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-mobile",
+                        "title": "html-mobile"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-author",
+                        "title": "html-author"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-diff",
+                        "title": "html-diff"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-pubnotes",
+                        "title": "html-pubnotes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTMLComponents",
+                        "title": "HTMLComponents"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTMLplusTIME",
+                        "title": "HTMLplusTIME"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-in-RDF",
+                        "title": "HTTP-in-RDF"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-architecture",
+                        "title": "HTTP-NG-architecture"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-goals",
+                        "title": "HTTP-NG-goals"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-interfaces",
+                        "title": "HTTP-NG-interfaces"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-testbed",
+                        "title": "HTTP-NG-testbed"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-wire",
+                        "title": "HTTP-NG-wire"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/i18n-guide-framework",
+                        "title": "i18n-guide-framework"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/i18n-html-tech-lang",
+                        "title": "i18n-html-tech-lang"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/i18n-html-tech-bidi",
+                        "title": "i18n-html-tech-bidi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/i18n-html-tech-char",
+                        "title": "i18n-html-tech-char"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ice",
+                        "title": "ice"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ilreq",
+                        "title": "ilreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/image-capture",
+                        "title": "image-capture"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ime-api",
+                        "title": "ime-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/IMPLEMENTING-ATAG",
+                        "title": "IMPLEMENTING-ATAG"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/indie-ui-context",
+                        "title": "indie-ui-context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/indie-ui-events",
+                        "title": "indie-ui-events"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/indie-ui-requirements",
+                        "title": "indie-ui-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/InkML",
+                        "title": "InkML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/inkreqs",
+                        "title": "inkreqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/its",
+                        "title": "its"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/itsreq",
+                        "title": "itsreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/japanese-xml",
+                        "title": "japanese-xml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jlreq",
+                        "title": "jlreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jsgf",
+                        "title": "jsgf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jsml",
+                        "title": "jsml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/klreq",
+                        "title": "klreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/lbase",
+                        "title": "lbase"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ld-bp",
+                        "title": "ld-bp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ld-glossary",
+                        "title": "ld-glossary"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ldp",
+                        "title": "ldp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ldp-acr",
+                        "title": "ldp-acr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ldp-bp",
+                        "title": "ldp-bp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ldp-paging",
+                        "title": "ldp-paging"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ldp-primer",
+                        "title": "ldp-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ldp-ucr",
+                        "title": "ldp-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ldpatch",
+                        "title": "ldpatch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/leiri",
+                        "title": "leiri"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/lexicon-reqs",
+                        "title": "lexicon-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ltli",
+                        "title": "ltli"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/MathML",
+                        "title": "MathML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mathml-bvar",
+                        "title": "mathml-bvar"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mathml-for-css",
+                        "title": "mathml-for-css"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mathml-types",
+                        "title": "mathml-types"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mathml-units",
+                        "title": "mathml-units"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/matrix",
+                        "title": "matrix"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mbui-glossary",
+                        "title": "mbui-glossary"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mbui-intro",
+                        "title": "mbui-intro"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/md-policy-design",
+                        "title": "md-policy-design"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/media-accessibility-reqs",
+                        "title": "media-accessibility-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/media-annot-reqs",
+                        "title": "media-annot-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/media-capture-api",
+                        "title": "media-capture-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/media-frags",
+                        "title": "media-frags"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/media-frags-recipes",
+                        "title": "media-frags-recipes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/media-frags-reqs",
+                        "title": "media-frags-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/MediaAccessEvents",
+                        "title": "MediaAccessEvents"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mediacapture-depth",
+                        "title": "mediacapture-depth"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mediacapture-fromelement",
+                        "title": "mediacapture-fromelement"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mediacapture-streams",
+                        "title": "mediacapture-streams"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mediaont",
+                        "title": "mediaont"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mediaont-api",
+                        "title": "mediaont-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mediaqueries",
+                        "title": "mediaqueries"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mediastream-recording",
+                        "title": "mediastream-recording"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/messaging",
+                        "title": "messaging"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/messaging-api",
+                        "title": "messaging-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/microdata",
+                        "title": "microdata"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/microdata-rdf",
+                        "title": "microdata-rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Micropayment-Markup",
+                        "title": "Micropayment-Markup"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mixed-content",
+                        "title": "mixed-content"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mlw-metadata-us-impl",
+                        "title": "mlw-metadata-us-impl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-arch",
+                        "title": "mmi-arch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-auth",
+                        "title": "mmi-auth"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-dev-feedback",
+                        "title": "mmi-dev-feedback"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-discovery",
+                        "title": "mmi-discovery"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-framework",
+                        "title": "mmi-framework"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-interop",
+                        "title": "mmi-interop"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-mc-discovery",
+                        "title": "mmi-mc-discovery"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-mcbp",
+                        "title": "mmi-mcbp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-reqs",
+                        "title": "mmi-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-suggestions",
+                        "title": "mmi-suggestions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mmi-use-cases",
+                        "title": "mmi-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mobile-accessibility-mapping",
+                        "title": "mobile-accessibility-mapping"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mobile-bp",
+                        "title": "mobile-bp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mobile-bp-scope",
+                        "title": "mobile-bp-scope"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mobileOK",
+                        "title": "mobileOK"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mobileOK-basic-tests",
+                        "title": "mobileOK-basic-tests"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/modality-interface",
+                        "title": "modality-interface"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/motion",
+                        "title": "motion"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/multimodal-reqs",
+                        "title": "multimodal-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mux",
+                        "title": "mux"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mw4d-roadmap",
+                        "title": "mw4d-roadmap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mwabp",
+                        "title": "mwabp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mwbp-guidelines",
+                        "title": "mwbp-guidelines"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mwbp-wcag",
+                        "title": "mwbp-wcag"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-n-quads",
+                        "title": "rdf-n-quads"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-n-triples",
+                        "title": "rdf-n-triples"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/namespaceState",
+                        "title": "namespaceState"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/navigation-timing",
+                        "title": "navigation-timing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/netinfo-api",
+                        "title": "netinfo-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/netinfo-usecases",
+                        "title": "netinfo-usecases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/network-error-logging",
+                        "title": "network-error-logging"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/newline",
+                        "title": "newline"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/nfc",
+                        "title": "nfc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ngram-spec",
+                        "title": "ngram-spec"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/nl-spec",
+                        "title": "nl-spec"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/notifications",
+                        "title": "notifications"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/NVML",
+                        "title": "NVML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/odrl",
+                        "title": "odrl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/offline-webapps",
+                        "title": "offline-webapps"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/orientation-event",
+                        "title": "orientation-event"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-features",
+                        "title": "owl-features"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-guide",
+                        "title": "owl-guide"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-parsing",
+                        "title": "owl-parsing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-ref",
+                        "title": "owl-ref"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-conformance",
+                        "title": "owl-conformance"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-time",
+                        "title": "owl-time"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-xmlsyntax",
+                        "title": "owl-xmlsyntax"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-mapping-to-rdf",
+                        "title": "owl-mapping-to-rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-direct-semantics",
+                        "title": "owl-direct-semantics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-syntax",
+                        "title": "owl-syntax"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-dr-linear",
+                        "title": "owl-dr-linear"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-manchester-syntax",
+                        "title": "owl-manchester-syntax"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-new-features",
+                        "title": "owl-new-features"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-overview",
+                        "title": "owl-overview"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-primer",
+                        "title": "owl-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-profiles",
+                        "title": "owl-profiles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-quick-reference",
+                        "title": "owl-quick-reference"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-rdf-based-semantics",
+                        "title": "owl-rdf-based-semantics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/owl-xml-serialization",
+                        "title": "owl-xml-serialization"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P",
+                        "title": "P3P"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-analysis",
+                        "title": "P3P-analysis"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-CACM",
+                        "title": "P3P-CACM"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-for-ecommerce",
+                        "title": "P3P-for-ecommerce"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-preferences",
+                        "title": "P3P-preferences"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/p3p-rdfschema",
+                        "title": "p3p-rdfschema"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-principles",
+                        "title": "P3P-principles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-Protocols",
+                        "title": "P3P-Protocols"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/p3pdeployment",
+                        "title": "p3pdeployment"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/patent-practice",
+                        "title": "patent-practice"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/permissions",
+                        "title": "permissions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PGML",
+                        "title": "PGML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/photo-rdf",
+                        "title": "photo-rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PICS-labels",
+                        "title": "PICS-labels"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PICS-services",
+                        "title": "PICS-services"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PICS-Statement",
+                        "title": "PICS-Statement"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PICSRules",
+                        "title": "PICSRules"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PIDL",
+                        "title": "PIDL"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/poi-core",
+                        "title": "poi-core"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Pointers-in-RDF",
+                        "title": "Pointers-in-RDF"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/positioning",
+                        "title": "positioning"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-dr",
+                        "title": "powder-dr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-formal",
+                        "title": "powder-formal"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-grouping",
+                        "title": "powder-grouping"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-primer",
+                        "title": "powder-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-test",
+                        "title": "powder-test"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-use-cases",
+                        "title": "powder-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-voc",
+                        "title": "powder-voc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/powder-xsd",
+                        "title": "powder-xsd"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/secure-contexts",
+                        "title": "secure-contexts"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/predefined-counter-styles",
+                        "title": "predefined-counter-styles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/presentation-api",
+                        "title": "presentation-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/print",
+                        "title": "print"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/proc-model-req",
+                        "title": "proc-model-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/progress-events",
+                        "title": "progress-events"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/pronunciation-lexicon",
+                        "title": "pronunciation-lexicon"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-aq",
+                        "title": "prov-aq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-constraints",
+                        "title": "prov-constraints"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-dc",
+                        "title": "prov-dc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-dictionary",
+                        "title": "prov-dictionary"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-dm",
+                        "title": "prov-dm"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-implementations",
+                        "title": "prov-implementations"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-links",
+                        "title": "prov-links"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-n",
+                        "title": "prov-n"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-o",
+                        "title": "prov-o"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-overview",
+                        "title": "prov-overview"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-primer",
+                        "title": "prov-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-sem",
+                        "title": "prov-sem"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/prov-xml",
+                        "title": "prov-xml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/proximity",
+                        "title": "proximity"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/publishing-linking",
+                        "title": "publishing-linking"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/push-api",
+                        "title": "push-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/qa-handbook",
+                        "title": "qa-handbook"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/qaframe-ops-extech",
+                        "title": "qaframe-ops-extech"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/qaframe-spec",
+                        "title": "qaframe-spec"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/qaframe-test",
+                        "title": "qaframe-test"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-semantics",
+                        "title": "xquery-semantics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/quota-api",
+                        "title": "quota-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/r2rml",
+                        "title": "r2rml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/tcp-udp-sockets",
+                        "title": "tcp-udp-sockets"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdb-direct-mapping",
+                        "title": "rdb-direct-mapping"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdb2rdf-implementations",
+                        "title": "rdb2rdf-implementations"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdb2rdf-test-cases",
+                        "title": "rdb2rdf-test-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdb2rdf-ucr",
+                        "title": "rdb2rdf-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-api",
+                        "title": "rdf-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-concepts",
+                        "title": "rdf-concepts"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-dawg-uc",
+                        "title": "rdf-dawg-uc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-interfaces",
+                        "title": "rdf-interfaces"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-json",
+                        "title": "rdf-json"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-pics",
+                        "title": "rdf-pics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-primer",
+                        "title": "rdf-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-schema",
+                        "title": "rdf-schema"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-sparql-json-res",
+                        "title": "rdf-sparql-json-res"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-results-xml",
+                        "title": "sparql-results-xml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-syntax",
+                        "title": "rdf-syntax"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-xml",
+                        "title": "rdf-xml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-testcases",
+                        "title": "rdf-testcases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-plain-literal",
+                        "title": "rdf-plain-literal"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-uml",
+                        "title": "rdf-uml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-datasets",
+                        "title": "rdf-datasets"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-new",
+                        "title": "rdf-new"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdfa-api",
+                        "title": "rdfa-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdfa-core",
+                        "title": "rdfa-core"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-rdfa",
+                        "title": "html-rdfa"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdfa-lite",
+                        "title": "rdfa-lite"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdfa-syntax",
+                        "title": "rdfa-syntax"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdfcal",
+                        "title": "rdfcal"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdftm-survey",
+                        "title": "rdftm-survey"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/referrer-policy",
+                        "title": "referrer-policy"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/resource-hints",
+                        "title": "resource-hints"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/resource-priorities",
+                        "title": "resource-priorities"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/respimg-usecases",
+                        "title": "respimg-usecases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/reusable-dialog-reqs",
+                        "title": "reusable-dialog-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rex",
+                        "title": "rex"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rex-reqs",
+                        "title": "rex-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-bld",
+                        "title": "rif-bld"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-core",
+                        "title": "rif-core"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-dtb",
+                        "title": "rif-dtb"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-fld",
+                        "title": "rif-fld"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-in-rdf",
+                        "title": "rif-in-rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-overview",
+                        "title": "rif-overview"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-owl-rl",
+                        "title": "rif-owl-rl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-prd",
+                        "title": "rif-prd"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-primer",
+                        "title": "rif-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-rdf-owl",
+                        "title": "rif-rdf-owl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-test",
+                        "title": "rif-test"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-ucr",
+                        "title": "rif-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rif-xml-data",
+                        "title": "rif-xml-data"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/role-attribute",
+                        "title": "role-attribute"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ruby",
+                        "title": "ruby"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ruby-implementation",
+                        "title": "ruby-implementation"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ruby-use-cases",
+                        "title": "ruby-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/runtime",
+                        "title": "runtime"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SAC",
+                        "title": "SAC"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sawsdl",
+                        "title": "sawsdl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sawsdl-guide",
+                        "title": "sawsdl-guide"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/schema-arch",
+                        "title": "schema-arch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/screen-capture",
+                        "title": "screen-capture"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/screen-orientation",
+                        "title": "screen-orientation"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/scxml",
+                        "title": "scxml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SDML",
+                        "title": "SDML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/selection-api",
+                        "title": "selection-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/selectors",
+                        "title": "selectors"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/selectors-api",
+                        "title": "selectors-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/selectors-nonelement",
+                        "title": "selectors-nonelement"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/semantic-interpretation",
+                        "title": "semantic-interpretation"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/server-timing",
+                        "title": "server-timing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/service-workers",
+                        "title": "service-workers"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/shacl-ucr",
+                        "title": "shacl-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/shadow-dom",
+                        "title": "shadow-dom"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/shoplogfileformat",
+                        "title": "shoplogfileformat"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/skos-primer",
+                        "title": "skos-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/skos-reference",
+                        "title": "skos-reference"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/skos-ucr",
+                        "title": "skos-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/smil",
+                        "title": "smil"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-access",
+                        "title": "SMIL-access"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/smil-animation",
+                        "title": "smil-animation"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/smil-boston-dom",
+                        "title": "smil-boston-dom"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-AuthExt",
+                        "title": "SMIL-AuthExt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sml",
+                        "title": "sml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sml-epr-ref-scheme",
+                        "title": "sml-epr-ref-scheme"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sml-if",
+                        "title": "sml-if"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sml-xlink-ref-scheme",
+                        "title": "sml-xlink-ref-scheme"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SOAP",
+                        "title": "SOAP"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SOAP-attachments",
+                        "title": "SOAP-attachments"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SOAP-dsig",
+                        "title": "SOAP-dsig"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-ror-httpbinding",
+                        "title": "soap-ror-httpbinding"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-af",
+                        "title": "soap-af"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-email",
+                        "title": "soap-email"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-mtom",
+                        "title": "soap-mtom"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-mtom-policy",
+                        "title": "soap-mtom-policy"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-n11n",
+                        "title": "soap-n11n"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-os-ucr",
+                        "title": "soap-os-ucr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-rep",
+                        "title": "soap-rep"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soap-testcollection",
+                        "title": "soap-testcollection"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/soapjms",
+                        "title": "soapjms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-features",
+                        "title": "sparql-features"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-entailment",
+                        "title": "sparql-entailment"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-federated-query",
+                        "title": "sparql-federated-query"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-graph-store-protocol",
+                        "title": "sparql-graph-store-protocol"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-overview",
+                        "title": "sparql-overview"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-property-paths",
+                        "title": "sparql-property-paths"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-protocol",
+                        "title": "sparql-protocol"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-query",
+                        "title": "sparql-query"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-results-csv-tsv",
+                        "title": "sparql-results-csv-tsv"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-results-json",
+                        "title": "sparql-results-json"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-service-description",
+                        "title": "sparql-service-description"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sparql-update",
+                        "title": "sparql-update"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/spec-variability",
+                        "title": "spec-variability"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/speech-synthesis",
+                        "title": "speech-synthesis"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/speechobjects",
+                        "title": "speechobjects"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sprot",
+                        "title": "sprot"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SRI",
+                        "title": "SRI"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SRML",
+                        "title": "SRML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ssml-sayas",
+                        "title": "ssml-sayas"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ssmlreqs",
+                        "title": "ssmlreqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/streamproc",
+                        "title": "streamproc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/streams-api",
+                        "title": "streams-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVG",
+                        "title": "SVG"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/svg-aam",
+                        "title": "svg-aam"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVG-access",
+                        "title": "SVG-access"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/svg-integration",
+                        "title": "svg-integration"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/svg-markers",
+                        "title": "svg-markers"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/svg-strokes",
+                        "title": "svg-strokes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVG-Transforms",
+                        "title": "SVG-Transforms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGReqs",
+                        "title": "SVGReqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGColor",
+                        "title": "SVGColor"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGColorPrimer",
+                        "title": "SVGColorPrimer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGCompositing",
+                        "title": "SVGCompositing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGFilter",
+                        "title": "SVGFilter"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGFilterPrimer",
+                        "title": "SVGFilterPrimer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGFilterReqs",
+                        "title": "SVGFilterReqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGTiny",
+                        "title": "SVGTiny"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGMobileReqs",
+                        "title": "SVGMobileReqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGParam",
+                        "title": "SVGParam"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGParamPrimer",
+                        "title": "SVGParamPrimer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGPrint",
+                        "title": "SVGPrint"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGPrintPrimer",
+                        "title": "SVGPrintPrimer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGPrintReqs",
+                        "title": "SVGPrintReqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGReq",
+                        "title": "SVGReq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGTinyReqs",
+                        "title": "SVGTinyReqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sw-oosd-primer",
+                        "title": "sw-oosd-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-classes-as-values",
+                        "title": "swbp-classes-as-values"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-image-annotation",
+                        "title": "swbp-image-annotation"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-n-aryRelations",
+                        "title": "swbp-n-aryRelations"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-skos-core-guide",
+                        "title": "swbp-skos-core-guide"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-skos-core-spec",
+                        "title": "swbp-skos-core-spec"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-specified-values",
+                        "title": "swbp-specified-values"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-thesaurus-pubguide",
+                        "title": "swbp-thesaurus-pubguide"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-vocab-pub",
+                        "title": "swbp-vocab-pub"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/swbp-xsch-datatypes",
+                        "title": "swbp-xsch-datatypes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sXBL",
+                        "title": "sXBL"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SYMM-modules",
+                        "title": "SYMM-modules"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/system-info-api",
+                        "title": "system-info-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/tabular-data-model",
+                        "title": "tabular-data-model"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/tabular-metadata",
+                        "title": "tabular-metadata"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/task-models",
+                        "title": "task-models"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/telephony",
+                        "title": "telephony"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/tenthold",
+                        "title": "tenthold"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/test-metadata",
+                        "title": "test-metadata"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/test-methodology",
+                        "title": "test-methodology"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/timesheets",
+                        "title": "timesheets"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/timezone",
+                        "title": "timezone"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/touch-events",
+                        "title": "touch-events"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/touch-events-extensions",
+                        "title": "touch-events-extensions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/tracking-compliance",
+                        "title": "tracking-compliance"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/tracking-dnt",
+                        "title": "tracking-dnt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-trig",
+                        "title": "rdf-trig"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ttaf-req",
+                        "title": "ttaf-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ttml",
+                        "title": "ttml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ttml-sdp-us",
+                        "title": "ttml-sdp-us"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/turingtest",
+                        "title": "turingtest"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-turtle",
+                        "title": "rdf-turtle"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/TVWeb-URI-Requirements",
+                        "title": "TVWeb-URI-Requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UAAG",
+                        "title": "UAAG"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UAAG-TECHS",
+                        "title": "UAAG-TECHS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UAAG-Reference",
+                        "title": "UAAG-Reference"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UAAG-requirements",
+                        "title": "UAAG-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/uclp",
+                        "title": "uclp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/uievents",
+                        "title": "uievents"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UISecurity",
+                        "title": "UISecurity"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UMP",
+                        "title": "UMP"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UNDERSTANDING-WCAG",
+                        "title": "UNDERSTANDING-WCAG"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/unicode-xml",
+                        "title": "unicode-xml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/upgrade-insecure-requests",
+                        "title": "upgrade-insecure-requests"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/uri-clarification",
+                        "title": "uri-clarification"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/urispace",
+                        "title": "urispace"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/url",
+                        "title": "url"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/urls-in-data",
+                        "title": "urls-in-data"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UWA-personalization-roadmap",
+                        "title": "UWA-personalization-roadmap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vbi-reqs",
+                        "title": "vbi-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vcard-rdf",
+                        "title": "vcard-rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vehicle-information-api",
+                        "title": "vehicle-information-api"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vibration",
+                        "title": "vibration"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/visual-marks",
+                        "title": "visual-marks"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/VML",
+                        "title": "VML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vocab-adms",
+                        "title": "vocab-adms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vocab-data-cube",
+                        "title": "vocab-data-cube"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vocab-data-cube-use-cases",
+                        "title": "vocab-data-cube-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vocab-org",
+                        "title": "vocab-org"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vocab-people",
+                        "title": "vocab-people"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vocab-regorg",
+                        "title": "vocab-regorg"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice",
+                        "title": "voice"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice-architecture",
+                        "title": "voice-architecture"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice-dialog-reqs",
+                        "title": "voice-dialog-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice-grammar-reqs",
+                        "title": "voice-grammar-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice-intro",
+                        "title": "voice-intro"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice-nlu-reqs",
+                        "title": "voice-nlu-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice-tts-reqs",
+                        "title": "voice-tts-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voicexml",
+                        "title": "voicexml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/void",
+                        "title": "void"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/vxmlreqs",
+                        "title": "vxmlreqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WAET",
+                        "title": "WAET"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wai-age-literature",
+                        "title": "wai-age-literature"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wai-aria-implementation",
+                        "title": "wai-aria-implementation"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wai-aria-primer",
+                        "title": "wai-aria-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/screen-wake-lock",
+                        "title": "screen-wake-lock"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wake-lock-use-cases",
+                        "title": "wake-lock-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WAP",
+                        "title": "WAP"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets-reqs",
+                        "title": "widgets-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCA",
+                        "title": "WCA"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCAG-EM",
+                        "title": "WCAG-EM"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCAG-CORE-TECHS",
+                        "title": "WCAG-CORE-TECHS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCAG-TECHS",
+                        "title": "WCAG-TECHS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wcag-tech-req",
+                        "title": "wcag-tech-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCAG-GATEWAY",
+                        "title": "WCAG-GATEWAY"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/task-scheduler",
+                        "title": "task-scheduler"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/web-animations",
+                        "title": "web-animations"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/web-forms",
+                        "title": "web-forms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/web-intents",
+                        "title": "web-intents"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/web-packaging",
+                        "title": "web-packaging"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/web-payments-use-cases",
+                        "title": "web-payments-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webarch",
+                        "title": "webarch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webarch-extlang",
+                        "title": "webarch-extlang"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webaudio-usecases",
+                        "title": "webaudio-usecases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webbroker",
+                        "title": "webbroker"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebCGM",
+                        "title": "WebCGM"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webcrypto-key-discovery",
+                        "title": "webcrypto-key-discovery"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webcrypto-usecases",
+                        "title": "webcrypto-usecases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebCryptoAPI",
+                        "title": "WebCryptoAPI"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webdatabase",
+                        "title": "webdatabase"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebIDL",
+                        "title": "WebIDL"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebIDL-Java",
+                        "title": "WebIDL-Java"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webintents-local-services",
+                        "title": "webintents-local-services"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webmessaging",
+                        "title": "webmessaging"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webmidi",
+                        "title": "webmidi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webont-req",
+                        "title": "webont-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webrtc",
+                        "title": "webrtc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webrtc-stats",
+                        "title": "webrtc-stats"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebSchematics",
+                        "title": "WebSchematics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/websockets",
+                        "title": "websockets"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webstorage",
+                        "title": "webstorage"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webvtt",
+                        "title": "webvtt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WICD",
+                        "title": "WICD"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WICDFull",
+                        "title": "WICDFull"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WICDMobile",
+                        "title": "WICDMobile"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets",
+                        "title": "widgets"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets-access",
+                        "title": "widgets-access"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets-apis",
+                        "title": "widgets-apis"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets-digsig",
+                        "title": "widgets-digsig"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets-land",
+                        "title": "widgets-land"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets-updates",
+                        "title": "widgets-updates"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widgets-uri",
+                        "title": "widgets-uri"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/view-mode",
+                        "title": "view-mode"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Window",
+                        "title": "Window"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WOFF",
+                        "title": "WOFF"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WOFFER",
+                        "title": "WOFFER"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wordnet-rdf",
+                        "title": "wordnet-rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/workers",
+                        "title": "workers"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-addr-core",
+                        "title": "ws-addr-core"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-addr-soap",
+                        "title": "ws-addr-soap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-addr-metadata",
+                        "title": "ws-addr-metadata"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-arch",
+                        "title": "ws-arch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-arch-scenarios",
+                        "title": "ws-arch-scenarios"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-cdl",
+                        "title": "ws-cdl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-cdl-primer",
+                        "title": "ws-cdl-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-chor-model",
+                        "title": "ws-chor-model"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-chor-reqs",
+                        "title": "ws-chor-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-desc-reqs",
+                        "title": "ws-desc-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-desc-usecases",
+                        "title": "ws-desc-usecases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-enumeration",
+                        "title": "ws-enumeration"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-event-descriptions",
+                        "title": "ws-event-descriptions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-eventing",
+                        "title": "ws-eventing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-fragment",
+                        "title": "ws-fragment"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-gloss",
+                        "title": "ws-gloss"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-i18n",
+                        "title": "ws-i18n"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-i18n-req",
+                        "title": "ws-i18n-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-i18n-scenarios",
+                        "title": "ws-i18n-scenarios"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-metadata-exchange",
+                        "title": "ws-metadata-exchange"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-policy",
+                        "title": "ws-policy"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-policy-attach",
+                        "title": "ws-policy-attach"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-policy-guidelines",
+                        "title": "ws-policy-guidelines"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-policy-primer",
+                        "title": "ws-policy-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-resource-transfer",
+                        "title": "ws-resource-transfer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-soap-assertions",
+                        "title": "ws-soap-assertions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ws-transfer",
+                        "title": "ws-transfer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsa-reqs",
+                        "title": "wsa-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsc-threats",
+                        "title": "wsc-threats"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsc-usecases",
+                        "title": "wsc-usecases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsc-ui",
+                        "title": "wsc-ui"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsci",
+                        "title": "wsci"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wscl",
+                        "title": "wscl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdl",
+                        "title": "wsdl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdlelementidentifiers",
+                        "title": "wsdlelementidentifiers"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdl-adjuncts",
+                        "title": "wsdl-adjuncts"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdl-additional-meps",
+                        "title": "wsdl-additional-meps"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdl-altschemalangs",
+                        "title": "wsdl-altschemalangs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdl-primer",
+                        "title": "wsdl-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdl-rdf",
+                        "title": "wsdl-rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wsdl-soap-binding",
+                        "title": "wsdl-soap-binding"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wslc",
+                        "title": "wslc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XAdES",
+                        "title": "XAdES"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xbc-characterization",
+                        "title": "xbc-characterization"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xbc-measurement",
+                        "title": "xbc-measurement"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xbc-properties",
+                        "title": "xbc-properties"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xbc-use-cases",
+                        "title": "xbc-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xbl",
+                        "title": "xbl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xbl-primer",
+                        "title": "xbl-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xdnl",
+                        "title": "xdnl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xexpr",
+                        "title": "xexpr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XFDL",
+                        "title": "XFDL"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xforms",
+                        "title": "xforms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xforms-req",
+                        "title": "xforms-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xforms-basic",
+                        "title": "xforms-basic"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XForms-for-HTML",
+                        "title": "XForms-for-HTML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xforms-xpath",
+                        "title": "xforms-xpath"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xframes",
+                        "title": "xframes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xh",
+                        "title": "xh"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml+voice",
+                        "title": "xhtml+voice"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-access",
+                        "title": "xhtml-access"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-basic",
+                        "title": "xhtml-basic"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-building",
+                        "title": "xhtml-building"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-media-types",
+                        "title": "xhtml-media-types"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-modularization",
+                        "title": "xhtml-modularization"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-print",
+                        "title": "xhtml-print"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-prof-req",
+                        "title": "xhtml-prof-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-pubid",
+                        "title": "xhtml-pubid"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-rdfa",
+                        "title": "xhtml-rdfa"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdfa-primer",
+                        "title": "rdfa-primer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-rdfa-scenarios",
+                        "title": "xhtml-rdfa-scenarios"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-roadmap",
+                        "title": "xhtml-roadmap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-role",
+                        "title": "xhtml-role"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xhtml-schema",
+                        "title": "xhtml-schema"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XHTMLplusMathMLplusSVG",
+                        "title": "XHTMLplusMathMLplusSVG"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XHTMLplusSMIL",
+                        "title": "XHTMLplusSMIL"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xinclude",
+                        "title": "xinclude"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xinclude-requirements",
+                        "title": "xinclude-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XIndirect",
+                        "title": "XIndirect"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xkms",
+                        "title": "xkms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xkms-pgp",
+                        "title": "xkms-pgp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xkms-wsdl",
+                        "title": "xkms-wsdl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xkms-bindings",
+                        "title": "xkms-bindings"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xkms-req",
+                        "title": "xkms-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xkms-xbulk",
+                        "title": "xkms-xbulk"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink",
+                        "title": "xlink"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink-naming",
+                        "title": "xlink-naming"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink-principles",
+                        "title": "xlink-principles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink-req",
+                        "title": "xlink-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink-ext",
+                        "title": "xlink-ext"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink2rdf",
+                        "title": "xlink2rdf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmcl",
+                        "title": "xmcl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml",
+                        "title": "xml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-blueberry-req",
+                        "title": "xml-blueberry-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-c14n",
+                        "title": "xml-c14n"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-c14n-testcases",
+                        "title": "xml-c14n-testcases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-canonical-req",
+                        "title": "xml-canonical-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-encryption-req",
+                        "title": "xml-encryption-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-entity-names",
+                        "title": "xml-entity-names"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-events",
+                        "title": "xml-events"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-exc-c14n",
+                        "title": "xml-exc-c14n"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XML-FRAG-REQ",
+                        "title": "XML-FRAG-REQ"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-fragid",
+                        "title": "xml-fragid"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-i18n-bp",
+                        "title": "xml-i18n-bp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-id",
+                        "title": "xml-id"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-id-req",
+                        "title": "xml-id-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-infoset",
+                        "title": "xml-infoset"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-infoset-rdfs",
+                        "title": "xml-infoset-rdfs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-infoset-req",
+                        "title": "xml-infoset-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-link-style",
+                        "title": "xml-link-style"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-media-types",
+                        "title": "xml-media-types"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-model",
+                        "title": "xml-model"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-names",
+                        "title": "xml-names"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-names-req",
+                        "title": "xml-names-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-pipeline",
+                        "title": "xml-pipeline"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-proc-profiles",
+                        "title": "xml-proc-profiles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-ql",
+                        "title": "xml-ql"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-schema-req",
+                        "title": "xml-schema-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlbase",
+                        "title": "xmlbase"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-bestpractices",
+                        "title": "xmldsig-bestpractices"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-core",
+                        "title": "xmldsig-core"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-core-explain",
+                        "title": "xmldsig-core-explain"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-core-interop",
+                        "title": "xmldsig-core-interop"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-filter",
+                        "title": "xmldsig-filter"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-p3p-profile",
+                        "title": "xmldsig-p3p-profile"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-properties",
+                        "title": "xmldsig-properties"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-simplify",
+                        "title": "xmldsig-simplify"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-xpath",
+                        "title": "xmldsig-xpath"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsiged-tests",
+                        "title": "xmldsiged-tests"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlenc-core",
+                        "title": "xmlenc-core"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlenc-core-explain",
+                        "title": "xmlenc-core-explain"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlenc-core-interop",
+                        "title": "xmlenc-core-interop"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlenc-core-testcases",
+                        "title": "xmlenc-core-testcases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlenc-decrypt",
+                        "title": "xmlenc-decrypt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlenc-transform",
+                        "title": "xmlenc-transform"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xag",
+                        "title": "xag"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XMLHttpRequest",
+                        "title": "XMLHttpRequest"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlp-am",
+                        "title": "xmlp-am"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlp-scenarios",
+                        "title": "xmlp-scenarios"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpath-full-text-requirements",
+                        "title": "xpath-full-text-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpath-full-text-use-cases",
+                        "title": "xpath-full-text-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlschema",
+                        "title": "xmlschema"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlschema-req",
+                        "title": "xmlschema-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlschema-formal",
+                        "title": "xmlschema-formal"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlschema-guide2versioning",
+                        "title": "xmlschema-guide2versioning"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlschema-patterns",
+                        "title": "xmlschema-patterns"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlschema-patterns-advanced",
+                        "title": "xmlschema-patterns-advanced"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlschema-ref",
+                        "title": "xmlschema-ref"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlsec-algorithms",
+                        "title": "xmlsec-algorithms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlsec-derivedkeys",
+                        "title": "xmlsec-derivedkeys"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlsec-generic-hybrid",
+                        "title": "xmlsec-generic-hybrid"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlsec-reqs",
+                        "title": "xmlsec-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlsec-rngschema",
+                        "title": "xmlsec-rngschema"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmsg",
+                        "title": "xmsg"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xop",
+                        "title": "xop"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xopinc-FAQ",
+                        "title": "xopinc-FAQ"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmlp-reqs",
+                        "title": "xmlp-reqs"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpath",
+                        "title": "xpath"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpath-datamodel",
+                        "title": "xpath-datamodel"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpath-full-text",
+                        "title": "xpath-full-text"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpath-full-text-requirements-use-cases",
+                        "title": "xpath-full-text-requirements-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpath-functions",
+                        "title": "xpath-functions"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xpathreq",
+                        "title": "xpathreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xproc",
+                        "title": "xproc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xproc-requirements",
+                        "title": "xproc-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xproc-template",
+                        "title": "xproc-template"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xproc-req",
+                        "title": "xproc-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xproc-steps",
+                        "title": "xproc-steps"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr",
+                        "title": "xptr"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-framework",
+                        "title": "xptr-framework"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-infoset-liaison",
+                        "title": "xptr-infoset-liaison"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-req",
+                        "title": "xptr-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-xmlns",
+                        "title": "xptr-xmlns"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-xpointer",
+                        "title": "xptr-xpointer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery",
+                        "title": "xquery"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-requirements",
+                        "title": "xquery-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-use-cases",
+                        "title": "xquery-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-sx",
+                        "title": "xquery-sx"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-sx-requirements",
+                        "title": "xquery-sx-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-sx-use-cases",
+                        "title": "xquery-sx-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-update",
+                        "title": "xquery-update"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-update-requirements-use-cases",
+                        "title": "xquery-update-requirements-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-update-requirements",
+                        "title": "xquery-update-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-xpath-parsing",
+                        "title": "xquery-xpath-parsing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xqueryx",
+                        "title": "xqueryx"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xquery-update-use-cases",
+                        "title": "xquery-update-use-cases"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xsd-precisionDecimal",
+                        "title": "xsd-precisionDecimal"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xsd-unicode-blocknames",
+                        "title": "xsd-unicode-blocknames"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xsl",
+                        "title": "xsl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XSL-and-CSS",
+                        "title": "XSL-and-CSS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xsl-req",
+                        "title": "xsl-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xslfo",
+                        "title": "xslfo"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xslfo-req",
+                        "title": "xslfo-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XSLReq",
+                        "title": "XSLReq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xslt",
+                        "title": "xslt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xslt-requirements",
+                        "title": "xslt-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xslt-xquery-serialization",
+                        "title": "xslt-xquery-serialization"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xsltreq",
+                        "title": "xsltreq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xtnd",
+                        "title": "xtnd"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xup",
+                        "title": "xup"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Editing",
+                        "title": "Editing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCA-terms",
+                        "title": "WCA-terms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xfa-formcalc",
+                        "title": "xfa-formcalc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xfa-template",
+                        "title": "xfa-template"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebData",
+                        "title": "WebData"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPPexchange",
+                        "title": "CCPPexchange"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/poix",
+                        "title": "poix"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wbxml",
+                        "title": "wbxml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-stylesheet",
+                        "title": "xml-stylesheet"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-fragment",
+                        "title": "xml-fragment"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPP",
+                        "title": "CCPP"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SOX",
+                        "title": "SOX"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/annot",
+                        "title": "annot"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/device-upload",
+                        "title": "device-upload"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-element",
+                        "title": "xptr-element"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CSS-access",
+                        "title": "CSS-access"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-requirements",
+                        "title": "xmldsig-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Proposals",
+                        "title": "Proposals"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jigsaw-performance",
+                        "title": "jigsaw-performance"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jigsaw-wp",
+                        "title": "jigsaw-wp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/markup-specification",
+                        "title": "markup-specification"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/markup-doctypes",
+                        "title": "markup-doctypes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/charset-harmful",
+                        "title": "charset-harmful"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/http-performance-pipeline",
+                        "title": "http-performance-pipeline"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/S6Group2",
+                        "title": "S6Group2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTMLThreading",
+                        "title": "HTMLThreading"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XML-data",
+                        "title": "XML-data"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Requirements",
+                        "title": "DOM-Requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/daml+oil-axioms",
+                        "title": "daml+oil-axioms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/daml+oil-model",
+                        "title": "daml+oil-model"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/daml+oil-reference",
+                        "title": "daml+oil-reference"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/daml+oil-walkthru",
+                        "title": "daml+oil-walkthru"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPP-struct-vocab",
+                        "title": "CCPP-struct-vocab"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CDFsubmit",
+                        "title": "CDFsubmit"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/IPWG-Practices",
+                        "title": "IPWG-Practices"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/MCF-XML",
+                        "title": "MCF-XML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/OPS-FrameWork",
+                        "title": "OPS-FrameWork"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/OPS-OverHTTP",
+                        "title": "OPS-OverHTTP"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/OPS-StandardPractices",
+                        "title": "OPS-StandardPractices"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/OSD",
+                        "title": "OSD"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PICS-Cookie-extension",
+                        "title": "PICS-Cookie-extension"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HDML",
+                        "title": "HDML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/TPRC",
+                        "title": "TPRC"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Web-privacy",
+                        "title": "Web-privacy"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XMLsubmit",
+                        "title": "XMLsubmit"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/agent-attributes",
+                        "title": "agent-attributes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/amaya",
+                        "title": "amaya"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/cgm",
+                        "title": "cgm"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/drp",
+                        "title": "drp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/eu-conf",
+                        "title": "eu-conf"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/expamaya",
+                        "title": "expamaya"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/framework",
+                        "title": "framework"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/gdiff",
+                        "title": "gdiff"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/http-edit-dist-scenarios",
+                        "title": "http-edit-dist-scenarios"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/imagemap",
+                        "title": "imagemap"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jepi",
+                        "title": "jepi"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/layout",
+                        "title": "layout"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/link",
+                        "title": "link"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/pics-ng-metadata",
+                        "title": "pics-ng-metadata"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-simple-intro",
+                        "title": "rdf-simple-intro"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdfarch",
+                        "title": "rdfarch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdm",
+                        "title": "rdm"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sgml-xml",
+                        "title": "sgml-xml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/stts",
+                        "title": "stts"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/widl",
+                        "title": "widl"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DSIG-label-arch",
+                        "title": "DSIG-label-arch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-arch",
+                        "title": "P3P-arch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-grammar",
+                        "title": "P3P-grammar"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/http-pep",
+                        "title": "http-pep"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ilu-requestor",
+                        "title": "ilu-requestor"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jepi-uppflow",
+                        "title": "jepi-uppflow"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/logfile",
+                        "title": "logfile"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mptp",
+                        "title": "mptp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/proxy",
+                        "title": "proxy"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/session-id",
+                        "title": "session-id"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/sgml-lex",
+                        "title": "sgml-lex"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wwwicn",
+                        "title": "wwwicn"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-semantics",
+                        "title": "rdf-semantics"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=1000"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=1000"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specification-series?page=2&items=1000"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specification-series?page=2&items=1000"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:14 GMT
+recorded_with: VCR 6.3.1

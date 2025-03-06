@@ -8,7 +8,7 @@ SimpleCov.start do
   add_group 'Cli', 'lib/w3c/api/cli'
 end
 
-require 'w3c-api'
+require 'w3c_api'
 require 'vcr'
 
 VCR.configure do |config|

@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups/109735/charters
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:18 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 06 Mar 2025 15:22:18 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=6a_nNDiVCjH1cuKaKywNFXgZ60DihDJfPZNLAO4MrAo-1741274538-1.0.1.1-eevUdbUat3qcwq8oPlGL40BkZ2rwg3YscA4HywI12htQShW2kGWGRqckrp5JdYjM60Fu73DePPWSN8A.ITx1nGnDCnfK3UC7tlncsPcXsjs;
+        path=/; expires=Thu, 06-Mar-25 15:52:18 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d9069da3f619-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 4,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/groups/109735"
+                },
+                "charters": [
+                    {
+                        "href": "https://api.w3.org/groups/109735/charters/361",
+                        "title": "2018-09-24 -> 2020-03-01"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/109735/charters/405",
+                        "title": "2020-05-12 -> 2022-06-01"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/109735/charters/464",
+                        "title": "2022-07-08 -> 2024-07-07"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/109735/charters/514",
+                        "title": "2024-09-26 -> 2026-09-25"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups/109735/charters?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups/109735/charters?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups/109735/charters?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:18 GMT
+recorded_with: VCR 6.3.1

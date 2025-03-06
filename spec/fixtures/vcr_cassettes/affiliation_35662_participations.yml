@@ -1,0 +1,474 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/affiliations/35662/participations
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:25 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 06 Mar 2025 15:22:25 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=vJ.QELCrcAjvY7dHSsAAoP5_E2h_nXryXIp67h49wBQ-1741274545-1.0.1.1-gxqiWx209I2Pr4qMpo2nVGjK0ZvqNUKYTfi2.lRaQiMBJ7YD2zlGFqPeScr5uR.D3snI33helzdN2JRrl4DE1.v0IKTiuBT0LJTtg_Pdxwo;
+        path=/; expires=Thu, 06-Mar-25 15:52:25 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d9359b8747f7-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 2,
+            "total": 127,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/affiliations/35662"
+                },
+                "participations": [
+                    {
+                        "href": "https://api.w3.org/participations/3092",
+                        "title": "Patents and Standards Interest Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/3115",
+                        "title": "Media and Entertainment Interest Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/3121",
+                        "title": "JSON for Linked Data Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/3124",
+                        "title": "Games Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/3126",
+                        "title": "Web Media Text Tracks Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/8780",
+                        "title": "W3C Process Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/9727",
+                        "title": "Information Architecture Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/11221",
+                        "title": "Web History Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/12250",
+                        "title": "Second Screen Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/13115",
+                        "title": "Hydra Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/13859",
+                        "title": "Web Bluetooth Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/14996",
+                        "title": "RDF JavaScript Libraries Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/15507",
+                        "title": "Web NFC Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/15658",
+                        "title": "Schema.org Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/15809",
+                        "title": "Schema Bib Extend Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/15967",
+                        "title": "WebAssembly Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/16067",
+                        "title": "Automotive Ontology Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/16174",
+                        "title": "Healthcare Schema Vocabulary Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/16776",
+                        "title": "Sport Schema Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/16854",
+                        "title": "Web Platform Incubator Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/16908",
+                        "title": "Web of Things Interest Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/16978",
+                        "title": "Schema Architypes Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/17640",
+                        "title": "RDF Test Suite Curation Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/18445",
+                        "title": "Financial Industry Business Ontology Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/18657",
+                        "title": "The Tourism Structured Web Data Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/18696",
+                        "title": "Schema Course extension Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/18871",
+                        "title": "CSV on the Web Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/19307",
+                        "title": "Immersive Web Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/19516",
+                        "title": "Ontology-Lexica Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/21261",
+                        "title": "Schema.org for datasets Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/21985",
+                        "title": "GPU for the Web Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/22091",
+                        "title": "Publishing Business Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/22092",
+                        "title": "EPUB 3 Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/22257",
+                        "title": "Silver Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/23142",
+                        "title": "Color on the Web Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/23394",
+                        "title": "Web of Things Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/24350",
+                        "title": "Educational and Occupational Credentials in schema.org Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/25280",
+                        "title": "Credible Web Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/26889",
+                        "title": "Improving Web Advertising Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/26980",
+                        "title": "RDF-DEV Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/27153",
+                        "title": "Positive Work Environment Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/27155",
+                        "title": "Solid Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/27182",
+                        "title": "Audio Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/27574",
+                        "title": "Web Machine Learning Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/27948",
+                        "title": "Talent Marketplace Signaling Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/28046",
+                        "title": "Schema Extensions for IoT Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/28678",
+                        "title": "Web Payment Security Interest Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/28783",
+                        "title": "Web & Networks Interest Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/29635",
+                        "title": "Immersive Captions Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/29739",
+                        "title": "Design Tokens Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/29822",
+                        "title": "MiniApps Ecosystem Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/29984",
+                        "title": "Chinese Web Interest Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/30704",
+                        "title": "Building Device Naming Standards Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/31098",
+                        "title": "CSS4 Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/31258",
+                        "title": "Privacy Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/31472",
+                        "title": "WebAuthn Adoption Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/31474",
+                        "title": "Open UI Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/31972",
+                        "title": "Rights Automation for Market Data Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/32418",
+                        "title": "Credentials Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/32732",
+                        "title": "Web Real-Time Communications Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/32852",
+                        "title": "Shape Expressions Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33109",
+                        "title": "Audio Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33110",
+                        "title": "Cascading Style Sheets (CSS) Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33112",
+                        "title": "GPU for the Web Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33115",
+                        "title": "Timed Text Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33117",
+                        "title": "Web Fonts Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33118",
+                        "title": "WebTransport Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33176",
+                        "title": "Web Components Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33720",
+                        "title": "ODRL Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/33798",
+                        "title": "Web Performance Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/34217",
+                        "title": "Pointer Events Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/34434",
+                        "title": "Spec Editors Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/34723",
+                        "title": "Web Machine Learning Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/34750",
+                        "title": "WebExtensions Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/34789",
+                        "title": "Service Workers Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35177",
+                        "title": "Federated Identity Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35412",
+                        "title": "Cognitive Accessibility Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35432",
+                        "title": "Media Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35517",
+                        "title": "Web Editing Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35634",
+                        "title": "Accessible Platform Architectures Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35735",
+                        "title": "Publishing Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35798",
+                        "title": "Internationalization Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35867",
+                        "title": "Private Advertising Technology Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/35957",
+                        "title": "Metaverse Interoperability Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/36025",
+                        "title": "Anti-Fraud Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/36976",
+                        "title": "SVG Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37090",
+                        "title": "Second Screen Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37092",
+                        "title": "ARIA and Assistive Technologies Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37104",
+                        "title": "WebView Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37381",
+                        "title": "Web Authentication Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37460",
+                        "title": "Sustainability Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37625",
+                        "title": "Web Application Security Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37728",
+                        "title": "Verifiable Credentials Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/37899",
+                        "title": "HTML Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/38084",
+                        "title": "Maps For HTML Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/38088",
+                        "title": "Web-interoperable Runtimes Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/38613",
+                        "title": "Audiovisual Media Formats for Browsers Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/38707",
+                        "title": "WebDX Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/38812",
+                        "title": "Web Payments Working Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/participations/38972",
+                        "title": "Devices and Sensors Working Group"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/affiliations/35662/participations?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/affiliations/35662/participations?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/affiliations/35662/participations?page=2&items=100"
+                },
+                "next": {
+                    "href": "https://api.w3.org/affiliations/35662/participations?page=2&items=100"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:26 GMT
+recorded_with: VCR 6.3.1

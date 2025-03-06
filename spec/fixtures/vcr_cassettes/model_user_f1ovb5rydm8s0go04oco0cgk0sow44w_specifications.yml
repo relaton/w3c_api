@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:31:46 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Sun, 23 Apr 2023 14:01:11 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '566'
+      set-cookie:
+      - __cf_bm=zKVNvy1AyjHr.GYrPciDIS6yulAggi0nhK4zElw9oZ4-1741275106-1.0.1.1-trs7FEVQMg17s9CFAv4nw_dX2CWp4MotmdYHtA1imrnEgenCQeZ5S7eaJQclhPrKn9lMheIdMXGYv1q_x1_TtGOFxCtT2DoTOCbKXde.PEA;
+        path=/; expires=Thu, 06-Mar-25 16:01:46 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2e6e8bc6eaf4e-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 128112,
+            "name": "Jennifer Strickland",
+            "given": "Jennifer",
+            "family": "Strickland",
+            "country-code": "US",
+            "connected-accounts": [
+                {
+                    "created": "2021-03-12T22:06:06+00:00",
+                    "service": "github",
+                    "identifier": "57469",
+                    "nickname": "jenstrickland",
+                    "profile-picture": "https://avatars.githubusercontent.com/u/57469?v=4",
+                    "href": "https://github.com/jenstrickland",
+                    "_links": {
+                        "user": {
+                            "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w"
+                        }
+                    }
+                }
+            ],
+            "discr": "user",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w"
+                },
+                "affiliations": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/affiliations"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/specifications"
+                },
+                "photos": [
+                    {
+                        "href": "https://www.w3.org/thumbnails/360/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
+                        "name": "large"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/100/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
+                        "name": "thumbnail"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/48/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
+                        "name": "tiny"
+                    }
+                ],
+                "participations": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/participations"
+                },
+                "chair_of_groups": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/chair-of-groups"
+                },
+                "team_contact_of_groups": {
+                    "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/team-contact-of-groups"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:31:46 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/128112/specifications
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:31:47 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding
+      cache-control:
+      - no-cache, private
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=6TdP6wlp9a5CiPKxjDrjId8RbZrlv8UKMLGAFUd4rqw-1741275107-1.0.1.1-I1.wAEVcK1.NTi_Mzj586ua4BSD..7.bmfQrITB5sDyOuotKvVbL__S1GviW8avfG.CISXCDUgwGw59org9Ni1tVfbBhiZ997dGLqUtZYKs;
+        path=/; expires=Thu, 06-Mar-25 16:01:47 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2e6eaac1dd4f0-NRT
+      content-encoding:
+      - gzip
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"https:\/\/tools.ietf.org\/html\/rfc2616#section-10","title":"An
+        error occurred","status":404,"detail":"Not Found"}'
+  recorded_at: Thu, 06 Mar 2025 15:31:47 GMT
+recorded_with: VCR 6.3.1

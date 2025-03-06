@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series/html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:15 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 06 Mar 2025 15:22:15 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=rAzfSOqV7EpWh2pL8pwB9zE9b4ndVEN8sTwZnMzI6co-1741274535-1.0.1.1-oSNOqmTD3phR1QBZtyGr5PIO3vAjL1d7SJ3O7qVtkqUX9RROHVIEmtESo52agVv9UcDuMFSltOtahbBPCK8hms6pd57OLsxZFQmip4pVPKQ;
+        path=/; expires=Thu, 06-Mar-25 15:52:15 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d8f4dfd46831-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "shortname": "html",
+            "name": "HTML",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specification-series/html"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/specification-series/html/specifications"
+                },
+                "current-specification": {
+                    "href": "https://api.w3.org/specifications/html"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:15 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups/109735/teamcontacts
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:19 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Mon, 16 Dec 2019 13:19:26 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=M9lOukxPcJdcVqi3ggaINKKtMAvnueoV6.YOXWGVjS0-1741274539-1.0.1.1-F67rl3x.cMX2iQbna7proQ2d35y5DatK1JFoIue_S2AVDHqKrVPgNZ84eDwvHze_.zcGUHeHkxy8eYgJ2gC_8Sd4jvFj5yeKlx1kEtSuMKM;
+        path=/; expires=Thu, 06-Mar-25 15:52:19 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d90f7b827345-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 1,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/groups/109735"
+                },
+                "team-contacts": [
+                    {
+                        "href": "https://api.w3.org/users/1eb2xr7ab6zo0k8440o48swso408ksc",
+                        "title": "Atsushi Shimono"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups/109735/teamcontacts?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups/109735/teamcontacts?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups/109735/teamcontacts?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:19 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/participations/38785
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 06 Mar 2025 15:22:29 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Thu, 17 Nov 2022 22:54:08 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=0FnENXnti0VA6ASAhzV27nwv1BSpcNucpBab1v9bqIQ-1741274549-1.0.1.1-BEZwuUfIouncINsnxBOGy3KD71ztYhxNBpUdS4Zl83Kl9S5Qj.GjpXtS_a2sQ2Fdbvh5JXpcttKWc20bnAjZEG5BRL5FmyCt6TPCfn.JXiE;
+        path=/; expires=Thu, 06-Mar-25 15:52:29 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 91c2d94ccbfdd761-NRT
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "individual": false,
+            "invited-expert": false,
+            "created": "2022-11-17 22:54:08",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/participations/38785"
+                },
+                "group": {
+                    "href": "https://api.w3.org/groups/cg/silver",
+                    "title": "Silver Community Group"
+                },
+                "organization": {
+                    "href": "https://api.w3.org/affiliations/1092",
+                    "title": "MITRE Corporation"
+                },
+                "participants": {
+                    "href": "https://api.w3.org/participations/38785/participants"
+                }
+            }
+        }
+  recorded_at: Thu, 06 Mar 2025 15:22:29 GMT
+recorded_with: VCR 6.3.1
