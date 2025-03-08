@@ -1,79 +1,67 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'link'
-
+# https://api.w3.org/specifications/html5
 # {
-#   "shortlink"=>"https://www.w3.org/TR/PNG/",
-#   "description"=>"<p>This document describes PNG (Portable Network Graphics), an extensible file format for the lossless, portable, well-compressed storage of raster images. PNG provides a patent-free replacement for GIF and can also replace many common uses of TIFF. Indexed-color, grayscale, and truecolor images are supported, plus an optional alpha channel. Sample depths range from 1 to 16 bits.</p>\r\n<p>PNG is designed to work well in online viewing applications, such as the World Wide Web, so it is fully streamable with a progressive display option. PNG is robust, providing both full file integrity checking and simple detection of common transmission errors. Also, PNG can store gamma and chromaticity data for improved color matching on heterogeneous platforms.</p>\r\n<p>This specification defines an Internet Media Type image/png.</p>",
-#   "title"=>"Portable Network Graphics (PNG) Specification (Second Edition)",
-#   "shortname"=>"png-2",
-#   "editor-draft"=>"https://w3c.github.io/png/",
-#   "_links"=>{
-#     "self"=>{
-#       "href"=>"https://api.w3.org/specifications/png-2"
-#     },
-#     "version-history"=>{
-#       "href"=>"https://api.w3.org/specifications/png-2/versions"
-#     },
-#     "first-version"=>{
-#       "href"=>"https://api.w3.org/specifications/png-2/versions/20030520",
-#       "title"=>"Proposed Recommendation"
-#     },
-#     "latest-version"=>{
-#       "href"=>"https://api.w3.org/specifications/png-2/versions/20031110",
-#       "title"=>"Recommendation"
-#     },
-#     "series"=>{
-#       "href"=>"https://api.w3.org/specification-series/png"
+#     "shortlink": "https://www.w3.org/TR/html5/",
+#     "description": "<p>This specification defines the 5th major revision of the core language of the World Wide Web: the Hypertext Markup Language (HTML). In this version, new features are introduced to help Web application authors, new elements are introduced based on research into prevailing authoring practices, and special attention has been given to defining clear conformance criteria for user agents in an effort to improve interoperability.</p>",
+#     "title": "HTML5",
+#     "shortname": "html5",
+#     "series-version": "5",
+#     "_links": {
+#         "self": {
+#             "href": "https://api.w3.org/specifications/html5"
+#         },
+#         "version-history": {
+#             "href": "https://api.w3.org/specifications/html5/versions"
+#         },
+#         "first-version": {
+#             "href": "https://api.w3.org/specifications/html5/versions/20080122",
+#             "title": "Working Draft"
+#         },
+#         "latest-version": {
+#             "href": "https://api.w3.org/specifications/html5/versions/20180327",
+#             "title": "Retired"
+#         },
+#         "supersedes": {
+#             "href": "https://api.w3.org/specifications/html5/supersedes"
+#         },
+#         "series": {
+#             "href": "https://api.w3.org/specification-series/html"
+#         }
 #     }
-#   }
 # }
 
 module W3cApi
-    module Models
-      class SpecificationLinks < Lutaml::Model::Serializable
-        attribute :self, Link
-        attribute :version_history, Link
-        attribute :first_version, Link
-        attribute :latest_version, Link
-        attribute :series, Link
-      end
+  module Models
+    class Specification < Lutaml::Hal::Resource
+      attribute :shortlink, :string
+      attribute :description, :string
+      attribute :title, :string
+      attribute :href, :string
+      attribute :shortname, :string
+      attribute :editor_draft, :string
+      attribute :series_version, :string
 
-      class Specification < Base
-        attribute :shortlink, :string
-        attribute :description, :string
-        attribute :title, :string
-        attribute :href, :string
-        attribute :shortname, :string
-        attribute :editor_draft, :string
-        attribute :series_version, :string
-        attribute :_links, SpecificationLinks
+      hal_link :self, key: 'self', realize_class: 'Specification'
+      hal_link :version_history, key: 'version-history', realize_class: 'SpecVersionIndex'
+      hal_link :first_version, key: 'first-version', realize_class: 'SpecVersion'
+      hal_link :latest_version, key: 'latest-version', realize_class: 'SpecVersion'
+      hal_link :supersedes, key: 'supersedes', realize_class: 'SpecificationIndex', collection: true
+      hal_link :series, key: 'series', realize_class: 'Serie'
 
-        # Return versions of this specification
-        def versions(client = nil)
-          return nil unless client && shortname
-
-          client.specification_versions(shortname)
-        end
-
-        def self.from_response(response)
-          transformed_response = transform_keys(response)
-
-          spec = new
-          transformed_response.each do |key, value|
-            case key
-            when :_links
-              links = value.each_with_object({}) do |(link_name, link_data), acc|
-                acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-              end
-              spec._links = SpecificationLinks.new(links)
-            else
-              spec.send("#{key}=", value) if spec.respond_to?("#{key}=")
-            end
-          end
-          spec
+      key_value do
+        %i[
+          shortlink
+          description
+          title
+          href
+          shortname
+          editor_draft
+          series_version
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
       end
     end
+  end
 end

@@ -1,178 +1,108 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'connected_account'
-require_relative 'link'
-
+# https://api.w3.org/users/f1of1ovb5rydm8s0go04oco0cgk0sow44w
 # {
-#   "id"=>58291,
-#   "name"=>"David Grogan",
-#   "given"=>"David",
-#   "family"=>"Grogan",
-#   "work-title"=>"Software Engineer",
-#   "connected-accounts"=>[
-#     {
-#       "created"=>"2019-07-18T21:28:31+00:00",
-#       "updated"=>"2021-01-21T10:49:57+00:00",
-#       "service"=>"github",
-#       "identifier"=>"1801875",
-#       "nickname"=>"davidsgrogan",
-#       "profile-picture"=>"https://avatars.githubusercontent.com/u/1801875?v=4",
-#       "href"=>"https://github.com/davidsgrogan",
-#       "_links"=>{
-#         "user"=>{
-#           "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8"
+#     "id": 128112,
+#     "name": "Jennifer Strickland",
+#     "given": "Jennifer",
+#     "family": "Strickland",
+#     "country-code": "US",
+#     "connected-accounts": [
+#         {
+#             "created": "2021-03-12T22:06:06+00:00",
+#             "service": "github",
+#             "identifier": "57469",
+#             "nickname": "jenstrickland",
+#             "profile-picture": "https://avatars.githubusercontent.com/u/57469?v=4",
+#             "href": "https://github.com/jenstrickland",
+#             "_links": {
+#                 "user": {
+#                     "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w"
+#                 }
+#             }
 #         }
-#       }
+#     ],
+#     "discr": "user",
+#     "_links": {
+#         "self": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w"
+#         },
+#         "affiliations": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/affiliations"
+#         },
+#         "groups": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups"
+#         },
+#         "specifications": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/specifications"
+#         },
+#         "photos": [
+#             {
+#                 "href": "https://www.w3.org/thumbnails/360/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
+#                 "name": "large"
+#             },
+#             {
+#                 "href": "https://www.w3.org/thumbnails/100/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
+#                 "name": "thumbnail"
+#             },
+#             {
+#                 "href": "https://www.w3.org/thumbnails/48/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
+#                 "name": "tiny"
+#             }
+#         ],
+#         "participations": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/participations"
+#         },
+#         "chair_of_groups": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/chair-of-groups"
+#         },
+#         "team_contact_of_groups": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/team-contact-of-groups"
+#         }
 #     }
-#   ],
-#   "discr"=>"user",
-#   "_links"=>{
-#     "self"=>{
-#       "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8"
-#     },
-#     "affiliations"=>{
-#       "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8/affiliations"
-#     },
-#     "groups"=>{
-#       "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8/groups"
-#     },
-#     "specifications"=>{
-#       "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8/specifications"
-#     },
-#     "participations"=>{
-#       "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8/participations"
-#     },
-#     "chair_of_groups"=>{
-#       "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8/chair-of-groups"
-#     },
-#     "team_contact_of_groups"=>{
-#       "href"=>"https://api.w3.org/users/c2yerd5euz48gcw08s44oww8g4oo8w8/team-contact-of-groups"
-#     }
-#   }
 # }
 
-# {
-#   "id": 40757,
-#   "name": "Stéphane Deschamps",
-#   "given": "Stéphane",
-#   "family": "Deschamps",
-#   "work_title": "Mr.",
-#   "discr": "user",
-#   "biography": "I love accessibility and standards. Don't we all.",
-#   "country_code": "FR",
-#   "city": "Arcueil Cedex",
-#   "_links": {
-#     "self": {
-#       "href": "https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008"
-#     },
-#     "affiliations": {
-#       "href": "https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/affiliations"
-#     },
-#     "groups": {
-#       "href": "https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/groups"
-#     },
-#     "specifications": {
-#       "href": "https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/specifications"
-#     },
-#     "participations": {
-#       "href": "https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/participations"
-#     },
-#     "chair_of_groups": {
-#       "href": "https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/chair-of-groups"
-#     },
-#     "team_contact_of_groups": {
-#       "href": "https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/team-contact-of-groups"
-#     }
-#   }
-# }
+require_relative 'account'
+require_relative 'photo'
 
 module W3cApi
-    module Models
-      class UserPhoto < Lutaml::Model::Serializable
-        attribute :href, :string
-        attribute :name, :string
-      end
+  module Models
+    # User model representing a W3C user/participant
+    class User < Lutaml::Hal::Resource
+      attribute :id, :string
+      attribute :name, :string
+      attribute :link, :string
+      attribute :given, :string
+      attribute :family, :string
+      attribute :discr, :string
+      attribute :country_code, :string
+      attribute :connected_accounts, Account, collection: true
+      attribute :photos, Photo, collection: true
 
-      class UserLinks < Lutaml::Model::Serializable
-        attribute :self, Link
-        attribute :affiliations, Link
-        attribute :groups, Link
-        attribute :specifications, Link
-        attribute :participations, Link
-        attribute :chair_of_groups, Link
-        attribute :team_contact_of_groups, Link
-      end
+      hal_link :self, key: 'self', realize_class: 'User'
+      hal_link :affiliations, key: 'affiliations', realize_class: 'AffiliationIndex'
+      hal_link :groups, key: 'groups', realize_class: 'GroupIndex'
+      hal_link :specifications, key: 'specifications', realize_class: 'SpecificationIndex'
+      hal_link :participations, key: 'participations', realize_class: 'ParticipationIndex'
+      hal_link :chair_of_groups, key: 'chair-of-groups', realize_class: 'GroupIndex'
+      hal_link :team_contact_of_groups, key: 'team-contact-of-groups', realize_class: 'GroupIndex'
+      hal_link :photos, key: 'photos', realize_class: 'Photo', collection: true
 
-      class User < Base
-        attribute :id, :integer
-        attribute :href, :string
-        attribute :title, :string
-        attribute :name, :string
-        attribute :email, :string
-        attribute :given, :string
-        attribute :family, :string
-        attribute :work_title, :string
-        attribute :discr, :string
-        attribute :biography, :string
-        attribute :phone, :string
-        attribute :country_code, :string
-        attribute :country_division, :string
-        attribute :city, :string
-        attribute :connected_accounts, ConnectedAccount, collection: true
-        attribute :_links, UserLinks
-
-        # Return groups this user is a member of
-        def groups(client = nil)
-          return nil unless client && _links&.groups
-
-          client.user_groups(id)
-        end
-
-        # Return specifications this user has contributed to
-        def specifications(client = nil)
-          return nil unless client && _links&.specifications
-
-          client.user_specifications(id)
-        end
-
-        def self.from_response(response)
-          transformed_response = transform_keys(response)
-
-          user = new
-          transformed_response.each do |key, value|
-            case key
-            when :connected_accounts
-              user.connected_accounts = value.map do |account|
-                ConnectedAccount.from_response(account)
-              end
-            when :_links
-              links_data = {}
-
-              # Handle all standard links
-              value.each do |link_name, link_data|
-                next if link_name == :photos
-
-                # Handle photos array separately
-
-                links_data[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-              end
-
-              # Handle photos if present
-              if value[:photos]
-                photos = value[:photos].map do |photo|
-                  UserPhoto.new(href: photo[:href], name: photo[:name])
-                end
-                links_data[:photos] = photos
-              end
-
-              user._links = UserLinks.new(links_data)
-            else
-              user.send("#{key}=", value) if user.respond_to?("#{key}=")
-            end
-          end
-          user
+      key_value do
+        %i[
+          id
+          name
+          link
+          given
+          family
+          discr
+          country_code
+          connected_accounts
+          photos
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
       end
     end
+  end
 end

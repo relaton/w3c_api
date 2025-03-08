@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'lutaml/model'
-require_relative 'translation'
-require_relative 'delegate_enumerable'
-require_relative 'collection_base'
-
 # {
 #   "page"=>1,
 #   "limit"=>100,
@@ -29,12 +24,9 @@ require_relative 'collection_base'
 #       },
 
 module W3cApi
-    module Models
-      class Translations < CollectionBase
-        attribute :translations, Translation, collection: true
-
-        delegate_enumerable :translations
-        collection_instance_class Translation, :translations
-      end
+  module Models
+    class TranslationIndex < Lutaml::Hal::Page
+      hal_link :translations, key: 'translations', realize_class: 'Translation', collection: true
     end
+  end
 end

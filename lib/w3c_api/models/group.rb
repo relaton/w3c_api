@@ -1,172 +1,91 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'join_emails'
-require_relative 'link'
-
+# https://api.w3.org/groups/109735
 # {
-#     "id": 35422
-#     "name": "Accessibility Guidelines Working Group"
-#     "is_closed": false
-#     "description": "The mission of the Accessibility Guidelines Working Group (AG WG) is to develop specifications to make content on the Web accessible for people with disabilities and to participate in the development and maintenance of implementation support materials for the Web Content Accessibility Guidelines."
-#     "shortname": "ag"
-#     "discr": "w3cgroup"
+#     "id": 109735,
+#     "name": "Immersive Web Working Group",
+#     "is_closed": false,
+#     "description": "The mission of the Immersive Web Working Group is to help bring high-performance Virtual Reality (VR) and Augmented Reality (AR) (collectively known as XR) to the open Web via APIs to interact with XR devices and sensors in browsers.",
+#     "shortname": "immersive-web",
+#     "discr": "w3cgroup",
 #     "_links": {
 #         "self": {
-#             "href": "https://api.w3.org/groups/wg/ag"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web"
+#         },
 #         "homepage": {
-#             "href": "https://www.w3.org/WAI/GL/"
-#         }
+#             "href": "https://www.w3.org/immersive-web/"
+#         },
 #         "users": {
-#             "href": "https://api.w3.org/groups/wg/ag/users"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web/users"
+#         },
 #         "services": {
-#             "href": "https://api.w3.org/groups/wg/ag/services"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web/services"
+#         },
 #         "specifications": {
-#             "href": "https://api.w3.org/groups/wg/ag/specifications"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web/specifications"
+#         },
 #         "chairs": {
-#             "href": "https://api.w3.org/groups/wg/ag/chairs"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web/chairs"
+#         },
 #         "team-contacts": {
-#             "href": "https://api.w3.org/groups/wg/ag/teamcontacts"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web/teamcontacts"
+#         },
 #         "charters": {
-#             "href": "https://api.w3.org/groups/wg/ag/charters"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web/charters"
+#         },
 #         "active-charter": {
-#             "href": "https://api.w3.org/groups/wg/ag/charters/492"
-#         }
+#             "href": "https://api.w3.org/groups/wg/immersive-web/charters/514"
+#         },
 #         "join": {
-#             "href": "https://www.w3.org/groups/wg/ag/join"
-#         }
+#             "href": "https://www.w3.org/groups/wg/immersive-web/join"
+#         },
 #         "pp-status": {
-#             "href": "https://www.w3.org/groups/wg/ag/ipr"
-#         }
+#             "href": "https://www.w3.org/groups/wg/immersive-web/ipr"
+#         },
 #         "participations": {
-#             "href": "https://api.w3.org/groups/wg/ag/participations"
+#             "href": "https://api.w3.org/groups/wg/immersive-web/participations"
 #         }
-#     }
-#     "type": "working group"
-#     "start-date": "1997-10-06"
-#     "end-date": "2025-10-31"
+#     },
+#     "type": "working group",
+#     "start-date": "2018-09-24",
+#     "end-date": "2026-09-25"
 # }
 
 module W3cApi
   module Models
-    class GroupLinks < Lutaml::Model::Serializable
-      attribute :self, Link
-      attribute :homepage, Link
-      attribute :users, Link
-      attribute :services, Link
-      attribute :specifications, Link
-      attribute :chairs, Link
-      attribute :team_contacts, Link
-      attribute :charters, Link
-      attribute :active_charter, Link
-      attribute :join, Link
-      attribute :pp_status, Link
-      attribute :participations, Link
-    end
-
-    class Group < Base
-      attribute :id, :integer
+    # Group model representing a W3C working group
+    class Group < Lutaml::Hal::Resource
+      attribute :id, :string
       attribute :name, :string
-      attribute :type, :string
-      attribute :href, :string
-      attribute :title, :string
+      attribute :is_closed, :boolean
       attribute :description, :string
       attribute :shortname, :string
-      attribute :shortlink, :string
       attribute :discr, :string
-      attribute :created, :string # Date-time format
-      attribute :start_date, :string # Date-time format
-      attribute :end_date, :string # Date-time format
-      attribute :is_closed, :boolean
-      attribute :patent_policy, :string
-      attribute :charter_closed, :boolean
-      attribute :join_emails, JoinEmails
-      attribute :_links, GroupLinks
 
-      # Return users in this group
-      def users(client = nil)
-        return nil unless client && _links&.users
+      hal_link :self, key: 'self', realize_class: 'Group'
+      hal_link :homepage, key: 'homepage', realize_class: 'String'
+      hal_link :users, key: 'users', realize_class: 'UserIndex'
+      # hal_link :services, key: 'services', realize_class: 'ServiceIndex'
+      hal_link :specifications, key: 'specifications', realize_class: 'SpecificationIndex'
+      hal_link :chairs, key: 'chairs', realize_class: 'UserIndex'
+      hal_link :team_contacts, key: 'team-contacts', realize_class: 'UserIndex'
+      hal_link :charters, key: 'charters', realize_class: 'CharterIndex'
+      hal_link :active_charters, key: 'active-charter', realize_class: 'Charter'
+      hal_link :join, key: 'join', realize_class: 'String'
+      hal_link :pp_status, key: 'pp-status', realize_class: 'String'
+      hal_link :participations, key: 'participations', realize_class: 'ParticipationIndex'
 
-        client.group_users(id)
-      end
-
-      # Return specifications in this group
-      def specifications(client = nil)
-        return nil unless client && _links&.specifications
-
-        client.group_specifications(id)
-      end
-
-      # Return charters for this group
-      def charters(client = nil)
-        return nil unless client && _links&.charters
-
-        client.group_charters(id)
-      end
-
-      # Return chairs for this group
-      def chairs(client = nil)
-        return nil unless client && _links&.chairs
-
-        client.group_chairs(id)
-      end
-
-      # Return team contacts for this group
-      def team_contacts(client = nil)
-        return nil unless client && _links&.team_contacts
-
-        client.group_team_contacts(id)
-      end
-
-      # Parse date strings to Date objects
-      def created_date
-        Date.parse(created) if created
-      rescue Date::Error
-        nil
-      end
-
-      def start_date_parsed
-        Date.parse(start_date) if start_date
-      rescue Date::Error
-        nil
-      end
-
-      def end_date_parsed
-        Date.parse(end_date) if end_date
-      rescue Date::Error
-        nil
-      end
-
-      # Check if this group is active
-      def active?
-        !is_closed && (!end_date || Date.parse(end_date) > Date.today)
-      rescue Date::Error
-        !is_closed
-      end
-
-      def self.from_response(response)
-        transformed_response = transform_keys(response)
-
-        group = new
-        transformed_response.each do |key, value|
-          case key
-          when :_links
-            links = value.each_with_object({}) do |(link_name, link_data), acc|
-              acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-            end
-            group._links = GroupLinks.new(links)
-          else
-            group.send("#{key}=", value) if group.respond_to?("#{key}=")
-          end
+      key_value do
+        %i[
+          id
+          name
+          is_closed
+          description
+          shortname
+          discr
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
-        group
       end
     end
   end

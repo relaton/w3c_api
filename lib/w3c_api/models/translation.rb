@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'call_for_translation_ref'
-require_relative 'link'
+require_relative 'call_for_translation'
 require_relative 'user'
 
 # {
@@ -85,78 +83,41 @@ require_relative 'user'
 # }
 
 module W3cApi
-    module Models
-      class TranslationLinks < Lutaml::Model::Serializable
-        attribute :self, Link
-      end
+  module Models
+    class Translation < Lutaml::Hal::Resource
+      attribute :uri, :string
+      attribute :title, :string
+      attribute :href, :string
+      attribute :language, :string
+      attribute :published, :date_time
+      attribute :updated, :date_time
+      attribute :authorized, :boolean
+      attribute :lto_name, :string
+      attribute :call_for_translation, CallForTranslation
+      attribute :comments, :string
+      attribute :states, :string, collection: true
+      attribute :translators, User, collection: true
 
-      class Translation < Base
-        attribute :uri, :string
-        attribute :title, :string
-        attribute :href, :string
-        attribute :language, :string
-        attribute :published, :string # Date-time format
-        attribute :updated, :string # Date-time format
-        attribute :authorized, :boolean
-        attribute :lto_name, :string
-        attribute :call_for_translation, CallForTranslationRef
-        attribute :comments, :string
-        attribute :states, :string, collection: true
-        attribute :translators, User, collection: true
-        attribute :_links, TranslationLinks
+      hal_link :self, key: 'self', realize_class: 'Translation'
 
-        # Parse date strings to Date objects
-        def published_date
-          Date.parse(published) if published
-        rescue Date::Error
-          nil
-        end
-
-        def updated_date
-          Date.parse(updated) if updated
-        rescue Date::Error
-          nil
-        end
-
-        # Get the call for translation as a CallForTranslation object
-        def call_for_translation_object
-          return nil unless call_for_translation
-
-          Models::CallForTranslation.new(call_for_translation)
-        end
-
-        # Get the specification version associated with this translation
-        def specification_version(client = nil)
-          return nil unless call_for_translation&.spec_version
-
-          call_for_translation.spec_version
-        end
-
-        def self.from_response(response)
-          transformed_response = transform_keys(response)
-
-          translation = new
-          transformed_response.each do |key, value|
-            case key
-            when :_links
-              links = value.each_with_object({}) do |(link_name, link_data), acc|
-                acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-              end
-              translation._links = TranslationLinks.new(links)
-            when :call_for_translation
-              translation.call_for_translation = CallForTranslationRef.new(value)
-            when :translators
-              # Handle translators as User objects if present
-              if value.is_a?(Array)
-                users = value.map { |user_data| User.from_response(user_data) }
-                translation.translators = users
-              end
-            else
-              translation.send("#{key}=", value) if translation.respond_to?("#{key}=")
-            end
-          end
-          translation
+      key_value do
+        %i[
+          uri
+          title
+          href
+          language
+          published
+          updated
+          authorized
+          lto_name
+          call_for_translation
+          comments
+          states
+          translators
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
       end
     end
+  end
 end

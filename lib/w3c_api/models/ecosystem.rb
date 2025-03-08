@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'link'
-
 # {
 #     "name": "Data and knowledge"
 #     "shortname": "data"
@@ -27,46 +24,27 @@ require_relative 'link'
 # }
 
 module W3cApi
-    module Models
-      class EcosystemLinks < Lutaml::Model::Serializable
-        attribute :self, Link
-        attribute :champion, Link
-        attribute :evangelists, Link
-        attribute :groups, Link
-        attribute :member_organizations, Link
-      end
+  module Models
+    class Ecosystem < Lutaml::Hal::Resource
+      attribute :name, :string
+      attribute :shortname, :string
+      attribute :href, :string
+      attribute :title, :string
 
-      class Ecosystem < Base
-        attribute :name, :string
-        attribute :shortname, :string
-        attribute :href, :string
-        attribute :title, :string
-        attribute :_links, EcosystemLinks
+      hal_link :self, key: 'self', realize_class: 'Ecosystem'
+      hal_link :champion, key: 'champion', realize_class: 'User'
+      hal_link :evangelists, key: 'evangelists', realize_class: 'EvangelistIndex'
+      hal_link :groups, key: 'groups', realize_class: 'Group', collection: true
+      hal_link :member_organizations, key: 'member-organizations', realize_class: 'Organization', collection: true
 
-        # Return groups in this ecosystem
-        def groups(client = nil)
-          return nil unless client && _links&.groups
-
-          client.ecosystem_groups(shortname)
-        end
-
-        def self.from_response(response)
-          transformed_response = transform_keys(response)
-
-          ecosystem = new
-          transformed_response.each do |key, value|
-            case key
-            when :_links
-              links = value.each_with_object({}) do |(link_name, link_data), acc|
-                acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-              end
-              ecosystem._links = EcosystemLinks.new(links)
-            else
-              ecosystem.send("#{key}=", value) if ecosystem.respond_to?("#{key}=")
-            end
-          end
-          ecosystem
+      key_value do
+        %i[
+          name
+          shortname
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
       end
     end
+  end
 end
