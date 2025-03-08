@@ -1,27 +1,33 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'link'
-
-# Example affiliation response:
+# https://api.w3.org/affiliations/35662
 # {
-#   "id"=>48830,
-#   "name"=>"Postmedia",
-#   "discr"=>"organization",
-#   "is-member"=>false,
-#   "is-member-association"=>false,
-#   "is-partner-member"=>false,
-#   "_links"=>{
-#     "self"=>{
-#       "href"=>"https://api.w3.org/affiliations/48830"
+#     "id": 35662,
+#     "name": "Google LLC",
+#     "discr": "organization",
+#     "testimonials": {
+#         "en": "Google's mission is to organize the world’s information and make it universally accessible and useful."
 #     },
-#     "participants"=>{
-#       "href"=>"https://api.w3.org/affiliations/48830/participants"
-#     },
-#     "participations"=>{
-#       "href"=>"https://api.w3.org/affiliations/48830/participations"
+#     "is-member": true,
+#     "is-member-association": false,
+#     "is-partner-member": false,
+#     "_links": {
+#         "homepage": {
+#             "href": "http://www.google.com/"
+#         },
+#         "self": {
+#             "href": "https://api.w3.org/affiliations/35662"
+#         },
+#         "participants": {
+#             "href": "https://api.w3.org/affiliations/35662/participants"
+#         },
+#         "participations": {
+#             "href": "https://api.w3.org/affiliations/35662/participations"
+#         },
+#         "logo": {
+#             "href": "https://www.w3.org/thumbnails/250/logos/organizations/35662.png?x-version=1"
+#         }
 #     }
-#   }
 # }
 
 # Fetch index response:
@@ -30,57 +36,40 @@ require_relative 'link'
 #   "title"=>"Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)"
 # },
 
+require_relative 'testimonial'
 
 module W3cApi
-    module Models
-      class AffiliationLinks < Lutaml::Model::Serializable
-        attribute :self, Link
-        attribute :participants, Link
-        attribute :participations, Link
-      end
+  module Models
+    class Affiliation < Lutaml::Hal::Resource
+      attribute :id, :integer
+      attribute :name, :string
+      attribute :href, :string
+      attribute :title, :string
+      attribute :discr, :string
+      attribute :testimonials, Testimonial
+      attribute :is_member, :boolean
+      attribute :is_member_association, :boolean
+      attribute :is_partner_member, :boolean
 
-      class Affiliation < Base
-        attribute :id, :integer
-        attribute :name, :string
-        attribute :href, :string
-        attribute :title, :string
-        attribute :descr, :string
-        attribute :is_member, :boolean
-        attribute :is_member_association, :boolean
-        attribute :is_partner_member, :boolean
-        attribute :_links, AffiliationLinks
+      hal_link :self, key: 'self', realize_class: 'Affiliation'
+      hal_link :homepage, key: 'homepage', realize_class: 'String'
+      hal_link :participants, key: 'participants', realize_class: 'Participant'
+      hal_link :participations, key: 'participations', realize_class: 'Participation'
+      hal_link :logo, key: 'logo', realize_class: 'String'
 
-        # Get participants of this affiliation
-        def participants(client = nil)
-          return nil unless client && _links&.participants
-
-          client.affiliation_participants(id)
-        end
-
-        # Get participations of this affiliation
-        def participations(client = nil)
-          return nil unless client && _links&.participations
-
-          client.affiliation_participations(id)
-        end
-
-        def self.from_response(response)
-          transformed_response = transform_keys(response)
-
-          affiliation = new
-          transformed_response.each do |key, value|
-            case key
-            when :_links
-              links = value.each_with_object({}) do |(link_name, link_data), acc|
-                acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-              end
-              affiliation._links = AffiliationLinks.new(links)
-            else
-              affiliation.send("#{key}=", value) if affiliation.respond_to?("#{key}=")
-            end
-          end
-          affiliation
+      key_value do
+        %i[
+          id
+          name
+          discr
+          testimonials
+          is_member
+          is_member_association
+          is_partner_member
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
       end
     end
+  end
 end

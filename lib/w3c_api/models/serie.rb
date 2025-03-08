@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'link'
-
+# https://api.w3.org/specification-series/css-backgrounds
 # {
 #     "shortname": "css-backgrounds",
-#     "name": "CSS Backgrounds and Borders Module",
+#     "name": "CSS Backgrounds and Borders",
 #     "_links": {
 #         "self": {
 #             "href": "https://api.w3.org/specification-series/css-backgrounds"
@@ -18,7 +16,7 @@ require_relative 'link'
 #         }
 #     }
 # }
-#
+
 # {
 #   "shortname": "2dcontext",
 #   "name": "HTML Canvas 2D Context",
@@ -36,53 +34,25 @@ require_relative 'link'
 # }
 
 module W3cApi
-    module Models
-      class SerieLinks < Lutaml::Model::Serializable
-        attribute :self, Link
-        attribute :specifications, Link
-        attribute :current_specification, Link
-      end
+  module Models
+    class Serie < Lutaml::Hal::Resource
+      attribute :shortname, :string
+      attribute :name, :string
+      attribute :href, :string
+      attribute :title, :string
 
-      class Serie < Base
-        attribute :shortname, :string
-        attribute :name, :string
-        attribute :href, :string
-        attribute :title, :string
-        attribute :_links, SerieLinks
+      hal_link :self, key: 'self', realize_class: 'Serie'
+      hal_link :specifications, key: 'specifications', realize_class: 'SpecificationIndex'
+      hal_link :current_specification, key: 'current-specification', realize_class: 'SpecVersion'
 
-        # Get specifications in this series
-        def specifications(client = nil)
-          return nil unless client && _links&.specifications
-
-          client.series_specifications(shortname)
-        end
-
-        # Get current specification in this series
-        def current_specification(client = nil)
-          return nil unless client && _links&.current_specification
-
-          href = _links.current_specification.href
-          shortname = href.split('/').last
-          client.specification(shortname)
-        end
-
-        def self.from_response(response)
-          transformed_response = transform_keys(response)
-
-          series = new
-          transformed_response.each do |key, value|
-            case key
-            when :_links
-              links = value.each_with_object({}) do |(link_name, link_data), acc|
-                acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-              end
-              series._links = SerieLinks.new(links)
-            else
-              series.send("#{key}=", value) if series.respond_to?("#{key}=")
-            end
-          end
-          series
+      key_value do
+        %i[
+          shortname
+          name
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
       end
     end
+  end
 end

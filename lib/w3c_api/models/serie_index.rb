@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
-require 'lutaml/model'
 require_relative 'serie'
-require_relative 'delegate_enumerable'
-require_relative 'collection_base'
 
+# https://api.w3.org/specification-series
 # {
 #   "page": 1,
-#   "limit": 1000,
-#   "pages": 2,
+#   "limit": 100,
+#   "pages": 15,
 #   "total": 1426,
 #   "_links": {
 #     "specification-series": [
@@ -28,14 +26,25 @@ require_relative 'collection_base'
 #         "href": "https://api.w3.org/specification-series/accessibility-metrics-report",
 #         "title": "accessibility-metrics-report"
 #       },
-
+#     ],
+#     "self": {
+#         "href": "https://api.w3.org/specification-series?page=1&items=100"
+#     },
+#     "first": {
+#         "href": "https://api.w3.org/specification-series?page=1&items=100"
+#     },
+#     "last": {
+#         "href": "https://api.w3.org/specification-series?page=15&items=100"
+#     },
+#     "next": {
+#         "href": "https://api.w3.org/specification-series?page=2&items=100"
+#     }
+#   }
+# }
 module W3cApi
-    module Models
-      class Series < CollectionBase
-        attribute :series, Serie, collection: true
-
-        delegate_enumerable :series
-        collection_instance_class Serie, :series
-      end
+  module Models
+    class SerieIndex < Lutaml::Hal::Page
+      hal_link :series, key: 'specification-series', realize_class: 'Serie', collection: true
     end
+  end
 end

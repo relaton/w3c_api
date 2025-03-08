@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-require 'lutaml/model'
 require_relative 'ecosystem'
-require_relative 'delegate_enumerable'
-require_relative 'collection_base'
 
 # {
 #   "page": 1,
@@ -22,12 +19,9 @@ require_relative 'collection_base'
 #       },
 
 module W3cApi
-    module Models
-      class Ecosystems < CollectionBase
-        attribute :ecosystems, Ecosystem, collection: true
-
-        delegate_enumerable :ecosystems
-        collection_instance_class Ecosystem, :ecosystems
-      end
+  module Models
+    class EcosystemIndex < Lutaml::Hal::Page
+      hal_link :ecosystems, key: 'ecosystems', realize_class: 'Ecosystem', collection: true
     end
+  end
 end

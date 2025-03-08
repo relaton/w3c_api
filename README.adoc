@@ -1,4 +1,4 @@
-= W3C API in Ruby
+= W3C API through LutaML Models
 
 image:https://img.shields.io/gem/v/w3c_api.svg["Gem Version", link="https://rubygems.org/gems/w3c_api"]
 image:https://github.com/relaton/w3c_api/workflows/rake/badge.svg["Build Status", link="https://github.com/relaton/w3c_api/actions?workflow=rake"]
@@ -6,16 +6,105 @@ image:https://codeclimate.com/github/relaton/w3c_api/badges/gpa.svg["Code Climat
 
 == Purpose
 
-A Ruby wrapper for the W3C web API with a CLI interface. This gem provides:
+A Ruby client implementation for the W3C web API with a CLI interface.
 
-* A complete client for the W3C API
-* Data models created with https://github.com/lutaml/lutaml-model[lutaml-model]
+This gem provides:
+
+* A complete client for the W3C API (oft-used endpoints implemented)
+
+* Data models created with
+https://github.com/lutaml/lutaml-hal[lutaml-hal] and
+https://github.com/lutaml/lutaml-model[lutaml-model]
 for all W3C API resources
+
+* HAL (Hypertext Application Language) implementation for recursive resource traversal
+
 * A command-line interface using Thor following GitHub CLI patterns
+
+The endpoint supported is at https://api.w3.org.
 
 This gem is developed against the W3C API documented at https://api.w3.org/doc.
 
+
+== Illustrative example usage
+
+This is an example demonstrating the power of this library as inherited
+from `lutaml-hal`, showing multiple levels of automatic link resolution.
+
+.Calling the Ruby API with multiple levels of link resolution
+[source,ruby]
+----
+> require 'w3c_api'
+> W3cApi::Hal.instance.register.fetch(:ecosystem_index)
+  .links.ecosystems.first.realize
+  .links.evangelists.realize
+
+# =>
+#  #<W3cApi::Models::EvangelistIndex:0x000000011de99d50
+#   @limit=100,
+#   @links=
+#    #<W3cApi::Models::EvangelistIndexLinkSet:0x000000011c19a600
+#     @evangelists=
+#      [#<W3cApi::Models::UserLink:0x000000011c1b9f78
+#        @deprecation=nil,
+#        @href="https://api.w3.org/users/664293jn3jswwo4sccsoko0wwk0wog0",
+#        @lang=nil,
+#        @name=nil,
+#        @profile=nil,
+#        @templated=nil,
+#        @title="Marty Voshell",
+#        @type="User">],
+#     @first=
+#      #<W3cApi::Models::EvangelistIndexLink:0x000000010c7378c0
+#       @deprecation=nil,
+#       @href="https://api.w3.org/ecosystems/advertising/evangelists?page=1&items=100",
+#       @lang=nil,
+#       @name=nil,
+#       @profile=nil,
+#       @templated=nil,
+#       @title=nil,
+#       @type="EvangelistIndex">,
+#     @last=
+#      #<W3cApi::Models::EvangelistIndexLink:0x000000010adeb560
+#       @deprecation=nil,
+#       @href="https://api.w3.org/ecosystems/advertising/evangelists?page=1&items=100",
+#       @lang=nil,
+#       @name=nil,
+#       @profile=nil,
+#       @templated=nil,
+#       @title=nil,
+#       @type="EvangelistIndex">,
+#     @next=nil,
+#     @prev=nil,
+#     @self=
+#      #<W3cApi::Models::EvangelistIndexLink:0x000000010c75a8c0
+#       @deprecation=nil,
+#       @href="https://api.w3.org/ecosystems/advertising/evangelists?page=1&items=100",
+#       @lang=nil,
+#       @name=nil,
+#       @profile=nil,
+#       @templated=nil,
+#       @title=nil,
+#       @type="EvangelistIndex">,
+#     @up=
+#      #<W3cApi::Models::EvangelistIndexLink:0x000000011c1be398
+#       @deprecation=nil,
+#       @href="https://api.w3.org/ecosystems/advertising",
+#       @lang=nil,
+#       @name=nil,
+#       @profile=nil,
+#       @templated=nil,
+#       @title=nil,
+#       @type="EvangelistIndex">>,
+#   @page=1,
+#   @pages=1,
+#   @total=1>
+----
+
+
 == Ruby API
+
+=== General
 
 [source,ruby]
 ----
@@ -27,46 +116,133 @@ client = W3cApi::Client.new
 # Get specifications
 specifications = client.specifications
 specification = client.specification('webrtc')
-versions = client.specification_versions('webrtc')
-version = client.specification_version('webrtc', '20241008')
-specs_by_status = client.specifications_by_status('Recommendation')
 
-# Get specification series
-series_list = client.series
-series = client.series_by_shortname('webrtc')
-series_specs = client.series_specifications('webrtc')
+# TODO: Make them work again
 
-# Get groups
-groups = client.groups
-group = client.group(109735)  # Immersive Web Working Group
-users = client.group_users(109735)
-specifications = client.group_specifications(109735)
-charters = client.group_charters(109735)
-chairs = client.group_chairs(109735)
-team_contacts = client.group_team_contacts(109735)
-
-# Get users
-users = client.users
-user = client.user('f1ovb5rydm8s0go04oco0cgk0sow44w')
-groups = client.user_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
-specs = client.user_specifications('f1ovb5rydm8s0go04oco0cgk0sow44w')
-affiliations = client.user_affiliations('f1ovb5rydm8s0go04oco0cgk0sow44w')
-participations = client.user_participations('f1ovb5rydm8s0go04oco0cgk0sow44w')
-chair_groups = client.user_chair_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
-team_contact_groups = client.user_team_contact_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
-
-# Get affiliations
-affiliations = client.affiliations
-affiliation = client.affiliation(35662)  # Google LLC
-participants = client.affiliation_participants(35662)
-participations = client.affiliation_participations(35662)
-
-# Work with other resources
-translations = client.translations
-translation = client.translation(2)
-ecosystems = client.ecosystems
-ecosystem = client.ecosystem('data')
+# versions = client.specification_versions('webrtc')
+# version = client.specification_version('webrtc', '20241008')
+# specs_by_status = client.specifications_by_status('Recommendation')
+#
+# # Work with linked resources directly
+# spec = client.specification('webrtc')
+# spec_versions = spec.versions         # Automatically resolves the version-history link
+# latest = spec.latest_version          # Automatically resolves the latest-version link
+# series = spec.series                  # Automatically resolves the series link
+# editors = spec.editors                # Fetch editors for this specification
+# deliverers = spec.deliverers          # Fetch deliverers (working groups) for this specification
+#
+# # Get specification series
+# series_list = client.series
+# series = client.series_by_shortname('webrtc')
+# series_specs = client.series_specifications('webrtc')
+#
+# # Get groups
+# groups = client.groups
+# group = client.group(109735)  # Immersive Web Working Group
+# users = client.group_users(109735)
+# specifications = client.group_specifications(109735)
+# charters = client.group_charters(109735)
+# chairs = client.group_chairs(109735)
+# team_contacts = client.group_team_contacts(109735)
+#
+# # Use link resolution with groups
+# group = client.group(109735)
+# specs = group.specifications          # Automatically resolves the specifications link
+# users = group.users                   # Automatically resolves the users link
+# chairs = group.chairs                 # Automatically resolves the chairs link
+# charters = group.charters             # Automatically resolves the charters link
+#
+# # Get users
+# users = client.users
+# user = client.user('f1ovb5rydm8s0go04oco0cgk0sow44w')
+# groups = client.user_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
+# specs = client.user_specifications('f1ovb5rydm8s0go04oco0cgk0sow44w')
+# affiliations = client.user_affiliations('f1ovb5rydm8s0go04oco0cgk0sow44w')
+# participations = client.user_participations('f1ovb5rydm8s0go04oco0cgk0sow44w')
+# chair_groups = client.user_chair_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
+# team_contact_groups = client.user_team_contact_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
+#
+# # Get affiliations
+# affiliations = client.affiliations
+# affiliation = client.affiliation(35662)  # Google LLC
+# participants = client.affiliation_participants(35662)
+# participations = client.affiliation_participations(35662)
+#
+# # Work with other resources
+# translations = client.translations
+# translation = client.translation(2)
+# ecosystems = client.ecosystems
+# ecosystem = client.ecosystem('data')
 ----
+
+=== Models
+
+==== General
+
+This library provides models for various W3C API resources under the
+`W3cApi::Models` namespace.
+
+
+==== Affiliation
+
+The `W3cApi::Models::Affiliation` represents a W3C affiliation model that
+includes various attributes and methods to interact with affiliated entities.
+
+.Fetching the affiliation index
+[example]
+====
+[source,ruby]
+----
+> W3cApi::Hal.instance.register.fetch(:affiliation_index)
+# =>
+#  #<W3cApi::Models::AffiliationIndex:0x0000000123ecca38
+#   @_global_register_id=:w3c_api,
+#   @limit=100,
+#   @links=
+#    #<W3cApi::Models::AffiliationIndexLinkSet:0x00000001325b4a68
+#     @_global_register_id=:w3c_api,
+#     @affiliations=
+#      [#<W3cApi::Models::AffiliationLink:0x000000011fe453c0
+#        @_global_register_id=:w3c_api,
+#        @deprecation=nil,
+#        @href="https://api.w3.org/affiliations/1001",
+#        @lang=nil,
+#        @name=nil,
+#        @profile=nil,
+#        @templated=nil,
+#        @title=
+#         "Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)",
+#        @type="Affiliation">,
+#       #<W3cApi::Models::AffiliationLink:0x000000011fe232c0
+#        @_global_register_id=:w3c_api,
+#        @deprecation=nil,
+#        @href="https://api.w3.org/affiliations/1003",
+#        @lang=nil,
+#        @name=nil,
+#        @profile=nil,
+#        @templated=nil,
+#        @title="BackWeb Technologies, Inc.",
+#        @type="Affiliation">,
+#        ...
+----
+====
+
+.Fetching a specific affiliation
+[example]
+====
+[source,ruby]
+----
+> W3cApi::Hal.instance.register.fetch(:affiliation_resource, id: 35662)
+# =>
+#  #<W3cApi::Models::Affiliation:0x000000011de99d50
+#   @id=35662,
+#   @name="Google LLC",
+#   @discr="organization",
+# ... >
+----
+====
+
+
 
 == Command line interface
 
@@ -75,6 +251,9 @@ ecosystem = client.ecosystem('data')
 W3C API provides a command-line interface (CLI) for various operations.
 
 The main executable is `w3c_api`.
+
+By default, the output is in YAML format. You can specify the output format using the
+`--format` option, which accepts `json` or `yaml`.
 
 [source,shell]
 ----
@@ -110,10 +289,6 @@ When fetching an index of specifications, for every specification, only the
 ----
 # Fetch specifications
 $ w3c_api specification fetch [OPTIONS]
-# Fetch specifications in JSON format
-$ w3c_api specification fetch --format=json
-# Fetch specifications in YAML format
-$ w3c_api specification fetch --format=yaml
 # Fetch specifications with a specific status
 $ w3c_api specification fetch --status=Recommendation
 ----
@@ -122,7 +297,7 @@ $ w3c_api specification fetch --status=Recommendation
 ====
 [source,shell]
 ----
-$ w3c_api specification fetch --format=yaml
+$ w3c_api specification fetch
 - href: https://www.w3.org/TR/html5/
   title: HTML5
 - href: https://www.w3.org/TR/css3-color/
@@ -138,10 +313,6 @@ Getting a specification provides all attributes of the specification.
 ----
 # Fetch a specification
 $ w3c_api specification fetch --shortname=webrtc
-# Fetch a specification in JSON format
-$ w3c_api specification fetch --shortname=webrtc --format=json
-# Fetch a specification in YAML format
-$ w3c_api specification fetch --shortname=webrtc --format=yaml
 # Fetch a specific version of a specification
 $ w3c_api specification fetch --shortname=webrtc --version=20241008
 ----
@@ -150,7 +321,7 @@ $ w3c_api specification fetch --shortname=webrtc --version=20241008
 ====
 [source,shell]
 ----
-$ w3c_api specification fetch --shortname=webrtc --format=yaml
+$ w3c_api specification fetch --shortname=webrtc
 ---
 shortlink: https://www.w3.org/TR/webrtc/
 description: "<p>This document defines a set of ECMAScript APIs in WebIDL to allow
@@ -187,17 +358,13 @@ This command provides access to W3C specification versions given a shortname.
 ----
 # Fetch versions of a specification
 $ w3c_api specification versions --shortname=webrtc
-# Fetch versions in JSON format
-$ w3c_api specification versions --shortname=webrtc --format=json
-# Fetch versions in YAML format
-$ w3c_api specification versions --shortname=webrtc --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api specification versions --shortname=webrtc --format=yaml
+$ w3c_api specification versions --shortname=webrtc
 spec_versions:
 - title: 'WebRTC: Real-Time Communication in Browsers'
   href: https://api.w3.org/specifications/webrtc/versions/20241008
@@ -217,17 +384,13 @@ This command provides access to W3C specifications by status.
 ----
 # Fetch specifications with a specific status
 $ w3c_api specification fetch --status=Recommendation
-# Fetch specifications with a specific status in JSON format
-$ w3c_api specification fetch --status=Recommendation --format=json
-# Fetch specifications with a specific status in YAML format
-$ w3c_api specification fetch --status=Recommendation --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api specification fetch --status=Recommendation --format=yaml
+$ w3c_api specification fetch --status=Recommendation
 specifications:
 - title: 'XML Schema Part 1: Structures Second Edition'
   href: https://api.w3.org/specifications/xmlschema-1
@@ -236,6 +399,62 @@ specifications:
 - title: CSS Namespaces Module Level 3
   href: https://api.w3.org/specifications/css-namespaces-3
 # Additional specifications omitted for brevity
+----
+====
+
+=== Specification version
+
+TODO: This section is not yet implemented!
+
+==== Editors
+
+TODO: This section is not yet implemented!
+
+This command provides access to editors of a specification version.
+
+[source,shell]
+----
+# Fetch editors of a specification version
+$ w3c_api specification-version editors --shortname=webrtc --version=20241008
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api specification-version editors --shortname=webrtc --version=20241008
+---
+users:
+- href: https://api.w3.org/users/p3dte6mpoj4sgw888w8kw4w4skwosck
+  title: Cullen Jennings
+- href: https://api.w3.org/users/kjqsxbe6kioko4s88s4wocws848kgw8
+  title: Bernard Aboba
+- href: https://api.w3.org/users/t9qq83owlzkck404w0o44so8owc00gg
+  title: Jan-Ivar Bruaroey
+----
+====
+
+==== Deliverers
+
+TODO: This section is not yet implemented!
+
+This command provides access to deliverers (working groups) of a specification version.
+
+[source,shell]
+----
+# Fetch deliverers of a specification version
+$ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
+---
+groups:
+- href: https://api.w3.org/groups/wg/webrtc
+  title: Web Real-Time Communications Working Group
 ----
 ====
 
@@ -251,17 +470,13 @@ Fetching an index of specification series.
 ----
 # Fetch specification series
 $ w3c_api series fetch [OPTIONS]
-# Fetch specification series in JSON format
-$ w3c_api series fetch --format=json
-# Fetch specification series in YAML format
-$ w3c_api series fetch --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api series fetch --format=yaml
+$ w3c_api series fetch
 - shortname: html
   name: HTML
 - shortname: css
@@ -278,17 +493,13 @@ Getting a specification series by shortname.
 ----
 # Fetch a specification series
 $ w3c_api series fetch --shortname=webrtc
-# Fetch a specification series in JSON format
-$ w3c_api series fetch --shortname=webrtc --format=json
-# Fetch a specification series in YAML format
-$ w3c_api series fetch --shortname=webrtc --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api series fetch --shortname=webrtc --format=yaml
+$ w3c_api series fetch --shortname=webrtc
 ---
 shortname: webrtc
 name: 'WebRTC: Real-Time Communication Between Browsers'
@@ -310,17 +521,13 @@ This command provides access to specifications in a series.
 ----
 # Fetch specifications in a series
 $ w3c_api series specifications --shortname=webrtc
-# Fetch specifications in a series in JSON format
-$ w3c_api series specifications --shortname=webrtc --format=json
-# Fetch specifications in a series in YAML format
-$ w3c_api series specifications --shortname=webrtc --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api series specifications --shortname=webrtc --format=yaml
+$ w3c_api series specifications --shortname=webrtc
 ---
 specifications:
 - title: 'WebRTC: Real-Time Communication in Browsers'
@@ -345,20 +552,16 @@ Getting a user by ID.
 [source,shell]
 ----
 # Fetch a user with a numeric ID
-$ w3c_api user fetch --id=128112
+$ w3c_api user fetch --hash=128112
 # Fetch a user with a string ID
-$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w
-# Fetch a user in JSON format
-$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
-# Fetch a user in YAML format
-$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user fetch --hash=f1ovb5rydm8s0go04oco0cgk0sow44w
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api user fetch --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user fetch --hash=f1ovb5rydm8s0go04oco0cgk0sow44w
 ---
 id: 128112
 name: Jennifer Strickland
@@ -402,17 +605,13 @@ Getting groups a user is a member of.
 ----
 # Fetch groups a user is a member of
 $ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
-# Fetch groups a user is a member of in JSON format
-$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
-# Fetch groups a user is a member of in YAML format
-$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 ---
 groups:
 - href: https://api.w3.org/groups/wg/ag
@@ -458,17 +657,13 @@ Getting specifications a user has contributed to.
 ----
 # Fetch specifications a user has contributed to
 $ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w
-# Fetch specifications a user has contributed to in JSON format
-$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
-# Fetch specifications a user has contributed to in YAML format
-$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user specifications --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 specifications:
 - title: HTML 5.2
   href: https://api.w3.org/specifications/html52
@@ -486,17 +681,13 @@ Getting affiliations of a user.
 ----
 # Fetch affiliations of a user
 $ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
-# Fetch affiliations of a user in JSON format
-$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
-# Fetch affiliations of a user in YAML format
-$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user affiliations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 ---
 affiliations:
 - href: https://api.w3.org/affiliations/1092
@@ -512,17 +703,13 @@ Getting participations of a user.
 ----
 # Fetch participations of a user
 $ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
-# Fetch participations of a user in JSON format
-$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
-# Fetch participations of a user in YAML format
-$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user participations --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 ---
 participations:
 - title: Silver Community Group
@@ -568,17 +755,13 @@ Getting groups a user chairs.
 ----
 # Fetch groups a user chairs
 $ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
-# Fetch groups a user chairs in JSON format
-$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
-# Fetch groups a user chairs in YAML format
-$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user chair-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 ---
 groups:
 - href: https://api.w3.org/groups/cg/equity
@@ -594,17 +777,13 @@ Getting groups a user is a team contact of.
 ----
 # Fetch groups a user is a team contact of
 $ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
-# Fetch groups a user is a team contact of in JSON format
-$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=json
-# Fetch groups a user is a team contact of in YAML format
-$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w --format=yaml
+$ w3c_api user team-contact-of-groups --id=f1ovb5rydm8s0go04oco0cgk0sow44w
 groups:
 - name: Web Platform Working Group
   href: https://api.w3.org/groups/72825
@@ -626,17 +805,13 @@ Fetching an index of groups.
 ----
 # Fetch groups
 $ w3c_api group fetch [OPTIONS]
-# Fetch groups in JSON format
-$ w3c_api group fetch --format=json
-# Fetch groups in YAML format
-$ w3c_api group fetch --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api group fetch --format=yaml
+$ w3c_api group fetch
 ---
 groups:
 - href: https://api.w3.org/groups/tf/ab-liaisons-to-bod
@@ -659,10 +834,6 @@ Getting a group by ID.
 ----
 # Fetch a group
 $ w3c_api group fetch --id=109735
-# Fetch a group in JSON format
-$ w3c_api group fetch --id=109735 --format=json
-# Fetch a group in YAML format
-$ w3c_api group fetch --id=109735 --format=yaml
 ----
 
 [example]
@@ -686,450 +857,121 @@ _links:
     href: https://api.w3.org/groups/wg/immersive-web
   homepage:
     href: https://www.w3.org/immersive-web/
-  users:
-    href: https://api.w3.org/groups/wg/immersive-web/users
-  services:
-    href: https://api.w3.org/groups/wg/immersive-web/services
-  specifications:
-    href: https://api.w3.org/groups/wg/immersive-web/specifications
-  chairs:
-    href: https://api.w3.org/groups/wg/immersive-web/chairs
-  team_contacts:
-    href: https://api.w3.org/groups/wg/immersive-web/teamcontacts
-  charters:
-    href: https://api.w3.org/groups/wg/immersive-web/charters
-  active_charter:
-    href: https://api.w3.org/groups/wg/immersive-web/charters/514
-  join:
-    href: https://www.w3.org/groups/wg/immersive-web/join
-  pp_status:
-    href: https://www.w3.org/groups/wg/immersive-web/ipr
-  participations:
-    href: https://api.w3.org/groups/wg/immersive-web/participations
-----
-====
-
-==== Users
-
-Getting users in a group.
-
-[source,shell]
-----
-# Fetch users in a group
-$ w3c_api group users --id=109735
-# Fetch users in a group in JSON format
-$ w3c_api group users --id=109735 --format=json
-# Fetch users in a group in YAML format
-$ w3c_api group users --id=109735 --format=yaml
-----
-
-[example]
-====
-[source,sh]
-----
-$ w3c_api group users --id=109735 --format=yaml
----
-users:
-- href: https://api.w3.org/users/9o1jsmhi8ysk088w0k4g00wsssk4c8c
-  title: Muadh Al Kalbani
-- href: https://api.w3.org/users/rqjspzlmiq8c0kk8goos4c480w8wccs
-  title: Matthew Atkinson
-- href: https://api.w3.org/users/32hnccz98a68sk0kcog8c4wo4sgckkw
-  title: Ashwin Balasubramaniyan
-- href: https://api.w3.org/users/ff80kfl6a0gso4oo8s40cg4c4wccgs0
-  title: Trevor Baron
-- href: https://api.w3.org/users/icpnypf3mfsckc848s0cgwckgwgcwks
-  title: Piotr Bialecki
-- href: https://api.w3.org/users/cfck5b7g1h4wkkco80w08g488kg4c0c
-  title: Michael Blix
-- href: https://api.w3.org/users/bigukrtur3co8s04k4kocg04ow0oowo
-  title: Artem Bolgar
 ----
 ====
 
 ==== Specifications
 
-Getting specifications of a group.
+Fetching specifications for a group.
 
 [source,shell]
 ----
-# Fetch specifications of a group
+# Fetch specifications for a group
 $ w3c_api group specifications --id=109735
-# Fetch specifications of a group in JSON format
-$ w3c_api group specifications --id=109735 --format=json
-# Fetch specifications of a group in YAML format
-$ w3c_api group specifications --id=109735 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api group specifications --id=109735 --format=yaml
+$ w3c_api group specifications --id=109735
 ---
-specifications:
-- title: WebXR Lighting Estimation API Level 1
-  href: https://api.w3.org/specifications/webxr-lighting-estimation-1
-- title: WebXR Augmented Reality Module - Level 1
-  href: https://api.w3.org/specifications/webxr-ar-module-1
-- title: WebXR Gamepads Module - Level 1
-  href: https://api.w3.org/specifications/webxr-gamepads-module-1
-- title: WebXR Layers API Level 1
-  href: https://api.w3.org/specifications/webxrlayers-1
-# Additional specifications omitted for brevity
+  specifications:
+  - href: https://api.w3.org/specifications/webxr-lighting-estimation-1
+    title: WebXR Lighting Estimation API Level 1
+    type: Specification
+  - href: https://api.w3.org/specifications/webxr-ar-module-1
+    title: WebXR Augmented Reality Module - Level 1
+    type: Specification
+  - href: https://api.w3.org/specifications/webxr-gamepads-module-1
+    title: WebXR Gamepads Module - Level 1
+    type: Specification
+  - href: https://api.w3.org/specifications/webxrlayers-1
+    title: WebXR Layers API Level 1
+    type: Specification
+  - href: https://api.w3.org/specifications/webxr-hand-input-1
+    title: WebXR Hand Input Module - Level 1
+    type: Specification
+  - href: https://api.w3.org/specifications/webxr-hit-test-1
+    title: WebXR Hit Test Module
+    type: Specification
+  - href: https://api.w3.org/specifications/webxr-depth-sensing-1
+    title: WebXR Depth Sensing Module
+    type: Specification
+  - href: https://api.w3.org/specifications/webxr-dom-overlays-1
+    title: WebXR DOM Overlays Module
+    type: Specification
+  - href: https://api.w3.org/specifications/webxr
+    title: WebXR Device API
+    type: Specification
+----
+====
+
+==== Users
+
+Fetching users for a group.
+
+[source,shell]
+----
+# Fetch users for a group
+$ w3c_api group users --id=109735
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api group users --id=109735
+---
+  users:
+  - href: https://api.w3.org/users/9o1jsmhi8ysk088w0k4g00wsssk4c8c
+    title: Muadh Al Kalbani
+    type: User
+  - href: https://api.w3.org/users/rqjspzlmiq8c0kk8goos4c480w8wccs
+    title: Matthew Atkinson
+    type: User
+  - href: https://api.w3.org/users/32hnccz98a68sk0kcog8c4wo4sgckkw
+    title: Ashwin Balasubramaniyan
+    type: User
+  - href: https://api.w3.org/users/ff80kfl6a0gso4oo8s40cg4c4wccgs0
+    title: Trevor Baron
+    type: User
 ----
 ====
 
 ==== Charters
 
-Getting charters of a group.
+Fetching charters for a group.
 
 [source,shell]
 ----
-# Fetch charters of a group
+# Fetch charters for a group
 $ w3c_api group charters --id=109735
-# Fetch charters of a group in JSON format
-$ w3c_api group charters --id=109735 --format=json
-# Fetch charters of a group in YAML format
-$ w3c_api group charters --id=109735 --format=yaml
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api group charters --id=109735 --format=yaml
+$ w3c_api group charters --id=109735
 ---
-charters:
-- href: https://api.w3.org/groups/109735/charters/361
-  title: 2018-09-24 -> 2020-03-01
-- href: https://api.w3.org/groups/109735/charters/405
-  title: 2020-05-12 -> 2022-06-01
-- href: https://api.w3.org/groups/109735/charters/464
-  title: 2022-07-08 -> 2024-07-07
-- href: https://api.w3.org/groups/109735/charters/514
-  title: 2024-09-26 -> 2026-09-25
+  charters:
+  - href: https://api.w3.org/groups/109735/charters/361
+    title: 2018-09-24 -> 2020-03-01
+    type: Charter
+  - href: https://api.w3.org/groups/109735/charters/405
+    title: 2020-05-12 -> 2022-06-01
+    type: Charter
+  - href: https://api.w3.org/groups/109735/charters/464
+    title: 2022-07-08 -> 2024-07-07
+    type: Charter
+  - href: https://api.w3.org/groups/109735/charters/514
+    title: 2024-09-26 -> 2026-09-25
+    type: Charter
 ----
 ====
 
-==== Chairs
-
-Getting chairs of a group.
-
-[source,shell]
-----
-# Fetch chairs of a group
-$ w3c_api group chairs --id=109735
-# Fetch chairs of a group in JSON format
-$ w3c_api group chairs --id=109735 --format=json
-# Fetch chairs of a group in YAML format
-$ w3c_api group chairs --id=109735 --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api group chairs --id=109735 --format=yaml
----
-users:
-- href: https://api.w3.org/users/basy63arxl448c8co0og8ocosocgc0w
-  title: Ada Rose Cannon
-- href: https://api.w3.org/users/l88ca27n2b4sk00cogosk0skw4s8osc
-  title: Chris Wilson
-- href: https://api.w3.org/users/m99jqkpi9m8oww84kw4gwccgc4g0ogs
-  title: Ayşegül Yönet
-----
-====
-
-
-==== Team Contacts
-
-Getting team contacts of a group.
-
-[source,shell]
-----
-# Fetch team contacts of a group
-$ w3c_api group team_contacts --id=109735
-# Fetch team contacts of a group in JSON format
-$ w3c_api group team_contacts --id=109735 --format=json
-# Fetch team contacts of a group in YAML format
-$ w3c_api group team_contacts --id=109735 --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api group team_contacts --id=109735 --format=yaml
----
-users:
-- href: https://api.w3.org/users/1eb2xr7ab6zo0k8440o48swso408ksc
-  title: Atsushi Shimono
-----
-====
-
-=== Affiliations
-
-This command provides access to W3C affiliations (organizations).
-
-==== Index
-
-Fetching an index of affiliations.
-
-[source,shell]
-----
-# Fetch affiliations
-$ w3c_api affiliation fetch [OPTIONS]
-# Fetch affiliations in JSON format
-$ w3c_api affiliation fetch --format=json
-# Fetch affiliations in YAML format
-$ w3c_api affiliation fetch --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api affiliation fetch --format=yaml
----
-affiliations:
-- href: https://api.w3.org/affiliations/1001
-  title: Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)
-- href: https://api.w3.org/affiliations/1003
-  title: BackWeb Technologies, Inc.
-- href: https://api.w3.org/affiliations/1005
-  title: Bull S.A.
-- href: https://api.w3.org/affiliations/1011
-  title: Digital Island, Inc.
-- href: https://api.w3.org/affiliations/1013
-  title: University of Bristol
-- href: https://api.w3.org/affiliations/1014
-  title: Internet Association Japan
-# Additional affiliations omitted for brevity
-----
-====
-
-==== Get
-
-Getting an affiliation by ID.
-
-[source,shell]
-----
-# Fetch an affiliation
-$ w3c_api affiliation fetch --id=35662
-# Fetch an affiliation in JSON format
-$ w3c_api affiliation fetch --id=35662 --format=json
-# Fetch an affiliation in YAML format
-$ w3c_api affiliation fetch --id=35662 --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api affiliation fetch --id=35662 --format=yaml
----
-affiliations:
-- id: 35662
-  name: Google LLC
-  is_member: true
-  is_member_association: false
-  is_partner_member: false
-  _links:
-    self:
-      href: https://api.w3.org/affiliations/35662
-    participants:
-      href: https://api.w3.org/affiliations/35662/participants
-    participations:
-      href: https://api.w3.org/affiliations/35662/participations
-----
-====
-
-==== Participants
-
-Getting participants of an affiliation.
-
-[source,shell]
-----
-# Fetch participants of an affiliation
-$ w3c_api affiliation participants --id=35662
-# Fetch participants of an affiliation in JSON format
-$ w3c_api affiliation participants --id=35662 --format=json
-# Fetch participants of an affiliation in YAML format
-$ w3c_api affiliation participants --id=35662 --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api affiliation participants --id=35662 --format=yaml
----
-users:
-- href: https://api.w3.org/users/p3dte6mpoj4sgw888w8kw4w4skwosck
-  title: Tab Atkins Jr.
-- href: https://api.w3.org/users/l88ca27n2b4sk00cogosk0skw4s8osc
-  title: Chris Wilson
-- href: https://api.w3.org/users/kjqsxbe6kioko4s88s4wocws848kgw8
-  title: David Baron
-- href: https://api.w3.org/users/t9qq83owlzkck404w0o44so8owc00gg
-  title: Rune Lillesveen
-- href: https://api.w3.org/users/jviqbqcbem8w4gkgwcscoc400skcwwk
-  title: Koji Ishii
-# Additional participants omitted for brevity
-----
-====
-
-==== Participations
-
-Getting participations of an affiliation.
-
-[source,shell]
-----
-# Fetch participations of an affiliation
-$ w3c_api affiliation participations --id=35662
-# Fetch participations of an affiliation in JSON format
-$ w3c_api affiliation participations --id=35662 --format=json
-# Fetch participations of an affiliation in YAML format
-$ w3c_api affiliation participations --id=35662 --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api affiliation participations --id=35662 --format=yaml
----
-participations:
-- title: Patents and Standards Interest Group
-  href: https://api.w3.org/participations/3092
-- title: Media and Entertainment Interest Group
-  href: https://api.w3.org/participations/3115
-- title: JSON for Linked Data Community Group
-  href: https://api.w3.org/participations/3121
-- title: Games Community Group
-  href: https://api.w3.org/participations/3124
-----
-====
-
-=== Ecosystems
-
-This command provides access to W3C ecosystems.
-
-==== Index
-
-Fetching an index of ecosystems.
-
-[source,shell]
-----
-# Fetch ecosystems
-$ w3c_api ecosystem fetch
-# Fetch ecosystems in JSON format
-$ w3c_api ecosystem fetch --format=json
-# Fetch ecosystems in YAML format
-$ w3c_api ecosystem fetch --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api ecosystem fetch --format=yaml
----
-ecosystems:
-- href: https://api.w3.org/ecosystems/advertising
-  title: Web Advertising
-- href: https://api.w3.org/ecosystems/e-commerce
-  title: E-commerce
-- href: https://api.w3.org/ecosystems/media
-  title: Media & Entertainment
-- href: https://api.w3.org/ecosystems/network-communications
-  title: Network & Communications
-- href: https://api.w3.org/ecosystems/publishing
-  title: Publishing
-- href: https://api.w3.org/ecosystems/smart-cities
-  title: Smart Cities
-- href: https://api.w3.org/ecosystems/automotive-transportation
-  title: Automotive & Transportation
-- href: https://api.w3.org/ecosystems/web-of-things
-  title: Web of Things
-- href: https://api.w3.org/ecosystems/data
-  title: Data and knowledge
-----
-====
-
-==== Get
-
-Getting an ecosystem by shortname.
-
-[source,shell]
-----
-# Fetch an ecosystem
-$ w3c_api ecosystem fetch --shortname=data
-# Fetch an ecosystem in JSON format
-$ w3c_api ecosystem fetch --shortname=data --format=json
-# Fetch an ecosystem in YAML format
-$ w3c_api ecosystem fetch --shortname=data --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api ecosystem fetch --shortname=data --format=yaml
----
-name: Data and knowledge
-shortname: data
-_links:
-  self:
-    href: https://api.w3.org/ecosystems/data
-  champion:
-    href: https://api.w3.org/users/t891ludoisggsccsw44o8goccc0s0ks
-    title: Pierre-Antoine Champin
-  evangelists:
-    href: https://api.w3.org/ecosystems/data/evangelists
-  groups:
-    href: https://api.w3.org/ecosystems/data/groups
-  member_organizations:
-    href: https://api.w3.org/ecosystems/data/member-organizations
-----
-====
-
-==== Groups
-
-Getting groups in an ecosystem.
-
-[source,shell]
-----
-# Fetch groups in an ecosystem
-$ w3c_api ecosystem groups --shortname=data
-# Fetch groups in an ecosystem in JSON format
-$ w3c_api ecosystem groups --shortname=data --format=json
-# Fetch groups in an ecosystem in YAML format
-$ w3c_api ecosystem groups --shortname=data --format=yaml
-----
-
-[example]
-====
-[source,shell]
-----
-$ w3c_api ecosystem groups --shortname=data --format=yaml
----
-groups:
-- href: https://api.w3.org/groups/wg/data-shapes
-  title: Data Shapes Working Group
-- href: https://api.w3.org/groups/wg/dx
-  title: Dataset Exchange Working Group
-- href: https://api.w3.org/groups/wg/did
-  title: Decentralized Identifier Working Group
-- href: https://api.w3.org/groups/wg/json-ld
-  title: JSON-LD Working Group
-# Additional groups omitted for brevity
-----
-====
-
-=== Translations
+=== Translation
 
 This command provides access to W3C translations.
 
@@ -1140,33 +982,35 @@ Fetching an index of translations.
 [source,shell]
 ----
 # Fetch translations
-$ w3c_api translation fetch
-# Fetch translations in JSON format
-$ w3c_api translation fetch --format=json
-# Fetch translations in YAML format
-$ w3c_api translation fetch --format=yaml
+$ w3c_api translation fetch [OPTIONS]
 ----
-
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api translation fetch --format=yaml
+$ w3c_api translation fetch
 ---
-translations:
-- title: 'Vidéo : introduction à l’accessibilité web et aux standards du W3C'
-  href: https://api.w3.org/translations/2
-  language: fr
-- title: Vídeo de Introducción a la Accesibilidad Web y Estándares del W3C
-  href: https://api.w3.org/translations/3
-  language: es
-- title: Video-introductie over Web-toegankelijkheid en W3C-standaarden
-  href: https://api.w3.org/translations/4
-  language: nl
-- title: 网页无障碍和W3C标准的介绍视频
-  href: https://api.w3.org/translations/5
-  language: zh_Hans
-# Additional translations omitted for brevity
+    "translations": [
+      {
+        "href": "https://api.w3.org/translations/2",
+        "title": "Vidéo : introduction à l’accessibilité web et aux standards du W3C",
+        "language": "fr"
+      },
+      {
+        "href": "https://api.w3.org/translations/3",
+        "title": "Vídeo de Introducción a la Accesibilidad Web y Estándares del W3C",
+        "language": "es"
+      },
+      {
+        "href": "https://api.w3.org/translations/4",
+        "title": "Video-introductie over Web-toegankelijkheid en W3C-standaarden",
+        "language": "nl"
+      },
+      {
+        "href": "https://api.w3.org/translations/5",
+        "title": "网页无障碍和W3C标准的介绍视频",
+        "language": "zh_Hans"
+      },...
 ----
 ====
 
@@ -1177,89 +1021,94 @@ Getting a translation by ID.
 [source,shell]
 ----
 # Fetch a translation
-$ w3c_api translation fetch --id=2
-# Fetch a translation in JSON format
-$ w3c_api translation fetch --id=2 --format=json
-# Fetch a translation in YAML format
-$ w3c_api translation fetch --id=2 --format=yaml
+$ w3c_api translation fetch --id=467
 ----
 
 [example]
 ====
 [source,shell]
 ----
-$ w3c_api translation fetch --id=2 --format=yaml
+$ w3c_api translation fetch --id=467
 ---
-uri: https://github.com/w3c/wai-video-standards-and-benefits/blob/master/index.fr.md
-title: 'Vidéo : introduction à l’accessibilité web et aux standards du W3C'
-language: fr
-authorized: false
-call_for_translation:
-  uri: https://www.w3.org/WAI/videos/standards-and-benefits/
-  title: Video Introduction to Web Accessibility and W3C Standards
-comments: Needs updating. Requested on 22 Feb 2019.
-states:
-- review
-translators:
-- id: 40757
-  name: Stéphane Deschamps
-  given: Stéphane
-  family: Deschamps
-  work_title: Mr.
-  discr: user
-  biography: "I love accessibility and standards. Don't we all."
-  country_code: FR
-  city: Arcueil Cedex
-  _links:
-    self:
-      href: https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008
-    affiliations:
-      href: https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/affiliations
-    groups:
-      href: https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/groups
-    specifications:
-      href: https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/specifications
-    participations:
-      href: https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/participations
-    chair_of_groups:
-      href: https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/chair-of-groups
-    team_contact_of_groups:
-      href: https://api.w3.org/users/56nw1z8a5uo0sscsgk4kso8g0004008/team-contact-of-groups
 _links:
   self:
-    href: https://api.w3.org/translations/2
+    href: https://api.w3.org/translations/467
+    type: Translation
+uri: http://maujor.com/w3c/xml-base.html
+title: XML Base
+language: pt_BR
+published: '2005-09-23T00:00:00+00:00'
+authorized: false
+call-for-translation:
+  _links:
+    self:
+      href: https://api.w3.org/callsfortranslation/28
+      type: CallForTranslation
+    translations:
+      href: https://api.w3.org/callsfortranslation/28/translations
+      type: TranslationIndex
+  title: XML Base
+states:
+- published
+translators:
+- _links:
+    self:
+      href: https://api.w3.org/users/91oj8wozeb0o4wcoo8wswkcsw4oog48
+      type: User
+    affiliations:
+      href: https://api.w3.org/users/91oj8wozeb0o4wcoo8wswkcsw4oog48/affiliations
+      type: W3cApi::Models::AffiliationIndex
+    groups:
+      href: https://api.w3.org/users/91oj8wozeb0o4wcoo8wswkcsw4oog48/groups
+      type: GroupIndex
+    specifications:
+      href: https://api.w3.org/users/91oj8wozeb0o4wcoo8wswkcsw4oog48/specifications
+      type: SpecificationIndex
+    participations:
+      href: https://api.w3.org/users/91oj8wozeb0o4wcoo8wswkcsw4oog48/participations
+      type: ParticipationIndex
+  id: '112282'
+  name: Maurício Samy Silva
+  given: Maurício
+  family: Samy Silva
+  discr: user
 ----
 ====
 
-=== Troubleshooting
 
-This section covers common issues and their solutions.
 
-==== Empty Responses from Endpoints
+== Debug mode
 
-Some API endpoints may return empty responses or 404 errors, especially for user-related endpoints. The library is designed to handle these cases gracefully by returning empty collections rather than raising exceptions.
+The library supports a debug mode that can be enabled by setting the `DEBUG_API`
+environment variable to a non-empty value.
 
+This will print the HTTP requests and responses made by the API client.
+
+.Enabling debug mode on the command line
 [example]
 ====
-If a user has no specifications, the command will still complete successfully but return an empty collection:
-
-[source,shell]
+[source,sh]
 ----
-$ w3c_api user specifications --id=128112 --format=yaml
-specifications: []
+# Enable debug mode
+$ export DEBUG_API=1
+$ w3c_api specification fetch --shortname=webrtc
 ----
 ====
 
-==== User ID Format Considerations
+.Enabling debug mode in Ruby
+[example]
+====
+[source,ruby]
+----
+ENV["DEBUG_API"] = "1"
+W3cApi::Hal.instance.register.fetch(:specification_index)
+----
+====
 
-The W3C API uses two different ID formats for users:
 
-1. Numeric IDs (e.g., `128112`)
-2. String IDs (e.g., `f1ovb5rydm8s0go04oco0cgk0sow44w`)
+== License and Copyright
 
-Both formats are important to consider when interacting with the API as they may affect the results returned based on the input type.
-
-
-== Copyright and License
+This project is licensed under the BSD 2-clause License.
+See the link:LICENSE.md[] file for details.
 
 Copyright Ribose.

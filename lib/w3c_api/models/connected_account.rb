@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'lutaml/model'
-
 # {
 #   "created"=>"2019-07-18T21:28:31+00:00",
 #   "updated"=>"2021-01-21T10:49:57+00:00",
@@ -18,37 +16,30 @@ require 'lutaml/model'
 # }
 
 module W3cApi
-    module Models
-      class ConnectedAccountLinks < Lutaml::Model::Serializable
-        attribute :user, Link
-      end
+  module Models
+    class ConnectedAccount < Lutaml::Hal::Resource
+      attribute :created, :date_time
+      attribute :updated, :date_time
+      attribute :service, :string
+      attribute :identifier, :string
+      attribute :nickname, :string
+      attribute :profile_picture, :string
+      attribute :href, :string
 
-      class ConnectedAccount < Base
-        attribute :created, :date_time
-        attribute :updated, :date_time
-        attribute :service, :string
-        attribute :identifier, :string
-        attribute :nickname, :string
-        attribute :profile_picture, :string
-        attribute :href, :string
-        attribute :_links, ConnectedAccountLinks
+      hal_link :user, key: 'user', realize_class: 'User'
 
-        def self.from_response(response)
-          transformed_response = transform_keys(response)
-          account = new
-          transformed_response.each do |key, value|
-            case key
-            when :_links
-              links = value.each_with_object({}) do |(link_name, link_data), acc|
-                acc[link_name] = Link.new(href: link_data[:href], title: link_data[:title])
-              end
-              account._links = ConnectedAccountLinks.new(links)
-            else
-              account.send("#{key}=", value) if account.respond_to?("#{key}=")
-            end
-          end
-          account
+      key_value do
+        %i[
+          created
+          updated
+          service
+          identifier
+          nickname
+          profile_picture
+        ].each do |key|
+          map key.to_s.tr('_', '-'), to: key
         end
       end
     end
+  end
 end
