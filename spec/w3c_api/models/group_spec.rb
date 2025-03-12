@@ -11,7 +11,7 @@ RSpec.describe W3cApi::Models::Group do
         group = client.group(109_735) # Immersive Web Working Group
         expect(group).to be_a(described_class)
         expect(group.name).to eq('Immersive Web Working Group')
-        expect(group._links.self.href).to include('immersive-web') # API now returns path with shortname instead of ID
+        expect(group.links.self.href).to include('immersive-web') # API now returns path with shortname instead of ID
       end
     end
 
@@ -66,7 +66,7 @@ RSpec.describe W3cApi::Models::Group do
     }
   end
 
-  let(:group) { described_class.from_response(group_hash) }
+  let(:group) { described_class.from_json(group_hash.to_json) }
 
   describe 'attributes' do
     it 'has the correct attributes' do
@@ -91,10 +91,10 @@ RSpec.describe W3cApi::Models::Group do
 
   describe 'helper methods' do
     it 'returns the correct links' do
-      expect(group._links.self.href).to eq('https://api.w3.org/groups/109735')
-      expect(group._links.homepage.href).to eq('https://www.w3.org/immersive-web/')
-      expect(group._links.users.href).to eq('https://api.w3.org/groups/109735/users')
-      expect(group._links.specifications.href).to eq('https://api.w3.org/groups/109735/specifications')
+      expect(group.links.self.href).to eq('https://api.w3.org/groups/109735')
+      expect(group.links.homepage.href).to eq('https://www.w3.org/immersive-web/')
+      expect(group.links.users.href).to eq('https://api.w3.org/groups/109735/users')
+      expect(group.links.specifications.href).to eq('https://api.w3.org/groups/109735/specifications')
     end
   end
 

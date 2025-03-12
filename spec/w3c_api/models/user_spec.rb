@@ -11,7 +11,7 @@ RSpec.describe W3cApi::Models::User do
         user = client.user('f1ovb5rydm8s0go04oco0cgk0sow44w') # Jennifer Strickland
         expect(user).to be_a(described_class)
         expect(user.name).to eq('Jennifer Strickland')
-        expect(user._links.self.href).to include('f1ovb5rydm8s0go04oco0cgk0sow44w')
+        expect(user.links.self.href).to include('f1ovb5rydm8s0go04oco0cgk0sow44w')
       end
     end
   end
@@ -21,7 +21,7 @@ RSpec.describe W3cApi::Models::User do
 
   let(:user_hash) do
     {
-      'id' => 128_112,
+      'id' => '128112',
       'name' => 'Jennifer Strickland',
       'given' => 'Jennifer',
       'family' => 'Strickland',
@@ -68,7 +68,7 @@ RSpec.describe W3cApi::Models::User do
     }
   end
 
-  let(:user) { described_class.from_response(user_hash) }
+  let(:user) { described_class.from_json(user_hash.to_json) }
 
   describe 'attributes' do
     it 'has the correct attributes' do
@@ -107,10 +107,10 @@ RSpec.describe W3cApi::Models::User do
 
   describe 'helper methods' do
     it 'returns the correct links' do
-      expect(user._links.self.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w')
-      expect(user._links.affiliations.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/affiliations')
-      expect(user._links.groups.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups')
-      expect(user._links.specifications.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/specifications')
+      expect(user.links.self.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w')
+      expect(user.links.affiliations.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/affiliations')
+      expect(user.links.groups.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/groups')
+      expect(user.links.specifications.href).to eq('https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w/specifications')
     end
   end
 
@@ -139,14 +139,14 @@ RSpec.describe W3cApi::Models::User do
     it 'can be converted to JSON' do
       json = user.to_json
       expect(json).to be_a(String)
-      expect(json).to include('"id":128112')
+      expect(json).to include('"id":"128112"')
       expect(json).to include('"name":"Jennifer Strickland"')
     end
 
     it 'can be converted to YAML' do
       yaml = user.to_yaml
       expect(yaml).to be_a(String)
-      expect(yaml).to include('id: 128112')
+      expect(yaml).to include("id: '128112'")
       expect(yaml).to include('name: Jennifer Strickland')
     end
   end
