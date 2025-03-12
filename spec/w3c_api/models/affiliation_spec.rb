@@ -27,7 +27,7 @@ RSpec.describe W3cApi::Models::Affiliation do
     }
   end
 
-  let(:affiliation) { described_class.from_response(affiliation_hash) }
+  let(:affiliation) { described_class.from_json(affiliation_hash.to_json) }
 
   describe 'attributes' do
     it 'has the correct attributes' do
@@ -56,9 +56,9 @@ RSpec.describe W3cApi::Models::Affiliation do
 
   describe 'helper methods' do
     it 'returns the correct links' do
-      expect(affiliation._links.self.href).to eq('https://api.w3.org/affiliations/123')
-      expect(affiliation._links.participants.href).to eq('https://api.w3.org/affiliations/123/participants')
-      expect(affiliation._links.participations.href).to eq('https://api.w3.org/affiliations/123/participations')
+      expect(affiliation.links.self.href).to eq('https://api.w3.org/affiliations/123')
+      expect(affiliation.links.participants.href).to eq('https://api.w3.org/affiliations/123/participants')
+      expect(affiliation.links.participations.href).to eq('https://api.w3.org/affiliations/123/participations')
     end
   end
 

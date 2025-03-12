@@ -12,7 +12,7 @@ RSpec.describe W3cApi::Models::Serie do
         expect(series).to be_a(W3cApi::Models::Serie)
         expect(series.shortname).to eq('html')
         expect(series.name).to include('HTML')
-        expect(series._links.self.href).to include('html')
+        expect(series.links.self.href).to include('html')
       end
     end
 
@@ -44,7 +44,7 @@ RSpec.describe W3cApi::Models::Serie do
     }
   end
 
-  let(:series) { described_class.from_response(series_hash) }
+  let(:series) { described_class.from_json(series_hash.to_json) }
 
   describe 'attributes' do
     it 'has the correct attributes' do
@@ -61,9 +61,9 @@ RSpec.describe W3cApi::Models::Serie do
 
   describe 'helper methods' do
     it 'returns the correct links' do
-      expect(series._links.self.href).to eq('https://api.w3.org/specification-series/webrtc')
-      expect(series._links.specifications.href).to eq('https://api.w3.org/specification-series/webrtc/specifications')
-      expect(series._links.current_specification.href).to eq('https://api.w3.org/specifications/webrtc')
+      expect(series.links.self.href).to eq('https://api.w3.org/specification-series/webrtc')
+      expect(series.links.specifications.href).to eq('https://api.w3.org/specification-series/webrtc/specifications')
+      expect(series.links.current_specification.href).to eq('https://api.w3.org/specifications/webrtc')
     end
   end
 

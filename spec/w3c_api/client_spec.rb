@@ -385,7 +385,7 @@ RSpec.describe W3cApi::Client do
         mock_links = W3cApi::Models::ParticipationLinks.new(
           self: W3cApi::Models::Link.new(href: 'https://api.w3.org/participations/38785')
         )
-        mock_participation._links = mock_links
+        mock_participation.links = mock_links
         mock_participation.created = '2020-01-01T12:00:00Z'
 
         # Allow the client to return our mock
@@ -393,7 +393,7 @@ RSpec.describe W3cApi::Client do
 
         participation = client.participation(38_785)
         expect(participation).to be_a(W3cApi::Models::Participation)
-        expect(participation._links.self.href).to include('38785')
+        expect(participation.links.self.href).to include('38785')
       end
     end
   end

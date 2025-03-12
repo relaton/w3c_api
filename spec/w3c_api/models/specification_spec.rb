@@ -12,7 +12,7 @@ RSpec.describe W3cApi::Models::Specification do
         expect(specification).to be_a(described_class)
         expect(specification.shortname).to eq('html5')
         expect(specification.title).to eq('HTML5')
-        expect(specification._links.self.href).to include('html5')
+        expect(specification.links.self.href).to include('html5')
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe W3cApi::Models::Specification do
     }
   end
 
-  let(:specification) { described_class.from_response(spec_hash) }
+  let(:specification) { described_class.from_json(spec_hash.to_json) }
 
   describe 'attributes' do
     it 'has the correct attributes' do
@@ -84,12 +84,12 @@ RSpec.describe W3cApi::Models::Specification do
 
   describe 'helper methods' do
     it 'returns the correct links' do
-      expect(specification._links.self.href).to eq('https://api.w3.org/specifications/html5')
-      expect(specification._links.version_history.href).to eq('https://api.w3.org/specifications/html5/versions')
-      expect(specification._links.first_version.href).to eq('https://api.w3.org/specifications/html5/versions/20080122')
-      expect(specification._links.first_version.title).to eq('Working Draft')
-      expect(specification._links.latest_version.href).to eq('https://api.w3.org/specifications/html5/versions/20171214')
-      expect(specification._links.latest_version.title).to eq('REC')
+      expect(specification.links.self.href).to eq('https://api.w3.org/specifications/html5')
+      expect(specification.links.version_history.href).to eq('https://api.w3.org/specifications/html5/versions')
+      expect(specification.links.first_version.href).to eq('https://api.w3.org/specifications/html5/versions/20080122')
+      expect(specification.links.first_version.title).to eq('Working Draft')
+      expect(specification.links.latest_version.href).to eq('https://api.w3.org/specifications/html5/versions/20171214')
+      expect(specification.links.latest_version.title).to eq('REC')
     end
   end
 

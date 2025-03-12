@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe W3cApi::Models::Groups do
+RSpec.describe W3cApi::Models::GroupIndex do
   describe 'API integration' do
     let(:client) { W3cApi::Client.new }
     let(:mock_groups) do
