@@ -21,6 +21,7 @@ module W3cApi
       attribute :updated, :date_time
       attribute :identifier, :string
       attribute :nickname, :string
+      attribute :service, :string
       attribute :profile_picture, :string
       attribute :href, :string
 
@@ -32,6 +33,7 @@ module W3cApi
           updated
           identifier
           nickname
+          service
           profile_picture
         ].each do |key|
           map key.to_s.tr('_', '-'), to: key
