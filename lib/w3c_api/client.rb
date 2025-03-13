@@ -59,7 +59,7 @@ module W3cApi
       Hal.instance.register.fetch(:serie_specification_resource, shortname: shortname)
     end
 
-    # # Group methods
+    # Group methods
 
     def groups(options = {})
       Hal.instance.register.fetch(:group_index)
@@ -81,31 +81,19 @@ module W3cApi
       Hal.instance.register.fetch(:group_charters_index, id: id)
     end
 
-    # def group_chairs(id, options = {})
-    #   response = get("groups/#{id}/chairs", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Users)
-    #   page_class.from_json(response.to_json)
-    # rescue Lutaml::Hal::NotFoundError
-    #   # Return empty users collection when endpoint not found
-    #   Models::Users.from_response([])
-    # end
+    def group_chairs(id, options = {})
+      Hal.instance.register.fetch(:group_chairs_index, id: id)
+    end
 
-    # def group_team_contacts(id, options = {})
-    #   response = get("groups/#{id}/teamcontacts", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Users)
-    #   page_class.from_json(response.to_json)
-    # rescue Lutaml::Hal::NotFoundError
-    #   # Return empty users collection when endpoint not found
-    #   Models::Users.from_response([])
-    # end
+    def group_team_contacts(id, options = {})
+      Hal.instance.register.fetch(:group_team_contacts_index, id: id)
+    end
 
-    # def group_participations(id, options = {})
-    #   response = get("groups/#{id}/participations", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Participations)
-    #   page_class.from_json(response.to_json)
-    # end
+    def group_participations(id, options = {})
+      Hal.instance.register.fetch(:group_participations_index, id: id)
+    end
 
-    # # User methods
+    # User methods
 
     # def users(options = {})
     #   raise ArgumentError,
@@ -140,7 +128,7 @@ module W3cApi
       Hal.instance.register.fetch(:user_specifications_index, hash: hash)
     end
 
-    # # Translation methods
+    # Translation methods
 
     def translations(options = {})
       Hal.instance.register.fetch(:translation_index)
@@ -160,17 +148,13 @@ module W3cApi
       Hal.instance.register.fetch(:affiliation_resource, id: id)
     end
 
-    # def affiliation_participants(id, options = {})
-    #   response = get("affiliations/#{id}/participants", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Users)
-    #   page_class.from_json(response.to_json)
-    # end
+    def affiliation_participants(id, options = {})
+      Hal.instance.register.fetch(:affiliation_participants_index, id: id)
+    end
 
-    # def affiliation_participations(id, options = {})
-    #   response = get("affiliations/#{id}/participations", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Participations)
-    #   page_class.from_json(response.to_json)
-    # end
+    def affiliation_participations(id, options = {})
+      Hal.instance.register.fetch(:affiliation_participations_index, id: id)
+    end
 
     # Ecosystem methods
 
@@ -182,35 +166,26 @@ module W3cApi
       Hal.instance.register.fetch(:ecosystem_resource, id: id)
     end
 
-    # def ecosystem_groups(shortname, options = {})
-    #   response = get("ecosystems/#{shortname}/groups", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Groups)
-    #   page_class.from_json(response.to_json)
-    # end
+    def ecosystem_groups(shortname, options = {})
+      Hal.instance.register.fetch(:ecosystem_groups_index, shortname: shortname)
+    end
 
-    # def ecosystem_evangelists(shortname, options = {})
-    #   response = get("ecosystems/#{shortname}/evangelists", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Users)
-    #   page_class.from_json(response.to_json)
-    # end
+    def ecosystem_evangelists(shortname, options = {})
+      Hal.instance.register.fetch(:ecosystem_evangelists_index, shortname: shortname)
+    end
 
-    # def ecosystem_member_organizations(shortname, options = {})
-    #   response = get("ecosystems/#{shortname}/member-organizations", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Affiliations)
-    #   page_class.from_json(response.to_json)
-    # end
+    def ecosystem_member_organizations(shortname, options = {})
+      Hal.instance.register.fetch(:ecosystem_member_organizations_index, shortname: shortname)
+    end
 
-    # # Participation methods
+    # Participation methods
 
-    # def participation(id, options = {})
-    #   response = get("participations/#{id}", options)
-    #   Models::Participation.from_json(response.to_json)
-    # end
+    def participation(id, options = {})
+      Hal.instance.register.fetch(:participation_resource, id: id)
+    end
 
-    # def participation_participants(id, options = {})
-    #   response = get("participations/#{id}/participants", options)
-    #   page_class = Lutaml::Hal::Page.create_subclass_for(Models::Users)
-    #   page_class.from_json(response.to_json)
-    # end
+    def participation_participants(id, options = {})
+      Hal.instance.register.fetch(:participation_participants_index, id: id)
+    end
   end
 end

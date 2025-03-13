@@ -34,8 +34,8 @@ module W3cApi
       hal_link :self, key: 'self', realize_class: 'Ecosystem'
       hal_link :champion, key: 'champion', realize_class: 'User'
       hal_link :evangelists, key: 'evangelists', realize_class: 'EvangelistIndex'
-      hal_link :groups, key: 'groups', realize_class: 'Group', collection: true
-      hal_link :member_organizations, key: 'member-organizations', realize_class: 'Organization', collection: true
+      hal_link :groups, key: 'groups', realize_class: 'GroupIndex'
+      hal_link :member_organizations, key: 'member-organizations', realize_class: 'AffiliationIndex'
 
       key_value do
         %i[

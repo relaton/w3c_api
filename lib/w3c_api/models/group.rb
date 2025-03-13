@@ -56,6 +56,7 @@ module W3cApi
     # Group model representing a W3C working group
     class Group < Lutaml::Hal::Resource
       attribute :id, :string
+      attribute :type, :string
       attribute :name, :string
       attribute :is_closed, :boolean
       attribute :description, :string
@@ -78,6 +79,7 @@ module W3cApi
       key_value do
         %i[
           id
+          type
           name
           is_closed
           description

@@ -793,6 +793,7 @@ groups:
 ----
 ====
 
+
 === Groups
 
 This command provides access to W3C groups.
@@ -859,6 +860,130 @@ _links:
     href: https://www.w3.org/immersive-web/
 ----
 ====
+
+==== Chairs
+
+Fetching chairs for a group.
+
+[source,shell]
+----
+# Fetch chairs for a group
+$ w3c_api group chairs --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api group chairs --id=109735
+---
+_links:
+  self:
+    href: https://api.w3.org/groups/109735/chairs?page=1&items=100
+    type: W3cApi::Models::ChairIndex
+  first:
+    href: https://api.w3.org/groups/109735/chairs?page=1&items=100
+    type: W3cApi::Models::ChairIndex
+  last:
+    href: https://api.w3.org/groups/109735/chairs?page=1&items=100
+    type: W3cApi::Models::ChairIndex
+  up:
+    href: https://api.w3.org/groups/109735
+    type: W3cApi::Models::ChairIndex
+  chairs:
+  - href: https://api.w3.org/users/basy63arxl448c8co0og8ocosocgc0w
+    title: Ada Rose Cannon
+    type: User
+  - href: https://api.w3.org/users/l88ca27n2b4sk00cogosk0skw4s8osc
+    title: Chris Wilson
+    type: User
+  - href: https://api.w3.org/users/m99jqkpi9m8oww84kw4gwccgc4g0ogs
+    title: Ayşegül Yönet
+    type: User
+----
+====
+
+==== Team contacts
+
+Fetching team contacts for a group.
+
+[source,shell]
+----
+# Fetch team contacts for a group
+$ w3c_api group team-contacts --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api group team-contacts --id=109735
+---
+_links:
+  self:
+    href: https://api.w3.org/groups/109735/teamcontacts?page=1&items=100
+    type: W3cApi::Models::TeamContactIndex
+  first:
+    href: https://api.w3.org/groups/109735/teamcontacts?page=1&items=100
+    type: W3cApi::Models::TeamContactIndex
+  last:
+    href: https://api.w3.org/groups/109735/teamcontacts?page=1&items=100
+    type: W3cApi::Models::TeamContactIndex
+  up:
+    href: https://api.w3.org/groups/109735
+    type: W3cApi::Models::TeamContactIndex
+  team-contacts:
+  - href: https://api.w3.org/users/1eb2xr7ab6zo0k8440o48swso408ksc
+    title: Atsushi Shimono
+    type: User
+----
+====
+
+==== Participations
+
+Fetching participations for a group.
+
+[source,shell]
+----
+# Fetch participations for a group
+$ w3c_api group participations --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api group participations --id=109735
+---
+_links:
+  self:
+    href: https://api.w3.org/groups/109735/participations?page=1&items=100
+    type: ParticipationIndex
+  first:
+    href: https://api.w3.org/groups/109735/participations?page=1&items=100
+    type: ParticipationIndex
+  last:
+    href: https://api.w3.org/groups/109735/participations?page=1&items=100
+    type: ParticipationIndex
+  up:
+    href: https://api.w3.org/groups/109735
+    type: ParticipationIndex
+  participations:
+  - href: https://api.w3.org/participations/43367
+    title: Kodansha, Publishers, Ltd.
+    type: Participation
+  - href: https://api.w3.org/participations/43368
+    title: Institut National de Recherche en Informatique et en Automatique (Inria)
+    type: Participation
+  - href: https://api.w3.org/participations/43391
+    title: Igalia
+    type: Participation
+  - href: https://api.w3.org/participations/43415
+    title: Christine Perey
+    type: Participation
+----
+====
+
 
 ==== Specifications
 
@@ -1075,6 +1200,446 @@ translators:
 ----
 ====
 
+
+=== Ecosystem
+
+This command provides access to W3C ecosystems.
+
+==== Index
+
+Fetching an index of ecosystems.
+[source,shell]
+----
+# Fetch ecosystems
+$ w3c_api ecosystem fetch [OPTIONS]
+----
+[example]
+====
+[source,shell]
+----
+$ w3c_api ecosystem fetch
+---
+_links:
+  self:
+    href: https://api.w3.org/ecosystems?embed=0&page=1&items=100
+    type: W3cApi::Models::EcosystemIndex
+  first:
+    href: https://api.w3.org/ecosystems?embed=0&page=1&items=100
+    type: W3cApi::Models::EcosystemIndex
+  last:
+    href: https://api.w3.org/ecosystems?embed=0&page=1&items=100
+    type: W3cApi::Models::EcosystemIndex
+  ecosystems:
+  - href: https://api.w3.org/ecosystems/advertising
+    title: Web Advertising
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/e-commerce
+    title: E-commerce
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/media
+    title: Media & Entertainment
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/network-communications
+    title: Network & Communications
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/publishing
+    title: Publishing
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/smart-cities
+    title: Smart Cities
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/automotive-transportation
+    title: Automotive & Transportation
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/web-of-things
+    title: Web of Things
+    type: Ecosystem
+  - href: https://api.w3.org/ecosystems/data
+    title: Data and knowledge
+    type: Ecosystem
+----
+====
+
+==== Get
+
+Getting an ecosystem by shortname.
+
+[source,shell]
+----
+# Fetch an ecosystem
+$ w3c_api ecosystem fetch --shortname={shortname}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api ecosystem fetch --shortname=data
+---
+_links:
+  self:
+    href: https://api.w3.org/ecosystems/data
+    type: Ecosystem
+  champion:
+    href: https://api.w3.org/users/t891ludoisggsccsw44o8goccc0s0ks
+    title: Pierre-Antoine Champin
+    type: User
+  evangelists:
+    href: https://api.w3.org/ecosystems/data/evangelists
+    type: EvangelistIndex
+  groups:
+    href: https://api.w3.org/ecosystems/data/groups
+    type: GroupIndex
+  member-organizations:
+    href: https://api.w3.org/ecosystems/data/member-organizations
+    type: AffiliationIndex
+name: Data and knowledge
+shortname: data
+----
+====
+
+==== Evangelists
+
+Getting evangelists for an ecosystem.
+
+[source,shell]
+----
+# Fetch evangelists for an ecosystem
+$ w3c_api ecosystem evangelists --shortname={shortname}
+----
+[example]
+====
+[source,shell]
+----
+$ w3c_api ecosystem evangelists --shortname=publishing
+---
+_links:
+  self:
+    href: https://api.w3.org/ecosystems/publishing/evangelists?page=1&items=100
+    type: EvangelistIndex
+  first:
+    href: https://api.w3.org/ecosystems/publishing/evangelists?page=1&items=100
+    type: EvangelistIndex
+  last:
+    href: https://api.w3.org/ecosystems/publishing/evangelists?page=1&items=100
+    type: EvangelistIndex
+  up:
+    href: https://api.w3.org/ecosystems/publishing
+    type: EvangelistIndex
+  evangelists:
+  - href: https://api.w3.org/users/ni26g4n5gqskg8k80ssgw0ko048wgwg
+    title: Bill Kasdorf
+    type: User
+  - href: https://api.w3.org/users/a5eur9p2iyo0ws00448w4gcw4c8sock
+    title: Daihei Shiohama
+    type: User
+  - href: https://api.w3.org/users/qdkk81rtp344c44g0osoocgwwc8o4ss
+    title: Bobby Tung
+    type: User
+----
+====
+
+==== Groups
+
+Getting groups for an ecosystem.
+
+[source,shell]
+----
+# Fetch groups for an ecosystem
+$ w3c_api ecosystem groups --shortname={shortname}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api ecosystem groups --shortname=publishing
+---
+---
+_links:
+  self:
+    href: https://api.w3.org/ecosystems/publishing/groups?page=1&items=100
+    type: GroupIndex
+  first:
+    href: https://api.w3.org/ecosystems/publishing/groups?page=1&items=100
+    type: GroupIndex
+  last:
+    href: https://api.w3.org/ecosystems/publishing/groups?page=1&items=100
+    type: GroupIndex
+  up:
+    href: https://api.w3.org/ecosystems/publishing
+    type: GroupIndex
+  groups:
+  - href: https://api.w3.org/groups/cg/a11y-discov-vocab
+    title: Accessibility Discoverability Vocabulary for Schema.org Community Group
+    type: Group
+  - href: https://api.w3.org/groups/cg/epub3
+    title: EPUB 3 Community Group
+    type: Group
+  - href: https://api.w3.org/groups/bg/publishingbg
+    title: Publishing Business Group
+    type: Group
+  - href: https://api.w3.org/groups/cg/publishingcg
+    title: Publishing Community Group
+    type: Group
+  - href: https://api.w3.org/groups/wg/pm
+    title: Publishing Maintenance Working Group
+    type: Group
+----
+====
+
+==== Member organizations
+
+Getting member organizations for an ecosystem.
+
+[source,shell]
+----
+# Fetch member organizations for an ecosystem
+$ w3c_api ecosystem member-organizations --shortname={shortname}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api ecosystem member-organizations --shortname=publishing
+---
+_links:
+  self:
+    href: https://api.w3.org/ecosystems/publishing/member-organizations?page=1&items=100
+    type: W3cApi::Models::AffiliationIndex
+  first:
+    href: https://api.w3.org/ecosystems/publishing/member-organizations?page=1&items=100
+    type: W3cApi::Models::AffiliationIndex
+  last:
+    href: https://api.w3.org/ecosystems/publishing/member-organizations?page=1&items=100
+    type: W3cApi::Models::AffiliationIndex
+  up:
+    href: https://api.w3.org/ecosystems/publishing
+    type: W3cApi::Models::AffiliationIndex
+  affiliations:
+  - href: https://api.w3.org/affiliations/56103
+    title: ACCESS CO., LTD.
+    type: Affiliation
+  - href: https://api.w3.org/affiliations/1057
+    title: Adobe
+    type: Affiliation
+  - href: https://api.w3.org/affiliations/108617
+    title: Amazon
+    type: Affiliation
+  - href: https://api.w3.org/affiliations/43420
+    title: Apache Software Foundation
+    type: Affiliation
+...
+----
+====
+
+=== Affiliations
+
+==== Index
+
+Fetching an index of affiliations.
+
+[source,shell]
+----
+# Fetch affiliations
+$ w3c_api affiliation fetch [OPTIONS]
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api affiliation fetch
+----
+====
+
+==== Get
+
+Getting an affiliation by ID.
+
+[source,shell]
+----
+# Fetch an affiliation
+$ w3c_api affiliation fetch --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+# Fetch an affiliation
+$ w3c_api affiliation fetch --id=1001
+---
+_links:
+  self:
+    href: https://api.w3.org/affiliations/1001
+    type: Affiliation
+  homepage:
+    href: http://www.framkom.se
+    type: String
+  participants:
+    href: https://api.w3.org/affiliations/1001/participants
+    type: Participant
+  participations:
+    href: https://api.w3.org/affiliations/1001/participations
+    type: Participation
+id: 1001
+name: Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)
+discr: organization
+is-member: false
+is-member-association: false
+is-partner-member: false
+----
+====
+
+==== Participants
+
+Getting participants for an affiliation.
+
+[source,shell]
+----
+# Fetch participants for an affiliation
+$ w3c_api affiliation participants --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api affiliation participants --id=1104
+---
+_links:
+  self:
+    href: https://api.w3.org/affiliations/1104/participants?page=1&items=100
+    type: W3cApi::Models::ParticipantIndex
+  first:
+    href: https://api.w3.org/affiliations/1104/participants?page=1&items=100
+    type: W3cApi::Models::ParticipantIndex
+  last:
+    href: https://api.w3.org/affiliations/1104/participants?page=1&items=100
+    type: W3cApi::Models::ParticipantIndex
+  up:
+    href: https://api.w3.org/affiliations/1104
+    type: W3cApi::Models::ParticipantIndex
+  participants:
+  - href: https://api.w3.org/users/j2d10std2l4ck448woccowg8cg8g8go
+    title: Jean-Luc Chevillard
+    type: User
+----
+====
+
+
+==== Participations
+
+Getting participations for an affiliation.
+
+[source,shell]
+----
+# Fetch participations for an affiliation
+$ w3c_api affiliation participations --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api affiliation participations --id=1104
+---
+_links:
+  self:
+    href: https://api.w3.org/affiliations/1104/participations?page=1&items=100
+    type: ParticipationIndex
+  first:
+    href: https://api.w3.org/affiliations/1104/participations?page=1&items=100
+    type: ParticipationIndex
+  last:
+    href: https://api.w3.org/affiliations/1104/participations?page=1&items=100
+    type: ParticipationIndex
+  up:
+    href: https://api.w3.org/affiliations/1104
+    type: ParticipationIndex
+  participations:
+  - href: https://api.w3.org/participations/32932
+    title: XQuery and XSLT Extensions Community Group
+    type: Participation
+----
+====
+
+=== Participations
+
+==== Get
+
+Getting a participation by ID.
+
+[source,shell]
+----
+# Fetch a participation
+$ w3c_api participation fetch --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api participation fetch --id=32932
+---
+_links:
+  self:
+    href: https://api.w3.org/participations/32932
+    type: Participation
+  group:
+    href: https://api.w3.org/groups/cg/xslt-40
+    title: XQuery and XSLT Extensions Community Group
+    type: Group
+  organization:
+    href: https://api.w3.org/affiliations/1104
+    title: CNRS
+    type: Affiliation
+  participants:
+    href: https://api.w3.org/participations/32932/participants
+    type: W3cApi::Models::ParticipantIndex
+individual: false
+invited-expert: false
+created: '2020-11-28T05:59:24+00:00'
+----
+====
+
+==== Participants
+
+Getting participants for a participation.
+
+[source,shell]
+----
+# Fetch participants for a participation
+$ w3c_api participation participants --id={id}
+----
+
+[example]
+====
+[source,shell]
+----
+$ w3c_api participation participants --id=32932
+---
+_links:
+  self:
+    href: https://api.w3.org/participations/32932/participants?page=1&items=100
+    type: W3cApi::Models::ParticipantIndex
+  first:
+    href: https://api.w3.org/participations/32932/participants?page=1&items=100
+    type: W3cApi::Models::ParticipantIndex
+  last:
+    href: https://api.w3.org/participations/32932/participants?page=1&items=100
+    type: W3cApi::Models::ParticipantIndex
+  up:
+    href: https://api.w3.org/participations/32932
+    type: W3cApi::Models::ParticipantIndex
+  participants:
+  - href: https://api.w3.org/users/j2d10std2l4ck448woccowg8cg8g8go
+    title: Jean-Luc Chevillard
+    type: User
+----
+====
 
 
 == Debug mode

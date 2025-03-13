@@ -25,13 +25,21 @@ module W3cApi
       register.add_endpoint(id: :affiliation_index, type: :index, url: '/affiliations', model: Models::AffiliationIndex)
       register.add_endpoint(id: :affiliation_resource, type: :resource, url: '/affiliations/{id}',
                             model: Models::Affiliation)
+      register.add_endpoint(id: :affiliation_participants_index, type: :index, url: '/affiliations/{id}/participants',
+                            model: Models::ParticipantIndex)
+      register.add_endpoint(id: :affiliation_participations_index, type: :index, url: '/affiliations/{id}/participations',
+                            model: Models::ParticipationIndex)
 
       # register.add_endpoint(id: :charter_resource, type: :resource, url: '/charters/{id}', model: Models::Charter)
 
       register.add_endpoint(id: :ecosystem_index, type: :index, url: '/ecosystems', model: Models::EcosystemIndex)
       register.add_endpoint(id: :ecosystem_resource, type: :resource, url: '/ecosystems/{id}', model: Models::Ecosystem)
-      register.add_endpoint(id: :ecosystem_resource_evangelists, type: :index, url: '/ecosystems/{id}/evangelists',
+      register.add_endpoint(id: :ecosystem_evangelists_index, type: :index, url: '/ecosystems/{shortname}/evangelists',
                             model: Models::EvangelistIndex)
+      register.add_endpoint(id: :ecosystem_groups_index, type: :index, url: '/ecosystems/{shortname}/groups',
+                            model: Models::GroupIndex)
+      register.add_endpoint(id: :ecosystem_member_organizations_index, type: :index, url: '/ecosystems/{shortname}/member-organizations',
+                            model: Models::AffiliationIndex)
 
       register.add_endpoint(id: :group_index, type: :index, url: '/groups', model: Models::GroupIndex)
       register.add_endpoint(id: :group_resource, type: :resource, url: '/groups/{id}', model: Models::Group)
@@ -41,10 +49,18 @@ module W3cApi
                             model: Models::CharterIndex)
       register.add_endpoint(id: :group_users_index, type: :index, url: '/groups/{id}/users',
                             model: Models::UserIndex)
+      register.add_endpoint(id: :group_chairs_index, type: :index, url: '/groups/{id}/chairs',
+                            model: Models::ChairIndex)
+      register.add_endpoint(id: :group_team_contacts_index, type: :index, url: '/groups/{id}/teamcontacts',
+                            model: Models::TeamContactIndex)
+      register.add_endpoint(id: :group_participations_index, type: :index, url: '/groups/{id}/participations',
+                            model: Models::ParticipationIndex)
 
-      # # register.add_endpoint(id: :participation_index, type: :index, url: '/participations', model: Models::ParticipationIndex)
-      # register.add_endpoint(id: :participation_resource, type: :resource, url: '/participations/{id}',
-      #                       model: Models::Participation)
+      # register.add_endpoint(id: :participation_index, type: :index, url: '/participations', model: Models::ParticipationIndex)
+      register.add_endpoint(id: :participation_resource, type: :resource, url: '/participations/{id}',
+                            model: Models::Participation)
+      register.add_endpoint(id: :participation_participants_index, type: :index, url: '/participations/{id}/participants',
+                            model: Models::ParticipantIndex)
 
       register.add_endpoint(id: :serie_index, type: :index, url: '/specification-series', model: Models::SerieIndex)
       register.add_endpoint(id: :serie_resource, type: :resource, url: '/specification-series/{shortname}',
@@ -131,14 +147,6 @@ module W3cApi
 
       register.add_endpoint(id: :user_specifications_index, type: :index, url: '/users/{hash}/specifications',
                             model: Models::SpecificationIndex)
-
-      # register.add_endpoint(id: :participation_resource_by_user, type: :resource,
-      #                       url: '/users/{hash}/participations/{id}',
-      #                       model: Models::Participation)
-      # register.add_endpoint(id: :participation_participants, type: :resource,
-      #                       url: '/participations/{participation}/participants',
-      #                       model: Models::Participant)
-      #
     end
   end
 end

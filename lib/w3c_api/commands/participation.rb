@@ -16,9 +16,7 @@ module W3cApi
       def fetch
         client = W3cApi::Client.new
         participation = client.participation(options[:id])
-        # Wrap in a collection for consistent output
-        participations = Models::Participations.new(participations: [participation])
-        output_results(participations, options[:format])
+        output_results(participation, options[:format])
       end
 
       desc 'participants', 'Fetch participants in a participation'
