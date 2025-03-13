@@ -7,9 +7,9 @@ RSpec.describe W3cApi::Commands::Affiliation do
   let(:affiliation_command) { described_class.new }
   let(:client) { instance_double(W3cApi::Client) }
   let(:affiliation) { instance_double(W3cApi::Models::Affiliation) }
-  let(:affiliations) { instance_double(W3cApi::Models::Affiliations) }
-  let(:users) { instance_double(W3cApi::Models::Users) }
-  let(:participations) { instance_double(W3cApi::Models::Participations) }
+  let(:affiliations) { instance_double(W3cApi::Models::AffiliationIndex) }
+  let(:users) { instance_double(W3cApi::Models::UserIndex) }
+  let(:participations) { instance_double(W3cApi::Models::ParticipationIndex) }
 
   before do
     allow(W3cApi::Client).to receive(:new).and_return(client)

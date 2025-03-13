@@ -10,8 +10,8 @@ RSpec.describe W3cApi::Cli do
     let(:spec_command) { W3cApi::Commands::Specification.new }
     let(:client) { instance_double(W3cApi::Client) }
     let(:specification) { instance_double(W3cApi::Models::Specification) }
-    let(:specifications) { instance_double(W3cApi::Models::Specifications) }
-    let(:versions) { instance_double(W3cApi::Models::SpecVersions) }
+    let(:specifications) { instance_double(W3cApi::Models::SpecificationIndex) }
+    let(:versions) { instance_double(W3cApi::Models::SpecVersionIndex) }
 
     before do
       allow(W3cApi::Client).to receive(:new).and_return(client)
@@ -92,9 +92,9 @@ RSpec.describe W3cApi::Cli do
     let(:group_command) { W3cApi::Commands::Group.new }
     let(:client) { instance_double(W3cApi::Client) }
     let(:group) { instance_double(W3cApi::Models::Group) }
-    let(:groups) { instance_double(W3cApi::Models::Groups) }
-    let(:users) { instance_double(W3cApi::Models::Users) }
-    let(:specifications) { instance_double(W3cApi::Models::Specifications) }
+    let(:groups) { instance_double(W3cApi::Models::GroupIndex) }
+    let(:users) { instance_double(W3cApi::Models::UserIndex) }
+    let(:specifications) { instance_double(W3cApi::Models::SpecificationIndex) }
 
     before do
       allow(W3cApi::Client).to receive(:new).and_return(client)
@@ -187,9 +187,9 @@ RSpec.describe W3cApi::Cli do
     let(:user_command) { W3cApi::Commands::User.new }
     let(:client) { instance_double(W3cApi::Client) }
     let(:user) { instance_double(W3cApi::Models::User) }
-    let(:groups) { instance_double(W3cApi::Models::Groups) }
-    let(:specifications) { instance_double(W3cApi::Models::Specifications) }
-    let(:affiliations) { instance_double(W3cApi::Models::Affiliations) }
+    let(:groups) { instance_double(W3cApi::Models::GroupIndex) }
+    let(:specifications) { instance_double(W3cApi::Models::SpecificationIndex) }
+    let(:affiliations) { instance_double(W3cApi::Models::AffiliationIndex) }
 
     before do
       allow(W3cApi::Client).to receive(:new).and_return(client)
@@ -277,7 +277,7 @@ RSpec.describe W3cApi::Cli do
     let(:translation_command) { W3cApi::Commands::Translation.new }
     let(:client) { instance_double(W3cApi::Client) }
     let(:translation) { instance_double(W3cApi::Models::Translation) }
-    let(:translations) { instance_double(W3cApi::Models::Translations) }
+    let(:translations) { instance_double(W3cApi::Models::TranslationIndex) }
 
     before do
       allow(W3cApi::Client).to receive(:new).and_return(client)
@@ -320,8 +320,8 @@ RSpec.describe W3cApi::Cli do
     let(:ecosystem_command) { W3cApi::Commands::Ecosystem.new }
     let(:client) { instance_double(W3cApi::Client) }
     let(:ecosystem) { instance_double(W3cApi::Models::Ecosystem) }
-    let(:ecosystems) { instance_double(W3cApi::Models::Ecosystems) }
-    let(:groups) { instance_double(W3cApi::Models::Groups) }
+    let(:ecosystems) { instance_double(W3cApi::Models::EcosystemIndex) }
+    let(:groups) { instance_double(W3cApi::Models::GroupIndex) }
 
     before do
       allow(W3cApi::Client).to receive(:new).and_return(client)
