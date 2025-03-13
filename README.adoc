@@ -117,62 +117,57 @@ client = W3cApi::Client.new
 specifications = client.specifications
 specification = client.specification('webrtc')
 
-# TODO: Make them work again
+versions = client.specification_versions('webrtc')
+version = client.specification_version('webrtc', '20241008')
+specs_by_status = client.specifications_by_status('Recommendation')
 
-# versions = client.specification_versions('webrtc')
-# version = client.specification_version('webrtc', '20241008')
-# specs_by_status = client.specifications_by_status('Recommendation')
-#
-# # Work with linked resources directly
-# spec = client.specification('webrtc')
-# spec_versions = spec.versions         # Automatically resolves the version-history link
-# latest = spec.latest_version          # Automatically resolves the latest-version link
-# series = spec.series                  # Automatically resolves the series link
-# editors = spec.editors                # Fetch editors for this specification
-# deliverers = spec.deliverers          # Fetch deliverers (working groups) for this specification
-#
-# # Get specification series
-# series_list = client.series
-# series = client.series_by_shortname('webrtc')
-# series_specs = client.series_specifications('webrtc')
-#
-# # Get groups
-# groups = client.groups
-# group = client.group(109735)  # Immersive Web Working Group
-# users = client.group_users(109735)
-# specifications = client.group_specifications(109735)
-# charters = client.group_charters(109735)
-# chairs = client.group_chairs(109735)
-# team_contacts = client.group_team_contacts(109735)
-#
-# # Use link resolution with groups
-# group = client.group(109735)
-# specs = group.specifications          # Automatically resolves the specifications link
-# users = group.users                   # Automatically resolves the users link
-# chairs = group.chairs                 # Automatically resolves the chairs link
-# charters = group.charters             # Automatically resolves the charters link
-#
-# # Get users
-# users = client.users
-# user = client.user('f1ovb5rydm8s0go04oco0cgk0sow44w')
-# groups = client.user_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
-# specs = client.user_specifications('f1ovb5rydm8s0go04oco0cgk0sow44w')
-# affiliations = client.user_affiliations('f1ovb5rydm8s0go04oco0cgk0sow44w')
-# participations = client.user_participations('f1ovb5rydm8s0go04oco0cgk0sow44w')
-# chair_groups = client.user_chair_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
-# team_contact_groups = client.user_team_contact_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
-#
-# # Get affiliations
-# affiliations = client.affiliations
-# affiliation = client.affiliation(35662)  # Google LLC
-# participants = client.affiliation_participants(35662)
-# participations = client.affiliation_participations(35662)
-#
-# # Work with other resources
-# translations = client.translations
-# translation = client.translation(2)
-# ecosystems = client.ecosystems
-# ecosystem = client.ecosystem('data')
+# Work with linked resources directly
+spec = client.specification('webrtc')
+spec_versions = spec.links.versions
+latest = spec.links.latest_version.realize # Resolves the latest-version link
+series = spec.links.series
+editors = spec.links.editors
+deliverers = spec.links.deliverers
+
+# Get groups
+groups = client.groups
+group = client.group(109735)  # Immersive Web Working Group
+users = client.group_users(109735)
+specifications = client.group_specifications(109735)
+charters = client.group_charters(109735)
+chairs = client.group_chairs(109735)
+team_contacts = client.group_team_contacts(109735)
+
+# Use link resolution with groups
+group = client.group(109735)
+specs = group.links.specifications
+users = group.links.users
+chairs = group.links.chairs
+charters = group.links.charters
+
+# Get users
+users = client.users
+user = client.user('f1ovb5rydm8s0go04oco0cgk0sow44w')
+groups = client.user_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
+specs = client.user_specifications('f1ovb5rydm8s0go04oco0cgk0sow44w')
+affiliations = client.user_affiliations('f1ovb5rydm8s0go04oco0cgk0sow44w')
+participations = client.user_participations('f1ovb5rydm8s0go04oco0cgk0sow44w')
+chair_groups = client.user_chair_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
+team_contact_groups = client.user_team_contact_of_groups('f1ovb5rydm8s0go04oco0cgk0sow44w')
+
+# Get affiliations
+affiliations = client.affiliations
+affiliation = client.affiliation(35662)  # Google LLC
+participants = client.affiliation_participants(35662)
+participations = client.affiliation_participations(35662)
+
+# Translations
+translations = client.translations
+translation = client.translation(2)
+
+# Ecosystems
+ecosystems = client.ecosystems
+ecosystem = client.ecosystem('data')
 ----
 
 === Models
@@ -402,61 +397,61 @@ specifications:
 ----
 ====
 
-=== Specification version
+// === Specification version
 
-TODO: This section is not yet implemented!
+// TODO: This is not yet implemented!
 
-==== Editors
+// ==== Editors
 
-TODO: This section is not yet implemented!
+// TODO: This is not yet implemented!
 
-This command provides access to editors of a specification version.
+// This command provides access to editors of a specification version.
 
-[source,shell]
-----
-# Fetch editors of a specification version
-$ w3c_api specification-version editors --shortname=webrtc --version=20241008
-----
+// [source,shell]
+// ----
+// # Fetch editors of a specification version
+// $ w3c_api specification-version editors --shortname=webrtc --version=20241008
+// ----
 
-[example]
-====
-[source,shell]
-----
-$ w3c_api specification-version editors --shortname=webrtc --version=20241008
----
-users:
-- href: https://api.w3.org/users/p3dte6mpoj4sgw888w8kw4w4skwosck
-  title: Cullen Jennings
-- href: https://api.w3.org/users/kjqsxbe6kioko4s88s4wocws848kgw8
-  title: Bernard Aboba
-- href: https://api.w3.org/users/t9qq83owlzkck404w0o44so8owc00gg
-  title: Jan-Ivar Bruaroey
-----
-====
+// [example]
+// ====
+// [source,shell]
+// ----
+// $ w3c_api specification-version editors --shortname=webrtc --version=20241008
+// ---
+// users:
+// - href: https://api.w3.org/users/p3dte6mpoj4sgw888w8kw4w4skwosck
+//   title: Cullen Jennings
+// - href: https://api.w3.org/users/kjqsxbe6kioko4s88s4wocws848kgw8
+//   title: Bernard Aboba
+// - href: https://api.w3.org/users/t9qq83owlzkck404w0o44so8owc00gg
+//   title: Jan-Ivar Bruaroey
+// ----
+// ====
 
-==== Deliverers
+// ==== Deliverers
 
-TODO: This section is not yet implemented!
+// TODO: This is not yet implemented!
 
-This command provides access to deliverers (working groups) of a specification version.
+// This command provides access to deliverers (working groups) of a specification version.
 
-[source,shell]
-----
-# Fetch deliverers of a specification version
-$ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
-----
+// [source,shell]
+// ----
+// # Fetch deliverers of a specification version
+// $ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
+// ----
 
-[example]
-====
-[source,shell]
-----
-$ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
----
-groups:
-- href: https://api.w3.org/groups/wg/webrtc
-  title: Web Real-Time Communications Working Group
-----
-====
+// [example]
+// ====
+// [source,shell]
+// ----
+// $ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
+// ---
+// groups:
+// - href: https://api.w3.org/groups/wg/webrtc
+//   title: Web Real-Time Communications Working Group
+// ----
+// ====
 
 === Series
 
