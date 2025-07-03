@@ -1,0 +1,186 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=5&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:03 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:07:50 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '193'
+      set-cookie:
+      - __cf_bm=lMSVnrgfGwdCBT8WrE50qnNvI9nBLpUQWMStkIEYWf0-1751551863-1.0.1.1-kI1QO6sJY7zI4VhXnCchzso8WDk8oVRoGPp805WKeCEyt1dABm1qZHZGAWLoS9JjGDl5sd4c4V33p93R0WfR4lvtXDhnG9TavbzIw_M.TBw;
+        path=/; expires=Thu, 03-Jul-25 14:41:03 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84d78b98b4b-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 5,
+            "pages": 329,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/cors",
+                        "title": "Cross-Origin Resource Sharing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/abstract-ui",
+                        "title": "MBUI - Abstract User Interface Models"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accelerometer",
+                        "title": "Accelerometer"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=1&items=5"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=5"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=329&items=5"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=2&items=5"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=5&page=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:03 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:07:50 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '193'
+      set-cookie:
+      - __cf_bm=vM7s5dUBTyvX4irfWCx2AbVcUtr9ryauUtlleYS.EcQ-1751551863-1.0.1.1-NwflqAPPNKKq3e7rOEiVjaPhXK1rUi7li3eu5jTmDqHOuDkyBZyV79Y8oE266j7FW5XKjO3ZMLWFt3q58PrG8WbFdRnNw8Pcg088arZpQHI;
+        path=/; expires=Thu, 03-Jul-25 14:41:03 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84deefd25d4-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 2,
+            "limit": 5,
+            "pages": 329,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/acdi",
+                        "title": "Authoring Challenges for Device Independence"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-metrics-report",
+                        "title": "Research Report on Web Accessibility Metrics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.1",
+                        "title": "Accessible Name and Description Computation 1.1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.2",
+                        "title": "Accessible Name and Description Computation 1.2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-conformance-challenges",
+                        "title": "Challenges with Accessibility Guidelines Conformance and Testing, and Approaches for Mitigating Them"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=2&items=5"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=5"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=329&items=5"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=3&items=5"
+                },
+                "previous": {
+                    "href": "https://api.w3.org/specifications?page=1&items=5"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+recorded_with: VCR 6.3.1

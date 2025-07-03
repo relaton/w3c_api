@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series?items=3&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:03 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:08:38 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '145'
+      set-cookie:
+      - __cf_bm=WxkAHNsMpHsD1n.aQdcY7CCMa0pcpWMS8q6f1Xf.jU0-1751551863-1.0.1.1-2zGIwu5w4Rm7NwbBS_P6STI4Ym1EF8ugYa719_JsQflIw7TZYzD15U20ett.lxW.BmDXsTKEVACfgcugua8P1Hcun3FexAa_IMI0n_Mkonw;
+        path=/; expires=Thu, 03-Jul-25 14:41:03 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84c5ec00458-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 3,
+            "pages": 479,
+            "total": 1437,
+            "_links": {
+                "specification-series": [
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-AuthExt",
+                        "title": "SMIL-AuthExt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Editing",
+                        "title": "Editing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCA-terms",
+                        "title": "WCA-terms"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specification-series?page=479&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specification-series?page=2&items=3"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+recorded_with: VCR 6.3.1
