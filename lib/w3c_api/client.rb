@@ -20,8 +20,12 @@ module W3cApi
     end
 
     def specification_version(shortname, version, options = {})
-      Hal.instance.register.fetch(:specification_resource_version_resource, shortname: shortname, version: version,
-                                                                            **options)
+      Hal.instance.register.fetch(
+        :specification_resource_version_resource,
+        shortname: shortname,
+        version: version,
+        **options
+      )
     end
 
     def specifications_by_status(status, options = {})
@@ -98,7 +102,8 @@ module W3cApi
 
     # def users(options = {})
     #   raise ArgumentError,
-    #         'The W3C API does not support fetching all users. You must provide a specific user ID with the user method.'
+    #     'The W3C API does not support fetching all users. ' \
+    #     'You must provide a specific user ID with the user method.'
     # end
 
     def user(hash, options = {})
