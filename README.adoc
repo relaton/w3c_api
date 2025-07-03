@@ -121,6 +121,18 @@ versions = client.specification_versions('webrtc')
 version = client.specification_version('webrtc', '20241008')
 specs_by_status = client.specifications_by_status('Recommendation')
 
+# Get predecessor and successor versions
+predecessors = client.specification_version_predecessors('webrtc', '20241008')
+successors = client.specification_version_successors('webrtc', '20241008')
+
+# Pagination and options support
+# All client methods support pagination and other HTTP options
+specifications = client.specifications(page: 2, per_page: 50)
+groups = client.groups(page: 1, per_page: 10)
+
+# Custom headers and timeouts
+user = client.user('hash', timeout: 30, headers: { 'User-Agent' => 'MyApp/1.0' })
+
 # Work with linked resources directly
 spec = client.specification('webrtc')
 spec_versions = spec.links.versions
