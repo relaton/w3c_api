@@ -1,0 +1,181 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups/109735
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:04 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Mon, 24 Sep 2018 12:58:10 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=NHFo_C_8K56ATjfduUep5IfaauBfi3X5i_q6idqTtzE-1751551864-1.0.1.1-wgVPnnoofC0gBB9JjCPWQ1c1yf39TJCoakw7qdOIRRL_VCySEgKdyw7LG2o0BHktEpd8ed8nBCNuVaggVgYmqnLRZxeZduYqgY6bmRkNOaA;
+        path=/; expires=Thu, 03-Jul-25 14:41:04 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f8517c21dd46-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 109735,
+            "name": "Immersive Web Working Group",
+            "is_closed": false,
+            "description": "The mission of the Immersive Web Working Group is to help bring high-performance Virtual Reality (VR) and Augmented Reality (AR) (collectively known as XR) to the open Web via APIs to interact with XR devices and sensors in browsers.",
+            "shortname": "immersive-web",
+            "discr": "w3cgroup",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web"
+                },
+                "homepage": {
+                    "href": "https://www.w3.org/immersive-web/"
+                },
+                "users": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/users"
+                },
+                "services": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/services"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/specifications"
+                },
+                "chairs": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/chairs"
+                },
+                "team-contacts": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/teamcontacts"
+                },
+                "charters": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/charters"
+                },
+                "active-charter": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/charters/514"
+                },
+                "join": {
+                    "href": "https://www.w3.org/groups/wg/immersive-web/join"
+                },
+                "pp-status": {
+                    "href": "https://www.w3.org/groups/wg/immersive-web/ipr"
+                },
+                "participations": {
+                    "href": "https://api.w3.org/groups/wg/immersive-web/participations"
+                }
+            },
+            "type": "working group",
+            "start-date": "2018-09-24",
+            "end-date": "2026-09-25"
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:04 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/groups/109735/specifications?items=3&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:44 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Wed, 21 May 2025 22:57:52 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=3.kJS3fGfSo7pwMfHNcOKhuE5Is8kF54.s1IFDLet2I-1751551904-1.0.1.1-audKAE0WPMY9LwYmKjHx4VwQHv.3MZ32zzw.RSl7GDyDt1RQhlqfdgTrdoKp8nVq2H4mYbqBGY3lwWugyrDE8ha66XXHVsjbbz3ghEBy_c0;
+        path=/; expires=Thu, 03-Jul-25 14:41:44 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f9499d3a6e49-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 3,
+            "pages": 3,
+            "total": 9,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/groups/109735"
+                },
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-lighting-estimation-1",
+                        "title": "WebXR Lighting Estimation API Level 1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-gamepads-module-1",
+                        "title": "WebXR Gamepads Module - Level 1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/webxr-hand-input-1",
+                        "title": "WebXR Hand Input Module - Level 1"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups/109735/specifications?page=1&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups/109735/specifications?page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups/109735/specifications?page=3&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/groups/109735/specifications?page=2&items=3"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:44 GMT
+recorded_with: VCR 6.3.1

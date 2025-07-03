@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=5&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:03 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:07:50 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '193'
+      set-cookie:
+      - __cf_bm=cyXkJ0viYPRXBKh5kpDeotE7AbxU628rkX47.MU2KLs-1751551863-1.0.1.1-ZTdd1AUEJsl52mEugQVlhlEPDCGYDBede.IAdK4oPZTrlmmNT05zpKX8E2crMobdkXRFpeNAs6_98v9KKqqxICSCEzIgOOvytgj._R9sCoA;
+        path=/; expires=Thu, 03-Jul-25 14:41:03 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84b2f339590-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 5,
+            "pages": 329,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/cors",
+                        "title": "Cross-Origin Resource Sharing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/abstract-ui",
+                        "title": "MBUI - Abstract User Interface Models"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accelerometer",
+                        "title": "Accelerometer"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=1&items=5"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=5"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=329&items=5"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=2&items=5"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+recorded_with: VCR 6.3.1

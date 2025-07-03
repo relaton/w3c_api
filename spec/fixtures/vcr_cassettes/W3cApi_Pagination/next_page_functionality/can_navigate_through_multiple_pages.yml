@@ -1,0 +1,253 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=3&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:04 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:08:36 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '148'
+      set-cookie:
+      - __cf_bm=gFe..BaMJlJvi7_WMh5WfJECfWsrxkIgDThStUwyOxY-1751551864-1.0.1.1-cjN3Xz9SEiMPMXERwPa1nRsDzZ1KZjFmaKe6AN9O_eh_yP08NCCCTWA05xQ0bBPt..X1CNYwNPUOGRnD.R3OpfnObiMSJFpI6_ha3YxZsco;
+        path=/; expires=Thu, 03-Jul-25 14:41:04 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84e9d8508dd-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 3,
+            "pages": 548,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/abstract-ui",
+                        "title": "MBUI - Abstract User Interface Models"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=1&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=548&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=2&items=3"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:04 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=3&page=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:04 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:08:36 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '148'
+      set-cookie:
+      - __cf_bm=efTnbO2Qua_TajVYLpaE6477ZBEEUarq_xWvYveWtYM-1751551864-1.0.1.1-ffixBCdbqi8aZeUze.sYPffi8VeUed14btPXt3q7OmpdMHju_sEFG8Ddk6_eJmz0_DyfG_0LwtC2PHvole8Bccnab.wFQxC290PXiY9WccI;
+        path=/; expires=Thu, 03-Jul-25 14:41:04 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84ef9391f59-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 2,
+            "limit": 3,
+            "pages": 548,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/cors",
+                        "title": "Cross-Origin Resource Sharing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accelerometer",
+                        "title": "Accelerometer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-conformance-challenges",
+                        "title": "Challenges with Accessibility Guidelines Conformance and Testing, and Approaches for Mitigating Them"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=2&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=548&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=3&items=3"
+                },
+                "previous": {
+                    "href": "https://api.w3.org/specifications?page=1&items=3"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:04 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=3&page=3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:04 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:11:04 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=0NjE1HPNOac4A9GJoexag9bFFnUieYLtNQq56dv1His-1751551864-1.0.1.1-KlBJ6jpzlGuIeMxbiWCrag7s1PnDyS78ScBHOfJ7iAV7JqW5iiwl8A1pJcPfLwzFCTO_XKOMr3ijMNe_79VJwy9XBbX5lGi3IvhZe7fZyow;
+        path=/; expires=Thu, 03-Jul-25 14:41:04 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84f6825853f-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 3,
+            "limit": 3,
+            "pages": 548,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-metrics-report",
+                        "title": "Research Report on Web Accessibility Metrics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.1",
+                        "title": "Accessible Name and Description Computation 1.1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.2",
+                        "title": "Accessible Name and Description Computation 1.2"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=3&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=548&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=4&items=3"
+                },
+                "previous": {
+                    "href": "https://api.w3.org/specifications?page=2&items=3"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:04 GMT
+recorded_with: VCR 6.3.1

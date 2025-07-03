@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups?items=3&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:03 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Wed, 02 Jul 2025 10:02:54 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '146'
+      set-cookie:
+      - __cf_bm=o.g_ZDcb1dHluPjpqwMs_N1BCKcXjTjdLD2_odG3nRs-1751551863-1.0.1.1-B3Ei9mMxjqSsleBrODX9TjsztDy_wrwo1l8OQGbHtwNC6bH.bDAcOlzZ9Zk6UhGpu_ZQuUKvqtjYKMrRj.0yUrynU2X7RFeCnnTMopKIO14;
+        path=/; expires=Thu, 03-Jul-25 14:41:03 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f84b99947158-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 3,
+            "pages": 88,
+            "total": 263,
+            "_links": {
+                "groups": [
+                    {
+                        "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
+                        "title": "AB Liaisons to the Board of Directors"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/a11yedge",
+                        "title": "Accessibility at the Edge Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/tf/wcag-act",
+                        "title": "Accessibility Conformance Testing (ACT) Task Force"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups?page=1&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups?page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups?page=88&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/groups?page=2&items=3"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+recorded_with: VCR 6.3.1

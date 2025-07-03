@@ -1,0 +1,133 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/affiliations/35662
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:05 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Fri, 10 Feb 2023 22:27:39 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=C9S5EEiLJHxZjaDP6Q1dO.f2Eh14.KDmeq01CcZIYOQ-1751551865-1.0.1.1-QyRZstkgQpwagNfqnOPyWrJHmJ6hgMHJceli8Nvp9cPo1EhF6So9EUaYRcGKU6bo5XxsNVmjAmpPPexmKFB9n0tbu7Qp.Df.TXuoTXxTNVY;
+        path=/; expires=Thu, 03-Jul-25 14:41:05 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f853fe9609d4-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgImlkIjogMzU2NjIsCiAgICAibmFtZSI6ICJHb29nbGUgTExDIiwKICAgICJkaXNjciI6ICJvcmdhbml6YXRpb24iLAogICAgInRlc3RpbW9uaWFscyI6IHsKICAgICAgICAiZW4iOiAiR29vZ2xlJ3MgbWlzc2lvbiBpcyB0byBvcmdhbml6ZSB0aGUgd29ybGTigJlzIGluZm9ybWF0aW9uIGFuZCBtYWtlIGl0IHVuaXZlcnNhbGx5IGFjY2Vzc2libGUgYW5kIHVzZWZ1bC4iCiAgICB9LAogICAgImlzLW1lbWJlciI6IHRydWUsCiAgICAiaXMtbWVtYmVyLWFzc29jaWF0aW9uIjogZmFsc2UsCiAgICAiaXMtcGFydG5lci1tZW1iZXIiOiBmYWxzZSwKICAgICJfbGlua3MiOiB7CiAgICAgICAgImhvbWVwYWdlIjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwOi8vd3d3Lmdvb2dsZS5jb20vIgogICAgICAgIH0sCiAgICAgICAgInNlbGYiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9hZmZpbGlhdGlvbnMvMzU2NjIiCiAgICAgICAgfSwKICAgICAgICAicGFydGljaXBhbnRzIjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvYWZmaWxpYXRpb25zLzM1NjYyL3BhcnRpY2lwYW50cyIKICAgICAgICB9LAogICAgICAgICJwYXJ0aWNpcGF0aW9ucyI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2FmZmlsaWF0aW9ucy8zNTY2Mi9wYXJ0aWNpcGF0aW9ucyIKICAgICAgICB9LAogICAgICAgICJsb2dvIjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL3d3dy53My5vcmcvdGh1bWJuYWlscy8yNTAvbG9nb3Mvb3JnYW5pemF0aW9ucy8zNTY2Mi5wbmc/eC12ZXJzaW9uPTEiCiAgICAgICAgfQogICAgfQp9
+  recorded_at: Thu, 03 Jul 2025 14:11:05 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/affiliations/35662/participants?items=3&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:45 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Fri, 27 Jun 2025 00:16:44 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=2yzYGmH9GUfGfeXQvM.pC79EpMCOyjzVAbefwTKmUtc-1751551905-1.0.1.1-4dV0Y0qdy01C229TyRHHPNNORaT05NELf0WmmOiRwadGQC.kpL5z8PbLLM4w.Ki5Gd2ah9BTL.N1pPJ7S2PzO8RGqpALWuSy7WPM202dY.c;
+        path=/; expires=Thu, 03-Jul-25 14:41:45 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f94f2e311fbe-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 3,
+            "pages": 236,
+            "total": 707,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/affiliations/35662"
+                },
+                "participants": [
+                    {
+                        "href": "https://api.w3.org/users/p3dte6mpoj4sgw888w8kw4w4skwosck",
+                        "title": "Tab Atkins Jr."
+                    },
+                    {
+                        "href": "https://api.w3.org/users/l88ca27n2b4sk00cogosk0skw4s8osc",
+                        "title": "Chris Wilson"
+                    },
+                    {
+                        "href": "https://api.w3.org/users/kjqsxbe6kioko4s88s4wocws848kgw8",
+                        "title": "David Baron"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/affiliations/35662/participants?page=1&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/affiliations/35662/participants?page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/affiliations/35662/participants?page=236&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/affiliations/35662/participants?page=2&items=3"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:45 GMT
+recorded_with: VCR 6.3.1

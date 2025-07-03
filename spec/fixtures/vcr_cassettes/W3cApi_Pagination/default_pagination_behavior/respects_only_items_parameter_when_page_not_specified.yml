@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 03 Jul 2025 14:11:05 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Thu, 03 Jul 2025 14:11:05 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=ydYbt4IeFHItE4DWnExXbC88K3Ka7xSKY5hD5F2h_e0-1751551865-1.0.1.1-VWlROIVSkK2Bf_mezeZJUaZINkMr4jVbkQJtaMAkAioXsrZP1mt8gjyrnik0Z0WzS2dET0ognkEYZWMc5x6YyrTh0S5uwqtgrICbauYr0Sg;
+        path=/; expires=Thu, 03-Jul-25 14:41:05 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 9596f856ce9a3dda-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 10,
+            "pages": 165,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/acdi",
+                        "title": "Authoring Challenges for Device Independence"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/cors",
+                        "title": "Cross-Origin Resource Sharing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-metrics-report",
+                        "title": "Research Report on Web Accessibility Metrics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/abstract-ui",
+                        "title": "MBUI - Abstract User Interface Models"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.1",
+                        "title": "Accessible Name and Description Computation 1.1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accelerometer",
+                        "title": "Accelerometer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.2",
+                        "title": "Accessible Name and Description Computation 1.2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-conformance-challenges",
+                        "title": "Challenges with Accessibility Guidelines Conformance and Testing, and Approaches for Mitigating Them"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=1&items=10"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=10"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=165&items=10"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=2&items=10"
+                }
+            }
+        }
+  recorded_at: Thu, 03 Jul 2025 14:11:05 GMT
+recorded_with: VCR 6.3.1
