@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'lutaml/hal'
 #         {
 #             "created": "2021-03-12T22:06:06+00:00",

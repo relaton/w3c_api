@@ -11,7 +11,7 @@ require_relative 'translation'
 #     "translations"=>[
 #       {
 #         "href"=>"https://api.w3.org/translations/2",
-#         "title"=>"Vidéo : introduction à l’accessibilité web et aux standards du W3C",
+#         "title"=>"Vidéo : introduction à l'accessibilité web et aux standards du W3C",
 #         "language"=>"fr"
 #       },
 #       {
