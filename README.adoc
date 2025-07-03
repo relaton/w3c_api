@@ -125,13 +125,33 @@ specs_by_status = client.specifications_by_status('Recommendation')
 predecessors = client.specification_version_predecessors('webrtc', '20241008')
 successors = client.specification_version_successors('webrtc', '20241008')
 
-# Pagination and options support
-# All client methods support pagination and other HTTP options
-specifications = client.specifications(page: 2, per_page: 50)
-groups = client.groups(page: 1, per_page: 10)
+# All client methods support comprehensive options including:
 
-# Custom headers and timeouts
+# Pagination options
+specifications = client.specifications(page: 2, per_page: 50)
+groups = client.groups(page: 1, per_page: 10, limit: 25, offset: 100)
+
+# HTTP client options
 user = client.user('hash', timeout: 30, headers: { 'User-Agent' => 'MyApp/1.0' })
+spec = client.specification('html5', read_timeout: 45, open_timeout: 10)
+
+# Query parameters for filtering and sorting
+rec_specs = client.specifications_by_status('REC', sort: 'date', order: 'desc')
+active_groups = client.groups(type: 'working-group', status: 'active')
+
+# Combining multiple options
+options = {
+  page: 1,
+  per_page: 25,
+  headers: { 'Accept-Language' => 'en-US' },
+  timeout: 60,
+  sort: 'name'
+}
+specs = client.specifications(options)
+
+# Backward compatibility - existing code continues to work
+specifications = client.specifications  # No options
+specification = client.specification('webrtc')  # Required params only
 
 # Work with linked resources directly
 spec = client.specification('webrtc')
