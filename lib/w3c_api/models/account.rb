@@ -1,17 +1,19 @@
-require 'lutaml/hal'
-#         {
-#             "created": "2021-03-12T22:06:06+00:00",
-#             "service": "github",
-#             "identifier": "57469",
-#             "nickname": "jenstrickland",
-#             "profile-picture": "https://avatars.githubusercontent.com/u/57469?v=4",
-#             "href": "https://github.com/jenstrickland",
-#             "_links": {
-#                 "user": {
-#                     "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w"
-#                 }
-#             }
+# frozen_string_literal: true
+
+require "lutaml/hal"
+# {
+#     "created": "2021-03-12T22:06:06+00:00",
+#     "service": "github",
+#     "identifier": "57469",
+#     "nickname": "jenstrickland",
+#     "profile-picture": "https://avatars.githubusercontent.com/u/57469?v=4",
+#     "href": "https://github.com/jenstrickland",
+#     "_links": {
+#         "user": {
+#             "href": "https://api.w3.org/users/f1ovb5rydm8s0go04oco0cgk0sow44w"
 #         }
+#     }
+# }
 
 module W3cApi
   module Models
@@ -25,7 +27,7 @@ module W3cApi
       attribute :profile_picture, :string
       attribute :href, :string
 
-      hal_link :user, key: 'user', realize_class: 'User'
+      hal_link :user, key: "user", realize_class: "User"
 
       key_value do
         %i[
@@ -36,7 +38,7 @@ module W3cApi
           service
           profile_picture
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

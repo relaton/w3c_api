@@ -5,7 +5,10 @@
 #     "id": 109735,
 #     "name": "Immersive Web Working Group",
 #     "is_closed": false,
-#     "description": "The mission of the Immersive Web Working Group is to help bring high-performance Virtual Reality (VR) and Augmented Reality (AR) (collectively known as XR) to the open Web via APIs to interact with XR devices and sensors in browsers.",
+#     "description": "The mission of the Immersive Web Working Group is to help
+#     bring high-performance Virtual Reality (VR) and Augmented Reality (AR)
+#     (collectively known as XR) to the open Web via APIs to interact with XR
+#     devices and sensors in browsers.",
 #     "shortname": "immersive-web",
 #     "discr": "w3cgroup",
 #     "_links": {
@@ -63,18 +66,20 @@ module W3cApi
       attribute :shortname, :string
       attribute :discr, :string
 
-      hal_link :self, key: 'self', realize_class: 'Group'
-      hal_link :homepage, key: 'homepage', realize_class: 'String'
-      hal_link :users, key: 'users', realize_class: 'UserIndex'
+      hal_link :self, key: "self", realize_class: "Group"
+      hal_link :homepage, key: "homepage", realize_class: "String"
+      hal_link :users, key: "users", realize_class: "UserIndex"
       # hal_link :services, key: 'services', realize_class: 'ServiceIndex'
-      hal_link :specifications, key: 'specifications', realize_class: 'SpecificationIndex'
-      hal_link :chairs, key: 'chairs', realize_class: 'UserIndex'
-      hal_link :team_contacts, key: 'team-contacts', realize_class: 'UserIndex'
-      hal_link :charters, key: 'charters', realize_class: 'CharterIndex'
-      hal_link :active_charters, key: 'active-charter', realize_class: 'Charter'
-      hal_link :join, key: 'join', realize_class: 'String'
-      hal_link :pp_status, key: 'pp-status', realize_class: 'String'
-      hal_link :participations, key: 'participations', realize_class: 'ParticipationIndex'
+      hal_link :specifications, key: "specifications",
+                                realize_class: "SpecificationIndex"
+      hal_link :chairs, key: "chairs", realize_class: "UserIndex"
+      hal_link :team_contacts, key: "team-contacts", realize_class: "UserIndex"
+      hal_link :charters, key: "charters", realize_class: "CharterIndex"
+      hal_link :active_charters, key: "active-charter", realize_class: "Charter"
+      hal_link :join, key: "join", realize_class: "String"
+      hal_link :pp_status, key: "pp-status", realize_class: "String"
+      hal_link :participations, key: "participations",
+                                realize_class: "ParticipationIndex"
 
       key_value do
         %i[
@@ -86,7 +91,7 @@ module W3cApi
           shortname
           discr
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

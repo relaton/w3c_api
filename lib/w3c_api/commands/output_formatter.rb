@@ -6,7 +6,7 @@ module W3cApi
       # Format and output results based on the specified format
       def output_results(results, format)
         case format
-        when 'yaml'
+        when "yaml"
           puts results.to_yaml
         else
           # Default to JSON if format is not recognized

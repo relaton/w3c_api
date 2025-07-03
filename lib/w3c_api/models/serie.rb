@@ -41,16 +41,18 @@ module W3cApi
       attribute :href, :string
       attribute :title, :string
 
-      hal_link :self, key: 'self', realize_class: 'Serie'
-      hal_link :specifications, key: 'specifications', realize_class: 'SpecificationIndex'
-      hal_link :current_specification, key: 'current-specification', realize_class: 'SpecVersion'
+      hal_link :self, key: "self", realize_class: "Serie"
+      hal_link :specifications, key: "specifications",
+                                realize_class: "SpecificationIndex"
+      hal_link :current_specification, key: "current-specification",
+                                       realize_class: "SpecVersion"
 
       key_value do
         %i[
           shortname
           name
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

@@ -48,12 +48,15 @@ module W3cApi
       attribute :errata, :string
       attribute :process_rules, :string
 
-      hal_link :self, key: 'self', realize_class: 'SpecVersion'
-      hal_link :editors, key: 'editors', realize_class: 'UserIndex'
-      hal_link :deliverers, key: 'deliverers', realize_class: 'UserIndex'
-      hal_link :specification, key: 'specification', realize_class: 'Specification'
-      hal_link :predecessor_version, key: 'predecessor-version', realize_class: 'SpecVersionIndex'
-      hal_link :successor_version, key: 'successor-version', realize_class: 'SpecVersionIndex'
+      hal_link :self, key: "self", realize_class: "SpecVersion"
+      hal_link :editors, key: "editors", realize_class: "UserIndex"
+      hal_link :deliverers, key: "deliverers", realize_class: "UserIndex"
+      hal_link :specification, key: "specification",
+                               realize_class: "Specification"
+      hal_link :predecessor_version, key: "predecessor-version",
+                                     realize_class: "SpecVersionIndex"
+      hal_link :successor_version, key: "successor-version",
+                                   realize_class: "SpecVersionIndex"
 
       key_value do
         %i[
@@ -74,7 +77,7 @@ module W3cApi
           errata
           process_rules
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

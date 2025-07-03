@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'json'
-require 'rainbow'
-require 'pp'
-require_relative 'hal'
+require "json"
+require "rainbow"
+require "pp"
+require_relative "hal"
 
 module W3cApi
   class Client

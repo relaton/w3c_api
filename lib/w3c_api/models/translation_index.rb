@@ -26,7 +26,8 @@
 module W3cApi
   module Models
     class TranslationIndex < Lutaml::Hal::Page
-      hal_link :translations, key: 'translations', realize_class: 'Translation', collection: true
+      hal_link :translations, key: "translations",
+                              realize_class: "Translation", collection: true
     end
   end
 end

@@ -19,15 +19,16 @@ module W3cApi
       attribute :uri, :string
       attribute :title, :string
 
-      hal_link :self, key: 'self', realize_class: 'CallForTranslation'
-      hal_link :translations, key: 'translations', realize_class: 'TranslationIndex'
+      hal_link :self, key: "self", realize_class: "CallForTranslation"
+      hal_link :translations, key: "translations",
+                              realize_class: "TranslationIndex"
 
       key_value do
         %i[
           uri
           title
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

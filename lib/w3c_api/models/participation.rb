@@ -31,10 +31,11 @@ module W3cApi
       attribute :individual, :boolean
       attribute :invited_expert, :boolean
 
-      hal_link :self, key: 'self', realize_class: 'Participation'
-      hal_link :group, key: 'group', realize_class: 'Group'
-      hal_link :organization, key: 'organization', realize_class: 'Affiliation'
-      hal_link :participants, key: 'participants', realize_class: 'ParticipantIndex'
+      hal_link :self, key: "self", realize_class: "Participation"
+      hal_link :group, key: "group", realize_class: "Group"
+      hal_link :organization, key: "organization", realize_class: "Affiliation"
+      hal_link :participants, key: "participants",
+                              realize_class: "ParticipantIndex"
 
       key_value do
         %i[
@@ -42,7 +43,7 @@ module W3cApi
           invited_expert
           created
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

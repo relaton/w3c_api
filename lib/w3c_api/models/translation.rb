@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'call_for_translation'
-require_relative 'user'
+require_relative "call_for_translation"
+require_relative "user"
 
 # {
 #   "states"=>[
@@ -98,7 +98,7 @@ module W3cApi
       attribute :states, :string, collection: true
       attribute :translators, User, collection: true
 
-      hal_link :self, key: 'self', realize_class: 'Translation'
+      hal_link :self, key: "self", realize_class: "Translation"
 
       key_value do
         %i[
@@ -115,7 +115,7 @@ module W3cApi
           states
           translators
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

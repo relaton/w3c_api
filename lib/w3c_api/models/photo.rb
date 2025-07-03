@@ -1,10 +1,12 @@
-require 'lutaml/model'
+# frozen_string_literal: true
 
-#         "photos": [
-#             {
-#                 "href": "https://www.w3.org/thumbnails/360/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
-#                 "name": "large"
-#             },
+require "lutaml/model"
+
+# "photos": [
+#  {
+#    "href": "https://www.w3.org/thumbnails/360/avatar-images/f1ovb5rydm8s0go04oco0cgk0sow44w.webp?x-version=3",
+#    "name": "large"
+#  },
 
 module W3cApi
   module Models
