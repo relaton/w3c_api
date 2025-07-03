@@ -83,6 +83,18 @@ module W3cApi
         model: Models::SpecVersion
       )
       register.add_endpoint(
+        id: :specification_version_predecessors_index,
+        type: :index,
+        url: '/specifications/{shortname}/versions/{version}/predecessors',
+        model: Models::SpecVersionIndex
+      )
+      register.add_endpoint(
+        id: :specification_version_successors_index,
+        type: :index,
+        url: '/specifications/{shortname}/versions/{version}/successors',
+        model: Models::SpecVersionIndex
+      )
+      register.add_endpoint(
         id: :specification_by_status_index,
         type: :index,
         url: '/specifications-by-status/{status}',
