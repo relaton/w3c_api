@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'singleton'
 require_relative 'models'
 
@@ -5,124 +7,236 @@ module W3cApi
   class Hal
     include Singleton
 
+    API_URL = 'https://api.w3.org/'
+
     def initialize
       setup
     end
 
     def client
-      @client ||= Lutaml::Hal::Client.new(api_url: 'https://api.w3.org/')
+      @client ||= Lutaml::Hal::Client.new(api_url: API_URL)
     end
 
     def register
       return @register if @register
 
       @register = Lutaml::Hal::ModelRegister.new(name: :w3c_api, client: client)
-      Lutaml::Hal::GlobalRegister.instance.register(:w3c_api, @register)
+      Lutaml::Hal::GlobalRegister.instance.register(
+        :w3c_api, @register
+      )
       @register
     end
 
+    private
+
+    # Common pagination query parameters
+    PAGINATION_PARAMS = { 'page' => '{page}',
+                          'items' => '{items}' }.freeze
+
+    # Helper method to add index endpoints with pagination
+    def add_index_endpoint(id, url, model, query_params = PAGINATION_PARAMS)
+      register.add_endpoint(
+        id: id,
+        type: :index,
+        url: url,
+        model: model,
+        query_params: query_params
+      )
+    end
+
+    # Helper method to add resource endpoints
+    def add_resource_endpoint(id, url, model)
+      register.add_endpoint(id: id, type: :resource, url: url, model: model)
+    end
+
+    # Helper method to add nested index endpoints for a parent resource
+    def add_nested_index_endpoints(parent, parent_id_param, nested_configs)
+      nested_configs.each do |config|
+        # Convert plural parent to singular for endpoint naming
+        singular_parent = parent.end_with?('s') ? parent[0..-2] : parent
+        id = "#{singular_parent}_#{config[:name]}_index".to_sym
+        url = "/#{parent}/#{parent_id_param}/#{config[:path]}"
+        add_index_endpoint(id, url, config[:model])
+      end
+    end
+
     def setup
-      register.add_endpoint(id: :affiliation_index, type: :index, url: '/affiliations', model: Models::AffiliationIndex)
-      register.add_endpoint(id: :affiliation_resource, type: :resource, url: '/affiliations/{id}',
-                            model: Models::Affiliation)
-      register.add_endpoint(id: :affiliation_participants_index, type: :index, url: '/affiliations/{id}/participants',
-                            model: Models::ParticipantIndex)
-      register.add_endpoint(id: :affiliation_participations_index, type: :index, url: '/affiliations/{id}/participations',
-                            model: Models::ParticipationIndex)
-
-      # register.add_endpoint(id: :charter_resource, type: :resource, url: '/charters/{id}', model: Models::Charter)
-
-      register.add_endpoint(id: :ecosystem_index, type: :index, url: '/ecosystems', model: Models::EcosystemIndex)
-      register.add_endpoint(id: :ecosystem_resource, type: :resource, url: '/ecosystems/{id}', model: Models::Ecosystem)
-      register.add_endpoint(id: :ecosystem_evangelists_index, type: :index, url: '/ecosystems/{shortname}/evangelists',
-                            model: Models::EvangelistIndex)
-      register.add_endpoint(id: :ecosystem_groups_index, type: :index, url: '/ecosystems/{shortname}/groups',
-                            model: Models::GroupIndex)
-      register.add_endpoint(id: :ecosystem_member_organizations_index, type: :index, url: '/ecosystems/{shortname}/member-organizations',
-                            model: Models::AffiliationIndex)
-
-      register.add_endpoint(id: :group_index, type: :index, url: '/groups', model: Models::GroupIndex)
-      register.add_endpoint(id: :group_resource, type: :resource, url: '/groups/{id}', model: Models::Group)
-      register.add_endpoint(id: :group_specifications_index, type: :index, url: '/groups/{id}/specifications',
-                            model: Models::SpecificationIndex)
-      register.add_endpoint(id: :group_charters_index, type: :index, url: '/groups/{id}/charters',
-                            model: Models::CharterIndex)
-      register.add_endpoint(id: :group_users_index, type: :index, url: '/groups/{id}/users',
-                            model: Models::UserIndex)
-      register.add_endpoint(id: :group_chairs_index, type: :index, url: '/groups/{id}/chairs',
-                            model: Models::ChairIndex)
-      register.add_endpoint(id: :group_team_contacts_index, type: :index, url: '/groups/{id}/teamcontacts',
-                            model: Models::TeamContactIndex)
-      register.add_endpoint(id: :group_participations_index, type: :index, url: '/groups/{id}/participations',
-                            model: Models::ParticipationIndex)
-
-      # register.add_endpoint(id: :participation_index, type: :index, url: '/participations', model: Models::ParticipationIndex)
-      register.add_endpoint(id: :participation_resource, type: :resource, url: '/participations/{id}',
-                            model: Models::Participation)
-      register.add_endpoint(id: :participation_participants_index, type: :index, url: '/participations/{id}/participants',
-                            model: Models::ParticipantIndex)
-
-      register.add_endpoint(id: :serie_index, type: :index, url: '/specification-series', model: Models::SerieIndex)
-      register.add_endpoint(id: :serie_resource, type: :resource, url: '/specification-series/{shortname}',
-                            model: Models::Serie)
-
-      register.add_endpoint(id: :serie_specification_resource, type: :index,
-                            url: '/specification-series/{shortname}/specifications', model: Models::SpecificationIndex)
-
-      register.add_endpoint(id: :specification_index, type: :index, url: '/specifications',
-                            model: Models::SpecificationIndex)
-      register.add_endpoint(id: :specification_resource, type: :resource, url: '/specifications/{shortname}',
-                            model: Models::Specification)
-      register.add_endpoint(id: :specification_resource_version_index, type: :index, url: '/specifications/{shortname}/versions',
-                            model: Models::SpecVersionIndex)
-
-      register.add_endpoint(
-        id: :specification_resource_version_resource,
-        type: :resource,
-        url: '/specifications/{shortname}/versions/{version}',
-        model: Models::SpecVersion
+      # Affiliation endpoints
+      add_index_endpoint(
+        :affiliation_index,
+        '/affiliations',
+        Models::AffiliationIndex
       )
-      register.add_endpoint(
-        id: :specification_version_predecessors_index,
-        type: :index,
-        url: '/specifications/{shortname}/versions/{version}/predecessors',
-        model: Models::SpecVersionIndex
+      add_resource_endpoint(
+        :affiliation_resource,
+        '/affiliations/{id}',
+        Models::Affiliation
       )
-      register.add_endpoint(
-        id: :specification_version_successors_index,
-        type: :index,
-        url: '/specifications/{shortname}/versions/{version}/successors',
-        model: Models::SpecVersionIndex
+      add_index_endpoint(
+        :affiliation_participants_index,
+        '/affiliations/{id}/participants',
+        Models::ParticipantIndex
       )
-      register.add_endpoint(
-        id: :specification_by_status_index,
-        type: :index,
-        url: '/specifications-by-status/{status}',
-        model: Models::SpecificationIndex
+      add_index_endpoint(
+        :affiliation_participations_index,
+        '/affiliations/{id}/participations',
+        Models::ParticipationIndex
       )
-      register.add_endpoint(
-        id: :specification_supersedes_index,
-        type: :index,
-        url: '/specifications/{shortname}/supersedes',
-        model: Models::SpecificationIndex
+
+      # register.add_endpoint(
+      #   id: :charter_resource,
+      #   type: :resource,
+      #   url: '/charters/{id}',
+      #   model: Models::Charter
+      # )
+
+      # Ecosystem endpoints
+      add_index_endpoint(
+        :ecosystem_index,
+        '/ecosystems',
+        Models::EcosystemIndex
       )
-      register.add_endpoint(
-        id: :specification_superseded_by_index,
-        type: :index,
-        url: '/specifications/{shortname}/superseded',
-        model: Models::SpecificationIndex
+      add_resource_endpoint(
+        :ecosystem_resource,
+        '/ecosystems/{id}',
+        Models::Ecosystem
       )
-      register.add_endpoint(
-        id: :specification_version_editors_index,
-        type: :index,
-        url: '/specifications/{shortname}/version/{version}/editors',
-        model: Models::UserIndex
+      add_index_endpoint(
+        :ecosystem_evangelists_index,
+        '/ecosystems/{shortname}/evangelists',
+        Models::EvangelistIndex
       )
-      register.add_endpoint(
-        id: :specification_version_deliverers_index,
-        type: :index,
-        url: '/specifications/{shortname}/version/{version}/deliverers',
-        model: Models::UserIndex
+      add_index_endpoint(
+        :ecosystem_groups_index,
+        '/ecosystems/{shortname}/groups',
+        Models::GroupIndex
+      )
+      add_index_endpoint(
+        :ecosystem_member_organizations_index,
+        '/ecosystems/{shortname}/member-organizations',
+        Models::AffiliationIndex
+      )
+
+      # Group endpoints
+      add_index_endpoint(
+        :group_index,
+        '/groups',
+        Models::GroupIndex
+      )
+      add_resource_endpoint(
+        :group_resource,
+        '/groups/{id}',
+        Models::Group
+      )
+      add_nested_index_endpoints(
+        'groups',
+        '{id}', [
+          { name: 'specifications', path: 'specifications',
+            model: Models::SpecificationIndex },
+          { name: 'charters', path: 'charters',
+            model: Models::CharterIndex },
+          { name: 'users', path: 'users',
+            model: Models::UserIndex },
+          { name: 'chairs', path: 'chairs',
+            model: Models::ChairIndex },
+          { name: 'team_contacts', path: 'teamcontacts',
+            model: Models::TeamContactIndex },
+          { name: 'participations', path: 'participations',
+            model: Models::ParticipationIndex }
+        ]
+      )
+
+      # Participation endpoints
+      # register.add_endpoint(
+      #   id: :participation_index,
+      #   type: :index,
+      #   url: '/participations',
+      #   model: Models::ParticipationIndex
+      # )
+
+      add_resource_endpoint(
+        :participation_resource,
+        '/participations/{id}',
+        Models::Participation
+      )
+      add_index_endpoint(
+        :participation_participants_index,
+        '/participations/{id}/participants',
+        Models::ParticipantIndex
+      )
+
+      # Serie endpoints
+      add_index_endpoint(
+        :serie_index,
+        '/specification-series',
+        Models::SerieIndex
+      )
+      add_resource_endpoint(
+        :serie_resource,
+        '/specification-series/{shortname}',
+        Models::Serie
+      )
+      add_index_endpoint(
+        :serie_specification_resource,
+        '/specification-series/{shortname}/specifications',
+        Models::SpecificationIndex
+      )
+
+      # Specification endpoints
+      add_index_endpoint(
+        :specification_index,
+        '/specifications',
+        Models::SpecificationIndex
+      )
+      add_resource_endpoint(
+        :specification_resource,
+        '/specifications/{shortname}',
+        Models::Specification
+      )
+      add_index_endpoint(
+        :specification_resource_version_index,
+        '/specifications/{shortname}/versions',
+        Models::SpecVersionIndex
+      )
+      add_resource_endpoint(
+        :specification_resource_version_resource,
+        '/specifications/{shortname}/versions/{version}',
+        Models::SpecVersion
+      )
+      add_index_endpoint(
+        :specification_version_predecessors_index,
+        '/specifications/{shortname}/versions/{version}/predecessors',
+        Models::SpecVersionIndex
+      )
+      add_index_endpoint(
+        :specification_version_successors_index,
+        '/specifications/{shortname}/versions/{version}/successors',
+        Models::SpecVersionIndex
+      )
+      add_index_endpoint(
+        :specification_by_status_index,
+        '/specifications-by-status/{status}',
+        Models::SpecificationIndex
+      )
+      add_index_endpoint(
+        :specification_supersedes_index,
+        '/specifications/{shortname}/supersedes',
+        Models::SpecificationIndex
+      )
+      add_index_endpoint(
+        :specification_superseded_by_index,
+        '/specifications/{shortname}/superseded',
+        Models::SpecificationIndex
+      )
+      add_index_endpoint(
+        :specification_version_editors_index,
+        '/specifications/{shortname}/version/{version}/editors',
+        Models::UserIndex
+      )
+      add_index_endpoint(
+        :specification_version_deliverers_index,
+        '/specifications/{shortname}/version/{version}/deliverers',
+        Models::UserIndex
       )
 
       # TODO: Why is this endpoint needed? There already is /specifications/{shortname}...
@@ -133,32 +247,48 @@ module W3cApi
       #   model: Models::SpecificationIndex
       # )
 
-      register.add_endpoint(id: :translation_index, type: :index, url: '/translations', model: Models::TranslationIndex)
-      register.add_endpoint(id: :translation_resource, type: :resource, url: '/translations/{id}',
-                            model: Models::Translation)
+      # Translation endpoints
+      add_index_endpoint(
+        :translation_index,
+        '/translations',
+        Models::TranslationIndex
+      )
+      add_resource_endpoint(
+        :translation_resource,
+        '/translations/{id}',
+        Models::Translation
+      )
 
+      # User endpoints
       # NOTE: This endpoint doesn't exist, just here for reference.
-      # register.add_endpoint(id: :user_index, type: :index, url: '/users', model: Models::UserIndex)
-
-      register.add_endpoint(id: :user_groups_index, type: :index, url: '/users/{hash}/groups',
-                            model: Models::GroupIndex)
-
-      register.add_endpoint(id: :user_resource, type: :resource, url: '/users/{hash}', model: Models::User)
-
-      register.add_endpoint(id: :user_affiliations_index, type: :index, url: '/users/{hash}/affiliations',
-                            model: Models::AffiliationIndex)
-
-      register.add_endpoint(id: :user_participations_index, type: :index, url: '/users/{hash}/participations',
-                            model: Models::ParticipationIndex)
-
-      register.add_endpoint(id: :user_chair_of_groups_index, type: :index, url: '/users/{hash}/chair-of-groups',
-                            model: Models::GroupIndex)
-
-      register.add_endpoint(id: :user_team_contact_of_groups_index, type: :index, url: '/users/{hash}/team-contact-of-groups',
-                            model: Models::GroupIndex)
-
-      register.add_endpoint(id: :user_specifications_index, type: :index, url: '/users/{hash}/specifications',
-                            model: Models::SpecificationIndex)
+      # register.add_endpoint(
+      #   id: :user_index,
+      #   type: :index,
+      #   url: '/users',
+      #   model: Models::UserIndex
+      # )
+      add_resource_endpoint(
+        :user_resource,
+        '/users/{hash}',
+        Models::User
+      )
+      add_nested_index_endpoints(
+        'users',
+        '{hash}', [
+          { name: 'groups', path: 'groups',
+            model: Models::GroupIndex },
+          { name: 'affiliations', path: 'affiliations',
+            model: Models::AffiliationIndex },
+          { name: 'participations', path: 'participations',
+            model: Models::ParticipationIndex },
+          { name: 'chair_of_groups', path: 'chair-of-groups',
+            model: Models::GroupIndex },
+          { name: 'team_contact_of_groups', path: 'team-contact-of-groups',
+            model: Models::GroupIndex },
+          { name: 'specifications', path: 'specifications',
+            model: Models::SpecificationIndex }
+        ]
+      )
     end
   end
 end

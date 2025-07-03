@@ -11,27 +11,27 @@ A Ruby client implementation for the W3C web API with a CLI interface.
 This gem provides:
 
 * A complete client for the W3C API (oft-used endpoints implemented)
-
 * Data models created with
 https://github.com/lutaml/lutaml-hal[lutaml-hal] and
 https://github.com/lutaml/lutaml-model[lutaml-model]
 for all W3C API resources
-
-* HAL (Hypertext Application Language) implementation for recursive resource traversal
-
+* HAL (Hypertext Application Language) implementation for recursive resource
+traversal
 * A command-line interface using Thor following GitHub CLI patterns
 
 The endpoint supported is at https://api.w3.org.
 
 This gem is developed against the W3C API documented at https://api.w3.org/doc.
 
-
 == Illustrative example usage
 
 This is an example demonstrating the power of this library as inherited
 from `lutaml-hal`, showing multiple levels of automatic link resolution.
 
+[example]
+====
 .Calling the Ruby API with multiple levels of link resolution
+
 [source,ruby]
 ----
 > require 'w3c_api'
@@ -100,7 +100,7 @@ from `lutaml-hal`, showing multiple levels of automatic link resolution.
 #   @pages=1,
 #   @total=1>
 ----
-
+====
 
 == Ruby API
 
@@ -128,8 +128,8 @@ successors = client.specification_version_successors('webrtc', '20241008')
 # All client methods support comprehensive options including:
 
 # Pagination options
-specifications = client.specifications(page: 2, per_page: 50)
-groups = client.groups(page: 1, per_page: 10, limit: 25, offset: 100)
+specifications = client.specifications(page: 2, items: 50)
+groups = client.groups(page: 1, items: 10)
 
 # HTTP client options
 user = client.user('hash', timeout: 30, headers: { 'User-Agent' => 'MyApp/1.0' })
@@ -201,6 +201,155 @@ translation = client.translation(2)
 ecosystems = client.ecosystems
 ecosystem = client.ecosystem('data')
 ----
+
+=== Pagination
+
+All index endpoints support pagination with the following parameters:
+
+* `page` - The page number to retrieve (default: 1)
+* `items` - The number of items per page (default: 100)
+
+==== Basic pagination
+
+[source,ruby]
+----
+# Get first page with default limit (100 items)
+specifications = client.specifications
+
+# Get specific page with custom limit
+specifications = client.specifications(page: 2, items: 25)
+
+# Get first page with smaller limit
+groups = client.groups(page: 1, items: 10)
+----
+
+==== Navigation links
+
+All paginated responses include navigation links that can be used to traverse
+pages:
+
+[source,ruby]
+----
+# Get first page
+specs_page1 = client.specifications(page: 1, items: 10)
+
+# Access navigation links
+links = specs_page1.links
+
+# Check available navigation options
+puts "Has next page: #{!links.next.nil?}"
+puts "Has previous page: #{!links.prev.nil?}"
+
+# Navigate to next page using the link
+if links.next
+  next_page = links.next.realize
+  puts "Next page number: #{next_page.page}"
+  puts "Items on next page: #{next_page.links.specifications.length}"
+end
+
+# Navigate to first/last pages
+first_page = links.first.realize if links.first
+last_page = links.last.realize if links.last
+----
+
+==== Pagination information
+
+Each paginated response includes metadata about the pagination state:
+
+[source,ruby]
+----
+specs = client.specifications(page: 2, items: 25)
+
+puts "Current page: #{specs.page}"        # 2
+puts "Items per page: #{specs.limit}"     # 25
+puts "Total items: #{specs.total}"        # e.g., 1643
+puts "Total pages: #{specs.pages}"        # e.g., 66
+----
+
+==== Iterating through all pages
+
+[source,ruby]
+----
+# Method 1: Using navigation links
+current_page = client.specifications(page: 1, items: 50)
+all_specifications = []
+
+loop do
+  all_specifications.concat(current_page.links.specifications)
+
+  break unless current_page.links.next
+
+  current_page = current_page.links.next.realize
+end
+
+puts "Total specifications collected: #{all_specifications.length}"
+
+# Method 2: Manual page iteration
+page = 1
+all_specifications = []
+
+loop do
+  current_page = client.specifications(page: page, items: 50)
+  specifications = current_page.links.specifications
+
+  break if specifications.empty?
+
+  all_specifications.concat(specifications)
+  page += 1
+end
+----
+
+==== Pagination for nested resources
+
+Nested resources also support pagination:
+
+[source,ruby]
+----
+# Get a group
+group = client.group(109735)
+
+# Get paginated specifications for this group
+specs = group.specifications(page: 1, items: 10)
+
+# Navigate through pages
+if specs.links.next
+  next_specs = specs.links.next.realize
+end
+
+# Other nested resources with pagination
+users = group.users(page: 1, items: 20)
+chairs = group.chairs(page: 1, items: 5)
+participations = group.participations(page: 1, items: 15)
+
+# Affiliation nested resources
+affiliation = client.affiliation(35662)
+participants = affiliation.participants(page: 1, items: 10)
+participations = affiliation.participations(page: 1, items: 10)
+----
+
+==== Supported endpoints
+
+All the following endpoints support pagination:
+
+* `client.specifications(page:, items:)`
+* `client.groups(page:, items:)`
+* `client.affiliations(page:, items:)`
+* `client.series(page:, items:)`
+* `client.translations(page:, items:)`
+* `client.ecosystems(page:, items:)`
+* `group.specifications(page:, items:)`
+* `group.users(page:, items:)`
+* `group.chairs(page:, items:)`
+* `group.team_contacts(page:, items:)`
+* `group.participations(page:, items:)`
+* `affiliation.participants(page:, items:)`
+* `affiliation.participations(page:, items:)`
+* `participation.participants(page:, items:)`
+* `user.groups(page:, items:)`
+* `user.specifications(page:, items:)`
+* `user.affiliations(page:, items:)`
+* `user.participations(page:, items:)`
+* And many more nested resource endpoints
 
 === Models
 
@@ -279,8 +428,8 @@ W3C API provides a command-line interface (CLI) for various operations.
 
 The main executable is `w3c_api`.
 
-By default, the output is in YAML format. You can specify the output format using the
-`--format` option, which accepts `json` or `yaml`.
+By default, the output is in YAML format. You can specify the output format
+using the `--format` option, which accepts `json` or `yaml`.
 
 [source,shell]
 ----
@@ -567,9 +716,12 @@ specifications:
 This command provides access to W3C users.
 
 [IMPORTANT]
-.User ID Formats
+.User ID formats
 ====
-The W3C API uses both numeric IDs (e.g., `128112`) and string IDs (e.g., `f1ovb5rydm8s0go04oco0cgk0sow44w`) for users. All user-related commands support both formats. The format depends on how the user is referenced in API responses.
+The W3C API uses both numeric IDs (e.g., `128112`) and string IDs (e.g.,
+`f1ovb5rydm8s0go04oco0cgk0sow44w`) for users. All user-related commands
+support both formats. The format depends on how the user is referenced in API
+responses.
 ====
 
 ==== Get
@@ -774,7 +926,7 @@ participations:
 ----
 ====
 
-==== Chair of Groups
+==== Chair of groups
 
 Getting groups a user chairs.
 
