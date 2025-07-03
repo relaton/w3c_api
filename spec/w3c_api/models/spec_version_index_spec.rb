@@ -56,7 +56,7 @@ RSpec.describe W3cApi::Models::SpecVersionIndex do
     it 'has predecessor_version links' do
       expect(spec_version_index.links).to respond_to(:predecessor_version)
       expect(spec_version_index.links.predecessor_version).to be_a(Array)
-      expect(spec_version_index.links.predecessor_version.first).to be_a(W3cApi::Models::SpecVersionIndexLink)
+      expect(spec_version_index.links.predecessor_version.first).to be_a(W3cApi::Models::SpecVersionLink)
       expect(spec_version_index.links.predecessor_version.first.href).to eq('https://api.w3.org/specifications/html5/versions/20171214')
       expect(spec_version_index.links.predecessor_version.first.title).to eq('HTML 5.2')
     end
@@ -64,7 +64,7 @@ RSpec.describe W3cApi::Models::SpecVersionIndex do
     it 'has successor_version links' do
       expect(spec_version_index.links).to respond_to(:successor_version)
       expect(spec_version_index.links.successor_version).to be_a(Array)
-      expect(spec_version_index.links.successor_version.first).to be_a(W3cApi::Models::SpecVersionIndexLink)
+      expect(spec_version_index.links.successor_version.first).to be_a(W3cApi::Models::SpecVersionLink)
       expect(spec_version_index.links.successor_version.first.href).to eq('https://api.w3.org/specifications/html5/versions/20180327')
       expect(spec_version_index.links.successor_version.first.title).to eq('HTML 5.3')
     end

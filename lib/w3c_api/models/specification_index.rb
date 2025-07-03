@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'specification'
+
 module W3cApi
   module Models
     # SpecificationIndex class that models `/specifications`
