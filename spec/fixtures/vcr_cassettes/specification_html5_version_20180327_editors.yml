@@ -1,0 +1,828 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20180327
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:26 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 23:30:10 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '196'
+      set-cookie:
+      - __cf_bm=bXZp8ZkW6bKPtpjW2AWfioEI9fliX24gsUHBhrDsQeE-1751672006-1.0.1.1-0G3gCE57Hb5LE_jZQJdTomPPI..Pj6EXWwAvw4HXN8RQ6OYIbyrFx5AYo8r_6PegzsLmJPrYeCmppmJo76L3rCe2k3tyJFk7QQTD6QHbW3w;
+        path=/; expires=Sat, 05-Jul-25 00:03:26 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7bab69f325-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "Retired",
+            "rec-track": true,
+            "uri": "https://www.w3.org/TR/2018/SPSD-html5-20180327/",
+            "date": "2018-03-27",
+            "informative": false,
+            "title": "HTML5",
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327"
+                },
+                "editors": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/editors"
+                },
+                "deliverers": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/deliverers"
+                },
+                "specification": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "predecessor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/predecessors"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:26 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20180327/editors
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 23:28:03 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '324'
+      set-cookie:
+      - __cf_bm=KflOz.nN4igerukrQzik5dOYoV6jQe1MjfC2GLJB7oM-1751672007-1.0.1.1-lWFT8Z9K9lTM_01y0i2WIosOqvQvp.IIwzw9Zd8R67RBUId5ElNsAqv5fAuHZne_Ewl2cAfFo2FaBpE434Eod32OVY0VVjdh4SDX9ydcDPs;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7bed1ce2fa-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 7,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327"
+                },
+                "editors": [
+                    {
+                        "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k",
+                        "title": "Ian Hickson"
+                    },
+                    {
+                        "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80",
+                        "title": "Robin Berjon"
+                    },
+                    {
+                        "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw",
+                        "title": "Steve Faulkner"
+                    },
+                    {
+                        "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8",
+                        "title": "Travis Leithead"
+                    },
+                    {
+                        "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4",
+                        "title": "Erika Doyle Navara"
+                    },
+                    {
+                        "href": "https://api.w3.org/users/k44qkt1rntww0wcwwgksk8w4o4o0ksg",
+                        "title": "Theresa O'Connor"
+                    },
+                    {
+                        "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s",
+                        "title": "Silvia Pfeiffer"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/editors?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/editors?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/editors?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:26 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Mon, 15 Mar 2021 13:50:43 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '133'
+      set-cookie:
+      - __cf_bm=BPS9Mj0RIA25l1Jr5l7g9DopE18SQrmHEn9IswHC_tQ-1751672007-1.0.1.1-lDlyyG0J..6p1pk0QZER_.2NHUPxB6p4th06uEB5of1hNJxiG7PArYmvprE9VLpW3lRebYZHP4q7hBxeL1CnYLUnIazWg6zZle_5cW.x.mY;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7c4e875240-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 15392,
+            "name": "Ian Hickson",
+            "given": "Ian",
+            "family": "Hickson",
+            "connected-accounts": [],
+            "discr": "user",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k"
+                },
+                "affiliations": {
+                    "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k/affiliations"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k/groups"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k/specifications"
+                },
+                "participations": {
+                    "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k/participations"
+                },
+                "chair_of_groups": {
+                    "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k/chair-of-groups"
+                },
+                "team_contact_of_groups": {
+                    "href": "https://api.w3.org/users/age50yi5720woo4gw84gwgo8s0osk0k/team-contact-of-groups"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Thu, 12 Jan 2023 15:24:36 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '132'
+      set-cookie:
+      - __cf_bm=sBeSFmYLExMf7inpaprJr20HKP48abrxOgzuu4QtJdA-1751672007-1.0.1.1-Y5gE2vufjdBZKTCNmfBvhH1IAcHNb4BqHrEceEAh3TGW16qK21EMb3rh9eqpcxFQINvjIh5EmSpgx8iP_.3p6Xb6J75QkXqDfZjKmS.gcss;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7c988b5b71-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 34327,
+            "name": "Robin Berjon",
+            "given": "Robin",
+            "family": "Berjon",
+            "work-title": "Governance & Standards Lead",
+            "country-code": "US",
+            "country-division": "New Jersey",
+            "city": "Princeton",
+            "connected-accounts": [
+                {
+                    "created": "2020-09-21T15:44:48+00:00",
+                    "updated": "2024-12-20T09:27:00+00:00",
+                    "service": "github",
+                    "identifier": "38491",
+                    "nickname": "darobin",
+                    "profile-picture": "https://avatars.githubusercontent.com/u/38491?v=4",
+                    "href": "https://github.com/darobin",
+                    "_links": {
+                        "user": {
+                            "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80"
+                        }
+                    }
+                }
+            ],
+            "discr": "user",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80"
+                },
+                "affiliations": {
+                    "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80/affiliations"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80/groups"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80/specifications"
+                },
+                "photos": [
+                    {
+                        "href": "https://www.w3.org/thumbnails/360/avatar-images/cqztfo2h5lc88kck048w8sooo84kc80.webp?x-version=1",
+                        "name": "large"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/100/avatar-images/cqztfo2h5lc88kck048w8sooo84kc80.webp?x-version=1",
+                        "name": "thumbnail"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/48/avatar-images/cqztfo2h5lc88kck048w8sooo84kc80.webp?x-version=1",
+                        "name": "tiny"
+                    }
+                ],
+                "participations": {
+                    "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80/participations"
+                },
+                "chair_of_groups": {
+                    "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80/chair-of-groups"
+                },
+                "team_contact_of_groups": {
+                    "href": "https://api.w3.org/users/cqztfo2h5lc88kck048w8sooo84kc80/team-contact-of-groups"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Thu, 16 Jan 2025 16:34:25 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '132'
+      set-cookie:
+      - __cf_bm=UVBnUfr884rVqvR4lt.GIwo.Uf2k33DSzRwOymj5x4s-1751672007-1.0.1.1-d3k0Dtu4GeuUEUQTAkgeMu2a.xNhtJCkGyuFScrJypoNROmWMWGixEiqA6SwZ542Lxnpc6tgjo3l9Tq9KKTr2GwXX0eoseIc6OOj3diLl.8;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7cdd798b4b-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 35007,
+            "name": "Steve Faulkner",
+            "given": "Steve",
+            "family": "Faulkner",
+            "work-title": "Director",
+            "country-code": "GB",
+            "country-division": "England",
+            "city": "kingston upon thames",
+            "connected-accounts": [
+                {
+                    "created": "2019-12-23T13:17:24+00:00",
+                    "updated": "2021-01-21T09:47:21+00:00",
+                    "service": "github",
+                    "identifier": "835859",
+                    "nickname": "stevefaulkner",
+                    "profile-picture": "https://avatars.githubusercontent.com/u/835859?v=4",
+                    "href": "https://github.com/stevefaulkner",
+                    "_links": {
+                        "user": {
+                            "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw"
+                        }
+                    }
+                }
+            ],
+            "discr": "user",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw"
+                },
+                "affiliations": {
+                    "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw/affiliations"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw/groups"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw/specifications"
+                },
+                "photos": [
+                    {
+                        "href": "https://www.w3.org/thumbnails/360/avatar-images/8p57uafem4wssgccgwo4444ks0gswgw.webp?x-version=1",
+                        "name": "large"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/100/avatar-images/8p57uafem4wssgccgwo4444ks0gswgw.webp?x-version=1",
+                        "name": "thumbnail"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/48/avatar-images/8p57uafem4wssgccgwo4444ks0gswgw.webp?x-version=1",
+                        "name": "tiny"
+                    }
+                ],
+                "participations": {
+                    "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw/participations"
+                },
+                "chair_of_groups": {
+                    "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw/chair-of-groups"
+                },
+                "team_contact_of_groups": {
+                    "href": "https://api.w3.org/users/8p57uafem4wssgccgwo4444ks0gswgw/team-contact-of-groups"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Tue, 21 Feb 2023 18:25:48 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '131'
+      set-cookie:
+      - __cf_bm=U92QRH9PUjdBN3H0iKhT6xcHwNrCaU3XogwA55MTOpQ-1751672007-1.0.1.1-1sGGSZz9LjRdW4taqiLMQftKvHrr7fCaOdylv6eODOSGIQHb48q_cHouJQRYHbRjRyuX1MrHSBpcVaYxwOxEmEp7w5CwLxaYK4m9PlNrapU;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7d3ac70901-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 40117,
+            "name": "Travis Leithead",
+            "given": "Travis",
+            "family": "Leithead",
+            "country-code": "US",
+            "country-division": "Washington",
+            "connected-accounts": [
+                {
+                    "created": "2020-01-17T01:46:11+00:00",
+                    "updated": "2021-01-21T09:50:59+00:00",
+                    "service": "github",
+                    "identifier": "2152696",
+                    "nickname": "travisleithead",
+                    "profile-picture": "https://avatars.githubusercontent.com/u/2152696?v=4",
+                    "href": "https://github.com/travisleithead",
+                    "_links": {
+                        "user": {
+                            "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8"
+                        }
+                    }
+                }
+            ],
+            "discr": "user",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8"
+                },
+                "affiliations": {
+                    "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8/affiliations"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8/groups"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8/specifications"
+                },
+                "photos": [
+                    {
+                        "href": "https://www.w3.org/thumbnails/360/avatar-images/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8.webp?x-version=1",
+                        "name": "large"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/100/avatar-images/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8.webp?x-version=1",
+                        "name": "thumbnail"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/48/avatar-images/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8.webp?x-version=1",
+                        "name": "tiny"
+                    }
+                ],
+                "participations": {
+                    "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8/participations"
+                },
+                "chair_of_groups": {
+                    "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8/chair-of-groups"
+                },
+                "team_contact_of_groups": {
+                    "href": "https://api.w3.org/users/iwn8gwnpuw8o8kcwoscgcwos0c8s8c8/team-contact-of-groups"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Mon, 15 Mar 2021 13:52:14 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '131'
+      set-cookie:
+      - __cf_bm=cGIAkdVfJswjAtkt44oMsDsu77uDHvyafDwcnrqjHdc-1751672007-1.0.1.1-0HKHL_CnoibRQkpkH0RqKqL6LybaxDQn3Lt1Khj4ihT7HThcortrI.aC1Kae5CY8ZspaAMMoxSS3EbwIJRS_cediM_n7p7yq5F6Y3bz_Q3o;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7d7deb1f94-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 56802,
+            "name": "Erika Doyle Navara",
+            "given": "Erika",
+            "family": "Doyle Navara",
+            "connected-accounts": [],
+            "discr": "user",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4"
+                },
+                "affiliations": {
+                    "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4/affiliations"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4/groups"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4/specifications"
+                },
+                "participations": {
+                    "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4/participations"
+                },
+                "chair_of_groups": {
+                    "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4/chair-of-groups"
+                },
+                "team_contact_of_groups": {
+                    "href": "https://api.w3.org/users/i5kdlj68izsoc08kgo80cc8o8kks4o4/team-contact-of-groups"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/k44qkt1rntww0wcwwgksk8w4o4o0ksg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Sat, 07 Sep 2024 00:23:50 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '130'
+      set-cookie:
+      - __cf_bm=TToTn4piYxUv5xG3WVJvM.cvEG2BFvDSCxngWghL9NQ-1751672007-1.0.1.1-4c4y.u1j6Eb57IxK.l4gv8K.Nmx18r7byhmkJYQXD5sgVs4NyHT3_UvBoKIHUxjpXbyYJRotvxJpaXAKDfImcfx6bFba3W43aF0i7o3Cm7I;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7dbde384d9-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgImlkIjogNDA2MTQsCiAgICAibmFtZSI6ICJUaGVyZXNhIE8nQ29ubm9yIiwKICAgICJnaXZlbiI6ICJUaGVyZXNhIiwKICAgICJmYW1pbHkiOiAiTydDb25ub3IiLAogICAgIndvcmstdGl0bGUiOiAiTWFuYWdlciwgV2ViIFN0YW5kYXJkcywgQXBwbGUgSW5jLiIsCiAgICAiYmlvZ3JhcGh5IjogIkkndmUgYmVlbiBwYXJ0aWNpcGF0aW5nIGluIHZhcmlvdXMgd2ViIHN0YW5kYXJkcyBlZmZvcnRzIHNpbmNlIDIwMDUsIGFuZCBJ4oCZdmUgbGVhZCB3ZWIgc3RhbmRhcmRzIGVmZm9ydHMgYXQgQXBwbGUgc2luY2UgMjAxMS4iLAogICAgImNvdW50cnktY29kZSI6ICJVUyIsCiAgICAiY291bnRyeS1kaXZpc2lvbiI6ICJDYWxpZm9ybmlhIiwKICAgICJjaXR5IjogIlNhbiBGcmFuY2lzY28iLAogICAgImNvbm5lY3RlZC1hY2NvdW50cyI6IFsKICAgICAgICB7CiAgICAgICAgICAgICJjcmVhdGVkIjogIjIwMTgtMDQtMzBUMjA6MTA6NDErMDA6MDAiLAogICAgICAgICAgICAidXBkYXRlZCI6ICIyMDIxLTAxLTIxVDEwOjQ1OjM0KzAwOjAwIiwKICAgICAgICAgICAgInNlcnZpY2UiOiAiZ2l0aHViIiwKICAgICAgICAgICAgImlkZW50aWZpZXIiOiAiNjIzNSIsCiAgICAgICAgICAgICJuaWNrbmFtZSI6ICJob2JlciIsCiAgICAgICAgICAgICJwcm9maWxlLXBpY3R1cmUiOiAiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzYyMzU/dj00IiwKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9naXRodWIuY29tL2hvYmVyIiwKICAgICAgICAgICAgIl9saW5rcyI6IHsKICAgICAgICAgICAgICAgICJ1c2VyIjogewogICAgICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy91c2Vycy9rNDRxa3Qxcm50d3cwd2N3d2drc2s4dzRvNG8wa3NnIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgXSwKICAgICJkaXNjciI6ICJ1c2VyIiwKICAgICJfbGlua3MiOiB7CiAgICAgICAgInNlbGYiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy91c2Vycy9rNDRxa3Qxcm50d3cwd2N3d2drc2s4dzRvNG8wa3NnIgogICAgICAgIH0sCiAgICAgICAgImFmZmlsaWF0aW9ucyI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3VzZXJzL2s0NHFrdDFybnR3dzB3Y3d3Z2tzazh3NG80bzBrc2cvYWZmaWxpYXRpb25zIgogICAgICAgIH0sCiAgICAgICAgImdyb3VwcyI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3VzZXJzL2s0NHFrdDFybnR3dzB3Y3d3Z2tzazh3NG80bzBrc2cvZ3JvdXBzIgogICAgICAgIH0sCiAgICAgICAgInNwZWNpZmljYXRpb25zIjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvdXNlcnMvazQ0cWt0MXJudHd3MHdjd3dna3NrOHc0bzRvMGtzZy9zcGVjaWZpY2F0aW9ucyIKICAgICAgICB9LAogICAgICAgICJwaG90b3MiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vd3d3LnczLm9yZy90aHVtYm5haWxzLzM2MC9hdmF0YXItaW1hZ2VzL2s0NHFrdDFybnR3dzB3Y3d3Z2tzazh3NG80bzBrc2cud2VicD94LXZlcnNpb249MSIsCiAgICAgICAgICAgICAgICAibmFtZSI6ICJsYXJnZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly93d3cudzMub3JnL3RodW1ibmFpbHMvMTAwL2F2YXRhci1pbWFnZXMvazQ0cWt0MXJudHd3MHdjd3dna3NrOHc0bzRvMGtzZy53ZWJwP3gtdmVyc2lvbj0xIiwKICAgICAgICAgICAgICAgICJuYW1lIjogInRodW1ibmFpbCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly93d3cudzMub3JnL3RodW1ibmFpbHMvNDgvYXZhdGFyLWltYWdlcy9rNDRxa3Qxcm50d3cwd2N3d2drc2s4dzRvNG8wa3NnLndlYnA/eC12ZXJzaW9uPTEiLAogICAgICAgICAgICAgICAgIm5hbWUiOiAidGlueSIKICAgICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgInBhcnRpY2lwYXRpb25zIjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvdXNlcnMvazQ0cWt0MXJudHd3MHdjd3dna3NrOHc0bzRvMGtzZy9wYXJ0aWNpcGF0aW9ucyIKICAgICAgICB9LAogICAgICAgICJjaGFpcl9vZl9ncm91cHMiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy91c2Vycy9rNDRxa3Qxcm50d3cwd2N3d2drc2s4dzRvNG8wa3NnL2NoYWlyLW9mLWdyb3VwcyIKICAgICAgICB9LAogICAgICAgICJ0ZWFtX2NvbnRhY3Rfb2ZfZ3JvdXBzIjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvdXNlcnMvazQ0cWt0MXJudHd3MHdjd3dna3NrOHc0bzRvMGtzZy90ZWFtLWNvbnRhY3Qtb2YtZ3JvdXBzIgogICAgICAgIH0KICAgIH0KfQ==
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Mon, 15 Mar 2021 13:50:54 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '130'
+      set-cookie:
+      - __cf_bm=jlBNTR7fLO3LRuJC9FDB5NoXbA7DD.AALldsYtn._ac-1751672007-1.0.1.1-Z3KS3ecscg0Czfu7dEht0_z4ZC_PCLIYU85Ydu96.oQCpHSIgIC223MsFnD0hKjZPzH958UBzqcrXoZrgbS0dQBkq9nNs0AU.beIMZlMkyI;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7e0d6103d7-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 32040,
+            "name": "Silvia Pfeiffer",
+            "given": "Silvia",
+            "family": "Pfeiffer",
+            "work-title": "Web Media Technology",
+            "country-code": "AU",
+            "country-division": "New South Wales",
+            "city": "Melrose Park",
+            "connected-accounts": [
+                {
+                    "created": "2017-05-06T05:45:27+00:00",
+                    "updated": "2021-01-21T10:44:18+00:00",
+                    "service": "github",
+                    "identifier": "94913",
+                    "nickname": "silviapfeiffer",
+                    "profile-picture": "https://avatars.githubusercontent.com/u/94913?v=4",
+                    "href": "https://github.com/silviapfeiffer",
+                    "_links": {
+                        "user": {
+                            "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s"
+                        }
+                    }
+                }
+            ],
+            "discr": "user",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s"
+                },
+                "affiliations": {
+                    "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s/affiliations"
+                },
+                "groups": {
+                    "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s/groups"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s/specifications"
+                },
+                "photos": [
+                    {
+                        "href": "https://www.w3.org/thumbnails/360/avatar-images/8tfh2eebqvwgg4sg84gckcoc8ko8w4s.webp?x-version=1",
+                        "name": "large"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/100/avatar-images/8tfh2eebqvwgg4sg84gckcoc8ko8w4s.webp?x-version=1",
+                        "name": "thumbnail"
+                    },
+                    {
+                        "href": "https://www.w3.org/thumbnails/48/avatar-images/8tfh2eebqvwgg4sg84gckcoc8ko8w4s.webp?x-version=1",
+                        "name": "tiny"
+                    }
+                ],
+                "participations": {
+                    "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s/participations"
+                },
+                "chair_of_groups": {
+                    "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s/chair-of-groups"
+                },
+                "team_contact_of_groups": {
+                    "href": "https://api.w3.org/users/8tfh2eebqvwgg4sg84gckcoc8ko8w4s/team-contact-of-groups"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+recorded_with: VCR 6.3.1

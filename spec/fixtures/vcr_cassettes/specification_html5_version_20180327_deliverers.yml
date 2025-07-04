@@ -1,0 +1,249 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20180327
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 23:30:10 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '197'
+      set-cookie:
+      - __cf_bm=sSzTD3Cm6wP9FRYKMq2D0K.EmfbDu43Ag9JDv6jEl.Y-1751672007-1.0.1.1-1X_hh01IHR07OJHpf8Bsm1rIGitnlFNbPKIZRpeQKxEwDaqK_8M0csbIT_Doe0DiljvRwnCntcYBgyJMHgUywoeny_sw3y7WdjCg7WNtW34;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7f49cd033f-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "Retired",
+            "rec-track": true,
+            "uri": "https://www.w3.org/TR/2018/SPSD-html5-20180327/",
+            "date": "2018-03-27",
+            "informative": false,
+            "title": "HTML5",
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327"
+                },
+                "editors": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/editors"
+                },
+                "deliverers": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/deliverers"
+                },
+                "specification": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "predecessor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/predecessors"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20180327/deliverers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 23:28:13 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '314'
+      set-cookie:
+      - __cf_bm=EtjS7U8.C_IH8VasCy24ow7ChdfTDk3HwGtco1n3swE-1751672007-1.0.1.1-plGCRusl8nVRDGd87gC0CwOds2jymn0LqDvNW0tOvkrXJE2W08beDLID27EPC.jGX2XqAyfUhkt2FIpRiTW.Wg68E7vUfXR6B6kQwFjMQrg;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7f889c1f05-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 1,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327"
+                },
+                "deliverers": [
+                    {
+                        "href": "https://api.w3.org/groups/wg/html",
+                        "title": "HTML Media Extensions Working Group"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/deliverers?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/deliverers?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/deliverers?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/groups/wg/html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:33:27 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Sun, 07 Oct 2018 09:40:47 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - HIT
+      age:
+      - '129'
+      set-cookie:
+      - __cf_bm=ujA0GIJz9vYWy08J_rox5xfJarROA.69Af2rr4rBWcM-1751672007-1.0.1.1-NMT2jqKjfkApmtnyaubWrgttlxpCKEoaeO5VDv08gGYjhACW.N0bE0UEcYFo_eYqO8SHm5AM5WFg8abyjegzKnBtFoNrAFN1_1wTRDraGcQ;
+        path=/; expires=Sat, 05-Jul-25 00:03:27 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a26d7fdc8cddcb-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "id": 40318,
+            "name": "HTML Media Extensions Working Group",
+            "is_closed": true,
+            "description": "The mission of the HTML Working Group is to continue the evolution of HTML (including classic HTML and XML syntaxes).",
+            "shortname": "html",
+            "closed_date": "2018-10-07",
+            "discr": "w3cgroup",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/groups/wg/html"
+                },
+                "homepage": {
+                    "href": "https://www.w3.org/html/wg/"
+                },
+                "users": {
+                    "href": "https://api.w3.org/groups/wg/html/users"
+                },
+                "services": {
+                    "href": "https://api.w3.org/groups/wg/html/services"
+                },
+                "specifications": {
+                    "href": "https://api.w3.org/groups/wg/html/specifications"
+                },
+                "chairs": {
+                    "href": "https://api.w3.org/groups/wg/html/chairs"
+                },
+                "team-contacts": {
+                    "href": "https://api.w3.org/groups/wg/html/teamcontacts"
+                },
+                "charters": {
+                    "href": "https://api.w3.org/groups/wg/html/charters"
+                },
+                "active-charter": {
+                    "href": "https://api.w3.org/groups/wg/html/charters/74"
+                },
+                "join": {
+                    "href": "https://www.w3.org/groups/wg/html/join"
+                },
+                "pp-status": {
+                    "href": "https://www.w3.org/groups/wg/html/ipr"
+                },
+                "participations": {
+                    "href": "https://api.w3.org/groups/wg/html/participations"
+                }
+            },
+            "type": "working group",
+            "start-date": "2007-03-07",
+            "end-date": "2018-04-30"
+        }
+  recorded_at: Fri, 04 Jul 2025 23:33:27 GMT
+recorded_with: VCR 6.3.1
