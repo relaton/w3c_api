@@ -49,8 +49,8 @@ module W3cApi
       attribute :process_rules, :string
 
       hal_link :self, key: 'self', realize_class: 'SpecVersion'
-      hal_link :editors, key: 'editors', realize_class: 'UserIndex'
-      hal_link :deliverers, key: 'deliverers', realize_class: 'UserIndex'
+      hal_link :editors, key: 'editors', realize_class: 'EditorIndex'
+      hal_link :deliverers, key: 'deliverers', realize_class: 'DelivererIndex'
       hal_link :specification, key: 'specification', realize_class: 'Specification'
       hal_link :predecessor_versions, key: 'predecessor-version', realize_class: 'SpecVersionPredecessorIndex'
       hal_link :successor_versions, key: 'successor-version', realize_class: 'SpecVersionSuccessorIndex'

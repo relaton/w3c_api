@@ -176,6 +176,16 @@ module W3cApi
         '/groups/{id}',
         Models::Group
       )
+      add_resource_endpoint(
+        :group_by_type_shortname_resource,
+        '/groups/{type}/{shortname}',
+        Models::Group
+      )
+      add_index_endpoint(
+        :group_by_type_index,
+        '/groups/{type}',
+        Models::GroupIndex
+      )
       # Group nested endpoints
       add_index_endpoint(
         :group_specifications_index,
