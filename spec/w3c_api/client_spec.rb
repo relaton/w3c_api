@@ -110,7 +110,7 @@ RSpec.describe W3cApi::Client do
     end
   end
 
-  xdescribe 'groups' do
+  describe 'groups' do
     describe '#groups' do
       let(:mock_groups) do
         groups = W3cApi::Models::Groups.new
@@ -181,7 +181,7 @@ RSpec.describe W3cApi::Client do
           expect(users).to be_a(W3cApi::Models::UserIndex)
           expect(users.links.users).not_to be_empty
           expect(users.links.users.first).to be_a(W3cApi::Models::UserLink)
-          expect(users.links.users.first.name).not_to be_nil
+          expect(users.links.users.first.title).not_to be_nil
         end
       end
     end
@@ -202,10 +202,10 @@ RSpec.describe W3cApi::Client do
       it 'returns chairs of a group' do
         VCR.use_cassette('group_109735_chairs') do
           chairs = client.group_chairs(109_735)
-          expect(chairs).to be_a(W3cApi::Models::UserIndex)
-          expect(chairs.links.users).not_to be_empty
-          expect(chairs.links.users.first).to be_a(W3cApi::Models::UserLink)
-          expect(chairs.links.users.first.name).not_to be_nil
+          expect(chairs).to be_a(W3cApi::Models::ChairIndex)
+          expect(chairs.links.chairs).not_to be_empty
+          expect(chairs.links.chairs.first).to be_a(W3cApi::Models::UserLink)
+          expect(chairs.links.chairs.first.title).not_to be_nil
         end
       end
     end
@@ -214,10 +214,10 @@ RSpec.describe W3cApi::Client do
       it 'returns team contacts of a group' do
         VCR.use_cassette('group_109735_team_contacts') do
           team_contacts = client.group_team_contacts(109_735)
-          expect(team_contacts).to be_a(W3cApi::Models::UserIndex)
-          expect(team_contacts.links.users).not_to be_empty
-          expect(team_contacts.links.users.first).to be_a(W3cApi::Models::UserLink)
-          expect(team_contacts.links.users.first.name).not_to be_nil
+          expect(team_contacts).to be_a(W3cApi::Models::TeamContactIndex)
+          expect(team_contacts.links.team_contacts).not_to be_empty
+          expect(team_contacts.links.team_contacts.first).to be_a(W3cApi::Models::UserLink)
+          expect(team_contacts.links.team_contacts.first.title).not_to be_nil
         end
       end
     end
@@ -395,31 +395,23 @@ RSpec.describe W3cApi::Client do
     end
   end
 
-  xdescribe 'participation', :vcr do
+  describe 'participation', :vcr do
     describe '#participation' do
       it 'returns a participation by id' do
-        # Mock the participation object instead of using VCR
-        mock_participation = W3cApi::Models::Participation.new
-        mock_links = W3cApi::Models::ParticipationLinks.new(
-          self: W3cApi::Models::Link.new(href: 'https://api.w3.org/participations/38785')
-        )
-        mock_participation.links = mock_links
-        mock_participation.created = '2020-01-01T12:00:00Z'
-
-        # Allow the client to return our mock
-        allow(client).to receive(:participation).with(38_785).and_return(mock_participation)
-
-        participation = client.participation(38_785)
-        expect(participation).to be_a(W3cApi::Models::Participation)
-        expect(participation.links.self.href).to include('38785')
+        VCR.use_cassette('participation_38785') do
+          participation = client.participation(38_785)
+          expect(participation).to be_a(W3cApi::Models::Participation)
+          expect(participation.created).not_to be_nil
+        end
       end
     end
   end
 
   describe 'error handling' do
-    # Skip this test entirely since it's causing issues with VCR
-    it 'handles HTTP errors appropriately' do
-      skip 'Error handling is tested manually'
+    it 'handles 404 errors appropriately' do
+      VCR.use_cassette('error_404') do
+        expect { client.specification('nonexistent-specification') }.to raise_error(Lutaml::Hal::NotFoundError)
+      end
     end
   end
 end

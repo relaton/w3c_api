@@ -55,7 +55,7 @@ module W3cApi
   module Models
     # Group model representing a W3C working group
     class Group < Lutaml::Hal::Resource
-      attribute :id, :string
+      attribute :id, :integer
       attribute :type, :string
       attribute :name, :string
       attribute :is_closed, :boolean
@@ -88,6 +88,30 @@ module W3cApi
         ].each do |key|
           map key.to_s.tr('_', '-'), to: key
         end
+      end
+
+      def users(client = nil)
+        return nil unless client
+
+        client.group_users(id)
+      end
+
+      def specifications(client = nil)
+        return nil unless client
+
+        client.group_specifications(id)
+      end
+
+      def chairs(client = nil)
+        return nil unless client
+
+        client.group_chairs(id)
+      end
+
+      def team_contacts(client = nil)
+        return nil unless client
+
+        client.group_team_contacts(id)
       end
     end
   end

@@ -80,7 +80,7 @@ RSpec.describe W3cApi::Models::Group do
     end
 
     it 'sets attributes correctly from hash' do
-      expect(group.id).to eq('109735')
+      expect(group.id).to eq(109_735)
       expect(group.name).to eq('Immersive Web Working Group')
       expect(group.type).to eq('working group')
       expect(group.description).to eq('The Immersive Web Working Group aims to develop standards')
@@ -98,7 +98,7 @@ RSpec.describe W3cApi::Models::Group do
     end
   end
 
-  xdescribe 'client methods' do
+  describe 'client methods' do
     let(:client) { instance_double(W3cApi::Client) }
     let(:users) { [instance_double(W3cApi::Models::User)] }
     let(:specifications) { [instance_double(W3cApi::Models::Specification)] }
@@ -106,12 +106,12 @@ RSpec.describe W3cApi::Models::Group do
     let(:team_contacts) { [instance_double(W3cApi::Models::User)] }
 
     it 'fetches users using the client' do
-      expect(client).to receive(:group_users).with('109735').and_return(users)
-      expect(group.links.users.href).to eq(users.links.self.href)
+      expect(client).to receive(:group_users).with(109_735).and_return(users)
+      expect(group.users(client)).to eq(users)
     end
 
     it 'fetches specifications using the client' do
-      expect(client).to receive(:group_specifications).with('109735').and_return(specifications)
+      expect(client).to receive(:group_specifications).with(109_735).and_return(specifications)
       expect(group.specifications(client)).to eq(specifications)
     end
 
@@ -137,7 +137,7 @@ RSpec.describe W3cApi::Models::Group do
     it 'can be converted to JSON' do
       json = group.to_json
       expect(json).to be_a(String)
-      expect(json).to include('"id":"109735"')
+      expect(json).to include('"id":109735')
       expect(json).to include('"name":"Immersive Web Working Group"')
     end
 

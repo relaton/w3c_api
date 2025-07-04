@@ -60,7 +60,7 @@ RSpec.describe W3cApi::Models::Affiliation do
     let(:client) { instance_double(W3cApi::Client) }
     let(:participants) { [instance_double(W3cApi::Models::User)] }
 
-    xit 'fetches participants using the client' do
+    it 'fetches participants using the client' do
       expect(client).to receive(:affiliation_participants).with(123).and_return(participants)
       expect(affiliation.participants(client)).to eq(participants)
     end
@@ -70,7 +70,7 @@ RSpec.describe W3cApi::Models::Affiliation do
     let(:client) { instance_double(W3cApi::Client) }
     let(:participations) { [instance_double(W3cApi::Models::Participation)] }
 
-    xit 'fetches participations using the client' do
+    it 'fetches participations using the client' do
       expect(client).to receive(:affiliation_participations).with(123).and_return(participations)
       expect(affiliation.participations(client)).to eq(participations)
     end

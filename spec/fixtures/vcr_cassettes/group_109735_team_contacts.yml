@@ -72,4 +72,51 @@ http_interactions:
             }
         }
   recorded_at: Thu, 06 Mar 2025 15:22:19 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/groups/109735/team-contacts
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Thu, 03 Jul 2025 17:26:10 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding
+      cache-control:
+      - no-cache, private
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=QTF6AtgbfTc9UeNhS04UoF94ko2UEszZo.Cv_tXg4Rc-1751563570-1.0.1.1-iqnfyXcqk6AjnveuzRFZt.FBH872VbKT_Hz2JuCGXoOaGB2fZ26wkIvsU3UfUh4oz0eh8r8rFXFl7D5XihWCOfR3zPswIHWAOARbbCyT3fk;
+        path=/; expires=Thu, 03-Jul-25 17:56:10 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      server:
+      - cloudflare
+      cf-ray:
+      - 959816177bd585c1-HKG
+      content-encoding:
+      - gzip
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"https:\/\/tools.ietf.org\/html\/rfc2616#section-10","title":"An
+        error occurred","status":404,"detail":"Not Found"}'
+  recorded_at: Thu, 03 Jul 2025 17:26:10 GMT
 recorded_with: VCR 6.3.1

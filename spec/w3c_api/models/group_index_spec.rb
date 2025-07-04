@@ -129,18 +129,18 @@ RSpec.describe W3cApi::Models::GroupIndex do
   end
 
   describe 'serialization' do
-    xit 'can be converted to JSON' do
+    it 'can be converted to JSON' do
       json = groups.to_json
-      expect(json).to include('"id":109735')
-      expect(json).to include('"name":"Immersive Web Working Group"')
-      expect(json).to include('"name":"Web Machine Learning Working Group"')
+      expect(json).to include('"page":1')
+      expect(json).to include('"total":257')
+      expect(json).to include('"title":"AB Liaisons to the Board of Directors"')
     end
 
-    xit 'can be converted to YAML' do
+    it 'can be converted to YAML' do
       yaml = groups.to_yaml
-      expect(yaml).to include('id: 109735')
-      expect(yaml).to include('name: Immersive Web Working Group')
-      expect(yaml).to include('name: Web Machine Learning Working Group')
+      expect(yaml).to include('page: 1')
+      expect(yaml).to include('total: 257')
+      expect(yaml).to include('title: AB Liaisons to the Board of Directors')
     end
   end
 end
