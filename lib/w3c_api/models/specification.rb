@@ -48,6 +48,7 @@ module W3cApi
       hal_link :latest_version, key: 'latest-version', realize_class: 'SpecVersion'
       hal_link :supersedes, key: 'supersedes', realize_class: 'SpecificationIndex', collection: true
       hal_link :series, key: 'series', realize_class: 'Serie'
+      hal_link :spec_versions, key: 'version-history', realize_class: 'SpecVersionIndex'
 
       key_value do
         %i[

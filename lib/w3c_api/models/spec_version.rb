@@ -52,8 +52,8 @@ module W3cApi
       hal_link :editors, key: 'editors', realize_class: 'UserIndex'
       hal_link :deliverers, key: 'deliverers', realize_class: 'UserIndex'
       hal_link :specification, key: 'specification', realize_class: 'Specification'
-      hal_link :predecessor_version, key: 'predecessor-version', realize_class: 'SpecVersionIndex'
-      hal_link :successor_version, key: 'successor-version', realize_class: 'SpecVersionIndex'
+      hal_link :predecessor_versions, key: 'predecessor-version', realize_class: 'SpecVersionPredecessorIndex'
+      hal_link :successor_versions, key: 'successor-version', realize_class: 'SpecVersionSuccessorIndex'
 
       key_value do
         %i[

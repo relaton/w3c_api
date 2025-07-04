@@ -13,13 +13,11 @@ RSpec.describe W3cApi::Models::SpecVersionIndex do
         'self' => {
           'href' => 'https://api.w3.org/specifications/html5/versions'
         },
-        'predecessor-version' => [
+        'version-history' => [
           {
             'href' => 'https://api.w3.org/specifications/html5/versions/20171214',
             'title' => 'HTML 5.2'
-          }
-        ],
-        'successor-version' => [
+          },
           {
             'href' => 'https://api.w3.org/specifications/html5/versions/20180327',
             'title' => 'HTML 5.3'
@@ -52,38 +50,14 @@ RSpec.describe W3cApi::Models::SpecVersionIndex do
     it 'returns the correct self link' do
       expect(spec_version_index.links.self.href).to eq('https://api.w3.org/specifications/html5/versions')
     end
-
-    it 'has predecessor_version links' do
-      expect(spec_version_index.links).to respond_to(:predecessor_version)
-      expect(spec_version_index.links.predecessor_version).to be_a(Array)
-      expect(spec_version_index.links.predecessor_version.first).to be_a(W3cApi::Models::SpecVersionLink)
-      expect(spec_version_index.links.predecessor_version.first.href).to eq('https://api.w3.org/specifications/html5/versions/20171214')
-      expect(spec_version_index.links.predecessor_version.first.title).to eq('HTML 5.2')
-    end
-
-    it 'has successor_version links' do
-      expect(spec_version_index.links).to respond_to(:successor_version)
-      expect(spec_version_index.links.successor_version).to be_a(Array)
-      expect(spec_version_index.links.successor_version.first).to be_a(W3cApi::Models::SpecVersionLink)
-      expect(spec_version_index.links.successor_version.first.href).to eq('https://api.w3.org/specifications/html5/versions/20180327')
-      expect(spec_version_index.links.successor_version.first.title).to eq('HTML 5.3')
-    end
   end
 
   describe 'HAL link realization' do
-    context 'when predecessor_version links exist' do
+    context 'when versions links exist' do
       it 'has realize method available' do
         # The key fix is that these links now have the realize method available
         # without throwing "Unregistered URL pattern" errors
-        expect(spec_version_index.links.predecessor_version.first).to respond_to(:realize)
-      end
-    end
-
-    context 'when successor_version links exist' do
-      it 'has realize method available' do
-        # The key fix is that these links now have the realize method available
-        # without throwing "Unregistered URL pattern" errors
-        expect(spec_version_index.links.successor_version.first).to respond_to(:realize)
+        expect(spec_version_index.links.spec_versions.first).to respond_to(:realize)
       end
     end
   end

@@ -6,7 +6,6 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'bundler'
-gem 'lutaml-hal'
 gem 'lutaml-model'
 gem 'rake'
 gem 'rspec'
