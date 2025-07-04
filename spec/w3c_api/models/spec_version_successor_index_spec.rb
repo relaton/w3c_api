@@ -18,7 +18,7 @@ RSpec.describe W3cApi::Models::SpecVersionSuccessorIndex do
       first_successor = successors.links.successor_versions.first.realize
       expect(first_successor).to be_a(W3cApi::Models::SpecVersion)
       expect(first_successor.title).to include('HTML5')
-      expect(first_successor.date).to be_a(String)
+      expect(first_successor.date).to be_a(DateTime)
     end
 
     it 'handles empty successor list gracefully', :vcr do
@@ -43,7 +43,7 @@ RSpec.describe W3cApi::Models::SpecVersionSuccessorIndex do
         successor = succ_link.realize
         expect(successor).to be_a(W3cApi::Models::SpecVersion)
         expect(successor.title).to be_a(String)
-        expect(successor.date).to be_a(String)
+        expect(successor.date).to be_a(DateTime)
 
         # Test that successor also has links (might have its own successors)
         expect(successor.links).to respond_to(:predecessor_versions)

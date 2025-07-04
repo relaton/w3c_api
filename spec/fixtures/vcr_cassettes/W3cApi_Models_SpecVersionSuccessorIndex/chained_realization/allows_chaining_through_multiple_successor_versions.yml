@@ -1,0 +1,233 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20140429
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:23:34 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 23:23:31 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '3'
+      set-cookie:
+      - __cf_bm=.BtpHXAoo0CzsutymwdqJNfMlDBDciUdWuPrSrkZ5Uk-1751671414-1.0.1.1-e8PUWp.sbDXbIhiReDYMsaFiUwQlb6Qi0_AatFcvyXpvgZkh7wroa2IjdFqrPsci3LqFq3X3koipjRwMIqmOIzvXOXnBiLnK1RKFNQQBoWo;
+        path=/; expires=Fri, 04-Jul-25 23:53:34 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a25f04fc57509c-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "Candidate Recommendation Snapshot",
+            "rec-track": true,
+            "uri": "https://www.w3.org/TR/2014/CR-html5-20140429/",
+            "date": "2014-04-29",
+            "implementation-feedback-due": "2014-09-01",
+            "informative": false,
+            "title": "HTML5",
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429"
+                },
+                "editors": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/editors"
+                },
+                "deliverers": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/deliverers"
+                },
+                "specification": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "predecessor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/predecessors"
+                },
+                "successor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/successors"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:23:34 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20140429/successors
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:23:34 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 23:23:33 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '1'
+      set-cookie:
+      - __cf_bm=mjKuWHBHWF4NeXikhTR8OinaeP150dDLtSnsSeC6w8k-1751671414-1.0.1.1-VMTTTSiGK.JK8qPvKNXD7I3ijyUAJWABz5suk4655zq.mC7QMRtEA_iCS9Yl1lV7nBU0ro.7qYO2iVCWv0jLR9C2UdAROYavSTyAb9pw5Uo;
+        path=/; expires=Fri, 04-Jul-25 23:53:34 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a25f054a342416-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 1,
+            "_links": {
+                "up": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429"
+                },
+                "successor-version": [
+                    {
+                        "href": "https://api.w3.org/specifications/html5/versions/20140617",
+                        "title": "Last Call Working Draft"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/successors?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/successors?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/successors?page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:23:34 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20140617
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 23:23:34 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 23:23:33 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '1'
+      set-cookie:
+      - __cf_bm=SLHg7AmQ6gHZwn6wshpdDyTdEyfajbBJFFu3UnFQ09E-1751671414-1.0.1.1-Ov_xNrgx0aLCtTk0nB619ZJIBkl64h2_ErE5ZfpID3K4LAz9ne.hQi70kxY1F7pyWsWJFNiAu0MvwzfOiG8GoLqrgxd5uFC9a4Yd_BHLyYs;
+        path=/; expires=Fri, 04-Jul-25 23:53:34 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a25f058cf98508-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "Last Call Working Draft",
+            "rec-track": true,
+            "uri": "https://www.w3.org/TR/2014/WD-html5-20140617/",
+            "date": "2014-06-17",
+            "last-call-feedback-due": "2014-07-15",
+            "informative": false,
+            "title": "HTML5",
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140617"
+                },
+                "editors": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140617/editors"
+                },
+                "deliverers": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140617/deliverers"
+                },
+                "specification": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "predecessor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140617/predecessors"
+                },
+                "successor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140617/successors"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 23:23:34 GMT
+recorded_with: VCR 6.3.1
