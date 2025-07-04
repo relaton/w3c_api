@@ -32,6 +32,8 @@ module W3cApi
     autoload :SerieIndex, 'w3c_api/models/serie_index'
     autoload :SpecVersion, 'w3c_api/models/spec_version'
     autoload :SpecVersionIndex, 'w3c_api/models/spec_version_index'
+    autoload :SpecVersionPredecessorIndex, 'w3c_api/models/spec_version_predecessor_index'
+    autoload :SpecVersionSuccessorIndex, 'w3c_api/models/spec_version_successor_index'
     autoload :SpecVersionRef, 'w3c_api/models/spec_version_ref'
     autoload :Specification, 'w3c_api/models/specification'
     autoload :SpecificationIndex, 'w3c_api/models/specification_index'

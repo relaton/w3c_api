@@ -125,6 +125,35 @@ specs_by_status = client.specifications_by_status('Recommendation')
 predecessors = client.specification_version_predecessors('webrtc', '20241008')
 successors = client.specification_version_successors('webrtc', '20241008')
 
+# Navigate through version history with chained realization
+version = client.specification_version('html5', '20140429')
+
+# Get all predecessors and navigate through them
+predecessors = version.links.predecessor_versions.realize
+predecessors.links.predecessor_versions.each do |pred_link|
+  predecessor = pred_link.realize
+  puts "#{predecessor.title} - #{predecessor.date}"
+
+  # Each predecessor can have its own predecessors
+  if predecessor.links.predecessor_versions
+    pred_predecessors = predecessor.links.predecessor_versions.realize
+    # Continue navigation...
+  end
+end
+
+# Get all successors and navigate through them
+successors = version.links.successor_versions.realize
+successors.links.successor_versions.each do |succ_link|
+  successor = succ_link.realize
+  puts "#{successor.title} - #{successor.date}"
+
+  # Each successor can have its own successors
+  if successor.links.successor_versions
+    succ_successors = successor.links.successor_versions.realize
+    # Continue navigation...
+  end
+end
+
 # All client methods support comprehensive options including:
 
 # Pagination options
@@ -287,6 +316,8 @@ By default, the output is in YAML format. You can specify the output format usin
 Commands:
   # Work with W3C specifications
   w3c_api specification SUBCOMMAND ...ARGS
+  # Work with W3C specification versions
+  w3c_api specification_version SUBCOMMAND ...ARGS
   # Work with W3C specification series
   w3c_api series SUBCOMMAND ...ARGS
   # Work with W3C groups

@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20140429
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 17:25:48 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 17:25:47 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '1'
+      set-cookie:
+      - __cf_bm=cZ7vxXcSngZOMLfD8yLb6ichJ2vDf9CaTiGBg6hAV44-1751649948-1.0.1.1-cMy_v.ejLKJ6P2o1IhecXcNadXEWzNF6e5OySz7R1FmBAYlYJeKpQu2jThux_tEZ4nGc6l8cZ5gsQA8jjsqu5uUUJ4h5Rz8PYGL9pWwJwnE;
+        path=/; expires=Fri, 04-Jul-25 17:55:48 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a052ef1a4d4b09-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "Candidate Recommendation Snapshot",
+            "rec-track": true,
+            "uri": "https://www.w3.org/TR/2014/CR-html5-20140429/",
+            "date": "2014-04-29",
+            "implementation-feedback-due": "2014-09-01",
+            "informative": false,
+            "title": "HTML5",
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429"
+                },
+                "editors": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/editors"
+                },
+                "deliverers": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/deliverers"
+                },
+                "specification": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "predecessor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/predecessors"
+                },
+                "successor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20140429/successors"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 17:25:48 GMT
+recorded_with: VCR 6.3.1

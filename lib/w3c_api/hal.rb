@@ -119,6 +119,18 @@ module W3cApi
         Models::DelivererIndex
       )
 
+      # Specification version predecessors and successors
+      add_index_endpoint(
+        :specification_version_predecessors_index,
+        '/specifications/{shortname}/versions/{version}/predecessors',
+        Models::SpecVersionPredecessorIndex
+      )
+      add_index_endpoint(
+        :specification_version_successors_index,
+        '/specifications/{shortname}/versions/{version}/successors',
+        Models::SpecVersionSuccessorIndex
+      )
+
       # Specification related endpoints
       %w[supersedes superseded_by editors deliverers].each do |relation|
         add_index_endpoint(

@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/html5/versions/20180327
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 04 Jul 2025 17:23:12 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Fri, 04 Jul 2025 17:23:12 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=iHxaCRiltIq9Wr1RnFcO74PUvXdoiTad_CFFRUjkKAo-1751649792-1.0.1.1-9lvls5YaIADRlJI7MasGrUQtNCPb5zBo40yzL7V5ioU3dRqb98dpUQbOvuo6hioSoZJbKGTcVLWm83Sxq42Q1rdw2m_zRDcoCimeG1AUgHY;
+        path=/; expires=Fri, 04-Jul-25 17:53:12 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a04f222ce0e2f7-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "status": "Retired",
+            "rec-track": true,
+            "uri": "https://www.w3.org/TR/2018/SPSD-html5-20180327/",
+            "date": "2018-03-27",
+            "informative": false,
+            "title": "HTML5",
+            "shortlink": "https://www.w3.org/TR/html5/",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327"
+                },
+                "editors": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/editors"
+                },
+                "deliverers": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/deliverers"
+                },
+                "specification": {
+                    "href": "https://api.w3.org/specifications/html5"
+                },
+                "predecessor-version": {
+                    "href": "https://api.w3.org/specifications/html5/versions/20180327/predecessors"
+                }
+            }
+        }
+  recorded_at: Fri, 04 Jul 2025 17:23:12 GMT
+recorded_with: VCR 6.3.1
