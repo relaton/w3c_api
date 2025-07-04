@@ -18,7 +18,7 @@ RSpec.describe W3cApi::Models::SpecVersionPredecessorIndex do
       first_predecessor = predecessors.links.predecessor_versions.first.realize
       expect(first_predecessor).to be_a(W3cApi::Models::SpecVersion)
       expect(first_predecessor.title).to include('HTML5')
-      expect(first_predecessor.date).to be_a(String)
+      expect(first_predecessor.date).to be_a(DateTime)
     end
 
     it 'handles empty predecessor list gracefully', :vcr do
@@ -43,7 +43,7 @@ RSpec.describe W3cApi::Models::SpecVersionPredecessorIndex do
         predecessor = pred_link.realize
         expect(predecessor).to be_a(W3cApi::Models::SpecVersion)
         expect(predecessor.title).to be_a(String)
-        expect(predecessor.date).to be_a(String)
+        expect(predecessor.date).to be_a(DateTime)
 
         # Test that predecessor also has links (might have its own predecessors)
         expect(predecessor.links).to respond_to(:predecessor_versions)
