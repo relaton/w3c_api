@@ -22,7 +22,6 @@ module W3cApi
     autoload :Extension, 'w3c_api/models/extension'
     autoload :Group, 'w3c_api/models/group'
     autoload :GroupIndex, 'w3c_api/models/group_index'
-    autoload :GroupLinkSet, 'w3c_api/models/group_link_set'
     autoload :Groups, 'w3c_api/models/groups'
     autoload :JoinEmails, 'w3c_api/models/join_emails'
     autoload :ParticipantIndex, 'w3c_api/models/participant_index'
