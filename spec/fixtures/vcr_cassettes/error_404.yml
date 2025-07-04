@@ -47,4 +47,51 @@ http_interactions:
       string: '{"type":"https:\/\/tools.ietf.org\/html\/rfc2616#section-10","title":"An
         error occurred","status":404,"detail":"Not Found"}'
   recorded_at: Thu, 06 Mar 2025 15:22:31 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/nonexistent-specification
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Fri, 04 Jul 2025 03:08:48 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=_DbOngWznH2xuVB1CxV3Lhw9CgZRPHaS2nPlSSafT84-1751598528-1.0.1.1-xfHCdjrJIKZgatPoGaiVUZuZNz2RJvjmzCLu1JoUl_XQT52n8wOYsuAAKRQnPLBv4gqznahu4YY6viU57XNpRXLYFrOswhjr4tFXDgv_PAU;
+        path=/; expires=Fri, 04-Jul-25 03:38:48 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      server:
+      - cloudflare
+      cf-ray:
+      - 959b6b92d9c5cb25-HKG
+      content-encoding:
+      - gzip
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"https:\/\/tools.ietf.org\/html\/rfc2616#section-10","title":"An
+        error occurred","status":404,"detail":"Not Found"}'
+  recorded_at: Fri, 04 Jul 2025 03:08:48 GMT
 recorded_with: VCR 6.3.1

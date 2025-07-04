@@ -103,6 +103,18 @@ module W3cApi
           map key.to_s.tr('_', '-'), to: key
         end
       end
+
+      def groups(client = nil)
+        return nil unless client
+
+        client.user_groups(id)
+      end
+
+      def specifications(client = nil)
+        return nil unless client
+
+        client.user_specifications(id)
+      end
     end
   end
 end

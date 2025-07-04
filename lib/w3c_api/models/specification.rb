@@ -62,6 +62,12 @@ module W3cApi
           map key.to_s.tr('_', '-'), to: key
         end
       end
+
+      def versions(client = nil)
+        return nil unless client
+
+        client.specification_versions(shortname)
+      end
     end
   end
 end

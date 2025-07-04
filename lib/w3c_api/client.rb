@@ -22,8 +22,12 @@ module W3cApi
     end
 
     def specification_version(shortname, version, options = {})
-      fetch_resource(:specification_resource_version_resource,
-                     shortname: shortname, version: version, **options)
+      fetch_resource(
+        :specification_resource_version_resource,
+        shortname: shortname,
+        version: version,
+        **options
+      )
     end
 
     def specifications_by_status(status, options = {})
@@ -37,6 +41,16 @@ module W3cApi
       end
     end
 
+    def specification_version_editors(shortname, version, options = {})
+      fetch_resource(:specification_version_editors_index,
+                     shortname: shortname, version: version, **options)
+    end
+
+    def specification_version_deliverers(shortname, version, options = {})
+      fetch_resource(:specification_version_deliverers_index,
+                     shortname: shortname, version: version, **options)
+    end
+
     # Series methods
     def series(options = {})
       fetch_resource(:serie_index, **options)
@@ -48,6 +62,11 @@ module W3cApi
 
     def series_specifications(shortname, options = {})
       fetch_resource(:serie_specification_resource,
+                     shortname: shortname, **options)
+    end
+
+    def series_current_specification(shortname, options = {})
+      fetch_resource(:serie_current_specification_resource,
                      shortname: shortname, **options)
     end
 
@@ -107,8 +126,8 @@ module W3cApi
       fetch_resource(:ecosystem_index, **options)
     end
 
-    def ecosystem(id, options = {})
-      fetch_resource(:ecosystem_resource, id: id, **options)
+    def ecosystem(shortname, options = {})
+      fetch_resource(:ecosystem_resource, shortname: shortname, **options)
     end
 
     %w[groups evangelists member_organizations].each do |resource|

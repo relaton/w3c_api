@@ -93,7 +93,7 @@ RSpec.describe W3cApi::Models::Specification do
     end
   end
 
-  xdescribe 'client methods' do
+  describe 'client methods' do
     let(:client) { instance_double(W3cApi::Client) }
     let(:versions) { [instance_double(W3cApi::Models::SpecVersion)] }
 

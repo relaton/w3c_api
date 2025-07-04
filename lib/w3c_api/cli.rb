@@ -2,6 +2,7 @@
 
 require 'thor'
 require_relative 'commands/specification'
+require_relative 'commands/specification_version'
 require_relative 'commands/group'
 require_relative 'commands/user'
 require_relative 'commands/translation'
@@ -16,6 +17,9 @@ module W3cApi
     # Register subcommands
     desc 'specification SUBCOMMAND ...ARGS', 'Work with W3C specifications'
     subcommand 'specification', Commands::Specification
+
+    desc 'specification_version SUBCOMMAND ...ARGS', 'Work with W3C specification versions'
+    subcommand 'specification_version', Commands::SpecificationVersion
 
     desc 'group SUBCOMMAND ...ARGS', 'Work with W3C groups'
     subcommand 'group', Commands::Group

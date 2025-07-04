@@ -11,27 +11,27 @@ A Ruby client implementation for the W3C web API with a CLI interface.
 This gem provides:
 
 * A complete client for the W3C API (oft-used endpoints implemented)
+
 * Data models created with
 https://github.com/lutaml/lutaml-hal[lutaml-hal] and
 https://github.com/lutaml/lutaml-model[lutaml-model]
 for all W3C API resources
-* HAL (Hypertext Application Language) implementation for recursive resource
-traversal
+
+* HAL (Hypertext Application Language) implementation for recursive resource traversal
+
 * A command-line interface using Thor following GitHub CLI patterns
 
 The endpoint supported is at https://api.w3.org.
 
 This gem is developed against the W3C API documented at https://api.w3.org/doc.
 
+
 == Illustrative example usage
 
 This is an example demonstrating the power of this library as inherited
 from `lutaml-hal`, showing multiple levels of automatic link resolution.
 
-[example]
-====
 .Calling the Ruby API with multiple levels of link resolution
-
 [source,ruby]
 ----
 > require 'w3c_api'
@@ -100,7 +100,7 @@ from `lutaml-hal`, showing multiple levels of automatic link resolution.
 #   @pages=1,
 #   @total=1>
 ----
-====
+
 
 == Ruby API
 
@@ -128,8 +128,8 @@ successors = client.specification_version_successors('webrtc', '20241008')
 # All client methods support comprehensive options including:
 
 # Pagination options
-specifications = client.specifications(page: 2, items: 50)
-groups = client.groups(page: 1, items: 10)
+specifications = client.specifications(page: 2, per_page: 50)
+groups = client.groups(page: 1, per_page: 10, limit: 25, offset: 100)
 
 # HTTP client options
 user = client.user('hash', timeout: 30, headers: { 'User-Agent' => 'MyApp/1.0' })
@@ -201,155 +201,6 @@ translation = client.translation(2)
 ecosystems = client.ecosystems
 ecosystem = client.ecosystem('data')
 ----
-
-=== Pagination
-
-All index endpoints support pagination with the following parameters:
-
-* `page` - The page number to retrieve (default: 1)
-* `items` - The number of items per page (default: 100)
-
-==== Basic pagination
-
-[source,ruby]
-----
-# Get first page with default limit (100 items)
-specifications = client.specifications
-
-# Get specific page with custom limit
-specifications = client.specifications(page: 2, items: 25)
-
-# Get first page with smaller limit
-groups = client.groups(page: 1, items: 10)
-----
-
-==== Navigation links
-
-All paginated responses include navigation links that can be used to traverse
-pages:
-
-[source,ruby]
-----
-# Get first page
-specs_page1 = client.specifications(page: 1, items: 10)
-
-# Access navigation links
-links = specs_page1.links
-
-# Check available navigation options
-puts "Has next page: #{!links.next.nil?}"
-puts "Has previous page: #{!links.prev.nil?}"
-
-# Navigate to next page using the link
-if links.next
-  next_page = links.next.realize
-  puts "Next page number: #{next_page.page}"
-  puts "Items on next page: #{next_page.links.specifications.length}"
-end
-
-# Navigate to first/last pages
-first_page = links.first.realize if links.first
-last_page = links.last.realize if links.last
-----
-
-==== Pagination information
-
-Each paginated response includes metadata about the pagination state:
-
-[source,ruby]
-----
-specs = client.specifications(page: 2, items: 25)
-
-puts "Current page: #{specs.page}"        # 2
-puts "Items per page: #{specs.limit}"     # 25
-puts "Total items: #{specs.total}"        # e.g., 1643
-puts "Total pages: #{specs.pages}"        # e.g., 66
-----
-
-==== Iterating through all pages
-
-[source,ruby]
-----
-# Method 1: Using navigation links
-current_page = client.specifications(page: 1, items: 50)
-all_specifications = []
-
-loop do
-  all_specifications.concat(current_page.links.specifications)
-
-  break unless current_page.links.next
-
-  current_page = current_page.links.next.realize
-end
-
-puts "Total specifications collected: #{all_specifications.length}"
-
-# Method 2: Manual page iteration
-page = 1
-all_specifications = []
-
-loop do
-  current_page = client.specifications(page: page, items: 50)
-  specifications = current_page.links.specifications
-
-  break if specifications.empty?
-
-  all_specifications.concat(specifications)
-  page += 1
-end
-----
-
-==== Pagination for nested resources
-
-Nested resources also support pagination:
-
-[source,ruby]
-----
-# Get a group
-group = client.group(109735)
-
-# Get paginated specifications for this group
-specs = group.specifications(page: 1, items: 10)
-
-# Navigate through pages
-if specs.links.next
-  next_specs = specs.links.next.realize
-end
-
-# Other nested resources with pagination
-users = group.users(page: 1, items: 20)
-chairs = group.chairs(page: 1, items: 5)
-participations = group.participations(page: 1, items: 15)
-
-# Affiliation nested resources
-affiliation = client.affiliation(35662)
-participants = affiliation.participants(page: 1, items: 10)
-participations = affiliation.participations(page: 1, items: 10)
-----
-
-==== Supported endpoints
-
-All the following endpoints support pagination:
-
-* `client.specifications(page:, items:)`
-* `client.groups(page:, items:)`
-* `client.affiliations(page:, items:)`
-* `client.series(page:, items:)`
-* `client.translations(page:, items:)`
-* `client.ecosystems(page:, items:)`
-* `group.specifications(page:, items:)`
-* `group.users(page:, items:)`
-* `group.chairs(page:, items:)`
-* `group.team_contacts(page:, items:)`
-* `group.participations(page:, items:)`
-* `affiliation.participants(page:, items:)`
-* `affiliation.participations(page:, items:)`
-* `participation.participants(page:, items:)`
-* `user.groups(page:, items:)`
-* `user.specifications(page:, items:)`
-* `user.affiliations(page:, items:)`
-* `user.participations(page:, items:)`
-* And many more nested resource endpoints
 
 === Models
 
@@ -428,8 +279,8 @@ W3C API provides a command-line interface (CLI) for various operations.
 
 The main executable is `w3c_api`.
 
-By default, the output is in YAML format. You can specify the output format
-using the `--format` option, which accepts `json` or `yaml`.
+By default, the output is in YAML format. You can specify the output format using the
+`--format` option, which accepts `json` or `yaml`.
 
 [source,shell]
 ----
@@ -578,61 +429,65 @@ specifications:
 ----
 ====
 
-// === Specification version
+=== Specification version
 
-// TODO: This is not yet implemented!
+==== Editors
 
-// ==== Editors
+This command provides access to editors of a specification version.
 
-// TODO: This is not yet implemented!
+[source,shell]
+----
+# Fetch editors of a specification version
+$ w3c_api specification_version editors --shortname=webrtc --version=20241008
+----
 
-// This command provides access to editors of a specification version.
+[example]
+====
+[source,shell]
+----
+$ w3c_api specification_version editors --shortname=webrtc --version=20241008
+---
+_links:
+  editors:
+  - href: https://api.w3.org/users/bzb5w20eg68k40gc8w0wg0okk4k84os
+    title: Cullen Jennings
+    type: User
+  - href: https://api.w3.org/users/f521yr1m6g0kks880s8ocwsgwskgss4
+    title: Jan-Ivar Bruaroey
+    type: User
+  - href: https://api.w3.org/users/1dsgdsi4zrj4goo4k400c8scw4k4ggk
+    title: Henrik Boström
+    type: User
+  - href: https://api.w3.org/users/nlyfs3q8s2s0gk0owoggkco0sg0wwso
+    title: Florent Castelli
+    type: User
+----
+====
 
-// [source,shell]
-// ----
-// # Fetch editors of a specification version
-// $ w3c_api specification-version editors --shortname=webrtc --version=20241008
-// ----
+==== Deliverers
 
-// [example]
-// ====
-// [source,shell]
-// ----
-// $ w3c_api specification-version editors --shortname=webrtc --version=20241008
-// ---
-// users:
-// - href: https://api.w3.org/users/p3dte6mpoj4sgw888w8kw4w4skwosck
-//   title: Cullen Jennings
-// - href: https://api.w3.org/users/kjqsxbe6kioko4s88s4wocws848kgw8
-//   title: Bernard Aboba
-// - href: https://api.w3.org/users/t9qq83owlzkck404w0o44so8owc00gg
-//   title: Jan-Ivar Bruaroey
-// ----
-// ====
+This command provides access to deliverers (working groups) of a specification
+version.
 
-// ==== Deliverers
+[source,shell]
+----
+# Fetch deliverers of a specification version
+$ w3c_api specification_version deliverers --shortname=webrtc --version=20241008
+----
 
-// TODO: This is not yet implemented!
-
-// This command provides access to deliverers (working groups) of a specification version.
-
-// [source,shell]
-// ----
-// # Fetch deliverers of a specification version
-// $ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
-// ----
-
-// [example]
-// ====
-// [source,shell]
-// ----
-// $ w3c_api specification-version deliverers --shortname=webrtc --version=20241008
-// ---
-// groups:
-// - href: https://api.w3.org/groups/wg/webrtc
-//   title: Web Real-Time Communications Working Group
-// ----
-// ====
+[example]
+====
+[source,shell]
+----
+$ w3c_api specification_version deliverers --shortname=webrtc --version=20241008
+---
+_links:
+  deliverers:
+  - href: https://api.w3.org/groups/wg/webrtc
+    title: Web Real-Time Communications Working Group
+    type: Group
+----
+====
 
 === Series
 
@@ -1180,18 +1035,25 @@ $ w3c_api group specifications --id=109735
 ----
 $ w3c_api group specifications --id=109735
 ---
+_links:
+  self:
+    href: https://api.w3.org/groups/109735/specifications?page=1&items=100
+    type: SpecificationIndex
+  first:
+    href: https://api.w3.org/groups/109735/specifications?page=1&items=100
+    type: SpecificationIndex
+  last:
+    href: https://api.w3.org/groups/109735/specifications?page=1&items=100
+    type: SpecificationIndex
+  up:
+    href: https://api.w3.org/groups/109735
+    type: SpecificationIndex
   specifications:
   - href: https://api.w3.org/specifications/webxr-lighting-estimation-1
     title: WebXR Lighting Estimation API Level 1
     type: Specification
-  - href: https://api.w3.org/specifications/webxr-ar-module-1
-    title: WebXR Augmented Reality Module - Level 1
-    type: Specification
   - href: https://api.w3.org/specifications/webxr-gamepads-module-1
     title: WebXR Gamepads Module - Level 1
-    type: Specification
-  - href: https://api.w3.org/specifications/webxrlayers-1
-    title: WebXR Layers API Level 1
     type: Specification
   - href: https://api.w3.org/specifications/webxr-hand-input-1
     title: WebXR Hand Input Module - Level 1
@@ -1199,14 +1061,8 @@ $ w3c_api group specifications --id=109735
   - href: https://api.w3.org/specifications/webxr-hit-test-1
     title: WebXR Hit Test Module
     type: Specification
-  - href: https://api.w3.org/specifications/webxr-depth-sensing-1
-    title: WebXR Depth Sensing Module
-    type: Specification
   - href: https://api.w3.org/specifications/webxr-dom-overlays-1
     title: WebXR DOM Overlays Module
-    type: Specification
-  - href: https://api.w3.org/specifications/webxr
-    title: WebXR Device API
     type: Specification
 ----
 ====
@@ -1227,6 +1083,19 @@ $ w3c_api group users --id=109735
 ----
 $ w3c_api group users --id=109735
 ---
+_links:
+  self:
+    href: https://api.w3.org/groups/109735/users?page=1&items=100
+    type: UserIndex
+  first:
+    href: https://api.w3.org/groups/109735/users?page=1&items=100
+    type: UserIndex
+  last:
+    href: https://api.w3.org/groups/109735/users?page=1&items=100
+    type: UserIndex
+  up:
+    href: https://api.w3.org/groups/109735
+    type: UserIndex
   users:
   - href: https://api.w3.org/users/9o1jsmhi8ysk088w0k4g00wsssk4c8c
     title: Muadh Al Kalbani
@@ -1259,6 +1128,19 @@ $ w3c_api group charters --id=109735
 ----
 $ w3c_api group charters --id=109735
 ---
+_links:
+  self:
+    href: https://api.w3.org/groups/109735/charters?page=1&items=100
+    type: W3cApi::Models::CharterIndex
+  first:
+    href: https://api.w3.org/groups/109735/charters?page=1&items=100
+    type: W3cApi::Models::CharterIndex
+  last:
+    href: https://api.w3.org/groups/109735/charters?page=1&items=100
+    type: W3cApi::Models::CharterIndex
+  up:
+    href: https://api.w3.org/groups/109735
+    type: W3cApi::Models::CharterIndex
   charters:
   - href: https://api.w3.org/groups/109735/charters/361
     title: 2018-09-24 -> 2020-03-01
@@ -1272,6 +1154,10 @@ $ w3c_api group charters --id=109735
   - href: https://api.w3.org/groups/109735/charters/514
     title: 2024-09-26 -> 2026-09-25
     type: Charter
+page: 1
+limit: 100
+pages: 1
+total: 4
 ----
 ====
 
@@ -1294,27 +1180,32 @@ $ w3c_api translation fetch [OPTIONS]
 ----
 $ w3c_api translation fetch
 ---
-    "translations": [
-      {
-        "href": "https://api.w3.org/translations/2",
-        "title": "Vidéo : introduction à l’accessibilité web et aux standards du W3C",
-        "language": "fr"
-      },
-      {
-        "href": "https://api.w3.org/translations/3",
-        "title": "Vídeo de Introducción a la Accesibilidad Web y Estándares del W3C",
-        "language": "es"
-      },
-      {
-        "href": "https://api.w3.org/translations/4",
-        "title": "Video-introductie over Web-toegankelijkheid en W3C-standaarden",
-        "language": "nl"
-      },
-      {
-        "href": "https://api.w3.org/translations/5",
-        "title": "网页无障碍和W3C标准的介绍视频",
-        "language": "zh_Hans"
-      },...
+_links:
+  self:
+    href: https://api.w3.org/translations?page=1&items=100
+    type: TranslationIndex
+  next:
+    href: https://api.w3.org/translations?page=2&items=100
+    type: TranslationIndex
+  first:
+    href: https://api.w3.org/translations?page=1&items=100
+    type: TranslationIndex
+  last:
+    href: https://api.w3.org/translations?page=7&items=100
+    type: TranslationIndex
+  translations:
+  - href: https://api.w3.org/translations/2
+    title: 'Vidéo : introduction à l’accessibilité web et aux standards du W3C'
+    type: Translation
+  - href: https://api.w3.org/translations/3
+    title: Vídeo de Introducción a la Accesibilidad Web y Estándares del W3C
+    type: Translation
+  - href: https://api.w3.org/translations/4
+    title: Video-introductie over Web-toegankelijkheid en W3C-standaarden
+    type: Translation
+  - href: https://api.w3.org/translations/5
+    title: 网页无障碍和W3C标准的介绍视频
+    type: Translation
 ----
 ====
 
@@ -1436,6 +1327,10 @@ _links:
   - href: https://api.w3.org/ecosystems/data
     title: Data and knowledge
     type: Ecosystem
+page: 1
+limit: 100
+pages: 1
+total: 9
 ----
 ====
 
@@ -1471,7 +1366,7 @@ _links:
     type: GroupIndex
   member-organizations:
     href: https://api.w3.org/ecosystems/data/member-organizations
-    type: AffiliationIndex
+    type: W3cApi::Models::AffiliationIndex
 name: Data and knowledge
 shortname: data
 ----
@@ -1515,6 +1410,10 @@ _links:
   - href: https://api.w3.org/users/qdkk81rtp344c44g0osoocgwwc8o4ss
     title: Bobby Tung
     type: User
+page: 1
+limit: 100
+pages: 1
+total: 3
 ----
 ====
 
@@ -1534,7 +1433,6 @@ $ w3c_api ecosystem groups --shortname={shortname}
 ----
 $ w3c_api ecosystem groups --shortname=publishing
 ---
----
 _links:
   self:
     href: https://api.w3.org/ecosystems/publishing/groups?page=1&items=100
@@ -1552,9 +1450,6 @@ _links:
   - href: https://api.w3.org/groups/cg/a11y-discov-vocab
     title: Accessibility Discoverability Vocabulary for Schema.org Community Group
     type: Group
-  - href: https://api.w3.org/groups/cg/epub3
-    title: EPUB 3 Community Group
-    type: Group
   - href: https://api.w3.org/groups/bg/publishingbg
     title: Publishing Business Group
     type: Group
@@ -1564,6 +1459,10 @@ _links:
   - href: https://api.w3.org/groups/wg/pm
     title: Publishing Maintenance Working Group
     type: Group
+page: 1
+limit: 100
+pages: 1
+total: 4
 ----
 ====
 
@@ -1608,6 +1507,9 @@ _links:
     type: Affiliation
   - href: https://api.w3.org/affiliations/43420
     title: Apache Software Foundation
+    type: Affiliation
+  - href: https://api.w3.org/affiliations/1202
+    title: Apple Inc.
     type: Affiliation
 ...
 ----
@@ -1705,6 +1607,10 @@ _links:
   - href: https://api.w3.org/users/j2d10std2l4ck448woccowg8cg8g8go
     title: Jean-Luc Chevillard
     type: User
+page: 1
+limit: 100
+pages: 1
+total: 1
 ----
 ====
 
@@ -1742,6 +1648,10 @@ _links:
   - href: https://api.w3.org/participations/32932
     title: XQuery and XSLT Extensions Community Group
     type: Participation
+page: 1
+limit: 100
+pages: 1
+total: 1
 ----
 ====
 
@@ -1817,6 +1727,10 @@ _links:
   - href: https://api.w3.org/users/j2d10std2l4ck448woccowg8cg8g8go
     title: Jean-Luc Chevillard
     type: User
+page: 1
+limit: 100
+pages: 1
+total: 1
 ----
 ====
 

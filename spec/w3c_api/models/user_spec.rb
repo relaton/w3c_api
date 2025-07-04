@@ -115,7 +115,7 @@ RSpec.describe W3cApi::Models::User do
     end
   end
 
-  xdescribe 'client methods' do
+  describe 'client methods' do
     let(:client) { instance_double(W3cApi::Client) }
     let(:groups) { [instance_double(W3cApi::Models::Group)] }
     let(:specifications) { [instance_double(W3cApi::Models::Specification)] }
@@ -131,8 +131,8 @@ RSpec.describe W3cApi::Models::User do
     end
 
     it 'returns nil when client is not provided' do
-      expect(user.links.groups).to be_nil
-      expect(user.links.specifications).to be_nil
+      expect(user.groups).to be_nil
+      expect(user.specifications).to be_nil
     end
   end
 

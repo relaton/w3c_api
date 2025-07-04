@@ -66,7 +66,7 @@ RSpec.describe W3cApi::Models::Serie do
     end
   end
 
-  xdescribe 'specifications' do
+  describe 'specifications' do
     let(:client) { instance_double(W3cApi::Client) }
     let(:specifications) { [instance_double(W3cApi::Models::Specification)] }
 
@@ -76,7 +76,7 @@ RSpec.describe W3cApi::Models::Serie do
     end
   end
 
-  xdescribe 'current_specification' do
+  describe 'current_specification' do
     let(:client) { instance_double(W3cApi::Client) }
     let(:specification) { instance_double(W3cApi::Models::Specification) }
 

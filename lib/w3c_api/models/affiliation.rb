@@ -70,6 +70,18 @@ module W3cApi
           map key.to_s.tr('_', '-'), to: key
         end
       end
+
+      def participants(client = nil)
+        return nil unless client
+
+        client.affiliation_participants(id)
+      end
+
+      def participations(client = nil)
+        return nil unless client
+
+        client.affiliation_participations(id)
+      end
     end
   end
 end

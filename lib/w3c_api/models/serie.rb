@@ -53,6 +53,18 @@ module W3cApi
           map key.to_s.tr('_', '-'), to: key
         end
       end
+
+      def specifications(client = nil)
+        return nil unless client
+
+        client.series_specifications(shortname)
+      end
+
+      def current_specification(client = nil)
+        return nil unless client
+
+        client.specification(shortname)
+      end
     end
   end
 end

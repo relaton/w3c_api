@@ -46,126 +46,95 @@ module W3cApi
 
     # Helper method to add resource endpoints
     def add_resource_endpoint(id, url, model)
-      register.add_endpoint(id: id, type: :resource, url: url, model: model)
+      register.add_endpoint(
+        id: id,
+        type: :resource,
+        url: url,
+        model: model
+      )
     end
 
-    # Helper method to add nested index endpoints for a parent resource
-    def add_nested_index_endpoints(parent, parent_id_param, nested_configs)
-      nested_configs.each do |config|
-        # Convert plural parent to singular for endpoint naming
-        singular_parent = parent.end_with?('s') ? parent[0..-2] : parent
-        id = "#{singular_parent}_#{config[:name]}_index".to_sym
-        url = "/#{parent}/#{parent_id_param}/#{config[:path]}"
-        add_index_endpoint(id, url, config[:model])
+    # Helper method to add nested index endpoints
+    def add_nested_index_endpoints(parent_resource, parent_id_param, endpoints)
+      endpoints.each do |endpoint|
+        add_index_endpoint(
+          :"#{parent_resource}_#{endpoint[:name]}_index",
+          "/#{parent_resource}/#{parent_id_param}/#{endpoint[:path]}",
+          endpoint[:model]
+        )
       end
     end
 
+    # Helper method to add individual nested endpoints
+    def add_nested_endpoint(parent_resource, parent_id_param, endpoint_name, endpoint_path, model)
+      add_index_endpoint(
+        :"#{parent_resource}_#{endpoint_name}_index",
+        "/#{parent_resource}/#{parent_id_param}/#{endpoint_path}",
+        model
+      )
+    end
+
     def setup
-      # Affiliation endpoints
+      # Specification endpoints
       add_index_endpoint(
-        :affiliation_index,
-        '/affiliations',
-        Models::AffiliationIndex
+        :specification_index,
+        '/specifications',
+        Models::SpecificationIndex
       )
       add_resource_endpoint(
-        :affiliation_resource,
-        '/affiliations/{id}',
-        Models::Affiliation
+        :specification_resource,
+        '/specifications/{shortname}',
+        Models::Specification
       )
       add_index_endpoint(
-        :affiliation_participants_index,
-        '/affiliations/{id}/participants',
-        Models::ParticipantIndex
-      )
-      add_index_endpoint(
-        :affiliation_participations_index,
-        '/affiliations/{id}/participations',
-        Models::ParticipationIndex
+        :specification_by_status_index,
+        '/specifications',
+        Models::SpecificationIndex,
+        { 'status' => '{status}', **PAGINATION_PARAMS }
       )
 
+      # Specification version endpoints
+      add_index_endpoint(
+        :specification_resource_version_index,
+        '/specifications/{shortname}/versions',
+        Models::SpecVersionIndex
+      )
+      add_resource_endpoint(
+        :specification_resource_version_resource,
+        '/specifications/{shortname}/versions/{version}',
+        Models::SpecVersion
+      )
+
+      # Specification version editors and deliverers
+      add_index_endpoint(
+        :specification_version_editors_index,
+        '/specifications/{shortname}/versions/{version}/editors',
+        Models::EditorIndex
+      )
+      add_index_endpoint(
+        :specification_version_deliverers_index,
+        '/specifications/{shortname}/versions/{version}/deliverers',
+        Models::DelivererIndex
+      )
+
+      # Specification related endpoints
+      %w[supersedes superseded_by editors deliverers].each do |relation|
+        add_index_endpoint(
+          :"specification_#{relation}_index",
+          "/specifications/{shortname}/#{relation.tr('_', '-')}",
+          relation.include?('editor') ? Models::UserIndex : Models::GroupIndex
+        )
+      end
+
+      # TODO: Why is this endpoint needed? There already is /specifications/{shortname}...
       # register.add_endpoint(
-      #   id: :charter_resource,
-      #   type: :resource,
-      #   url: '/charters/{id}',
-      #   model: Models::Charter
-      # )
-
-      # Ecosystem endpoints
-      add_index_endpoint(
-        :ecosystem_index,
-        '/ecosystems',
-        Models::EcosystemIndex
-      )
-      add_resource_endpoint(
-        :ecosystem_resource,
-        '/ecosystems/{id}',
-        Models::Ecosystem
-      )
-      add_index_endpoint(
-        :ecosystem_evangelists_index,
-        '/ecosystems/{shortname}/evangelists',
-        Models::EvangelistIndex
-      )
-      add_index_endpoint(
-        :ecosystem_groups_index,
-        '/ecosystems/{shortname}/groups',
-        Models::GroupIndex
-      )
-      add_index_endpoint(
-        :ecosystem_member_organizations_index,
-        '/ecosystems/{shortname}/member-organizations',
-        Models::AffiliationIndex
-      )
-
-      # Group endpoints
-      add_index_endpoint(
-        :group_index,
-        '/groups',
-        Models::GroupIndex
-      )
-      add_resource_endpoint(
-        :group_resource,
-        '/groups/{id}',
-        Models::Group
-      )
-      add_nested_index_endpoints(
-        'groups',
-        '{id}', [
-          { name: 'specifications', path: 'specifications',
-            model: Models::SpecificationIndex },
-          { name: 'charters', path: 'charters',
-            model: Models::CharterIndex },
-          { name: 'users', path: 'users',
-            model: Models::UserIndex },
-          { name: 'chairs', path: 'chairs',
-            model: Models::ChairIndex },
-          { name: 'team_contacts', path: 'teamcontacts',
-            model: Models::TeamContactIndex },
-          { name: 'participations', path: 'participations',
-            model: Models::ParticipationIndex }
-        ]
-      )
-
-      # Participation endpoints
-      # register.add_endpoint(
-      #   id: :participation_index,
+      #   id: :specification_by_shortname_index,
       #   type: :index,
-      #   url: '/participations',
-      #   model: Models::ParticipationIndex
+      #   url: '/specifications-by-shortname/{shortname}',
+      #   model: Models::SpecificationIndex
       # )
 
-      add_resource_endpoint(
-        :participation_resource,
-        '/participations/{id}',
-        Models::Participation
-      )
-      add_index_endpoint(
-        :participation_participants_index,
-        '/participations/{id}/participants',
-        Models::ParticipantIndex
-      )
-
-      # Serie endpoints
+      # Series endpoints
       add_index_endpoint(
         :serie_index,
         '/specification-series',
@@ -182,70 +151,48 @@ module W3cApi
         Models::SpecificationIndex
       )
 
-      # Specification endpoints
+      # Group endpoints
       add_index_endpoint(
-        :specification_index,
-        '/specifications',
-        Models::SpecificationIndex
+        :group_index,
+        '/groups',
+        Models::GroupIndex
       )
       add_resource_endpoint(
-        :specification_resource,
-        '/specifications/{shortname}',
-        Models::Specification
+        :group_resource,
+        '/groups/{id}',
+        Models::Group
       )
+      # Group nested endpoints
       add_index_endpoint(
-        :specification_resource_version_index,
-        '/specifications/{shortname}/versions',
-        Models::SpecVersionIndex
-      )
-      add_resource_endpoint(
-        :specification_resource_version_resource,
-        '/specifications/{shortname}/versions/{version}',
-        Models::SpecVersion
-      )
-      add_index_endpoint(
-        :specification_version_predecessors_index,
-        '/specifications/{shortname}/versions/{version}/predecessors',
-        Models::SpecVersionIndex
-      )
-      add_index_endpoint(
-        :specification_version_successors_index,
-        '/specifications/{shortname}/versions/{version}/successors',
-        Models::SpecVersionIndex
-      )
-      add_index_endpoint(
-        :specification_by_status_index,
-        '/specifications-by-status/{status}',
+        :group_specifications_index,
+        '/groups/{id}/specifications',
         Models::SpecificationIndex
       )
       add_index_endpoint(
-        :specification_supersedes_index,
-        '/specifications/{shortname}/supersedes',
-        Models::SpecificationIndex
-      )
-      add_index_endpoint(
-        :specification_superseded_by_index,
-        '/specifications/{shortname}/superseded',
-        Models::SpecificationIndex
-      )
-      add_index_endpoint(
-        :specification_version_editors_index,
-        '/specifications/{shortname}/version/{version}/editors',
+        :group_users_index,
+        '/groups/{id}/users',
         Models::UserIndex
       )
       add_index_endpoint(
-        :specification_version_deliverers_index,
-        '/specifications/{shortname}/version/{version}/deliverers',
-        Models::UserIndex
+        :group_charters_index,
+        '/groups/{id}/charters',
+        Models::CharterIndex
       )
-
-      # TODO: Why is this endpoint needed? There already is /specifications/{shortname}...
-      # register.add_endpoint(
-      #   id: :specification_by_shortname_index,
-      #   type: :index,
-      #   url: '/specifications-by-shortname/{shortname}',
-      #   model: Models::SpecificationIndex
-      # )
+      add_index_endpoint(
+        :group_chairs_index,
+        '/groups/{id}/chairs',
+        Models::ChairIndex
+      )
+      add_index_endpoint(
+        :group_team_contacts_index,
+        '/groups/{id}/teamcontacts',
+        Models::TeamContactIndex
+      )
+      add_index_endpoint(
+        :group_participations_index,
+        '/groups/{id}/participations',
+        Models::ParticipationIndex
+      )
 
       # Translation endpoints
       add_index_endpoint(
@@ -272,22 +219,102 @@ module W3cApi
         '/users/{hash}',
         Models::User
       )
-      add_nested_index_endpoints(
-        'users',
-        '{hash}', [
-          { name: 'groups', path: 'groups',
-            model: Models::GroupIndex },
-          { name: 'affiliations', path: 'affiliations',
-            model: Models::AffiliationIndex },
-          { name: 'participations', path: 'participations',
-            model: Models::ParticipationIndex },
-          { name: 'chair_of_groups', path: 'chair-of-groups',
-            model: Models::GroupIndex },
-          { name: 'team_contact_of_groups', path: 'team-contact-of-groups',
-            model: Models::GroupIndex },
-          { name: 'specifications', path: 'specifications',
-            model: Models::SpecificationIndex }
-        ]
+
+      # User nested endpoints
+      add_index_endpoint(
+        :user_groups_index,
+        '/users/{hash}/groups',
+        Models::GroupIndex
+      )
+      add_index_endpoint(
+        :user_affiliations_index,
+        '/users/{hash}/affiliations',
+        Models::AffiliationIndex
+      )
+      add_index_endpoint(
+        :user_participations_index,
+        '/users/{hash}/participations',
+        Models::ParticipationIndex
+      )
+      add_index_endpoint(
+        :user_chair_of_groups_index,
+        '/users/{hash}/chair-of-groups',
+        Models::GroupIndex
+      )
+      add_index_endpoint(
+        :user_team_contact_of_groups_index,
+        '/users/{hash}/team-contact-of-groups',
+        Models::GroupIndex
+      )
+      add_index_endpoint(
+        :user_specifications_index,
+        '/users/{hash}/specifications',
+        Models::SpecificationIndex
+      )
+
+      # Affiliation endpoints
+      add_index_endpoint(
+        :affiliation_index,
+        '/affiliations',
+        Models::AffiliationIndex
+      )
+      add_resource_endpoint(
+        :affiliation_resource,
+        '/affiliations/{id}',
+        Models::Affiliation
+      )
+
+      # Affiliation nested endpoints
+      add_index_endpoint(
+        :affiliation_participants_index,
+        '/affiliations/{id}/participants',
+        Models::ParticipantIndex
+      )
+      add_index_endpoint(
+        :affiliation_participations_index,
+        '/affiliations/{id}/participations',
+        Models::ParticipationIndex
+      )
+
+      # Ecosystem endpoints
+      add_index_endpoint(
+        :ecosystem_index,
+        '/ecosystems',
+        Models::EcosystemIndex
+      )
+      add_resource_endpoint(
+        :ecosystem_resource,
+        '/ecosystems/{shortname}',
+        Models::Ecosystem
+      )
+
+      # Ecosystem nested endpoints
+      add_index_endpoint(
+        :ecosystem_groups_index,
+        '/ecosystems/{shortname}/groups',
+        Models::GroupIndex
+      )
+      add_index_endpoint(
+        :ecosystem_evangelists_index,
+        '/ecosystems/{shortname}/evangelists',
+        Models::EvangelistIndex
+      )
+      add_index_endpoint(
+        :ecosystem_member_organizations_index,
+        '/ecosystems/{shortname}/member-organizations',
+        Models::AffiliationIndex
+      )
+
+      # Participation endpoints
+      add_resource_endpoint(
+        :participation_resource,
+        '/participations/{id}',
+        Models::Participation
+      )
+      add_index_endpoint(
+        :participation_participants_index,
+        '/participations/{id}/participants',
+        Models::ParticipantIndex
       )
     end
   end
