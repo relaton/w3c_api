@@ -30,8 +30,10 @@ module W3cApi
     private
 
     # Common pagination query parameters
-    PAGINATION_PARAMS = { 'page' => '{page}',
-                          'items' => '{items}' }.freeze
+    PAGINATION_PARAMS = {
+      'page' => '{page}',
+      'items' => '{items}'
+    }.freeze
 
     # Helper method to add index endpoints with pagination
     def add_index_endpoint(id, url, model, query_params = PAGINATION_PARAMS)
