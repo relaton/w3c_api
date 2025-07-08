@@ -7,8 +7,30 @@ require_relative 'hal'
 
 module W3cApi
   class Client
+    # Class method to list endpoints that support embed parameter
+    def self.embed_supported_endpoints
+      hal_instance = W3cApi::Hal.instance
+      endpoints_with_embed = []
+
+      hal_instance.register.models.each do |endpoint_id, endpoint_config|
+        # Check if this endpoint has embed parameter support
+        has_embed = endpoint_config[:parameters].any? do |param|
+          param.name == 'embed' && param.location == :query
+        end
+
+        endpoints_with_embed << endpoint_id if has_embed
+      end
+
+      endpoints_with_embed.sort
+    end
+
+    # Instance method to check if a specific endpoint supports embed
+    def embed_supported?(endpoint_id)
+      self.class.embed_supported_endpoints.include?(endpoint_id)
+    end
+
     # Specification methods
-    def specifications(options = nil)
+    def specifications(options = {})
       fetch_resource(:specification_index, **(options || {}))
     end
 

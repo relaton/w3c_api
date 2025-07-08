@@ -82,4 +82,601 @@ http_interactions:
             }
         }
   recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 05 Jul 2025 01:36:13 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Sat, 05 Jul 2025 01:36:13 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=fvfbPEqDVnURRUHMZf_jL_IBKqKNo4f.TZwdMAR0Ja0-1751679373-1.0.1.1-EHIfiJoIIq2.EirAtNZKcoO4jWcaZ7xZEfhdxp5c7K91BGqKupQ0tweDYM4zQAMKqB1WC1fETT53BENYpxHj5gcl9vjIBm_0L8sxL5dWEYs;
+        path=/; expires=Sat, 05-Jul-25 02:06:13 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a32151eef6e2fc-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 15,
+            "total": 1437,
+            "_links": {
+                "specification-series": [
+                    {
+                        "href": "https://api.w3.org/specification-series/AS",
+                        "title": "AS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/authentform",
+                        "title": "authentform"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/compactHTML",
+                        "title": "compactHTML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-multicol",
+                        "title": "css-multicol"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-namespaces",
+                        "title": "css-namespaces"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/css-page",
+                        "title": "css-page"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CSS-potential",
+                        "title": "CSS-potential"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CSS-smil",
+                        "title": "CSS-smil"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/datetime",
+                        "title": "datetime"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/dcd",
+                        "title": "dcd"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ddml",
+                        "title": "ddml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/drawml",
+                        "title": "drawml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DSig-label",
+                        "title": "DSig-label"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HGML",
+                        "title": "HGML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-lan",
+                        "title": "html-lan"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/html-mobile",
+                        "title": "html-mobile"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTMLComponents",
+                        "title": "HTMLComponents"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTMLplusTIME",
+                        "title": "HTMLplusTIME"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-architecture",
+                        "title": "HTTP-NG-architecture"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-goals",
+                        "title": "HTTP-NG-goals"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-interfaces",
+                        "title": "HTTP-NG-interfaces"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-testbed",
+                        "title": "HTTP-NG-testbed"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTTP-NG-wire",
+                        "title": "HTTP-NG-wire"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ice",
+                        "title": "ice"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/md-policy-design",
+                        "title": "md-policy-design"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Micropayment-Markup",
+                        "title": "Micropayment-Markup"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/mux",
+                        "title": "mux"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/NVML",
+                        "title": "NVML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P",
+                        "title": "P3P"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-analysis",
+                        "title": "P3P-analysis"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-CACM",
+                        "title": "P3P-CACM"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-for-ecommerce",
+                        "title": "P3P-for-ecommerce"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-preferences",
+                        "title": "P3P-preferences"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-principles",
+                        "title": "P3P-principles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/P3P-Protocols",
+                        "title": "P3P-Protocols"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PGML",
+                        "title": "PGML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PICS-Statement",
+                        "title": "PICS-Statement"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/PIDL",
+                        "title": "PIDL"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-schema",
+                        "title": "rdf-schema"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-syntax",
+                        "title": "rdf-syntax"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/rdf-uml",
+                        "title": "rdf-uml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/ruby",
+                        "title": "ruby"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/schema-arch",
+                        "title": "schema-arch"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SDML",
+                        "title": "SDML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-access",
+                        "title": "SMIL-access"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-AuthExt",
+                        "title": "SMIL-AuthExt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SVGReq",
+                        "title": "SVGReq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SYMM-modules",
+                        "title": "SYMM-modules"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/TVWeb-URI-Requirements",
+                        "title": "TVWeb-URI-Requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/UAAG",
+                        "title": "UAAG"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/uclp",
+                        "title": "uclp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/VML",
+                        "title": "VML"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/voice",
+                        "title": "voice"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WAP",
+                        "title": "WAP"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCA",
+                        "title": "WCA"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webarch-extlang",
+                        "title": "webarch-extlang"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/webbroker",
+                        "title": "webbroker"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebSchematics",
+                        "title": "WebSchematics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XFDL",
+                        "title": "XFDL"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xh",
+                        "title": "xh"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xinclude",
+                        "title": "xinclude"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink-principles",
+                        "title": "xlink-principles"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xlink-req",
+                        "title": "xlink-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-canonical-req",
+                        "title": "xml-canonical-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XML-FRAG-REQ",
+                        "title": "XML-FRAG-REQ"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-infoset-req",
+                        "title": "xml-infoset-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-ql",
+                        "title": "xml-ql"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-schema-req",
+                        "title": "xml-schema-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-infoset-liaison",
+                        "title": "xptr-infoset-liaison"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-req",
+                        "title": "xptr-req"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XSL-and-CSS",
+                        "title": "XSL-and-CSS"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XSLReq",
+                        "title": "XSLReq"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Editing",
+                        "title": "Editing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCA-terms",
+                        "title": "WCA-terms"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xfa-formcalc",
+                        "title": "xfa-formcalc"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xfa-template",
+                        "title": "xfa-template"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WebData",
+                        "title": "WebData"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPPexchange",
+                        "title": "CCPPexchange"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/poix",
+                        "title": "poix"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/wbxml",
+                        "title": "wbxml"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-stylesheet",
+                        "title": "xml-stylesheet"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xml-fragment",
+                        "title": "xml-fragment"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CCPP",
+                        "title": "CCPP"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/SOX",
+                        "title": "SOX"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/annot",
+                        "title": "annot"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/device-upload",
+                        "title": "device-upload"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xptr-element",
+                        "title": "xptr-element"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/CSS-access",
+                        "title": "CSS-access"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/xmldsig-requirements",
+                        "title": "xmldsig-requirements"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Proposals",
+                        "title": "Proposals"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jigsaw-performance",
+                        "title": "jigsaw-performance"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/jigsaw-wp",
+                        "title": "jigsaw-wp"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/markup-specification",
+                        "title": "markup-specification"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/markup-doctypes",
+                        "title": "markup-doctypes"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/charset-harmful",
+                        "title": "charset-harmful"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/http-performance-pipeline",
+                        "title": "http-performance-pipeline"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/S6Group2",
+                        "title": "S6Group2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/HTMLThreading",
+                        "title": "HTMLThreading"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/XML-data",
+                        "title": "XML-data"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/DOM-Requirements",
+                        "title": "DOM-Requirements"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specification-series?page=15&items=100"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specification-series?page=2&items=100"
+                }
+            }
+        }
+  recorded_at: Sat, 05 Jul 2025 01:36:13 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series?embed=false&items=3&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 05 Jul 2025 14:54:23 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Sat, 05 Jul 2025 14:54:22 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=b1VEu6HC2KhKpuz5.n7_SxRxkDpMRU.016tUUJOFzQ0-1751727263-1.0.1.1-rfQtOaYR5YQ4Xtif2lCEVB7a6Jt7xnbdv.y1oExiroTuFUSN85u3dBEbg8HuZ9O3i.9TcSF7YDZ9hA0jFnJP__fYzI2Kh27DoNaNEqPXeGs;
+        path=/; expires=Sat, 05-Jul-25 15:24:23 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a7b28058f104eb-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 3,
+            "pages": 479,
+            "total": 1437,
+            "_links": {
+                "specification-series": [
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-AuthExt",
+                        "title": "SMIL-AuthExt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Editing",
+                        "title": "Editing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/WCA-terms",
+                        "title": "WCA-terms"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=1&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=479&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=2&items=3"
+                }
+            },
+            "_embedded": {
+                "specification-series": [
+                    {
+                        "shortname": "SMIL-AuthExt",
+                        "name": "SMIL Extension for Professional Multimedia Authoring - Preliminary Investigation",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specification-series/SMIL-AuthExt"
+                            },
+                            "specifications": {
+                                "href": "https://api.w3.org/specification-series/SMIL-AuthExt/specifications"
+                            },
+                            "current-specification": {
+                                "href": "https://api.w3.org/specifications/SMIL2-AuthExt"
+                            }
+                        }
+                    },
+                    {
+                        "shortname": "Editing",
+                        "name": "Editing the Web: Detecting the Lost Update Problem Using Unreserved Checkout",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specification-series/Editing"
+                            },
+                            "specifications": {
+                                "href": "https://api.w3.org/specification-series/Editing/specifications"
+                            },
+                            "current-specification": {
+                                "href": "https://api.w3.org/specifications/1999-Editing"
+                            }
+                        }
+                    },
+                    {
+                        "shortname": "WCA-terms",
+                        "name": "Web Characterization Terminology & Definitions Sheet",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specification-series/WCA-terms"
+                            },
+                            "specifications": {
+                                "href": "https://api.w3.org/specification-series/WCA-terms/specifications"
+                            },
+                            "current-specification": {
+                                "href": "https://api.w3.org/specifications/WCA-terms"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+  recorded_at: Sat, 05 Jul 2025 14:54:23 GMT
 recorded_with: VCR 6.3.1

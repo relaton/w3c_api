@@ -1,0 +1,233 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups?items=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:50 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Wed, 02 Jul 2025 10:02:54 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=d6XqQEevqWd0uEJJFe87cYEanZOS_hB4SOK.fWDU65M-1751995670-1.0.1.1-s0bQoeUBCwidXQNqwhszxNLyk2s2sDqazR3YdHSnqfIfPXmA2d_U_LrMegVa1rlXorSMuSwXgVTCeI2ENnbLi.ujmk6M7Fu6i5KaQm1qS.g;
+        path=/; expires=Tue, 08-Jul-25 17:57:50 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b6d6f31dd62-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 2,
+            "pages": 132,
+            "total": 263,
+            "_links": {
+                "groups": [
+                    {
+                        "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
+                        "title": "AB Liaisons to the Board of Directors"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/a11yedge",
+                        "title": "Accessibility at the Edge Community Group"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups?page=1&items=2"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups?page=1&items=2"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups?page=132&items=2"
+                },
+                "next": {
+                    "href": "https://api.w3.org/groups?page=2&items=2"
+                }
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:50 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:50 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Tue, 08 Jul 2025 17:27:50 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '0'
+      set-cookie:
+      - __cf_bm=V4Tfc7cOsN8mBjdUQfN0F8.nP01a0lzAa4XQNDyTDiI-1751995670-1.0.1.1-cj8hzHxPjRcZbQE306JbOgDuNaHnlgPCMSB1tDIJAhdu11MQsZn3rqXFuqGcPkNNI9RThBrM8jSgSR3fexZ_SovGCIESDWjwtZcuPDns._A;
+        path=/; expires=Tue, 08-Jul-25 17:57:50 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b6f9be1847e-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 2,
+            "pages": 822,
+            "total": 1644,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=1&items=2"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=2"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=822&items=2"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=2&items=2"
+                }
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:50 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series?items=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:51 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Tue, 08 Jul 2025 17:27:51 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=YC.uKx15JVlnLe81o0M9wiWKaWKXYvVmTQJJIdqENhc-1751995671-1.0.1.1-0Wiuh.3VKsYNt610weJyPBLpiKFHwbhFrXqLWX8J01rmdoojpQ6wdA37QAZHJKb59pLKggWliL1PBOYnCgn89mYwS2BJsWg7R2fmjA0wEhw;
+        path=/; expires=Tue, 08-Jul-25 17:57:51 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b6fea338502-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 2,
+            "pages": 719,
+            "total": 1437,
+            "_links": {
+                "specification-series": [
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-AuthExt",
+                        "title": "SMIL-AuthExt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Editing",
+                        "title": "Editing"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=2"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specification-series?page=1&items=2"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specification-series?page=719&items=2"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specification-series?page=2&items=2"
+                }
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:51 GMT
+recorded_with: VCR 6.3.1

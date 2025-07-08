@@ -1,0 +1,207 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?embed=true&items=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:49 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Tue, 08 Jul 2025 17:27:48 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '1'
+      set-cookie:
+      - __cf_bm=ojK6XKOuvXs040_C3EwWkojGHWD1p_4mM2fxCqksUGc-1751995669-1.0.1.1-A3UJOX5ZkPiZp_46dX9Xmqv9uvphi8IC6YnNigedtP9lhdL4W0CA_gbsk1kFpngkpsH5VyCfUIpjE4hZ7lEk4cD9CzieqbSqtsShsW8fOxU;
+        path=/; expires=Tue, 08-Jul-25 17:57:49 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b6429a303d3-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 2,
+            "pages": 822,
+            "total": 1644,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=1&items=2"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=1&items=2"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=822&items=2"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=2&items=2"
+                }
+            },
+            "_embedded": {
+                "specifications": [
+                    {
+                        "shortlink": "https://www.w3.org/TR/2dcontext/",
+                        "description": "<p>Defines the flat cartesian surface that is the context for the canvas element (for drawing). </p>",
+                        "title": "HTML Canvas 2D Context",
+                        "shortname": "2dcontext",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/2dcontext"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/2dcontext/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext/versions/20100304",
+                                "title": "Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext/versions/20210128",
+                                "title": "Retired"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/2dcontext"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/2dcontext2/",
+                        "description": "<p>This specification defines the 2D Context, Level 2 for the HTML canvas element. The 2D Context provides objects, methods, and properties to draw and manipulate graphics on a canvas drawing surface.</p>",
+                        "title": "HTML Canvas 2D Context, Level 2",
+                        "shortname": "2dcontext2",
+                        "series-version": "2",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/2dcontext2"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/2dcontext2/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext2/versions/20121217",
+                                "title": "Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext2/versions/20150929",
+                                "title": "Retired"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/2dcontext"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:49 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/2dcontext
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:49 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Tue, 08 Jul 2025 17:27:49 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=fvJQPWOs8sR0Dn9js6xCrtSlQOk8xi6eer2GlI9HZuQ-1751995669-1.0.1.1-8_331IDsh.YVDgU7yV8KVCUFtsYny2Uu76G7cW.bBjIHbm8greurUyFljOwNAzcoEacgD1faIn47OLcjYZvMiqAj12Jc2d9ij0MHCHCTVAI;
+        path=/; expires=Tue, 08-Jul-25 17:57:49 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b646fc4b1e9-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "shortlink": "https://www.w3.org/TR/2dcontext/",
+            "description": "<p>Defines the flat cartesian surface that is the context for the canvas element (for drawing). </p>",
+            "title": "HTML Canvas 2D Context",
+            "shortname": "2dcontext",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/2dcontext"
+                },
+                "version-history": {
+                    "href": "https://api.w3.org/specifications/2dcontext/versions"
+                },
+                "first-version": {
+                    "href": "https://api.w3.org/specifications/2dcontext/versions/20100304",
+                    "title": "Working Draft"
+                },
+                "latest-version": {
+                    "href": "https://api.w3.org/specifications/2dcontext/versions/20210128",
+                    "title": "Retired"
+                },
+                "series": {
+                    "href": "https://api.w3.org/specification-series/2dcontext"
+                }
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:49 GMT
+recorded_with: VCR 6.3.1

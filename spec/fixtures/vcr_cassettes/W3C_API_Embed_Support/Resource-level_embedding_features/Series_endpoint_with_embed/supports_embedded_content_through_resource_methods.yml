@@ -1,0 +1,113 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specification-series?embed=true&items=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 06:59:07 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Tue, 08 Jul 2025 06:59:07 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=5t3NPnS2IRoPX_pm6UEX.dJ9c2ut0vR0mXgFUKJZiuc-1751957947-1.0.1.1-zXs67VbpKX64t_CWDmQefZuoN78mpjH4VrlRJzRFomNWMpOCdrk4.o5DNk_z8fmKMwaBDzyD_yNdhyq4ilN9xRfL1Ea8CzSxQ_cXL_Fw5s0;
+        path=/; expires=Tue, 08-Jul-25 07:29:07 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95bdb2739df8b1e9-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 2,
+            "pages": 719,
+            "total": 1437,
+            "_links": {
+                "specification-series": [
+                    {
+                        "href": "https://api.w3.org/specification-series/SMIL-AuthExt",
+                        "title": "SMIL-AuthExt"
+                    },
+                    {
+                        "href": "https://api.w3.org/specification-series/Editing",
+                        "title": "Editing"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=1&items=2"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=1&items=2"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=719&items=2"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specification-series?embed=1&page=2&items=2"
+                }
+            },
+            "_embedded": {
+                "specification-series": [
+                    {
+                        "shortname": "SMIL-AuthExt",
+                        "name": "SMIL Extension for Professional Multimedia Authoring - Preliminary Investigation",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specification-series/SMIL-AuthExt"
+                            },
+                            "specifications": {
+                                "href": "https://api.w3.org/specification-series/SMIL-AuthExt/specifications"
+                            },
+                            "current-specification": {
+                                "href": "https://api.w3.org/specifications/SMIL2-AuthExt"
+                            }
+                        }
+                    },
+                    {
+                        "shortname": "Editing",
+                        "name": "Editing the Web: Detecting the Lost Update Problem Using Unreserved Checkout",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specification-series/Editing"
+                            },
+                            "specifications": {
+                                "href": "https://api.w3.org/specification-series/Editing/specifications"
+                            },
+                            "current-specification": {
+                                "href": "https://api.w3.org/specifications/1999-Editing"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 06:59:07 GMT
+recorded_with: VCR 6.3.1

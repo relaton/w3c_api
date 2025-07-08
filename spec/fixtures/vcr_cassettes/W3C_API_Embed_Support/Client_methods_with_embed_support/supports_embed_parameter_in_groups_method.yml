@@ -1,0 +1,170 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/groups?embed=true&items=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:48 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Wed, 02 Jul 2025 10:02:54 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=riyDX8.fIAdvL7KQ0XTXCKKtWaU6ZldEmspriBMYqNQ-1751995668-1.0.1.1-0KUFsz1aS_M9jMNjYUNXR34TmrJq8VbAl80JITqs539yPL8v.2N5yo_8zGcJgP55g9C8uHHTF3GAtcVukDRKh53TITBKDbw.nECpIHb0Kgk;
+        path=/; expires=Tue, 08-Jul-25 17:57:48 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b5f9bde08e1-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 2,
+            "pages": 132,
+            "total": 263,
+            "_links": {
+                "groups": [
+                    {
+                        "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
+                        "title": "AB Liaisons to the Board of Directors"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/a11yedge",
+                        "title": "Accessibility at the Edge Community Group"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups?embed=1&page=1&items=2"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups?embed=1&page=1&items=2"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups?embed=1&page=132&items=2"
+                },
+                "next": {
+                    "href": "https://api.w3.org/groups?embed=1&page=2&items=2"
+                }
+            },
+            "_embedded": {
+                "groups": [
+                    {
+                        "id": 152309,
+                        "name": "AB Liaisons to the Board of Directors",
+                        "is_closed": false,
+                        "description": "The people named by the Advisory Board to be liaisons to the W3C Board of Directors.",
+                        "shortname": "ab-liaisons-to-bod",
+                        "members": [
+                            {
+                                "id": 7756,
+                                "name": "Advisory Board",
+                                "is_closed": false,
+                                "description": "The <a href=\"https://www.w3.org/policies/process/#AB\">Advisory Board</a> provides ongoing guidance to the Team on issues of strategy, management, legal matters, process, and conflict resolution.",
+                                "shortname": "ab",
+                                "discr": "group",
+                                "_links": {
+                                    "self": {
+                                        "href": "https://api.w3.org/groups/other/ab"
+                                    },
+                                    "homepage": {
+                                        "href": "https://www.w3.org/Member/Board/"
+                                    },
+                                    "users": {
+                                        "href": "https://api.w3.org/groups/other/ab/users"
+                                    },
+                                    "services": {
+                                        "href": "https://api.w3.org/groups/other/ab/services"
+                                    },
+                                    "chairs": {
+                                        "href": "https://api.w3.org/groups/other/ab/chairs"
+                                    },
+                                    "team-contacts": {
+                                        "href": "https://api.w3.org/groups/other/ab/teamcontacts"
+                                    }
+                                }
+                            }
+                        ],
+                        "internal": false,
+                        "participants_list_public": true,
+                        "discr": "tf",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod"
+                            },
+                            "users": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod/users"
+                            },
+                            "services": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod/services"
+                            },
+                            "chairs": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod/chairs"
+                            }
+                        }
+                    },
+                    {
+                        "id": 138124,
+                        "name": "Accessibility at the Edge Community Group",
+                        "is_closed": false,
+                        "description": "The mission of the Accessibility at the Edge Community Group is to examine improvements to internet accessibility via \"edge computing\", a relatively new paradigm that focuses on performing tasks at the edge of the network. Unlike cloud computing, edge computing emphasizes activities that occur closer to the user; these could include accessibility oriented user-agent extensions, applications on content delivery networks, JavaScript-enabled capabilities, AI or ML. The group is a forum for discussing both currently available products, potentially new applications not yet commercially available, as well as objective measures of the quality of any one of these. Our tasks can include inventorying both opportunities and challenges, drafting and incubating Internet specifications for further assessment, standardization, prototyping and testing of reference implementations. A11Y-EDGE CG meetings work and operate under the <a href=\"https://www.w3.org/policies/code-of-conduct/\">W3C Code of Conduct</a>.",
+                        "shortname": "a11yedge",
+                        "spec-publisher": true,
+                        "discr": "w3cgroup",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge"
+                            },
+                            "homepage": {
+                                "href": "https://www.w3.org/community/a11yedge/"
+                            },
+                            "users": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/users"
+                            },
+                            "services": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/services"
+                            },
+                            "chairs": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/chairs"
+                            },
+                            "join": {
+                                "href": "https://www.w3.org/community/a11yedge/join"
+                            },
+                            "participations": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/participations"
+                            }
+                        },
+                        "type": "community group"
+                    }
+                ]
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:48 GMT
+recorded_with: VCR 6.3.1

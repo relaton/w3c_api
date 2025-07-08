@@ -1,16 +1,47 @@
 # frozen_string_literal: true
 
 require 'singleton'
+require 'lutaml/hal'
 require_relative 'models'
 
 module W3cApi
+  # Simple parameter class to satisfy lutaml-hal validation requirements
+  class SimpleParameter
+    attr_reader :name, :location, :required, :default_value
+
+    def initialize(name, location: :path, required: false, default_value: nil)
+      @name = name.to_s
+      @location = location
+      @required = required
+      @default_value = default_value
+    end
+
+    def validate!
+      # Simple validation - just ensure name is present
+      raise ArgumentError, 'Parameter name cannot be empty' if @name.nil? || @name.empty?
+    end
+
+    def path_parameter?
+      @location == :path
+    end
+
+    def query_parameter?
+      @location == :query
+    end
+
+    def validate_value(value)
+      # Simple validation - accept any non-nil value
+      !value.nil?
+    end
+  end
+
   class Hal
     include Singleton
 
     API_URL = 'https://api.w3.org/'
 
     def initialize
-      setup
+      # Don't call setup here - it will be called when register is first accessed
     end
 
     def client
@@ -21,122 +52,185 @@ module W3cApi
       return @register if @register
 
       @register = Lutaml::Hal::ModelRegister.new(name: :w3c_api, client: client)
-      Lutaml::Hal::GlobalRegister.instance.register(
-        :w3c_api, @register
-      )
+      Lutaml::Hal::GlobalRegister.instance.register(:w3c_api, @register)
+
+      # Re-run setup to register all endpoints with the new register
+      setup
+
       @register
+    end
+
+    def reset_register
+      @register = nil
     end
 
     private
 
-    # Common pagination query parameters
-    PAGINATION_PARAMS = {
-      'page' => '{page}',
-      'items' => '{items}'
-    }.freeze
+    # Common pagination parameters (simplified without EndpointParameter)
+    def pagination_parameters
+      [
+        SimpleParameter.new('page', location: :query),
+        SimpleParameter.new('items', location: :query)
+      ]
+    end
+
+    # Parameters for endpoints with embed support (simplified without EndpointParameter)
+    def embed_parameters
+      [
+        SimpleParameter.new('embed', location: :query)
+      ] + pagination_parameters
+    end
+
+    # Helper methods for common parameter types (using SimpleParameter)
+    def string_path_param(name, _description = nil)
+      SimpleParameter.new(name, location: :path)
+    end
+
+    def integer_path_param(name, _description = nil)
+      SimpleParameter.new(name, location: :path)
+    end
+
+    def string_query_param(name, _description = nil, required: false)
+      SimpleParameter.new(name, location: :query, required: required)
+    end
 
     # Helper method to add index endpoints with pagination
-    def add_index_endpoint(id, url, model, query_params = PAGINATION_PARAMS)
+    def add_index_endpoint(id, url, model, parameters = pagination_parameters)
       register.add_endpoint(
         id: id,
         type: :index,
         url: url,
         model: model,
-        query_params: query_params
+        parameters: parameters
       )
     end
 
     # Helper method to add resource endpoints
-    def add_resource_endpoint(id, url, model)
+    def add_resource_endpoint(id, url, model, parameters = [])
       register.add_endpoint(
         id: id,
         type: :resource,
         url: url,
-        model: model
+        model: model,
+        parameters: parameters
       )
     end
 
-    # Helper method to add nested index endpoints
-    def add_nested_index_endpoints(parent_resource, parent_id_param, endpoints)
-      endpoints.each do |endpoint|
-        add_index_endpoint(
-          :"#{parent_resource}_#{endpoint[:name]}_index",
-          "/#{parent_resource}/#{parent_id_param}/#{endpoint[:path]}",
-          endpoint[:model]
-        )
-      end
-    end
-
-    # Helper method to add individual nested endpoints
-    def add_nested_endpoint(parent_resource, parent_id_param, endpoint_name, endpoint_path, model)
-      add_index_endpoint(
-        :"#{parent_resource}_#{endpoint_name}_index",
-        "/#{parent_resource}/#{parent_id_param}/#{endpoint_path}",
-        model
+    # Helper method to add endpoints with path parameters
+    def add_endpoint_with_path_params(id, type, url, model, path_params = [], query_params = [])
+      parameters = (path_params + query_params).compact
+      register.add_endpoint(
+        id: id,
+        type: type,
+        url: url,
+        model: model,
+        parameters: parameters
       )
     end
 
     def setup
-      # Specification endpoints
+      # Specification endpoints with embed support
       add_index_endpoint(
         :specification_index,
         '/specifications',
-        Models::SpecificationIndex
+        Models::SpecificationIndex,
+        embed_parameters
       )
-      add_resource_endpoint(
-        :specification_resource,
-        '/specifications/{shortname}',
-        Models::Specification
-      )
-      add_index_endpoint(
+
+      # Specification by status endpoint
+      add_endpoint_with_path_params(
         :specification_by_status_index,
+        :index,
         '/specifications',
         Models::SpecificationIndex,
-        { 'status' => '{status}', **PAGINATION_PARAMS }
+        [],
+        [string_query_param('status', required: true)] + pagination_parameters
+      )
+      add_endpoint_with_path_params(
+        :specification_resource,
+        :resource,
+        '/specifications/{shortname}',
+        Models::Specification,
+        [string_path_param('shortname')]
       )
 
       # Specification version endpoints
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :specification_resource_version_index,
+        :index,
         '/specifications/{shortname}/versions',
-        Models::SpecVersionIndex
+        Models::SpecVersionIndex,
+        [string_path_param('shortname')],
+        pagination_parameters
       )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :specification_resource_version_resource,
+        :resource,
         '/specifications/{shortname}/versions/{version}',
-        Models::SpecVersion
+        Models::SpecVersion,
+        [
+          string_path_param('shortname'),
+          string_path_param('version')
+        ]
       )
 
       # Specification version editors and deliverers
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :specification_version_editors_index,
+        :index,
         '/specifications/{shortname}/versions/{version}/editors',
-        Models::EditorIndex
+        Models::EditorIndex,
+        [
+          string_path_param('shortname'),
+          string_path_param('version')
+        ],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :specification_version_deliverers_index,
+        :index,
         '/specifications/{shortname}/versions/{version}/deliverers',
-        Models::DelivererIndex
+        Models::DelivererIndex,
+        [
+          string_path_param('shortname'),
+          string_path_param('version')
+        ],
+        pagination_parameters
       )
 
       # Specification version predecessors and successors
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :specification_version_predecessors_index,
+        :index,
         '/specifications/{shortname}/versions/{version}/predecessors',
-        Models::SpecVersionPredecessorIndex
+        Models::SpecVersionPredecessorIndex,
+        [
+          string_path_param('shortname'),
+          string_path_param('version')
+        ],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :specification_version_successors_index,
+        :index,
         '/specifications/{shortname}/versions/{version}/successors',
-        Models::SpecVersionSuccessorIndex
+        Models::SpecVersionSuccessorIndex,
+        [
+          string_path_param('shortname'),
+          string_path_param('version')
+        ],
+        pagination_parameters
       )
 
       # Specification related endpoints
       %w[supersedes superseded_by editors deliverers].each do |relation|
-        add_index_endpoint(
+        add_endpoint_with_path_params(
           :"specification_#{relation}_index",
+          :index,
           "/specifications/{shortname}/#{relation.tr('_', '-')}",
-          relation.include?('editor') ? Models::UserIndex : Models::GroupIndex
+          relation.include?('editor') ? Models::UserIndex : Models::GroupIndex,
+          [string_path_param('shortname')],
+          pagination_parameters
         )
       end
 
@@ -148,74 +242,109 @@ module W3cApi
       #   model: Models::SpecificationIndex
       # )
 
-      # Series endpoints
+      # Series endpoints with embed support
       add_index_endpoint(
         :serie_index,
         '/specification-series',
-        Models::SerieIndex
+        Models::SerieIndex,
+        embed_parameters
       )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :serie_resource,
+        :resource,
         '/specification-series/{shortname}',
-        Models::Serie
+        Models::Serie,
+        [string_path_param('shortname')]
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :serie_specification_resource,
+        :index,
         '/specification-series/{shortname}/specifications',
-        Models::SpecificationIndex
+        Models::SpecificationIndex,
+        [string_path_param('shortname')],
+        pagination_parameters
       )
 
-      # Group endpoints
+      # Group endpoints with embed support
       add_index_endpoint(
         :group_index,
         '/groups',
-        Models::GroupIndex
+        Models::GroupIndex,
+        embed_parameters
       )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :group_resource,
+        :resource,
         '/groups/{id}',
-        Models::Group
+        Models::Group,
+        [integer_path_param('id')]
       )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :group_by_type_shortname_resource,
+        :resource,
         '/groups/{type}/{shortname}',
-        Models::Group
+        Models::Group,
+        [
+          string_path_param('type'),
+          string_path_param('shortname')
+        ]
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :group_by_type_index,
+        :index,
         '/groups/{type}',
-        Models::GroupIndex
+        Models::GroupIndex,
+        [string_path_param('type')],
+        pagination_parameters
       )
       # Group nested endpoints
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :group_specifications_index,
+        :index,
         '/groups/{id}/specifications',
-        Models::SpecificationIndex
+        Models::SpecificationIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :group_users_index,
+        :index,
         '/groups/{id}/users',
-        Models::UserIndex
+        Models::UserIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :group_charters_index,
+        :index,
         '/groups/{id}/charters',
-        Models::CharterIndex
+        Models::CharterIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :group_chairs_index,
+        :index,
         '/groups/{id}/chairs',
-        Models::ChairIndex
+        Models::ChairIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :group_team_contacts_index,
+        :index,
         '/groups/{id}/teamcontacts',
-        Models::TeamContactIndex
+        Models::TeamContactIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :group_participations_index,
+        :index,
         '/groups/{id}/participations',
-        Models::ParticipationIndex
+        Models::ParticipationIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
 
       # Translation endpoints
@@ -224,10 +353,12 @@ module W3cApi
         '/translations',
         Models::TranslationIndex
       )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :translation_resource,
+        :resource,
         '/translations/{id}',
-        Models::Translation
+        Models::Translation,
+        [integer_path_param('id')]
       )
 
       # User endpoints
@@ -238,42 +369,62 @@ module W3cApi
       #   url: '/users',
       #   model: Models::UserIndex
       # )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :user_resource,
+        :resource,
         '/users/{hash}',
-        Models::User
+        Models::User,
+        [string_path_param('hash')]
       )
 
       # User nested endpoints
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :user_groups_index,
+        :index,
         '/users/{hash}/groups',
-        Models::GroupIndex
+        Models::GroupIndex,
+        [string_path_param('hash')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :user_affiliations_index,
+        :index,
         '/users/{hash}/affiliations',
-        Models::AffiliationIndex
+        Models::AffiliationIndex,
+        [string_path_param('hash')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :user_participations_index,
+        :index,
         '/users/{hash}/participations',
-        Models::ParticipationIndex
+        Models::ParticipationIndex,
+        [string_path_param('hash')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :user_chair_of_groups_index,
+        :index,
         '/users/{hash}/chair-of-groups',
-        Models::GroupIndex
+        Models::GroupIndex,
+        [string_path_param('hash')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :user_team_contact_of_groups_index,
+        :index,
         '/users/{hash}/team-contact-of-groups',
-        Models::GroupIndex
+        Models::GroupIndex,
+        [string_path_param('hash')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :user_specifications_index,
+        :index,
         '/users/{hash}/specifications',
-        Models::SpecificationIndex
+        Models::SpecificationIndex,
+        [string_path_param('hash')],
+        pagination_parameters
       )
 
       # Affiliation endpoints
@@ -282,22 +433,30 @@ module W3cApi
         '/affiliations',
         Models::AffiliationIndex
       )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :affiliation_resource,
+        :resource,
         '/affiliations/{id}',
-        Models::Affiliation
+        Models::Affiliation,
+        [integer_path_param('id')]
       )
 
       # Affiliation nested endpoints
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :affiliation_participants_index,
+        :index,
         '/affiliations/{id}/participants',
-        Models::ParticipantIndex
+        Models::ParticipantIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :affiliation_participations_index,
+        :index,
         '/affiliations/{id}/participations',
-        Models::ParticipationIndex
+        Models::ParticipationIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
 
       # Ecosystem endpoints
@@ -306,39 +465,55 @@ module W3cApi
         '/ecosystems',
         Models::EcosystemIndex
       )
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :ecosystem_resource,
+        :resource,
         '/ecosystems/{shortname}',
-        Models::Ecosystem
+        Models::Ecosystem,
+        [string_path_param('shortname')]
       )
 
       # Ecosystem nested endpoints
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :ecosystem_groups_index,
+        :index,
         '/ecosystems/{shortname}/groups',
-        Models::GroupIndex
+        Models::GroupIndex,
+        [string_path_param('shortname')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :ecosystem_evangelists_index,
+        :index,
         '/ecosystems/{shortname}/evangelists',
-        Models::EvangelistIndex
+        Models::EvangelistIndex,
+        [string_path_param('shortname')],
+        pagination_parameters
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :ecosystem_member_organizations_index,
+        :index,
         '/ecosystems/{shortname}/member-organizations',
-        Models::AffiliationIndex
+        Models::AffiliationIndex,
+        [string_path_param('shortname')],
+        pagination_parameters
       )
 
       # Participation endpoints
-      add_resource_endpoint(
+      add_endpoint_with_path_params(
         :participation_resource,
+        :resource,
         '/participations/{id}',
-        Models::Participation
+        Models::Participation,
+        [integer_path_param('id')]
       )
-      add_index_endpoint(
+      add_endpoint_with_path_params(
         :participation_participants_index,
+        :index,
         '/participations/{id}/participants',
-        Models::ParticipantIndex
+        Models::ParticipantIndex,
+        [integer_path_param('id')],
+        pagination_parameters
       )
     end
   end

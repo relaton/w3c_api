@@ -31,4 +31,18 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # Clean up global register before each test to avoid conflicts
+  config.before(:each) do
+    # Reset the cached register in the singleton before unregistering
+    W3cApi::Hal.instance.reset_register
+    Lutaml::Hal::GlobalRegister.instance.unregister(:w3c_api)
+    # Ensure the register is available for tests that need it
+    W3cApi::Hal.instance.register
+  end
+
+  # Clean up global register after each test
+  config.after(:each) do
+    Lutaml::Hal::GlobalRegister.instance.unregister(:w3c_api)
+  end
 end
