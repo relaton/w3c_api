@@ -82,4 +82,105 @@ http_interactions:
             }
         }
   recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/ecosystems
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 05 Jul 2025 15:34:19 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Wed, 19 Mar 2025 20:31:03 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=SutCPGplbCH_r71AcgLExki7PhKkTe_RZPTNJ9cmzvs-1751729659-1.0.1.1-tiTsRcPAiuYnsPLw1UmYwzWNFWnee7vUyrfV61Cah2yFtQ7i2fNE.NTbH9TCEtxHLbxft3zRCLkda4dVHW30q4nhzHIEYoGHSyEd8Qor81s;
+        path=/; expires=Sat, 05-Jul-25 16:04:19 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a7ed027f2ddd49-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 100,
+            "pages": 1,
+            "total": 9,
+            "_links": {
+                "ecosystems": [
+                    {
+                        "href": "https://api.w3.org/ecosystems/advertising",
+                        "title": "Web Advertising"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/e-commerce",
+                        "title": "E-commerce"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/media",
+                        "title": "Media & Entertainment"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/network-communications",
+                        "title": "Network & Communications"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/publishing",
+                        "title": "Publishing"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/smart-cities",
+                        "title": "Smart Cities"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/automotive-transportation",
+                        "title": "Automotive & Transportation"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/web-of-things",
+                        "title": "Web of Things"
+                    },
+                    {
+                        "href": "https://api.w3.org/ecosystems/data",
+                        "title": "Data and knowledge"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/ecosystems?embed=0&page=1&items=100"
+                },
+                "first": {
+                    "href": "https://api.w3.org/ecosystems?embed=0&page=1&items=100"
+                },
+                "last": {
+                    "href": "https://api.w3.org/ecosystems?embed=0&page=1&items=100"
+                }
+            }
+        }
+  recorded_at: Sat, 05 Jul 2025 15:34:19 GMT
 recorded_with: VCR 6.3.1

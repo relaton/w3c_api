@@ -82,4 +82,300 @@ http_interactions:
             }
         }
   recorded_at: Thu, 03 Jul 2025 14:11:03 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 05 Jul 2025 01:36:12 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Wed, 02 Jul 2025 10:02:54 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - REVALIDATED
+      set-cookie:
+      - __cf_bm=tcQaxOdmcYu5EfBfjgbkDXhZYSWp7alABVAy8fDfBVU-1751679372-1.0.1.1-VHITFEI5EOAVtyyT6ZqMHWxy0DaqvHNNsk6qDE.f1sWIBDI7045LD.FAuk_BvebbiioJnZO7GcDtUIkh46iOETEmQSjQzdomSPt6jGZQw6E;
+        path=/; expires=Sat, 05-Jul-25 02:06:12 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a3214efc9a5dcf-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInBhZ2UiOiAxLAogICAgImxpbWl0IjogMTAwLAogICAgInBhZ2VzIjogMywKICAgICJ0b3RhbCI6IDI2MywKICAgICJfbGlua3MiOiB7CiAgICAgICAgImdyb3VwcyI6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9hYi1saWFpc29ucy10by1ib2QiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFCIExpYWlzb25zIHRvIHRoZSBCb2FyZCBvZiBEaXJlY3RvcnMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYTExeWVkZ2UiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFjY2Vzc2liaWxpdHkgYXQgdGhlIEVkZ2UgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL3djYWctYWN0IiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBY2Nlc3NpYmlsaXR5IENvbmZvcm1hbmNlIFRlc3RpbmcgKEFDVCkgVGFzayBGb3JjZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9hMTF5LWRpc2Nvdi12b2NhYiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWNjZXNzaWJpbGl0eSBEaXNjb3ZlcmFiaWxpdHkgVm9jYWJ1bGFyeSBmb3IgU2NoZW1hLm9yZyBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYWNjZXNzaWJpbGl0eTRjaGlsZHJlbiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWNjZXNzaWJpbGl0eSBmb3IgQ2hpbGRyZW4gQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3dnL2FnIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBY2Nlc3NpYmlsaXR5IEd1aWRlbGluZXMgV29ya2luZyBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9nbG9iYWwtaW5jbHVzaW9uIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBY2Nlc3NpYmlsaXR5IEludGVybmF0aW9uYWxpemF0aW9uIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9hcnJtIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBY2Nlc3NpYmlsaXR5IFJvbGVzIGFuZCBSZXNwb25zaWJpbGl0aWVzIE1hcHBpbmcgKEFSUk0pIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy93Zy9hcGEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFjY2Vzc2libGUgUGxhdGZvcm0gQXJjaGl0ZWN0dXJlcyBXb3JraW5nIEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3dnL2FyaWEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFjY2Vzc2libGUgUmljaCBJbnRlcm5ldCBBcHBsaWNhdGlvbnMgV29ya2luZyBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9hY3QtciIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQUNUIFJ1bGVzIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9hZHZhMTF5cmVzb3VyY2VzIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBZHZhbmNpbmcgQWNjZXNzaWJpbGl0eSBSZXNvdXJjZXMgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL290aGVyL2FiIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBZHZpc29yeSBCb2FyZCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9hYi1lbGVjdGVkIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBZHZpc29yeSBCb2FyZCBFbGVjdGVkIE1lbWJlcnMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvb3RoZXIvYWMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFkdmlzb3J5IENvbW1pdHRlZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9pMThuLWFmcmxyZXEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFmcmljYW4gTGF5b3V0IFRhc2sgRm9yY2UiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYWdlbnRwcm90b2NvbCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQUkgQWdlbnQgUHJvdG9jb2wgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2Fpa3IiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFJIEtSIChBcnRpZmljaWFsIEludGVsbGlnZW5jZSBLbm93bGVkZ2UgUmVwcmVzZW50YXRpb24pIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9hbnRpZnJhdWQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFudGktRnJhdWQgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL2kxOG4tYWxyZXEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFyYWJpYyBMYXlvdXQgVGFzayBGb3JjZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9hcmlhLWF0IiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBUklBIGFuZCBBc3Npc3RpdmUgVGVjaG5vbG9naWVzIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9hcmlhLXByYWN0aWNlcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQVJJQSBBdXRob3JpbmcgUHJhY3RpY2VzIFRhc2sgRm9yY2UiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvdGYvYXJpYS1lZGl0b3JzIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBUklBIEVkaXRvcnMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYXVkaW8tY29tZ3AiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkF1ZGlvIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9hdWRpby1kZXNjcmlwdGlvbiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXVkaW8gRGVzY3JpcHRpb24gQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3dnL2F1ZGlvIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBdWRpbyBXb3JraW5nIEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2F2NGJyb3dzZXJzIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBdWRpb3Zpc3VhbCBNZWRpYSBGb3JtYXRzIGZvciBCcm93c2VycyBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvZ2FvIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBdXRvbW90aXZlIE9udG9sb2d5IENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9hdXRvbW90aXZlLXBheSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXV0b21vdGl2ZSBQYXltZW50cyBUYXNrIEZvcmNlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL2F1dG8tcHJpdmFjeS1zZWN1cml0eSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXV0b21vdGl2ZSBQcml2YWN5IGFuZCBTZWN1cml0eSBUYXNrIEZvcmNlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL3dlYmFnZW50cyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXV0b25vbW91cyBBZ2VudHMgb24gdGhlIFdlYiBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYnBtbG9kIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJCZXN0IFByYWN0aWNlcyBmb3IgTXVsdGlsaW5ndWFsIExpbmtlZCBPcGVuIERhdGEgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2JpYmZyYW1lMnNjaGVtYSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQmliZnJhbWUyU2NoZW1hLm9yZyBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYm9vc3QtMDEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkJpb21hc3MgT3BlbiBPcmlnaW4gU3RhbmRhcmQgZm9yIFRyYWNraW5nIChCT09TVCkgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2Jpb3NjaGVtYXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkJpb3NjaGVtYXMgZm9yIGxpZmVzY2llbmNlcyBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYmMyIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJCbG9ja2NoYWluMiBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvdGYvYm9hcmQtYXVkaXQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkJvYXJkIEF1ZGl0IENvbW1pdHRlZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9ib2FyZC1kZXZlbG9wbWVudCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQm9hcmQgRGV2ZWxvcG1lbnQgQ29tbWl0dGVlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL2JvYXJkLWRpcmVjdG9ycyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQm9hcmQgRGlyZWN0b3JzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL2JvYXJkLWVtZXJnZW5jeSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQm9hcmQgRW1lcmdlbmN5IENvbW1pdHRlZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9ib2FyZC1maW5hbmNlIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJCb2FyZCBGaW5hbmNlIENvbW1pdHRlZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9ib2FyZC1nb3Zlcm5hbmNlIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJCb2FyZCBHb3Zlcm5hbmNlIENvbW1pdHRlZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9vdGhlci9ib2FyZCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQm9hcmQgb2YgRGlyZWN0b3JzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL2JvYXJkLW9mZmljZXJzIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJCb2FyZCBPZmZpY2VycyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9ib2FyZC1wZXJzb25uZWwiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkJvYXJkIFBlcnNvbm5lbCBDb21taXR0ZWUiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvd2cvYnJvd3Nlci10b29scy10ZXN0aW5nIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJCcm93c2VyIFRlc3RpbmcgYW5kIFRvb2xzIFdvcmtpbmcgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvYmRucyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQnVpbGRpbmcgRGV2aWNlIE5hbWluZyBTdGFuZGFyZHMgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3dnL2NzcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2FzY2FkaW5nIFN0eWxlIFNoZWV0cyAoQ1NTKSBXb3JraW5nIEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL2JvYXJkLWFiLXRhZy1jaGFpcnMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNoYWlycyBvZiB0aGUgQm9hcmQsIEFCLCBhbmQgVEFHIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2NoZW0td2ViLXB1YiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2hlbWlzdHJ5IGZvciB0aGUgV2ViIGFuZCBQdWJsaXNoaW5nIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9jbmRpZCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2hpbmVzZSBESUQgJiBWQyBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvdGYvaTE4bi1jbHJlcSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2hpbmVzZSBUZXh0IExheW91dCBUYXNrIEZvcmNlIHwg5Lit5paH5o6S54mI6ZyA5rGCIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2lnL2NoaW5lc2Utd2ViIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDaGluZXNlIFdlYiBJbnRlcmVzdCBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9jZS1kcHAiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNpcmN1bGFyIEVjb25vbXkgYW5kIERpZ2l0YWwgUHJvZHVjdCBQYXNzcG9ydHMgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2NpdmljcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2l2aWMgVGVjaG5vbG9neSBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvY2xvdWQtZWRnZS1jbGllbnQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNsb3VkLUVkZ2UtQ2xpZW50IENvb3JkaW5hdGlvbiBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvY29nYS1jb21tdW5pdHkiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvZ25pdGl2ZSBBY2Nlc3NpYmlsaXR5IENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9jb2dhaSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ29nbml0aXZlIEFJIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9jb2duaXRpdmUtYTExeS10ZiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ29nbml0aXZlIGFuZCBMZWFybmluZyBEaXNhYmlsaXRpZXMgQWNjZXNzaWJpbGl0eSBUYXNrIEZvcmNlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2NvbG9yd2ViIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb2xvciBvbiB0aGUgV2ViIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9jb3VuY2lsIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb21tdW5pdHkgQ291bmNpbCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9jcmR0NHJkZiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ1JEVCBmb3IgUkRGIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9jcmVkZW50aWFscyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ3JlZGVudGlhbHMgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2NyZWRpYmlsaXR5IiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDcmVkaWJsZSBXZWIgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2NzczQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNTUzQgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2NzdnciLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNTViBvbiB0aGUgV2ViIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9kcHZjZyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRGF0YSBQcml2YWN5IFZvY2FidWxhcmllcyBhbmQgQ29udHJvbHMgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3dnL2RhdGEtc2hhcGVzIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJEYXRhIFNoYXBlcyBXb3JraW5nIEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3dnL2R4IiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJEYXRhc2V0IEV4Y2hhbmdlIFdvcmtpbmcgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvZGF0YXNwYWNlcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRGF0YXNwYWNlcyBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvdGYvZHgtZGNhdCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRENBVCBUYXNrIEZvcmNlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2RlZmFjdG8iLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkRlY2VudHJhbGl6ZWQgRmFjdC1jaGVja2luZyAmIFByb3ZlbmFuY2UgT3JnYW5pemF0aW9uIChEZUZhY3RvKSBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvd2cvZGlkIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJEZWNlbnRyYWxpemVkIElkZW50aWZpZXIgV29ya2luZyBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9kZXNpZ24tdG9rZW5zIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJEZXNpZ24gVG9rZW5zIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy93Zy9kYXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkRldmljZXMgYW5kIFNlbnNvcnMgV29ya2luZyBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy93Zy9kaXN0cmlidXRlZC10cmFjaW5nIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJEaXN0cmlidXRlZCBUcmFjaW5nIFdvcmtpbmcgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvZG9jcy1jZyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRG9jdW1lbnRhdGlvbiBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvZW9jcmVkLXNjaGVtYSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRWR1Y2F0aW9uYWwgYW5kIE9jY3VwYXRpb25hbCBDcmVkZW50aWFscyBpbiBzY2hlbWEub3JnIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9yZWNvbmNpbGlhdGlvbiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRW50aXR5IFJlY29uY2lsaWF0aW9uIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9wbS1hbm4iLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkVQVUIgQW5ub3RhdGlvbiBUYXNrIEZvcmNlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2VxdWl0eSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRXF1aXR5IENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9pMThuLWVscmVxIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJFdGhpb3BpYyBMYXlvdXQgVGFzayBGb3JjZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9pMThuLWV1cmxyZXEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkV1cm9wZWFuIExheW91dCBUYXNrIEZvcmNlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2V4cGF0aCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRVhQYXRoIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9pZy9leHBsb3JhdGlvbiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRXhwbG9yYXRpb24gSW50ZXJlc3QgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvZmRwIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJGQUlSIERhdGEgUG9pbnQgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL3RmL2Zhc3QiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkZBU1QgVGFzayBGb3JjZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9mZWQtaWQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkZlZGVyYXRlZCBJZGVudGl0eSBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvd2cvZmVkaWQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkZlZGVyYXRlZCBJZGVudGl0eSBXb3JraW5nIEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2ZpYm8iLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkZpbmFuY2lhbCBJbmR1c3RyeSBCdXNpbmVzcyBPbnRvbG9neSBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvZ2FtZXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkdhbWVzIENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9ncHUiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkdQVSBmb3IgdGhlIFdlYiBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvd2cvZ3B1IiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJHUFUgZm9yIHRoZSBXZWIgV29ya2luZyBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy9jZy9zY2hlbWVkIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIZWFsdGhjYXJlIFNjaGVtYSBWb2NhYnVsYXJ5IENvbW11bml0eSBHcm91cCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcy90Zi9pMThuLWhscmVxIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIZWJyZXcgTGF5b3V0IFRhc2sgRm9yY2UiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvaGlnaC1wZXJmLWJhc2VsaW5lIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIaWdoLVBlcmZvcm1hbmNlIEJhc2VsaW5lIGZvciBXZWIgQXBwcyBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvd2cvaHRtbHdnIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIVE1MIFdvcmtpbmcgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvaHVtYW5jZW50cmljYWkiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkh1bWFuIENlbnRyaWMgQUkgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzL2NnL2h5ZHJhIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJIeWRyYSBDb21tdW5pdHkgR3JvdXAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHMvY2cvaW1tZXJzaXZlLWNhcHRpb25zIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJJbW1lcnNpdmUgQ2FwdGlvbnMgQ29tbXVuaXR5IEdyb3VwIgogICAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAic2VsZiI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcz9wYWdlPTEmaXRlbXM9MTAwIgogICAgICAgIH0sCiAgICAgICAgImZpcnN0IjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvZ3JvdXBzP3BhZ2U9MSZpdGVtcz0xMDAiCiAgICAgICAgfSwKICAgICAgICAibGFzdCI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL2dyb3Vwcz9wYWdlPTMmaXRlbXM9MTAwIgogICAgICAgIH0sCiAgICAgICAgIm5leHQiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9ncm91cHM/cGFnZT0yJml0ZW1zPTEwMCIKICAgICAgICB9CiAgICB9Cn0=
+  recorded_at: Sat, 05 Jul 2025 01:36:12 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/groups?embed=false&items=3&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 05 Jul 2025 14:54:22 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - max-age=900, public, s-maxage=900
+      last-modified:
+      - Wed, 02 Jul 2025 10:02:54 GMT
+      access-control-allow-origin:
+      - "*"
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=PyGxsGY4c_4mzmlXI0OcE1JaAas9.j04Xv9OqY5dpoE-1751727262-1.0.1.1-aI2_RWdfXluDs.i_.DfT1Fbgk55anT1UusUVkNzCarJ3J7EjRqEORV_F.QAHUTtllqcSPkRNBvLd0A6ILJpEZwfNWgP2L0JWaovKl8uhLuI;
+        path=/; expires=Sat, 05-Jul-25 15:24:22 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a7b27db996d604-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 3,
+            "pages": 88,
+            "total": 263,
+            "_links": {
+                "groups": [
+                    {
+                        "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
+                        "title": "AB Liaisons to the Board of Directors"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/cg/a11yedge",
+                        "title": "Accessibility at the Edge Community Group"
+                    },
+                    {
+                        "href": "https://api.w3.org/groups/tf/wcag-act",
+                        "title": "Accessibility Conformance Testing (ACT) Task Force"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/groups?embed=1&page=1&items=3"
+                },
+                "first": {
+                    "href": "https://api.w3.org/groups?embed=1&page=1&items=3"
+                },
+                "last": {
+                    "href": "https://api.w3.org/groups?embed=1&page=88&items=3"
+                },
+                "next": {
+                    "href": "https://api.w3.org/groups?embed=1&page=2&items=3"
+                }
+            },
+            "_embedded": {
+                "groups": [
+                    {
+                        "id": 152309,
+                        "name": "AB Liaisons to the Board of Directors",
+                        "is_closed": false,
+                        "description": "The people named by the Advisory Board to be liaisons to the W3C Board of Directors.",
+                        "shortname": "ab-liaisons-to-bod",
+                        "members": [
+                            {
+                                "id": 7756,
+                                "name": "Advisory Board",
+                                "is_closed": false,
+                                "description": "The <a href=\"https://www.w3.org/policies/process/#AB\">Advisory Board</a> provides ongoing guidance to the Team on issues of strategy, management, legal matters, process, and conflict resolution.",
+                                "shortname": "ab",
+                                "discr": "group",
+                                "_links": {
+                                    "self": {
+                                        "href": "https://api.w3.org/groups/other/ab"
+                                    },
+                                    "homepage": {
+                                        "href": "https://www.w3.org/Member/Board/"
+                                    },
+                                    "users": {
+                                        "href": "https://api.w3.org/groups/other/ab/users"
+                                    },
+                                    "services": {
+                                        "href": "https://api.w3.org/groups/other/ab/services"
+                                    },
+                                    "chairs": {
+                                        "href": "https://api.w3.org/groups/other/ab/chairs"
+                                    },
+                                    "team-contacts": {
+                                        "href": "https://api.w3.org/groups/other/ab/teamcontacts"
+                                    }
+                                }
+                            }
+                        ],
+                        "internal": false,
+                        "participants_list_public": true,
+                        "discr": "tf",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod"
+                            },
+                            "users": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod/users"
+                            },
+                            "services": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod/services"
+                            },
+                            "chairs": {
+                                "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod/chairs"
+                            }
+                        }
+                    },
+                    {
+                        "id": 138124,
+                        "name": "Accessibility at the Edge Community Group",
+                        "is_closed": false,
+                        "description": "The mission of the Accessibility at the Edge Community Group is to examine improvements to internet accessibility via \"edge computing\", a relatively new paradigm that focuses on performing tasks at the edge of the network. Unlike cloud computing, edge computing emphasizes activities that occur closer to the user; these could include accessibility oriented user-agent extensions, applications on content delivery networks, JavaScript-enabled capabilities, AI or ML. The group is a forum for discussing both currently available products, potentially new applications not yet commercially available, as well as objective measures of the quality of any one of these. Our tasks can include inventorying both opportunities and challenges, drafting and incubating Internet specifications for further assessment, standardization, prototyping and testing of reference implementations. A11Y-EDGE CG meetings work and operate under the <a href=\"https://www.w3.org/policies/code-of-conduct/\">W3C Code of Conduct</a>.",
+                        "shortname": "a11yedge",
+                        "spec-publisher": true,
+                        "discr": "w3cgroup",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge"
+                            },
+                            "homepage": {
+                                "href": "https://www.w3.org/community/a11yedge/"
+                            },
+                            "users": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/users"
+                            },
+                            "services": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/services"
+                            },
+                            "chairs": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/chairs"
+                            },
+                            "join": {
+                                "href": "https://www.w3.org/community/a11yedge/join"
+                            },
+                            "participations": {
+                                "href": "https://api.w3.org/groups/cg/a11yedge/participations"
+                            }
+                        },
+                        "type": "community group"
+                    },
+                    {
+                        "id": 93339,
+                        "name": "Accessibility Conformance Testing (ACT) Task Force",
+                        "is_closed": false,
+                        "description": "The objective of the Accessibility Conformance Testing (ACT) Task Force is to evolve and maintain a repository of ACT Rules for WCAG 2, to promote a unified interpretation among different web accessibility test tools and methodologies. ACT Rules conform to the ACT Rules Format 1.0 to document different testing practices. The ACT TF reviews ACT Rules, and present them to AGWG when they meet stringent quality criteria. AGWG may publish such ACT Rules as non-normative W3C resources, as part of the supplemental guidance for WCAG 2.",
+                        "shortname": "wcag-act",
+                        "members": [
+                            {
+                                "id": 35422,
+                                "name": "Accessibility Guidelines Working Group",
+                                "is_closed": false,
+                                "description": "The mission of the Accessibility Guidelines Working Group (AG WG) is to develop specifications to make content on the Web accessible for people with disabilities and to participate in the development and maintenance of implementation support materials for the Web Content Accessibility Guidelines.",
+                                "shortname": "ag",
+                                "discr": "w3cgroup",
+                                "_links": {
+                                    "self": {
+                                        "href": "https://api.w3.org/groups/wg/ag"
+                                    },
+                                    "homepage": {
+                                        "href": "https://www.w3.org/WAI/GL/"
+                                    },
+                                    "users": {
+                                        "href": "https://api.w3.org/groups/wg/ag/users"
+                                    },
+                                    "services": {
+                                        "href": "https://api.w3.org/groups/wg/ag/services"
+                                    },
+                                    "specifications": {
+                                        "href": "https://api.w3.org/groups/wg/ag/specifications"
+                                    },
+                                    "chairs": {
+                                        "href": "https://api.w3.org/groups/wg/ag/chairs"
+                                    },
+                                    "team-contacts": {
+                                        "href": "https://api.w3.org/groups/wg/ag/teamcontacts"
+                                    },
+                                    "charters": {
+                                        "href": "https://api.w3.org/groups/wg/ag/charters"
+                                    },
+                                    "active-charter": {
+                                        "href": "https://api.w3.org/groups/wg/ag/charters/492"
+                                    },
+                                    "join": {
+                                        "href": "https://www.w3.org/groups/wg/ag/join"
+                                    },
+                                    "pp-status": {
+                                        "href": "https://www.w3.org/groups/wg/ag/ipr"
+                                    },
+                                    "participations": {
+                                        "href": "https://api.w3.org/groups/wg/ag/participations"
+                                    }
+                                },
+                                "type": "working group",
+                                "start-date": "1997-10-06",
+                                "end-date": "2025-10-31"
+                            }
+                        ],
+                        "internal": false,
+                        "participants_list_public": true,
+                        "discr": "tf",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/groups/tf/wcag-act"
+                            },
+                            "homepage": {
+                                "href": "https://www.w3.org/WAI/GL/task-forces/conformance-testing/"
+                            },
+                            "users": {
+                                "href": "https://api.w3.org/groups/tf/wcag-act/users"
+                            },
+                            "services": {
+                                "href": "https://api.w3.org/groups/tf/wcag-act/services"
+                            },
+                            "chairs": {
+                                "href": "https://api.w3.org/groups/tf/wcag-act/chairs"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+  recorded_at: Sat, 05 Jul 2025 14:54:22 GMT
 recorded_with: VCR 6.3.1

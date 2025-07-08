@@ -6,42 +6,42 @@ module W3cApi
     # This eliminates the class loading order dependency that caused
     # inconsistent type names in HAL output
 
-    autoload :Account, 'w3c_api/models/account'
-    autoload :Affiliation, 'w3c_api/models/affiliation'
-    autoload :AffiliationIndex, 'w3c_api/models/affiliation_index'
-    autoload :CallForTranslation, 'w3c_api/models/call_for_translation'
-    autoload :ChairIndex, 'w3c_api/models/chair_index'
-    autoload :Charter, 'w3c_api/models/charter'
-    autoload :CharterIndex, 'w3c_api/models/charter_index'
-    autoload :ConnectedAccount, 'w3c_api/models/connected_account'
-    autoload :DelivererIndex, 'w3c_api/models/deliverer_index'
-    autoload :Ecosystem, 'w3c_api/models/ecosystem'
-    autoload :EcosystemIndex, 'w3c_api/models/ecosystem_index'
-    autoload :EditorIndex, 'w3c_api/models/editor_index'
-    autoload :EvangelistIndex, 'w3c_api/models/evangelist_index'
-    autoload :Extension, 'w3c_api/models/extension'
-    autoload :Group, 'w3c_api/models/group'
-    autoload :GroupIndex, 'w3c_api/models/group_index'
-    autoload :Groups, 'w3c_api/models/groups'
-    autoload :JoinEmails, 'w3c_api/models/join_emails'
-    autoload :ParticipantIndex, 'w3c_api/models/participant_index'
-    autoload :Participation, 'w3c_api/models/participation'
-    autoload :ParticipationIndex, 'w3c_api/models/participation_index'
-    autoload :Photo, 'w3c_api/models/photo'
-    autoload :Serie, 'w3c_api/models/serie'
-    autoload :SerieIndex, 'w3c_api/models/serie_index'
-    autoload :SpecVersion, 'w3c_api/models/spec_version'
-    autoload :SpecVersionIndex, 'w3c_api/models/spec_version_index'
-    autoload :SpecVersionPredecessorIndex, 'w3c_api/models/spec_version_predecessor_index'
-    autoload :SpecVersionSuccessorIndex, 'w3c_api/models/spec_version_successor_index'
-    autoload :SpecVersionRef, 'w3c_api/models/spec_version_ref'
-    autoload :Specification, 'w3c_api/models/specification'
-    autoload :SpecificationIndex, 'w3c_api/models/specification_index'
-    autoload :TeamContactIndex, 'w3c_api/models/team_contact_index'
-    autoload :Testimonial, 'w3c_api/models/testimonial'
-    autoload :Translation, 'w3c_api/models/translation'
-    autoload :TranslationIndex, 'w3c_api/models/translation_index'
-    autoload :User, 'w3c_api/models/user'
-    autoload :UserIndex, 'w3c_api/models/user_index'
+    autoload :Account, File.expand_path('models/account', __dir__)
+    autoload :Affiliation, File.expand_path('models/affiliation', __dir__)
+    autoload :AffiliationIndex, File.expand_path('models/affiliation_index', __dir__)
+    autoload :CallForTranslation, File.expand_path('models/call_for_translation', __dir__)
+    autoload :ChairIndex, File.expand_path('models/chair_index', __dir__)
+    autoload :Charter, File.expand_path('models/charter', __dir__)
+    autoload :CharterIndex, File.expand_path('models/charter_index', __dir__)
+    autoload :ConnectedAccount, File.expand_path('models/connected_account', __dir__)
+    autoload :DelivererIndex, File.expand_path('models/deliverer_index', __dir__)
+    autoload :Ecosystem, File.expand_path('models/ecosystem', __dir__)
+    autoload :EcosystemIndex, File.expand_path('models/ecosystem_index', __dir__)
+    autoload :EditorIndex, File.expand_path('models/editor_index', __dir__)
+    autoload :EvangelistIndex, File.expand_path('models/evangelist_index', __dir__)
+    autoload :Extension, File.expand_path('models/extension', __dir__)
+    autoload :Group, File.expand_path('models/group', __dir__)
+    autoload :GroupIndex, File.expand_path('models/group_index', __dir__)
+    autoload :Groups, File.expand_path('models/groups', __dir__)
+    autoload :JoinEmailIndex, File.expand_path('models/join_emails', __dir__)
+    autoload :ParticipantIndex, File.expand_path('models/participant_index', __dir__)
+    autoload :Participation, File.expand_path('models/participation', __dir__)
+    autoload :ParticipationIndex, File.expand_path('models/participation_index', __dir__)
+    autoload :Photo, File.expand_path('models/photo', __dir__)
+    autoload :Serie, File.expand_path('models/serie', __dir__)
+    autoload :SerieIndex, File.expand_path('models/serie_index', __dir__)
+    autoload :SpecVersion, File.expand_path('models/spec_version', __dir__)
+    autoload :SpecVersionIndex, File.expand_path('models/spec_version_index', __dir__)
+    autoload :SpecVersionPredecessorIndex, File.expand_path('models/spec_version_predecessor_index', __dir__)
+    autoload :SpecVersionSuccessorIndex, File.expand_path('models/spec_version_successor_index', __dir__)
+    autoload :SpecVersionRef, File.expand_path('models/spec_version_ref', __dir__)
+    autoload :Specification, File.expand_path('models/specification', __dir__)
+    autoload :SpecificationIndex, File.expand_path('models/specification_index', __dir__)
+    autoload :TeamContactIndex, File.expand_path('models/team_contact_index', __dir__)
+    autoload :Testimonial, File.expand_path('models/testimonial', __dir__)
+    autoload :Translation, File.expand_path('models/translation', __dir__)
+    autoload :TranslationIndex, File.expand_path('models/translation_index', __dir__)
+    autoload :User, File.expand_path('models/user', __dir__)
+    autoload :UserIndex, File.expand_path('models/user_index', __dir__)
   end
 end

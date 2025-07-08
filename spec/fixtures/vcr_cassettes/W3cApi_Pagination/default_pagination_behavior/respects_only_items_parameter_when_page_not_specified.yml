@@ -108,4 +108,422 @@ http_interactions:
             }
         }
   recorded_at: Thu, 03 Jul 2025 14:11:05 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 05 Jul 2025 01:36:15 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Sat, 05 Jul 2025 01:36:12 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '3'
+      set-cookie:
+      - __cf_bm=bepnkrT2hUCPzyGGoJTLh5hl4r.lgQom074zniMxr9c-1751679375-1.0.1.1-xLjlGPevCtXH5XZpKU8G2JAM7DYG0Js.Iz7.3htpuD_cvs0ZSLnIfuI6MtIzdip2ZANoNqHzxJ9x9kkxsmAfXMM1XIyCSUtbxuWhOwiGjAw;
+        path=/; expires=Sat, 05-Jul-25 02:06:15 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a3215fcb60e656-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgInBhZ2UiOiAxLAogICAgImxpbWl0IjogMTAwLAogICAgInBhZ2VzIjogMTcsCiAgICAidG90YWwiOiAxNjQzLAogICAgIl9saW5rcyI6IHsKICAgICAgICAic3BlY2lmaWNhdGlvbnMiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9BUyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWN0aW9uIFNoZWV0czogQSBNb2R1bGFyIFdheSBvZiBEZWZpbmluZyBCZWhhdmlvciBmb3IgWE1MIGFuZCBIVE1MIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY29tcGFjdEhUTUwtMTk5ODAyMDkiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbXBhY3QgSFRNTCBmb3IgU21hbGwgSW5mb3JtYXRpb24gQXBwbGlhbmNlcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0FUQUcxMCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXV0aG9yaW5nIFRvb2wgQWNjZXNzaWJpbGl0eSBHdWlkZWxpbmVzIDEuMCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2F1dGhlbnRmb3JtIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJVc2VyIEFnZW50IEF1dGhlbnRpY2F0aW9uIEZvcm1zIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvQ1NTMSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2FzY2FkaW5nIFN0eWxlIFNoZWV0cywgbGV2ZWwgMSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL1dELWFjc3MiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkF1cmFsIENhc2NhZGluZyBTdHlsZSBTaGVldHMgKEFDU1MpIFNwZWNpZmljYXRpb24iCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9iZWNzcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQmVoYXZpb3JhbCBFeHRlbnNpb25zIHRvIENTUyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NoYXJtb2QiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNoYXJhY3RlciBNb2RlbCBmb3IgdGhlIFdvcmxkIFdpZGUgV2ViIDEuMDogRnVuZGFtZW50YWxzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY2hhcmNvbCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQSBOb3RhdGlvbiBmb3IgQ2hhcmFjdGVyIENvbGxlY3Rpb25zIGZvciB0aGUgV1dXIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvQUVSVCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiVGVjaG5pcXVlcyBGb3IgQWNjZXNzaWJpbGl0eSBFdmFsdWF0aW9uIEFuZCBSZXBhaXIgVG9vbHMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9DQ1BQLXJhIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb21wb3NpdGUgQ2FwYWJpbGl0aWVzL1ByZWZlcmVuY2UgUHJvZmlsZXM6IFJlcXVpcmVtZW50cyBhbmQgQXJjaGl0ZWN0dXJlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvQ0NQUC10YSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ29tcG9zaXRlIENhcGFiaWxpdGllcy9QcmVmZXJlbmNlIFByb2ZpbGVzOiBUZXJtaW5vbG9neSBhbmQgQWJicmV2aWF0aW9ucyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0NDUFAtQ09PUkRJTkFUSU9OIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDQy9QUCBJbXBsZW1lbnRvcnMgR3VpZGU6IEhhcm1vbml6YXRpb24gd2l0aCBFeGlzdGluZyBWb2NhYnVsYXJpZXMgYW5kIENvbnRlbnQgVHJhbnNmb3JtYXRpb24gSGV1cmlzdGljcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0NDUFAtdHJ1c3QiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNDL1BQIEltcGxlbWVudG9ycyBHdWlkZTogUHJpdmFjeSBhbmQgUHJvdG9jb2xzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY2FsbC1jb250cm9sLXJlcXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNhbGwgQ29udHJvbCBSZXF1aXJlbWVudHMgaW4gYSBWb2ljZSBCcm93c2VyIEZyYW1ld29yayIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FjZGkiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkF1dGhvcmluZyBDaGFsbGVuZ2VzIGZvciBEZXZpY2UgSW5kZXBlbmRlbmNlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY2N4bWwiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIlZvaWNlIEJyb3dzZXIgQ2FsbCBDb250cm9sOiBDQ1hNTCBWZXJzaW9uIDEuMCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NoaXBzIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb21tb24gSFRUUCBJbXBsZW1lbnRhdGlvbiBQcm9ibGVtcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0FUQUcyMCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXV0aG9yaW5nIFRvb2wgQWNjZXNzaWJpbGl0eSBHdWlkZWxpbmVzIChBVEFHKSAyLjAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jcGMtcmVxIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb3JlIFByZXNlbnRhdGlvbiBDaGFyYWN0ZXJpc3RpY3M6wqBSZXF1aXJlbWVudHMgYW5kIFVzZSBDYXNlcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NoYXJtb2QtcmVzaWQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNoYXJhY3RlciBNb2RlbCBmb3IgdGhlIFdvcmxkIFdpZGUgV2ViIDEuMDogUmVzb3VyY2UgSWRlbnRpZmllcnMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jaGFybW9kLW5vcm0iLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNoYXJhY3RlciBNb2RlbCBmb3IgdGhlIFdvcmxkIFdpZGUgV2ViOiBTdHJpbmcgTWF0Y2hpbmciCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jc2VsZWN0aW9uIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb250ZW50IFNlbGVjdGlvbiBmb3IgRGV2aWNlIEluZGVwZW5kZW5jZSAoRElTZWxlY3QpIDEuMCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0NEUlJlcXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbXBvdW5kIERvY3VtZW50IGJ5IFJlZmVyZW5jZSBVc2UgQ2FzZXMgYW5kIFJlcXVpcmVtZW50cyBWZXJzaW9uIDEuMCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NvcnMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNyb3NzLU9yaWdpbiBSZXNvdXJjZSBTaGFyaW5nIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvQ0RGUmVxcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ29tcG91bmQgRG9jdW1lbnQgVXNlIENhc2VzIGFuZCBSZXF1aXJlbWVudHMgVmVyc2lvbiAyLjAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9DRFIiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbXBvdW5kIERvY3VtZW50IGJ5IFJlZmVyZW5jZSBGcmFtZXdvcmsgMS4wIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvQzE0Ti1pc3N1ZXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIktub3duIElzc3VlcyB3aXRoIENhbm9uaWNhbCBYTUwgMS4wIChDMTROLzEuMCkiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hcmFiaWMtbWF0aCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXJhYmljIG1hdGhlbWF0aWNhbCBub3RhdGlvbiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2JhY2twbGFuZSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiUmljaCBXZWIgQXBwbGljYXRpb24gQmFja3BsYW5lIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY2xpcGJvYXJkLWFwaXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNsaXBib2FyZCBBUEkgYW5kIGV2ZW50cyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NzZWxlY3Rpb24tcHJpbWVyIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb250ZW50IFNlbGVjdGlvbiBQcmltZXIgMS4wIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY3NlbGVjdGlvbi14YWYiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkRlbGl2ZXJ5IENvbnRleHQ6IFhQYXRoIEFjY2VzcyBGdW5jdGlvbnMgMS4wIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY29vbHVyaXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvb2wgVVJJcyBmb3IgdGhlIFNlbWFudGljIFdlYiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0NTUzIiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNhc2NhZGluZyBTdHlsZSBTaGVldHMgTGV2ZWwgMiBSZXZpc2lvbiAxIChDU1MgMi4xKSBTcGVjaWZpY2F0aW9uIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvd2FpLWFyaWEtcm9hZG1hcCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiUm9hZG1hcCBmb3IgQWNjZXNzaWJsZSBSaWNoIEludGVybmV0IEFwcGxpY2F0aW9ucyAoV0FJLUFSSUEgUm9hZG1hcCkiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jaGFycmVxIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJSZXF1aXJlbWVudHMgZm9yIFN0cmluZyBJZGVudGl0eSBNYXRjaGluZyBhbmQgU3RyaW5nIEluZGV4aW5nIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvQ29udGVudC1pbi1SREYxMCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiUmVwcmVzZW50aW5nIENvbnRlbnQgaW4gUkRGIDEuMCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zLzJkY29udGV4dCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiSFRNTCBDYW52YXMgMkQgQ29udGV4dCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FwaS1wZXJtcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiUGVybWlzc2lvbnMgZm9yIERldmljZSBBUEkgQWNjZXNzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY29udGFjdHMtYXBpIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJQaWNrIENvbnRhY3RzIEludGVudCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Nzcy0yMDEwIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDYXNjYWRpbmcgU3R5bGUgU2hlZXRzIChDU1MpIFNuYXBzaG90IDIwMTAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9odG1sLW1lZGlhLWNhcHR1cmUiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkhUTUwgTWVkaWEgQ2FwdHVyZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0NTUDEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbnRlbnQgU2VjdXJpdHkgUG9saWN5IDEuMCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FuaW1hdGlvbi10aW1pbmciLAogICAgICAgICAgICAgICAgInRpdGxlIjogIlRpbWluZyBjb250cm9sIGZvciBzY3JpcHQtYmFzZWQgYW5pbWF0aW9ucyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FwcC1wcml2YWN5LWJwIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJXZWIgQXBwbGljYXRpb24gUHJpdmFjeSBCZXN0IFByYWN0aWNlcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2F1ZGlvcHJvYyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQXVkaW8gUHJvY2Vzc2luZyBBUEkiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9iYXR0ZXJ5LXN0YXR1cyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQmF0dGVyeSBTdGF0dXMgQVBJIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY2FsZW5kYXItYXBpIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDYWxlbmRhciBBUEkiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hcGktZGVzaWduIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJXZWIgQVBJIERlc2lnbiBDb29rYm9vayIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zLzJkY29udGV4dDIiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkhUTUwgQ2FudmFzIDJEIENvbnRleHQsIExldmVsIDIiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9DU1AyIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb250ZW50IFNlY3VyaXR5IFBvbGljeSBMZXZlbCAyIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvYWNjZXNzaWJpbGl0eS1tZXRyaWNzLXJlcG9ydCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiUmVzZWFyY2ggUmVwb3J0IG9uIFdlYiBBY2Nlc3NpYmlsaXR5IE1ldHJpY3MiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hbWJpZW50LWxpZ2h0IiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBbWJpZW50IExpZ2h0IFNlbnNvciIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NhcHR1cmUtc2NlbmFyaW9zIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJNZWRpYVN0cmVhbSBDYXB0dXJlIFNjZW5hcmlvcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NvbXBvbmVudHMtaW50cm8iLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkludHJvZHVjdGlvbiB0byBXZWIgQ29tcG9uZW50cyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NvbXBvc2l0aW5nLTEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbXBvc2l0aW5nIGFuZCBCbGVuZGluZyBMZXZlbCAxIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvYXBwLXVyaSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiVGhlIGFwcDogVVJMIFNjaGVtZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL3VzaW5nLWFyaWEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIlVzaW5nIEFSSUEiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jb250YWN0cy1tYW5hZ2VyLWFwaSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ29udGFjdHMgTWFuYWdlciBBUEkiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9iZWFjb24iLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkJlYWNvbiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Fic3RyYWN0LXVpIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJNQlVJIC0gQWJzdHJhY3QgVXNlciBJbnRlcmZhY2UgTW9kZWxzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvYXBwbWFuaWZlc3QiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIldlYiBBcHBsaWNhdGlvbiBNYW5pZmVzdCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NhcGFiaWxpdHktdXJscyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiR29vZCBQcmFjdGljZXMgZm9yIENhcGFiaWxpdHkgVVJMcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NvcmUtYWFtLTEuMSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ29yZSBBY2Nlc3NpYmlsaXR5IEFQSSBNYXBwaW5ncyAxLjEiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hY3Rpdml0eXN0cmVhbXMtY29yZSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWN0aXZpdHkgU3RyZWFtcyAyLjAiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hY3Rpdml0eXN0cmVhbXMtdm9jYWJ1bGFyeSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWN0aXZpdHkgVm9jYWJ1bGFyeSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FjY25hbWUtMS4xIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBY2Nlc3NpYmxlIE5hbWUgYW5kIERlc2NyaXB0aW9uIENvbXB1dGF0aW9uIDEuMSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Fubm90YXRpb24tbW9kZWwiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIldlYiBBbm5vdGF0aW9uIERhdGEgTW9kZWwiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jb2dhLXVzZXItcmVzZWFyY2giLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvZ25pdGl2ZSBBY2Nlc3NpYmlsaXR5IFVzZXIgUmVzZWFyY2giCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hdWRpby1vdXRwdXQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkF1ZGlvIE91dHB1dCBEZXZpY2VzIEFQSSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NzcC1waW5uaW5nIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb250ZW50IFNlY3VyaXR5IFBvbGljeSBQaW5uaW5nIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY3JlZGVudGlhbC1tYW5hZ2VtZW50LTEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNyZWRlbnRpYWwgTWFuYWdlbWVudCBMZXZlbCAxIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvYW5ub3RhdGlvbi1wcm90b2NvbCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiV2ViIEFubm90YXRpb24gUHJvdG9jb2wiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jbHJlcSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiUmVxdWlyZW1lbnRzIGZvciBDaGluZXNlIFRleHQgTGF5b3V0IC0g5Lit5paH5o6S54mI6ZyA5rGCIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY2xlYXItc2l0ZS1kYXRhIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDbGVhciBTaXRlIERhdGEiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jc3MtMjAxNSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ1NTIFNuYXBzaG90IDIwMTUiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9DT1dMIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDb25maW5lbWVudCB3aXRoIE9yaWdpbiBXZWIgTGFiZWxzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY3NwLWNvb2tpZXMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbnRlbnQgU2VjdXJpdHkgUG9saWN5OiBDb29raWUgQ29udHJvbHMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jc3AtZW1iZWRkZWQtZW5mb3JjZW1lbnQiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbnRlbnQgU2VjdXJpdHkgUG9saWN5OiBFbWJlZGRlZCBFbmZvcmNlbWVudCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL0NTUDMiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNvbnRlbnQgU2VjdXJpdHkgUG9saWN5IExldmVsIDMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hY3Rpdml0eXB1YiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWN0aXZpdHlQdWIiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9hbm5vdGF0aW9uLXZvY2FiIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJXZWIgQW5ub3RhdGlvbiBWb2NhYnVsYXJ5IgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvQ1NTMjIiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNhc2NhZGluZyBTdHlsZSBTaGVldHMgTGV2ZWwgMiBSZXZpc2lvbiAyIChDU1MgMi4yKSBTcGVjaWZpY2F0aW9uIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvYWNjZWxlcm9tZXRlciIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQWNjZWxlcm9tZXRlciIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Nzcy0yMDE3IiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDU1MgU25hcHNob3QgMjAxNyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Fubm90YXRpb24taHRtbCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiRW1iZWRkaW5nIFdlYiBBbm5vdGF0aW9ucyBpbiBIVE1MIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvYWN0LXJ1bGVzLWZvcm1hdC0xLjAiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFjY2Vzc2liaWxpdHkgQ29uZm9ybWFuY2UgVGVzdGluZyAoQUNUKSBSdWxlcyBGb3JtYXQgMS4wIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvY292anNvbi1vdmVydmlldyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiT3ZlcnZpZXcgb2YgdGhlIENvdmVyYWdlSlNPTiBmb3JtYXQiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jbG91ZC1icm93c2VyLWFyY2giLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkNsb3VkIEJyb3dzZXIgQXJjaGl0ZWN0dXJlIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnMvYWxyZXEiLAogICAgICAgICAgICAgICAgInRpdGxlIjogIkFyYWJpYyAmIFBlcnNpYW4gTGF5b3V0IFJlcXVpcmVtZW50cyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2NvcmUtYWFtLTEuMiIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ29yZSBBY2Nlc3NpYmlsaXR5IEFQSSBNYXBwaW5ncyAxLjIiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jc3MtMjAxOCIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ1NTIFNuYXBzaG90IDIwMTgiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucy9jb2dhLXVzYWJsZSIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiTWFraW5nIENvbnRlbnQgVXNhYmxlIGZvciBQZW9wbGUgd2l0aCBDb2duaXRpdmUgYW5kIExlYXJuaW5nIERpc2FiaWxpdGllcyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FjY25hbWUtMS4yIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBY2Nlc3NpYmxlIE5hbWUgYW5kIERlc2NyaXB0aW9uIENvbXB1dGF0aW9uIDEuMiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FjY2Vzc2liaWxpdHktY29uZm9ybWFuY2UtY2hhbGxlbmdlcyIsCiAgICAgICAgICAgICAgICAidGl0bGUiOiAiQ2hhbGxlbmdlcyB3aXRoIEFjY2Vzc2liaWxpdHkgR3VpZGVsaW5lcyBDb25mb3JtYW5jZSBhbmQgVGVzdGluZywgYW5kIEFwcHJvYWNoZXMgZm9yIE1pdGlnYXRpbmcgVGhlbSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Nzcy0yMDIwIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDU1MgU25hcHNob3QgMjAyMCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Nzcy0yMDIxIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDU1MgU25hcHNob3QgMjAyMSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2Nzcy0yMDIyIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJDU1MgU25hcHNob3QgMjAyMiIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zL2FjdC1ydWxlcy1mb3JtYXQtMS4xIiwKICAgICAgICAgICAgICAgICJ0aXRsZSI6ICJBY2Nlc3NpYmlsaXR5IENvbmZvcm1hbmNlIFRlc3RpbmcgKEFDVCkgUnVsZXMgRm9ybWF0IDEuMSIKICAgICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgInNlbGYiOiB7CiAgICAgICAgICAgICJocmVmIjogImh0dHBzOi8vYXBpLnczLm9yZy9zcGVjaWZpY2F0aW9ucz9wYWdlPTEmaXRlbXM9MTAwIgogICAgICAgIH0sCiAgICAgICAgImZpcnN0IjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnM/cGFnZT0xJml0ZW1zPTEwMCIKICAgICAgICB9LAogICAgICAgICJsYXN0IjogewogICAgICAgICAgICAiaHJlZiI6ICJodHRwczovL2FwaS53My5vcmcvc3BlY2lmaWNhdGlvbnM/cGFnZT0xNyZpdGVtcz0xMDAiCiAgICAgICAgfSwKICAgICAgICAibmV4dCI6IHsKICAgICAgICAgICAgImhyZWYiOiAiaHR0cHM6Ly9hcGkudzMub3JnL3NwZWNpZmljYXRpb25zP3BhZ2U9MiZpdGVtcz0xMDAiCiAgICAgICAgfQogICAgfQp9
+  recorded_at: Sat, 05 Jul 2025 01:36:15 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?embed=false&items=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 05 Jul 2025 14:54:23 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Sat, 05 Jul 2025 14:54:23 GMT
+      cf-cache-status:
+      - MISS
+      set-cookie:
+      - __cf_bm=5_.TW3ecmRh4W45SJFwjqJ9maI1ZVvqVRC6JlzhioOM-1751727263-1.0.1.1-PZAPzoN63v6jPFMHyvOpILdQ_MXDZTnjYUStM6LPLxr.ebGINNDnOVGp3yHv9FNCMhnddyxitTvLhtbjTLQTAwu7Rg0eO94fMepQ4PvpY2Y;
+        path=/; expires=Sat, 05-Jul-25 15:24:23 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95a7b285cf5dd0a1-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 10,
+            "pages": 165,
+            "total": 1643,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/acdi",
+                        "title": "Authoring Challenges for Device Independence"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/cors",
+                        "title": "Cross-Origin Resource Sharing"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-metrics-report",
+                        "title": "Research Report on Web Accessibility Metrics"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/abstract-ui",
+                        "title": "MBUI - Abstract User Interface Models"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.1",
+                        "title": "Accessible Name and Description Computation 1.1"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accelerometer",
+                        "title": "Accelerometer"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accname-1.2",
+                        "title": "Accessible Name and Description Computation 1.2"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/accessibility-conformance-challenges",
+                        "title": "Challenges with Accessibility Guidelines Conformance and Testing, and Approaches for Mitigating Them"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=1&items=10"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=1&items=10"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=165&items=10"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?embed=1&page=2&items=10"
+                }
+            },
+            "_embedded": {
+                "specifications": [
+                    {
+                        "shortlink": "https://www.w3.org/TR/acdi/",
+                        "description": "<p>This document discusses the challenges that authors commonly face when building web content and applications that can be accessed by users via a wide variety of different devices with different capabilities.</p>",
+                        "title": "Authoring Challenges for Device Independence",
+                        "shortname": "acdi",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/acdi"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/acdi/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/acdi/versions/20021018",
+                                "title": "Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/acdi/versions/20030901",
+                                "title": "Note"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/acdi"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/cors/",
+                        "description": "<p>This document defines a mechanism to enable client-side cross-origin requests.</p>",
+                        "title": "Cross-Origin Resource Sharing",
+                        "shortname": "cors",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/cors"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/cors/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/cors/versions/20050613",
+                                "title": "Note"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/cors/versions/20200602",
+                                "title": "Retired"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/cors"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/2dcontext/",
+                        "description": "<p>Defines the flat cartesian surface that is the context for the canvas element (for drawing). </p>",
+                        "title": "HTML Canvas 2D Context",
+                        "shortname": "2dcontext",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/2dcontext"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/2dcontext/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext/versions/20100304",
+                                "title": "Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext/versions/20210128",
+                                "title": "Retired"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/2dcontext"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/2dcontext2/",
+                        "description": "<p>This specification defines the 2D Context, Level 2 for the HTML canvas element. The 2D Context provides objects, methods, and properties to draw and manipulate graphics on a canvas drawing surface.</p>",
+                        "title": "HTML Canvas 2D Context, Level 2",
+                        "shortname": "2dcontext2",
+                        "series-version": "2",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/2dcontext2"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/2dcontext2/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext2/versions/20121217",
+                                "title": "Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/2dcontext2/versions/20150929",
+                                "title": "Retired"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/2dcontext"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/accessibility-metrics-report/",
+                        "description": "<p>Accessibility metrics can extend the existing WCAG 2.0 conformance model to provide scores for the accessibility level of websites in more depth and detail. This Report provides considerations for validity, reliability, sensitivity, adequacy, and complexity as the main qualities of measuring web accessibility. The Report is a consolidated view of the outcomes of the <a href=\"http://www.w3.org/WAI/RD/2011/metrics/\">Website Accessibility Metrics Online Symposium</a>.</p>",
+                        "title": "Research Report on Web Accessibility Metrics",
+                        "shortname": "accessibility-metrics-report",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/accessibility-metrics-report"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/accessibility-metrics-report/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/accessibility-metrics-report/versions/20120830",
+                                "title": "Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/accessibility-metrics-report/versions/20120830",
+                                "title": "Working Draft"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/accessibility-metrics-report"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/abstract-ui/",
+                        "description": "<p>Defines a meta-model and XML serialization for interchange of user interface designs, that are expressed at an abstract level, independent of the target platform or modes of interaction.</p>",
+                        "title": "MBUI - Abstract User Interface Models",
+                        "shortname": "abstract-ui",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/abstract-ui"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/abstract-ui/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/abstract-ui/versions/20131105",
+                                "title": "First Public Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/abstract-ui/versions/20140408",
+                                "title": "Retired"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/abstract-ui"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/accname-1.1/",
+                        "description": "<p>Describes how user agents determine names and descriptions of accessible objects from web content languages and expose them in accessibility APIs. </p>",
+                        "title": "Accessible Name and Description Computation 1.1",
+                        "shortname": "accname-1.1",
+                        "editor-draft": "https://w3c.github.io/accname/",
+                        "series-version": "1.1",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/accname-1.1"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/accname-1.1/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/accname-1.1/versions/20141211",
+                                "title": "First Public Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/accname-1.1/versions/20181218",
+                                "title": "Recommendation"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/accname"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/accelerometer/",
+                        "description": "<p>This specification defines accelerometer sensor interface for obtaining information about acceleration applied to the X, Y and Z axis of a device that hosts the sensor.</p>",
+                        "title": "Accelerometer",
+                        "shortname": "accelerometer",
+                        "editor-draft": "https://w3c.github.io/accelerometer/",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/accelerometer"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/accelerometer/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/accelerometer/versions/20160913",
+                                "title": "First Public Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/accelerometer/versions/20250212",
+                                "title": "Candidate Recommendation Draft"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/accelerometer"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/accname-1.2/",
+                        "description": "<p>This document describes how user agents determine the names and descriptions of accessible objects from web content languages. This information is in turn exposed through accessibility APIs so that assistive technologies can identify these objects and present their names or descriptions to users. Documenting the algorithm through which names and descriptions are to be determined promotes interoperable exposure of these properties among different accessibility APIs and helps to ensure that this information appears in a manner consistent with author intent.</p>",
+                        "title": "Accessible Name and Description Computation 1.2",
+                        "shortname": "accname-1.2",
+                        "editor-draft": "https://w3c.github.io/accname/",
+                        "series-version": "1.2",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/accname-1.2"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/accname-1.2/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/accname-1.2/versions/20190711",
+                                "title": "First Public Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/accname-1.2/versions/20250617",
+                                "title": "Working Draft"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/accname"
+                            }
+                        }
+                    },
+                    {
+                        "shortlink": "https://www.w3.org/TR/accessibility-conformance-challenges/",
+                        "description": "<p>Explores how testability and page-based conformance verification of accessibility guidelines presents challenges for a broad range of websites and web applications.</p>",
+                        "title": "Challenges with Accessibility Guidelines Conformance and Testing, and Approaches for Mitigating Them",
+                        "shortname": "accessibility-conformance-challenges",
+                        "editor-draft": "https://w3c.github.io/wcag/conformance-challenges/",
+                        "_links": {
+                            "self": {
+                                "href": "https://api.w3.org/specifications/accessibility-conformance-challenges"
+                            },
+                            "version-history": {
+                                "href": "https://api.w3.org/specifications/accessibility-conformance-challenges/versions"
+                            },
+                            "first-version": {
+                                "href": "https://api.w3.org/specifications/accessibility-conformance-challenges/versions/20200501",
+                                "title": "First Public Working Draft"
+                            },
+                            "latest-version": {
+                                "href": "https://api.w3.org/specifications/accessibility-conformance-challenges/versions/20200619",
+                                "title": "Working Draft"
+                            },
+                            "series": {
+                                "href": "https://api.w3.org/specification-series/accessibility-conformance-challenges"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+  recorded_at: Sat, 05 Jul 2025 14:54:23 GMT
 recorded_with: VCR 6.3.1

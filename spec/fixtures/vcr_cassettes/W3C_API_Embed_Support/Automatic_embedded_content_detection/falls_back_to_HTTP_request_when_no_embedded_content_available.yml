@@ -1,0 +1,152 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.w3.org/specifications?items=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:50 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Tue, 08 Jul 2025 17:27:50 GMT
+      cf-cache-status:
+      - EXPIRED
+      set-cookie:
+      - __cf_bm=Boy8X7BErZraypjiCZ.XBDujycC7VcOvcabEkO0sO7U-1751995670-1.0.1.1-I_74eYkqJSrGGvQyoBpfMsjhgngDDIc0MPItaq29UYc7KB8cUEX4.fm644X9FPTx_CGFTtp2eLFwthiCppBVyoXku6zXpPDvo9zA2777Dlo;
+        path=/; expires=Tue, 08-Jul-25 17:57:50 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b675de1716a-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "page": 1,
+            "limit": 2,
+            "pages": 822,
+            "total": 1644,
+            "_links": {
+                "specifications": [
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext",
+                        "title": "HTML Canvas 2D Context"
+                    },
+                    {
+                        "href": "https://api.w3.org/specifications/2dcontext2",
+                        "title": "HTML Canvas 2D Context, Level 2"
+                    }
+                ],
+                "self": {
+                    "href": "https://api.w3.org/specifications?page=1&items=2"
+                },
+                "first": {
+                    "href": "https://api.w3.org/specifications?page=1&items=2"
+                },
+                "last": {
+                    "href": "https://api.w3.org/specifications?page=822&items=2"
+                },
+                "next": {
+                    "href": "https://api.w3.org/specifications?page=2&items=2"
+                }
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:50 GMT
+- request:
+    method: get
+    uri: https://api.w3.org/specifications/2dcontext
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 08 Jul 2025 17:27:50 GMT
+      content-type:
+      - application/hal+json;version=1.0
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      cache-control:
+      - public, s-maxage=900
+      access-control-allow-origin:
+      - "*"
+      last-modified:
+      - Tue, 08 Jul 2025 17:27:49 GMT
+      cf-cache-status:
+      - HIT
+      age:
+      - '1'
+      set-cookie:
+      - __cf_bm=6WbRtoRMGqhVZ0QW_BElH2bga.fGaJ6q1ITH9Ib7QEM-1751995670-1.0.1.1-AxU7MDcnMHMB2mLSEmIep0dApFVSl4qyTwjKm_Da4LkdNw7guBpN78AM_9ddl0e.mmiEW9_QiPQfmhWNo2Y2Fkp7RnhsINlZr6GjDWDBEIY;
+        path=/; expires=Tue, 08-Jul-25 17:57:50 GMT; domain=.w3.org; HttpOnly; Secure;
+        SameSite=None
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 95c14b6cff7a02da-HKG
+      alt-svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "shortlink": "https://www.w3.org/TR/2dcontext/",
+            "description": "<p>Defines the flat cartesian surface that is the context for the canvas element (for drawing). </p>",
+            "title": "HTML Canvas 2D Context",
+            "shortname": "2dcontext",
+            "_links": {
+                "self": {
+                    "href": "https://api.w3.org/specifications/2dcontext"
+                },
+                "version-history": {
+                    "href": "https://api.w3.org/specifications/2dcontext/versions"
+                },
+                "first-version": {
+                    "href": "https://api.w3.org/specifications/2dcontext/versions/20100304",
+                    "title": "Working Draft"
+                },
+                "latest-version": {
+                    "href": "https://api.w3.org/specifications/2dcontext/versions/20210128",
+                    "title": "Retired"
+                },
+                "series": {
+                    "href": "https://api.w3.org/specification-series/2dcontext"
+                }
+            }
+        }
+  recorded_at: Tue, 08 Jul 2025 17:27:50 GMT
+recorded_with: VCR 6.3.1
