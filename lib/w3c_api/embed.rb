@@ -17,9 +17,9 @@ module W3cApi
       # Get human-readable descriptions of embed-supported endpoints
       def endpoint_descriptions
         {
-          specification_index: 'Specifications index with embedded specification details',
-          group_index: 'Groups index with embedded group details',
-          serie_index: 'Series index with embedded series details'
+          specification_index: "Specifications index with embedded specification details",
+          group_index: "Groups index with embedded group details",
+          serie_index: "Series index with embedded series details",
         }
       end
 
@@ -29,10 +29,10 @@ module W3cApi
           supported_endpoints: supported_endpoints,
           descriptions: endpoint_descriptions,
           usage_example: {
-            discovery: 'W3cApi::Client.embed_supported_endpoints',
-            usage: 'W3cApi::Client.new.specifications(embed: true, items: 2)',
-            automatic_realization: 'spec_link.realize  # Uses embedded content automatically'
-          }
+            discovery: "W3cApi::Client.embed_supported_endpoints",
+            usage: "W3cApi::Client.new.specifications(embed: true, items: 2)",
+            automatic_realization: "spec_link.realize  # Uses embedded content automatically",
+          },
         }
       end
     end

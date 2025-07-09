@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'serie'
+require_relative "serie"
 
 # https://api.w3.org/specification-series
 # {
@@ -44,7 +44,8 @@ require_relative 'serie'
 module W3cApi
   module Models
     class SerieIndex < Lutaml::Hal::Page
-      hal_link :series, key: 'specification-series', realize_class: 'Serie', collection: true
+      hal_link :series, key: "specification-series", realize_class: "Serie",
+                        collection: true
     end
   end
 end

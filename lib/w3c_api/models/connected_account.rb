@@ -26,7 +26,7 @@ module W3cApi
       attribute :profile_picture, :string
       attribute :href, :string
 
-      hal_link :user, key: 'user', realize_class: 'User'
+      hal_link :user, key: "user", realize_class: "User"
 
       key_value do
         %i[
@@ -37,7 +37,7 @@ module W3cApi
           nickname
           profile_picture
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

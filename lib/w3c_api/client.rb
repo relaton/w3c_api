@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'json'
-require 'rainbow'
-require 'pp'
-require_relative 'hal'
+require "json"
+require "rainbow"
+require "pp"
+require_relative "hal"
 
 module W3cApi
   class Client
@@ -15,7 +15,7 @@ module W3cApi
       hal_instance.register.models.each do |endpoint_id, endpoint_config|
         # Check if this endpoint has embed parameter support
         has_embed = endpoint_config[:parameters].any? do |param|
-          param.name == 'embed' && param.location == :query
+          param.name == "embed" && param.location == :query
         end
 
         endpoints_with_embed << endpoint_id if has_embed
@@ -48,7 +48,7 @@ module W3cApi
         :specification_resource_version_resource,
         shortname: shortname,
         version: version,
-        **options
+        **options,
       )
     end
 
@@ -101,7 +101,8 @@ module W3cApi
       fetch_resource(:group_resource, id: id, **options)
     end
 
-    %w[specifications users charters chairs team_contacts participations].each do |resource|
+    %w[specifications users charters chairs team_contacts
+       participations].each do |resource|
       define_method("group_#{resource}") do |id, options = {}|
         fetch_resource(:"group_#{resource}_index", id: id, **options)
       end

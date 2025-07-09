@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'ecosystem'
+require_relative "ecosystem"
 
 # {
 #   "page": 1,
@@ -21,7 +21,8 @@ require_relative 'ecosystem'
 module W3cApi
   module Models
     class EcosystemIndex < Lutaml::Hal::Page
-      hal_link :ecosystems, key: 'ecosystems', realize_class: 'Ecosystem', collection: true
+      hal_link :ecosystems, key: "ecosystems", realize_class: "Ecosystem",
+                            collection: true
     end
   end
 end

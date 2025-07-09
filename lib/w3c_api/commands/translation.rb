@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'thor'
-require_relative 'output_formatter'
-require_relative '../client'
+require "thor"
+require_relative "output_formatter"
+require_relative "../client"
 
 module W3cApi
   module Commands
@@ -10,9 +10,10 @@ module W3cApi
     class Translation < Thor
       include OutputFormatter
 
-      desc 'fetch [OPTIONS]', 'Fetch a translation by ID'
-      option :id, type: :string, desc: 'Translation ID'
-      option :format, type: :string, default: 'yaml', enum: %w[json yaml], desc: 'Output format'
+      desc "fetch [OPTIONS]", "Fetch a translation by ID"
+      option :id, type: :string, desc: "Translation ID"
+      option :format, type: :string, default: "yaml", enum: %w[json yaml],
+                      desc: "Output format"
       def fetch
         client = W3cApi::Client.new
 
