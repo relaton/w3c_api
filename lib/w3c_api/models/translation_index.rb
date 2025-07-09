@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'translation'
+require_relative "translation"
 
 # {
 #   "page"=>1,
@@ -28,7 +28,8 @@ require_relative 'translation'
 module W3cApi
   module Models
     class TranslationIndex < Lutaml::Hal::Page
-      hal_link :translations, key: 'translations', realize_class: 'Translation', collection: true
+      hal_link :translations, key: "translations",
+                              realize_class: "Translation", collection: true
     end
   end
 end

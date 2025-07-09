@@ -31,18 +31,20 @@ module W3cApi
       attribute :href, :string
       attribute :title, :string
 
-      hal_link :self, key: 'self', realize_class: 'Ecosystem'
-      hal_link :champion, key: 'champion', realize_class: 'User'
-      hal_link :evangelists, key: 'evangelists', realize_class: 'EvangelistIndex'
-      hal_link :groups, key: 'groups', realize_class: 'GroupIndex'
-      hal_link :member_organizations, key: 'member-organizations', realize_class: 'AffiliationIndex'
+      hal_link :self, key: "self", realize_class: "Ecosystem"
+      hal_link :champion, key: "champion", realize_class: "User"
+      hal_link :evangelists, key: "evangelists",
+                             realize_class: "EvangelistIndex"
+      hal_link :groups, key: "groups", realize_class: "GroupIndex"
+      hal_link :member_organizations, key: "member-organizations",
+                                      realize_class: "AffiliationIndex"
 
       key_value do
         %i[
           name
           shortname
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

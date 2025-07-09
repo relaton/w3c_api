@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'extension'
+require_relative "extension"
 
 # https://api.w3.org/groups/109735/charters/361
 # {
@@ -45,9 +45,9 @@ module W3cApi
       attribute :required_new_commitments, :boolean
       attribute :patent_policy, :string
 
-      hal_link :self, key: 'self', realize_class: 'Charter'
-      hal_link :group, key: 'group', realize_class: 'Group'
-      hal_link :next_charter, key: 'next-charter', realize_class: 'Charter'
+      hal_link :self, key: "self", realize_class: "Charter"
+      hal_link :group, key: "group", realize_class: "Group"
+      hal_link :next_charter, key: "next-charter", realize_class: "Charter"
 
       key_value do
         %i[
@@ -61,7 +61,7 @@ module W3cApi
           required_new_commitments
           patent_policy
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

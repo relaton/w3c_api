@@ -12,8 +12,8 @@ module W3cApi
         @groups = groups
       end
 
-      def each(&block)
-        @groups.each(&block)
+      def each(&)
+        @groups.each(&)
       end
 
       def first

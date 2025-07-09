@@ -62,8 +62,8 @@
 #     }
 # }
 
-require_relative 'account'
-require_relative 'photo'
+require_relative "account"
+require_relative "photo"
 
 module W3cApi
   module Models
@@ -79,14 +79,19 @@ module W3cApi
       attribute :connected_accounts, Account, collection: true
       attribute :photos, Photo, collection: true
 
-      hal_link :self, key: 'self', realize_class: 'User'
-      hal_link :affiliations, key: 'affiliations', realize_class: 'AffiliationIndex'
-      hal_link :groups, key: 'groups', realize_class: 'GroupIndex'
-      hal_link :specifications, key: 'specifications', realize_class: 'SpecificationIndex'
-      hal_link :participations, key: 'participations', realize_class: 'ParticipationIndex'
-      hal_link :chair_of_groups, key: 'chair-of-groups', realize_class: 'GroupIndex'
-      hal_link :team_contact_of_groups, key: 'team-contact-of-groups', realize_class: 'GroupIndex'
-      hal_link :photos, key: 'photos', realize_class: 'Photo', collection: true
+      hal_link :self, key: "self", realize_class: "User"
+      hal_link :affiliations, key: "affiliations",
+                              realize_class: "AffiliationIndex"
+      hal_link :groups, key: "groups", realize_class: "GroupIndex"
+      hal_link :specifications, key: "specifications",
+                                realize_class: "SpecificationIndex"
+      hal_link :participations, key: "participations",
+                                realize_class: "ParticipationIndex"
+      hal_link :chair_of_groups, key: "chair-of-groups",
+                                 realize_class: "GroupIndex"
+      hal_link :team_contact_of_groups, key: "team-contact-of-groups",
+                                        realize_class: "GroupIndex"
+      hal_link :photos, key: "photos", realize_class: "Photo", collection: true
 
       key_value do
         %i[
@@ -100,7 +105,7 @@ module W3cApi
           connected_accounts
           photos
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
 

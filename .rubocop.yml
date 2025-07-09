@@ -1,1 +1,3 @@
-inherit_from: .rubocop_todo.yml
+inherit_from:
+  - .rubocop_todo.yml
+  - https://raw.githubusercontent.com/riboseinc/oss-guides/main/ci/rubocop.yml

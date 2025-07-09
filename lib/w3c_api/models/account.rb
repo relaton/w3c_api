@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'lutaml/hal'
+require "lutaml/hal"
 #         {
 #             "created": "2021-03-12T22:06:06+00:00",
 #             "service": "github",
@@ -27,7 +27,7 @@ module W3cApi
       attribute :profile_picture, :string
       attribute :href, :string
 
-      hal_link :user, key: 'user', realize_class: 'User'
+      hal_link :user, key: "user", realize_class: "User"
 
       key_value do
         %i[
@@ -38,7 +38,7 @@ module W3cApi
           service
           profile_picture
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
     end

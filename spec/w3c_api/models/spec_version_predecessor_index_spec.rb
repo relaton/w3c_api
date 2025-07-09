@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe W3cApi::Models::SpecVersionPredecessorIndex do
   let(:client) { W3cApi::Client.new }
 
-  describe '#predecessor_versions' do
-    it 'returns predecessor versions for a specification version', :vcr do
-      version = client.specification_version('html5', '20140429')
+  describe "#predecessor_versions" do
+    it "returns predecessor versions for a specification version", :vcr do
+      version = client.specification_version("html5", "20140429")
       predecessors = version.links.predecessor_versions.realize
 
       expect(predecessors).to be_a(described_class)
@@ -17,13 +17,13 @@ RSpec.describe W3cApi::Models::SpecVersionPredecessorIndex do
       # Test that we can realize individual predecessor versions
       first_predecessor = predecessors.links.predecessor_versions.first.realize
       expect(first_predecessor).to be_a(W3cApi::Models::SpecVersion)
-      expect(first_predecessor.title).to include('HTML5')
+      expect(first_predecessor.title).to include("HTML5")
       expect(first_predecessor.date).to be_a(DateTime)
     end
 
-    it 'handles empty predecessor list gracefully', :vcr do
+    it "handles empty predecessor list gracefully", :vcr do
       # Test with a version that might not have predecessors
-      version = client.specification_version('html5', '20121217')
+      version = client.specification_version("html5", "20121217")
       predecessors = version.links.predecessor_versions.realize
 
       expect(predecessors).to be_a(described_class)
@@ -31,9 +31,9 @@ RSpec.describe W3cApi::Models::SpecVersionPredecessorIndex do
     end
   end
 
-  describe 'chained realization' do
-    it 'allows chaining through multiple predecessor versions', :vcr do
-      version = client.specification_version('html5', '20140429')
+  describe "chained realization" do
+    it "allows chaining through multiple predecessor versions", :vcr do
+      version = client.specification_version("html5", "20140429")
       predecessors = version.links.predecessor_versions.realize
 
       expect(predecessors).to be_a(described_class)

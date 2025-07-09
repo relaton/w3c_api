@@ -36,7 +36,7 @@
 #   "title"=>"Framkom (Forskningsaktiebolaget Medie-och Kommunikationsteknik)"
 # },
 
-require_relative 'testimonial'
+require_relative "testimonial"
 
 module W3cApi
   module Models
@@ -51,11 +51,12 @@ module W3cApi
       attribute :is_member_association, :boolean
       attribute :is_partner_member, :boolean
 
-      hal_link :self, key: 'self', realize_class: 'Affiliation'
-      hal_link :homepage, key: 'homepage', realize_class: 'String'
-      hal_link :participants, key: 'participants', realize_class: 'Participant'
-      hal_link :participations, key: 'participations', realize_class: 'Participation'
-      hal_link :logo, key: 'logo', realize_class: 'String'
+      hal_link :self, key: "self", realize_class: "Affiliation"
+      hal_link :homepage, key: "homepage", realize_class: "String"
+      hal_link :participants, key: "participants", realize_class: "Participant"
+      hal_link :participations, key: "participations",
+                                realize_class: "Participation"
+      hal_link :logo, key: "logo", realize_class: "String"
 
       key_value do
         %i[
@@ -67,7 +68,7 @@ module W3cApi
           is_member_association
           is_partner_member
         ].each do |key|
-          map key.to_s.tr('_', '-'), to: key
+          map key.to_s.tr("_", "-"), to: key
         end
       end
 

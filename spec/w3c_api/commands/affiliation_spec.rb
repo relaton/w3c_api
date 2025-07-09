@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-require 'stringio'
+require "spec_helper"
+require "stringio"
 
 RSpec.describe W3cApi::Commands::Affiliation do
   let(:affiliation_command) { described_class.new }
@@ -23,7 +23,7 @@ RSpec.describe W3cApi::Commands::Affiliation do
     allow(participations).to receive(:to_json).and_return('[{"id":987,"joined":"2020-01-01"}]')
   end
 
-  describe '#fetch', :vcr do
+  describe "#fetch", :vcr do
     before do
       # Stub STDOUT to capture output
       @original_stdout = $stdout
@@ -34,7 +34,7 @@ RSpec.describe W3cApi::Commands::Affiliation do
       $stdout = @original_stdout
     end
 
-    it 'outputs affiliations' do
+    it "outputs affiliations" do
       # Mock the client and response
       expect(client).to receive(:affiliations).and_return(affiliations)
       allow(affiliation_command).to receive(:client).and_return(client)
@@ -45,24 +45,28 @@ RSpec.describe W3cApi::Commands::Affiliation do
       expect($stdout.string).not_to be_empty
     end
 
-    it 'outputs a single affiliation when id is provided' do
+    it "outputs a single affiliation when id is provided" do
       expect(client).to receive(:affiliation).with(35_662).and_return(affiliation)
       allow(affiliation_command).to receive(:client).and_return(client)
 
-      expect { affiliation_command.invoke(:fetch, [], { id: 35_662 }) }.not_to raise_error
-      expect($stdout.string).to include('name: Google LLC')
+      expect do
+        affiliation_command.invoke(:fetch, [], { id: 35_662 })
+      end.not_to raise_error
+      expect($stdout.string).to include("name: Google LLC")
     end
 
-    it 'outputs affiliation as JSON with --format=json' do
+    it "outputs affiliation as JSON with --format=json" do
       expect(client).to receive(:affiliations).and_return(affiliations)
       allow(affiliation_command).to receive(:client).and_return(client)
 
-      expect { affiliation_command.invoke(:fetch, [], { format: 'json' }) }.not_to raise_error
+      expect do
+        affiliation_command.invoke(:fetch, [], { format: "json" })
+      end.not_to raise_error
       expect($stdout.string).to include('"name":"Google LLC"')
     end
   end
 
-  describe '#participants' do
+  describe "#participants" do
     before do
       @original_stdout = $stdout
       $stdout = StringIO.new
@@ -72,16 +76,19 @@ RSpec.describe W3cApi::Commands::Affiliation do
       $stdout = @original_stdout
     end
 
-    it 'outputs participants of an affiliation' do
+    it "outputs participants of an affiliation" do
       expect(client).to receive(:affiliation_participants).with(35_662).and_return(users)
       allow(affiliation_command).to receive(:client).and_return(client)
 
-      expect { affiliation_command.invoke(:participants, [], { id: 35_662 }) }.not_to raise_error
-      expect($stdout.string).to include('name: John Doe')
+      expect do
+        affiliation_command.invoke(:participants, [],
+                                   { id: 35_662 })
+      end.not_to raise_error
+      expect($stdout.string).to include("name: John Doe")
     end
   end
 
-  describe '#participations' do
+  describe "#participations" do
     before do
       @original_stdout = $stdout
       $stdout = StringIO.new
@@ -91,12 +98,15 @@ RSpec.describe W3cApi::Commands::Affiliation do
       $stdout = @original_stdout
     end
 
-    it 'outputs participations of an affiliation' do
+    it "outputs participations of an affiliation" do
       expect(client).to receive(:affiliation_participations).with(35_662).and_return(participations)
       allow(affiliation_command).to receive(:client).and_return(client)
 
-      expect { affiliation_command.invoke(:participations, [], { id: 35_662 }) }.not_to raise_error
-      expect($stdout.string).to include('joined: 2020-01-01')
+      expect do
+        affiliation_command.invoke(:participations, [],
+                                   { id: 35_662 })
+      end.not_to raise_error
+      expect($stdout.string).to include("joined: 2020-01-01")
     end
   end
 end
