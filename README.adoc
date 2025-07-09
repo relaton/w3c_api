@@ -17,6 +17,7 @@ https://github.com/lutaml/lutaml-model[lutaml-model]
 for all W3C API resources
 * HAL (Hypertext Application Language) implementation for recursive resource
 traversal
+* Built-in rate limiting with exponential backoff for reliable API access
 * A command-line interface using Thor following GitHub CLI patterns
 
 The endpoint supported is at https://api.w3.org.
@@ -71,6 +72,56 @@ from `lutaml-hal`, showing multiple levels of automatic link resolution.
 ====
 
 == Ruby API
+
+=== Rate limiting
+
+The W3C API client includes built-in rate limiting with exponential backoff to handle API rate limits gracefully. Rate limiting is enabled by default and works transparently with all API operations.
+
+==== Quick start
+
+[source,ruby]
+----
+require 'w3c_api'
+
+# Rate limiting is enabled by default
+client = W3cApi::Client.new
+
+# Configure rate limiting if needed
+W3cApi::Hal.instance.configure_rate_limiting(
+  max_retries: 5,        # Maximum retry attempts
+  base_delay: 1.0,       # Initial delay in seconds
+  max_delay: 60.0,       # Maximum delay cap
+  backoff_factor: 2.0    # Exponential backoff multiplier
+)
+
+# Make requests - rate limiting works automatically
+specifications = client.specifications
+----
+
+==== Demo and examples
+
+To see rate limiting in action, run the included demonstration scripts:
+
+[source,shell]
+----
+# Basic rate limiting demo
+$ ruby demo/rate_limiting_demo.rb
+
+# Advanced stress testing and performance analysis
+$ ruby examples/rate_limiting_stress_test.rb
+----
+
+The demo script shows:
+* Default rate limiting configuration
+* Custom configuration examples
+* Enabling/disabling rate limiting
+* Status checking
+
+The stress test example demonstrates:
+* Rapid sequential requests
+* Cross-endpoint performance analysis
+* Dynamic configuration changes
+* Bulk operation patterns
 
 === Embed support with auto-realize
 

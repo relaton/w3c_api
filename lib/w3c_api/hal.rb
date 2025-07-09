@@ -45,7 +45,38 @@ module W3cApi
     end
 
     def client
-      @client ||= Lutaml::Hal::Client.new(api_url: API_URL)
+      @client ||= Lutaml::Hal::Client.new(
+        api_url: API_URL,
+        rate_limiting: rate_limiting_options
+      )
+    end
+
+    # Configure rate limiting options
+    def rate_limiting_options
+      @rate_limiting_options ||= {
+        enabled: true,
+        max_retries: 3,
+        base_delay: 1.0,
+        max_delay: 60.0,
+        backoff_factor: 2.0
+      }
+    end
+
+    # Set rate limiting options
+    def configure_rate_limiting(options = {})
+      @rate_limiting_options = rate_limiting_options.merge(options)
+      # Reset client to pick up new options
+      @client = nil
+    end
+
+    # Disable rate limiting
+    def disable_rate_limiting
+      configure_rate_limiting(enabled: false)
+    end
+
+    # Enable rate limiting
+    def enable_rate_limiting
+      configure_rate_limiting(enabled: true)
     end
 
     def register
