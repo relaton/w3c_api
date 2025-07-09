@@ -15,7 +15,8 @@ Gem::Specification.new do |spec|
 
   # spec.extra_rdoc_files = %w[docs/README.adoc LICENSE]
   # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  # The `git ls-files -z` loads the files in the RubyGem that have been
+  # added into git.
   gemspec = File.basename(__FILE__)
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__,
                                              err: IO::NULL) do |ls|
