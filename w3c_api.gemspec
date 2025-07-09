@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "faraday"
   spec.add_dependency "faraday-follow_redirects"
-  spec.add_dependency "lutaml-hal", "~> 0.1.9"
+  spec.add_dependency "lutaml-hal", "~> 0.1.10"
   spec.add_dependency "rainbow"
   spec.add_dependency "thor"
 
