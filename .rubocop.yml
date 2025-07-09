@@ -4,3 +4,13 @@ inherit_from:
 
 Layout/LineLength:
   Max: 180
+
+Metrics/MethodLength:
+  Exclude:
+    - 'demo/test_embed_functionality.rb'
+    - 'lib/w3c_api/commands/specification.rb'
+    - 'lib/w3c_api/hal.rb'
+
+Metrics/ParameterLists:
+  Exclude:
+    - 'lib/w3c_api/hal.rb'

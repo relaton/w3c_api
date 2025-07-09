@@ -21,27 +21,7 @@ module W3cApi
                       desc: "Output format"
       def fetch
         client = W3cApi::Client.new
-
-        specifications = if options[:shortname] && options[:version]
-                           # Single specification version
-                           client.specification_version(options[:shortname],
-                                                        options[:version])
-                         elsif options[:shortname]
-                           # Single specification
-                           client.specification(options[:shortname])
-                         elsif options[:status]
-                           # Specifications by status
-                           client.specifications_by_status(options[:status])
-                         else
-                           # All specifications
-                           client.specifications
-                         end
-
-        # # Resolve links if specified
-        # if options[:resolve] && specifications.respond_to?(:realize_links)
-        #   specifications.realize_links(options[:resolve], client)
-        # end
-
+        specifications = fetch_specifications(client)
         output_results(specifications, options[:format])
       end
 
@@ -103,6 +83,24 @@ module W3cApi
         client = W3cApi::Client.new
         deliverers = client.specification_deliverers(options[:shortname])
         output_results(deliverers, options[:format])
+      end
+
+      private
+
+      def fetch_specifications(client)
+        if options[:shortname] && options[:version]
+          # Single specification version
+          client.specification_version(options[:shortname], options[:version])
+        elsif options[:shortname]
+          # Single specification
+          client.specification(options[:shortname])
+        elsif options[:status]
+          # Specifications by status
+          client.specifications_by_status(options[:status])
+        else
+          # All specifications
+          client.specifications
+        end
       end
     end
   end
