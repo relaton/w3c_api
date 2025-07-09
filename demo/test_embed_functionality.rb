@@ -4,6 +4,24 @@
 require "bundler/setup"
 require_relative "lib/w3c_api"
 
+def test_link_realization(groups_with_embed)
+  return unless groups_with_embed.respond_to?(:links) && groups_with_embed.links.respond_to?(:groups)
+
+  first_group_link = groups_with_embed.links.groups.first
+  return unless first_group_link
+
+  puts "   First group link: #{first_group_link.href}"
+  return unless first_group_link.respond_to?(:realize)
+
+  begin
+    realized_group = first_group_link.realize(parent_resource: groups_with_embed)
+    puts "   ✓ Link realization with embedded data successful"
+    puts "   Realized group name: #{realized_group.name if realized_group.respond_to?(:name)}"
+  rescue StandardError => e
+    puts "   ⚠ Link realization failed: #{e.message}"
+  end
+end
+
 puts "Testing W3C API Embed Functionality"
 puts "=" * 40
 
@@ -60,24 +78,7 @@ begin
   end
 
   puts "\n4. Testing link realization with embedded content..."
-
-  if groups_with_embed.respond_to?(:links) && groups_with_embed.links.respond_to?(:groups)
-    first_group_link = groups_with_embed.links.groups.first
-    if first_group_link
-      puts "   First group link: #{first_group_link.href}"
-
-      # Test realization with parent_resource (should use embedded data)
-      if first_group_link.respond_to?(:realize)
-        begin
-          realized_group = first_group_link.realize(parent_resource: groups_with_embed)
-          puts "   ✓ Link realization with embedded data successful"
-          puts "   Realized group name: #{realized_group.name if realized_group.respond_to?(:name)}"
-        rescue StandardError => e
-          puts "   ⚠ Link realization failed: #{e.message}"
-        end
-      end
-    end
-  end
+  test_link_realization(groups_with_embed)
 
   puts "\n✅ Embed functionality test completed successfully!"
 rescue StandardError => e
