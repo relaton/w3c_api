@@ -114,7 +114,9 @@ RSpec.describe W3cApi::Models::Ecosystem do
       expect(ecosystem.links.groups.type).to eq("GroupIndex")
 
       expect(ecosystem.links.member_organizations.href).to eq("https://api.w3.org/ecosystems/data/member-organizations")
-      expect(ecosystem.links.member_organizations.type).to eq("AffiliationIndex")
+      expect(ecosystem.links.member_organizations.type).to(
+        eq("AffiliationIndex"),
+      )
     end
   end
 end

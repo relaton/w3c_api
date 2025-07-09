@@ -45,7 +45,8 @@ RSpec.describe W3cApi::Models::SpecVersionSuccessorIndex do
         expect(successor.title).to be_a(String)
         expect(successor.date).to be_a(DateTime)
 
-        # Test that successor also has links (might have its own successors)
+        # Test that successor also has links (might have its own
+        # successors)
         expect(successor.links).to respond_to(:predecessor_versions)
         expect(successor.links).to respond_to(:successor_versions)
       end

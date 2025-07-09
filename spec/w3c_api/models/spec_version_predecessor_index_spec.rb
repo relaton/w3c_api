@@ -45,7 +45,8 @@ RSpec.describe W3cApi::Models::SpecVersionPredecessorIndex do
         expect(predecessor.title).to be_a(String)
         expect(predecessor.date).to be_a(DateTime)
 
-        # Test that predecessor also has links (might have its own predecessors)
+        # Test that predecessor also has links (might have its own
+        # predecessors)
         expect(predecessor.links).to respond_to(:predecessor_versions)
         expect(predecessor.links).to respond_to(:successor_versions)
       end
