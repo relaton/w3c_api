@@ -58,10 +58,10 @@ module W3cApi
     def rate_limiting_options
       @rate_limiting_options ||= {
         enabled: true,
-        max_retries: 3,
-        base_delay: 1.0,
-        max_delay: 60.0,
-        backoff_factor: 2.0,
+        max_retries: 5,
+        base_delay: 0.1,
+        max_delay: 10.0,
+        backoff_factor: 1.5,
       }
     end
 
