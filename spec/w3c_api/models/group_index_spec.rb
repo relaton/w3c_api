@@ -7,35 +7,35 @@ RSpec.describe W3cApi::Models::GroupIndex do
     let(:client) { W3cApi::Client.new }
     let(:mock_groups) do
       mock_data = {
-        "page": 1,
-        "limit": 100,
-        "pages": 3,
-        "total": 257,
-        "_links": {
-          "groups": [
+        page: 1,
+        limit: 100,
+        pages: 3,
+        total: 257,
+        _links: {
+          groups: [
             {
-              "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
-              "title": "AB Liaisons to the Board of Directors",
+              href: "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
+              title: "AB Liaisons to the Board of Directors",
             },
             {
-              "href": "https://api.w3.org/groups/cg/a11yedge",
-              "title": "Accessibility at the Edge Community Group",
+              href: "https://api.w3.org/groups/cg/a11yedge",
+              title: "Accessibility at the Edge Community Group",
             },
             {
-              "href": "https://api.w3.org/groups/tf/wcag-act",
-              "title": "Accessibility Conformance Testing (ACT) Task Force",
+              href: "https://api.w3.org/groups/tf/wcag-act",
+              title: "Accessibility Conformance Testing (ACT) Task Force",
             },
             {
-              "href": "https://api.w3.org/groups/cg/a11y-discov-vocab",
-              "title": "Accessibility Discoverability Vocabulary for Schema.org Community Group",
+              href: "https://api.w3.org/groups/cg/a11y-discov-vocab",
+              title: "Accessibility Discoverability Vocabulary for Schema.org Community Group",
             },
             {
-              "href": "https://api.w3.org/groups/cg/accessibility4children",
-              "title": "Accessibility for Children Community Group",
+              href: "https://api.w3.org/groups/cg/accessibility4children",
+              title: "Accessibility for Children Community Group",
             },
             {
-              "href": "https://api.w3.org/groups/wg/ag",
-              "title": "Accessibility Guidelines Working Group",
+              href: "https://api.w3.org/groups/wg/ag",
+              title: "Accessibility Guidelines Working Group",
             },
           ],
         },
@@ -57,35 +57,35 @@ RSpec.describe W3cApi::Models::GroupIndex do
 
   let(:groups_hash) do
     {
-      "page": 1,
-      "limit": 100,
-      "pages": 3,
-      "total": 257,
-      "_links": {
-        "groups": [
+      page: 1,
+      limit: 100,
+      pages: 3,
+      total: 257,
+      _links: {
+        groups: [
           {
-            "href": "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
-            "title": "AB Liaisons to the Board of Directors",
+            href: "https://api.w3.org/groups/tf/ab-liaisons-to-bod",
+            title: "AB Liaisons to the Board of Directors",
           },
           {
-            "href": "https://api.w3.org/groups/cg/a11yedge",
-            "title": "Accessibility at the Edge Community Group",
+            href: "https://api.w3.org/groups/cg/a11yedge",
+            title: "Accessibility at the Edge Community Group",
           },
           {
-            "href": "https://api.w3.org/groups/tf/wcag-act",
-            "title": "Accessibility Conformance Testing (ACT) Task Force",
+            href: "https://api.w3.org/groups/tf/wcag-act",
+            title: "Accessibility Conformance Testing (ACT) Task Force",
           },
           {
-            "href": "https://api.w3.org/groups/cg/a11y-discov-vocab",
-            "title": "Accessibility Discoverability Vocabulary for Schema.org Community Group",
+            href: "https://api.w3.org/groups/cg/a11y-discov-vocab",
+            title: "Accessibility Discoverability Vocabulary for Schema.org Community Group",
           },
           {
-            "href": "https://api.w3.org/groups/cg/accessibility4children",
-            "title": "Accessibility for Children Community Group",
+            href: "https://api.w3.org/groups/cg/accessibility4children",
+            title: "Accessibility for Children Community Group",
           },
           {
-            "href": "https://api.w3.org/groups/wg/ag",
-            "title": "Accessibility Guidelines Working Group",
+            href: "https://api.w3.org/groups/wg/ag",
+            title: "Accessibility Guidelines Working Group",
           },
         ],
       },

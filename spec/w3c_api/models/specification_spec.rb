@@ -29,7 +29,7 @@ RSpec.describe W3cApi::Models::Specification do
     {
       "shortlink" => "https://www.w3.org/TR/html5/",
       "description" => "<p>This specification defines the 5th major revision of the core" \
-        "language of the World Wide Web: the Hypertext Markup Language (HTML).</p>",
+                       "language of the World Wide Web: the Hypertext Markup Language (HTML).</p>",
       "title" => "HTML 5.3",
       "shortname" => "html5",
       "editor-draft" => "https://w3c.github.io/html/",
