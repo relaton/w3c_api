@@ -34,10 +34,12 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday"
   spec.add_dependency "faraday-follow_redirects"
   spec.add_dependency "lutaml-hal", "~> 0.1.10"
+  spec.add_dependency "nokogiri"
   spec.add_dependency "rainbow"
   spec.add_dependency "thor"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
   spec.metadata["changelog_uri"] = spec.homepage
+  spec.metadata["rubygems_mfa_required"] = "true"
 end
