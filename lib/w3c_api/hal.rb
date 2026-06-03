@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "singleton"
+require "faraday/retry"
 require "lutaml/hal"
 require_relative "models"
 
@@ -50,18 +51,55 @@ module W3cApi
     def client
       @client ||= Lutaml::Hal::Client.new(
         api_url: API_URL,
+        connection: connection,
         rate_limiting: rate_limiting_options,
       )
     end
 
+    # Faraday connection mirroring lutaml-hal's default middleware stack, with a
+    # retry layer for the failures lutaml-hal's RateLimiter does not cover: the
+    # W3C API signals rate-limiting with HTTP 403, plus transient connection and
+    # timeout errors. (lutaml-hal still retries 429 and 5xx.) Owning retries here
+    # means every consumer of the client is resilient without its own wrapper.
+    def connection
+      @connection ||= Faraday.new(url: API_URL.delete_suffix("/")) do |conn|
+        conn.request :retry, retry_options
+        conn.use Faraday::FollowRedirects::Middleware
+        conn.request :json
+        conn.response :json, content_type: /\bjson$/
+        conn.adapter Faraday.default_adapter
+      end
+    end
+
+    # Retry policy for the W3C-specific transient failures (HTTP 403 and
+    # connection/timeout). Grows 1, 2, 4, 8, 16s, matching rate_limiting_options.
+    def retry_options
+      {
+        max: 5,
+        interval: 1.0,
+        backoff_factor: 2,
+        max_interval: 30.0,
+        retry_statuses: [403],
+        exceptions: [
+          Errno::ETIMEDOUT, Timeout::Error,
+          Faraday::TimeoutError, Faraday::ConnectionFailed
+        ],
+      }
+    end
+
     # Configure rate limiting options
+    #
+    # lutaml-hal's RateLimiter retries 429 and 5xx responses with exponential
+    # backoff (base_delay * backoff_factor**(attempt - 1), capped at max_delay).
+    # These defaults grow 1, 2, 4, 8, 16s so a rate-limited or briefly
+    # overloaded W3C API is given real room to recover during a bulk crawl.
     def rate_limiting_options
       @rate_limiting_options ||= {
         enabled: true,
         max_retries: 5,
-        base_delay: 0.1,
-        max_delay: 10.0,
-        backoff_factor: 1.5,
+        base_delay: 1.0,
+        max_delay: 30.0,
+        backoff_factor: 2.0,
       }
     end
 
