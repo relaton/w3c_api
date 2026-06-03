@@ -120,10 +120,45 @@ module W3cApi
       configure_rate_limiting(enabled: true)
     end
 
+    # Cache options for the model register
+    #
+    # lutaml-hal caches realized objects keyed by their (canonical) URL, so a
+    # document linked from many places is fetched once. In-memory by default;
+    # pass an adapter config such as
+    # `{ adapter: { type: :filesystem, options: { path: "..." } } }` for
+    # cross-run persistence. Returns nil when caching is disabled.
+    def cache_options
+      return @cache_options if defined?(@cache_options)
+
+      @cache_options = { adapter: :memory }
+    end
+
+    # Set cache options (merged into the current ones)
+    def configure_cache(options = {})
+      @cache_options = (cache_options || {}).merge(options)
+      reset_register
+    end
+
+    # Disable caching of realized objects
+    def disable_cache
+      @cache_options = nil
+      reset_register
+    end
+
+    # Enable caching of realized objects
+    def enable_cache(options = nil)
+      @cache_options = options || { adapter: :memory }
+      reset_register
+    end
+
     def register
       return @register if @register
 
-      @register = Lutaml::Hal::ModelRegister.new(name: :w3c_api, client: client)
+      @register = Lutaml::Hal::ModelRegister.new(
+        name: :w3c_api,
+        client: client,
+        cache: cache_options,
+      )
       Lutaml::Hal::GlobalRegister.instance.register(:w3c_api, @register)
 
       # Re-run setup to register all endpoints with the new register
@@ -133,6 +168,9 @@ module W3cApi
     end
 
     def reset_register
+      # Drop the global registration too, otherwise rebuilding the register
+      # raises "replacing another one" when it re-registers the same name.
+      Lutaml::Hal::GlobalRegister.instance.unregister(:w3c_api)
       @register = nil
     end
 
