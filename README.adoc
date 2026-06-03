@@ -123,6 +123,36 @@ The stress test example demonstrates:
 * Dynamic configuration changes
 * Bulk operation patterns
 
+=== Caching
+
+Realized objects are cached keyed by their (canonical) URL, so a resource linked from many places — editors, working groups, versions — is fetched only once per process. Caching is enabled by default (in-memory) and works transparently with `fetch` and link `.realize`.
+
+==== Quick start
+
+[source,ruby]
+----
+require 'w3c_api'
+
+# Object caching is enabled by default (in-memory)
+client = W3cApi::Client.new
+
+# The same linked resource is fetched once, then served from cache
+specs = client.specifications
+spec = specs.links.specifications.first.realize   # HTTP request
+spec.links.latest_version.realize                 # HTTP request
+spec.links.latest_version.realize                 # cache hit, no HTTP
+
+# Disable caching entirely
+W3cApi::Hal.instance.disable_cache
+
+# Or persist the cache across runs on disk
+W3cApi::Hal.instance.configure_cache(
+  adapter: { type: :filesystem, options: { path: "tmp/w3c_cache" } }
+)
+----
+
+The cache is backed by https://github.com/lutaml/lutaml-store[lutaml-store]: the default `:memory` adapter lives for the process, while the `:filesystem` (and `:sqlite`) adapters persist across runs.
+
 === Embed support with auto-realize
 
 ==== General
