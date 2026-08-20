@@ -91,15 +91,41 @@ not "tidy" them away (see issue #23):
 
 Owning retries in the client means consumers get resilience without wrapping.
 Tune via `Hal.instance.configure_rate_limiting(...)` and
-`Hal.instance.configure_retry(...)`; the former resets the memoized client, the
-latter resets the connection *and* the client (`reset_connection`), since the
-connection is baked into the client at construction. Neither rebuilds an
-already-built register, so configure before the first request. There is no
-`disable_retry` — `configure_retry(max: 0)` is the off switch.
+`Hal.instance.configure_retry(...)` — both go through the memoization cascade
+below. There is no `disable_retry`; `configure_retry(max: 0)` is the off switch.
 
 Once retries are exhausted a 403 surfaces as `Lutaml::Hal::Error` (its
 `handle_response` has no 403 branch, so 403 falls through to the generic
 `raise Error`), not as a `Faraday::RetriableResponse`.
+
+### User agent (`hal.rb`)
+
+Requests carry `w3c_api/<VERSION> (+<repo url>)` (`DEFAULT_USER_AGENT`) — a bare
+Faraday user agent is a prime trigger for the Cloudflare bot heuristics in front
+of `api.w3.org`, and W3C asks consumers to identify themselves. Override with
+`Hal.instance.configure_user_agent(...)` (wins), the `W3C_API_USER_AGENT`
+environment variable, or the CLI's `--user-agent` flag. The flag comes from
+`Commands::UserAgentOption`, mixed into every command class — Thor cannot parse
+options placed before a subcommand name, so it cannot live on the root `Cli`.
+
+Note that per-request `headers:` passed to `Client` methods never reach the wire:
+lutaml-hal only forwards headers declared as endpoint parameters with
+`location: :header`, and `SimpleParameter` only produces `:path`/`:query`. The
+connection-level user agent is the working mechanism.
+
+### Memoization cascade (`hal.rb`)
+
+Memoization runs `@register → @client → @connection`, and `ModelRegister` keeps
+the client it was built with — so any connection- or client-level change must
+rebuild all three. Every `configure_*` setter funnels through
+`reset_connection → reset_client → rebuild_register` accordingly.
+
+`rebuild_register` rebuilds **eagerly**, and that is load-bearing: `Link#realize`
+resolves the register via `GlobalRegister.instance.get(:w3c_api)`, which *raises*
+when the name is absent. A lazy `reset_register` would leave every
+already-fetched model unable to realize its links until something re-entered
+`Hal#register`. The trade-off is that each `configure_*` call starts a fresh
+object cache — they are start-up knobs, not mid-crawl ones.
 
 ### Caching (`hal.rb`)
 
@@ -117,18 +143,22 @@ unregisters from lutaml-hal's `GlobalRegister`, otherwise the rebuild raises
 Specs use **VCR** (`hook_into :faraday`) with cassettes in
 `spec/fixtures/vcr_cassettes/`. Default record mode is `:new_episodes` and
 requests match on `method, uri, body` — so a new test that hits an unrecorded
-request will perform a real HTTP call and record it. `spec_helper.rb` resets the
-`Hal` singleton's register and the lutaml-hal `GlobalRegister` around every
-example to prevent cross-test endpoint-registration bleed — which also gives
-each example a fresh object cache, so caching doesn't mask expected requests.
+request will perform a real HTTP call and record it (pass `record: :none` to a
+cassette to make a mismatch raise instead). `spec_helper.rb` calls
+`configure_user_agent(nil)` before every example, which cascades through the
+whole memoization chain — connection, client, register — and unregisters from
+the lutaml-hal `GlobalRegister` to prevent cross-test endpoint-registration
+bleed. That also gives each example a fresh object cache, so caching doesn't
+mask expected requests.
 
 `spec/w3c_api/hal_spec.rb` is the one spec that opts out of VCR: it drives a
 `Faraday::Adapter::Test` connection and wraps every example in
 `VCR.turned_off`, because the `:faraday` hook injects VCR into *that*
 connection too and would otherwise reject the request as unhandled. It also
-saves and restores the `Hal` singleton's `@retry_options`/`@connection`/
-`@client` in an `around` hook — `reset_register` clears only `@register`, so
-those three otherwise persist for the whole suite process.
+restores `@retry_options` in an `around` hook: the per-example
+`configure_user_agent(nil)` rebuilds connection, client and register, but
+nothing resets the retry options, so a `configure_retry` call would otherwise
+persist for the whole suite process.
 
 ## Conventions
 

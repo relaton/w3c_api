@@ -2,11 +2,13 @@
 
 require "thor"
 require_relative "output_formatter"
+require_relative "user_agent_option"
 
 module W3cApi
   module Commands
     class SpecificationVersion < Thor
       include OutputFormatter
+      include UserAgentOption
 
       desc "editors", "Fetch editors of a specification version"
       option :shortname, type: :string, required: true,
