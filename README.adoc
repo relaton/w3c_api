@@ -17,7 +17,8 @@ https://github.com/lutaml/lutaml-model[lutaml-model]
 for all W3C API resources
 * HAL (Hypertext Application Language) implementation for recursive resource
 traversal
-* Built-in rate limiting with exponential backoff for reliable API access
+* Built-in rate limiting with exponential backoff, plus automatic retries of
+HTTP 403 and transient network errors, for reliable API access
 * A command-line interface using Thor following GitHub CLI patterns
 
 The endpoint supported is at https://api.w3.org.
@@ -90,13 +91,53 @@ client = W3cApi::Client.new
 W3cApi::Hal.instance.configure_rate_limiting(
   max_retries: 5,        # Maximum retry attempts
   base_delay: 1.0,       # Initial delay in seconds
-  max_delay: 60.0,       # Maximum delay cap
+  max_delay: 30.0,       # Maximum delay cap
   backoff_factor: 2.0    # Exponential backoff multiplier
 )
 
 # Make requests - rate limiting works automatically
 specifications = client.specifications
 ----
+
+==== Retrying HTTP 403
+
+The W3C API signals rate limiting with `HTTP 403` rather than `429`, which the
+rate limiter above does not cover. A Faraday retry middleware in the shared
+connection handles it: a `403` response is retried up to 5 times with
+exponential backoff (1, 2, 4, 8, 16 seconds), as are connection and timeout
+errors. If the response carries a `Retry-After` (or `RateLimit-Reset`) header,
+that value is used in place of the computed backoff when it is the longer of the
+two -- unless it exceeds `max_interval`, in which case the middleware gives up
+rather than waiting. See the note below.
+
+[source,ruby]
+----
+W3cApi::Hal.instance.configure_retry(
+  max: 5,              # Maximum retry attempts
+  interval: 1.0,       # Initial delay in seconds
+  backoff_factor: 2,   # Exponential backoff multiplier
+  max_interval: 60.0,  # Delay cap -- also caps `Retry-After`, see below
+  retry_statuses: [403]
+)
+
+# Effectively turn retrying off
+W3cApi::Hal.instance.configure_retry(max: 0)
+----
+
+Options are merged into the current ones, and calling `configure_retry` rebuilds
+the connection, the client and the endpoint register -- so, like the other
+`configure_*` setters, call it once at start-up rather than mid-crawl (see the
+note under <<User agent>>).
+
+[NOTE]
+====
+`max_interval` bounds the `Retry-After` header as well as the computed backoff,
+but it does not clamp it. If a server asks for longer than `max_interval`, the
+middleware stops retrying rather than waiting longer, so keep `max_interval`
+comfortably above the largest `Retry-After` you expect.
+====
+
+If every retry is exhausted, the final `403` surfaces as a `Lutaml::Hal::Error`.
 
 ==== Demo and examples
 
