@@ -34,11 +34,11 @@ RSpec.configure do |config|
 
   # Clean up global register before each test to avoid conflicts
   config.before(:each) do
-    # Reset the cached register in the singleton before unregistering
-    W3cApi::Hal.instance.reset_register
-    Lutaml::Hal::GlobalRegister.instance.unregister(:w3c_api)
-    # Ensure the register is available for tests that need it
-    W3cApi::Hal.instance.register
+    # Rebuild the whole memoization chain — connection, client, register — and
+    # re-register with the lutaml-hal GlobalRegister. Resetting the user agent
+    # is what drives it, so a user agent configured by one example cannot leak
+    # into the next.
+    W3cApi::Hal.instance.configure_user_agent(nil)
   end
 
   # Clean up global register after each test

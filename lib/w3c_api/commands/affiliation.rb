@@ -2,6 +2,7 @@
 
 require "thor"
 require_relative "output_formatter"
+require_relative "user_agent_option"
 require_relative "../client"
 
 module W3cApi
@@ -9,6 +10,7 @@ module W3cApi
     # Thor CLI command for affiliation operations
     class Affiliation < Thor
       include OutputFormatter
+      include UserAgentOption
 
       desc "fetch [OPTIONS]", "Fetch affiliations"
       option :id, type: :numeric, desc: "Affiliation ID"

@@ -79,8 +79,36 @@ Two cooperating layers, both tuned to grow 1→2→4→8→16s:
   errors.
 
 Owning retries in the client means consumers get resilience without wrapping.
-Tune via `Hal.instance.configure_rate_limiting(...)`; changing options resets
-the memoized client.
+Tune via `Hal.instance.configure_rate_limiting(...)`.
+
+### User agent (`hal.rb`)
+
+Requests carry `w3c_api/<VERSION> (+<repo url>)` (`DEFAULT_USER_AGENT`) — a bare
+Faraday user agent is a prime trigger for the Cloudflare bot heuristics in front
+of `api.w3.org`, and W3C asks consumers to identify themselves. Override with
+`Hal.instance.configure_user_agent(...)` (wins), the `W3C_API_USER_AGENT`
+environment variable, or the CLI's `--user-agent` flag. The flag comes from
+`Commands::UserAgentOption`, mixed into every command class — Thor cannot parse
+options placed before a subcommand name, so it cannot live on the root `Cli`.
+
+Note that per-request `headers:` passed to `Client` methods never reach the wire:
+lutaml-hal only forwards headers declared as endpoint parameters with
+`location: :header`, and `SimpleParameter` only produces `:path`/`:query`. The
+connection-level user agent is the working mechanism.
+
+### Memoization cascade (`hal.rb`)
+
+Memoization runs `@register → @client → @connection`, and `ModelRegister` keeps
+the client it was built with — so any connection- or client-level change must
+rebuild all three. Every `configure_*` setter funnels through
+`reset_connection → reset_client → rebuild_register` accordingly.
+
+`rebuild_register` rebuilds **eagerly**, and that is load-bearing: `Link#realize`
+resolves the register via `GlobalRegister.instance.get(:w3c_api)`, which *raises*
+when the name is absent. A lazy `reset_register` would leave every
+already-fetched model unable to realize its links until something re-entered
+`Hal#register`. The trade-off is that each `configure_*` call starts a fresh
+object cache — they are start-up knobs, not mid-crawl ones.
 
 ### Caching (`hal.rb`)
 
@@ -98,10 +126,13 @@ unregisters from lutaml-hal's `GlobalRegister`, otherwise the rebuild raises
 Specs use **VCR** (`hook_into :faraday`) with cassettes in
 `spec/fixtures/vcr_cassettes/`. Default record mode is `:new_episodes` and
 requests match on `method, uri, body` — so a new test that hits an unrecorded
-request will perform a real HTTP call and record it. `spec_helper.rb` resets the
-`Hal` singleton's register and the lutaml-hal `GlobalRegister` around every
-example to prevent cross-test endpoint-registration bleed — which also gives
-each example a fresh object cache, so caching doesn't mask expected requests.
+request will perform a real HTTP call and record it (pass `record: :none` to a
+cassette to make a mismatch raise instead). `spec_helper.rb` calls
+`configure_user_agent(nil)` before every example, which cascades through the
+whole memoization chain — connection, client, register — and unregisters from
+the lutaml-hal `GlobalRegister` to prevent cross-test endpoint-registration
+bleed. That also gives each example a fresh object cache, so caching doesn't
+mask expected requests.
 
 ## Conventions
 

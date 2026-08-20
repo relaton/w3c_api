@@ -2,6 +2,7 @@
 
 require "thor"
 require_relative "output_formatter"
+require_relative "user_agent_option"
 require_relative "../client"
 
 module W3cApi
@@ -9,6 +10,7 @@ module W3cApi
     # Thor CLI command for specification operations
     class Specification < Thor
       include OutputFormatter
+      include UserAgentOption
 
       desc "fetch [OPTIONS]", "Fetch specifications"
       option :shortname, type: :string, desc: "Filter by shortname"

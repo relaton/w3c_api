@@ -123,6 +123,43 @@ The stress test example demonstrates:
 * Dynamic configuration changes
 * Bulk operation patterns
 
+=== User agent
+
+Every request identifies the gem, its version and a contact URL, e.g. `w3c_api/0.3.2 (+https://github.com/relaton/w3c_api)`.
+
+`api.w3.org` is fronted by Cloudflare, and a generic HTTP library user agent (the Faraday default) is a common trigger for its bot and rate limiting heuristics. Applications that embed this gem should add their own identity so that W3C can tell traffic sources apart and reach the operator instead of throttling silently.
+
+==== Quick start
+
+[source,ruby]
+----
+require 'w3c_api'
+
+# Inspect the current value
+W3cApi::Hal.instance.user_agent
+# => "w3c_api/0.3.2 (+https://github.com/relaton/w3c_api)"
+
+# Identify your application, keeping the gem's own token
+W3cApi::Hal.instance.configure_user_agent(
+  "my-crawler/1.4 (+https://example.com/contact) #{W3cApi::Hal::DEFAULT_USER_AGENT}"
+)
+
+# Restore the default (or the W3C_API_USER_AGENT value)
+W3cApi::Hal.instance.configure_user_agent(nil)
+----
+
+Alternatively, set the `W3C_API_USER_AGENT` environment variable, or pass `--user-agent` to any CLI command:
+
+[source,shell]
+----
+$ export W3C_API_USER_AGENT="my-crawler/1.4 (+https://example.com/contact)"
+$ w3c_api specification fetch --user-agent "my-crawler/1.4 (+https://example.com/contact)"
+----
+
+An explicit `configure_user_agent` call (which is what `--user-agent` performs) takes precedence over the environment variable, which in turn takes precedence over the gem default.
+
+NOTE: Changing the user agent rebuilds the HTTP connection, the client and the endpoint register — as do `configure_rate_limiting` and the cache setters. The rebuilt register starts with an empty in-memory object cache, so configure these once at start-up, before issuing requests, rather than mid-crawl. Models fetched earlier keep working: the register is rebuilt eagerly, so their links still realize.
+
 === Caching
 
 Realized objects are cached keyed by their (canonical) URL, so a resource linked from many places — editors, working groups, versions — is fetched only once per process. Caching is enabled by default (in-memory) and works transparently with `fetch` and link `.realize`.
@@ -311,9 +348,10 @@ end
 specifications = client.specifications(page: 2, per_page: 50)
 groups = client.groups(page: 1, per_page: 10, limit: 25, offset: 100)
 
-# HTTP client options
-user = client.user('hash', timeout: 30, headers: { 'User-Agent' => 'MyApp/1.0' })
-spec = client.specification('html5', read_timeout: 45, open_timeout: 10)
+# NOTE: HTTP-level settings are not per-request. Options such as `headers:`,
+# `timeout:`, `read_timeout:` and `open_timeout:` are not endpoint parameters
+# and are silently ignored. Configure the user agent connection-wide with
+# W3cApi::Hal.instance.configure_user_agent (see "User agent" above).
 
 # Query parameters for filtering and sorting
 rec_specs = client.specifications_by_status('REC', sort: 'date', order: 'desc')
@@ -323,8 +361,6 @@ active_groups = client.groups(type: 'working-group', status: 'active')
 options = {
   page: 1,
   per_page: 25,
-  headers: { 'Accept-Language' => 'en-US' },
-  timeout: 60,
   sort: 'name'
 }
 specs = client.specifications(options)
