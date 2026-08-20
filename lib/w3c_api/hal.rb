@@ -2,7 +2,9 @@
 
 require "singleton"
 require "faraday/retry"
+require "faraday/follow_redirects"
 require "lutaml/hal"
+require_relative "version"
 require_relative "models"
 
 module W3cApi
@@ -44,6 +46,17 @@ module W3cApi
 
     API_URL = "https://api.w3.org/"
 
+    # api.w3.org is fronted by Cloudflare, and a bare HTTP-library User-Agent
+    # such as "Faraday v2.12.2" is a well-known trigger for its bot heuristics —
+    # which is how a polite crawl turns into an all-or-nothing 429 storm. W3C
+    # also asks API consumers to identify themselves, so name the gem, its
+    # version, and a contact URL.
+    DEFAULT_USER_AGENT = "w3c_api/#{VERSION} (+https://github.com/relaton/w3c_api)".freeze
+
+    # Lets an operator put their own contact details on the wire without a code
+    # change. An explicit configure_user_agent call still wins.
+    USER_AGENT_ENV_VAR = "W3C_API_USER_AGENT"
+
     def initialize
       # Don't call setup here - it will be called when register is first accessed
     end
@@ -56,13 +69,38 @@ module W3cApi
       )
     end
 
+    # User-Agent sent with every request. Precedence: an explicit
+    # configure_user_agent call, then W3C_API_USER_AGENT, then the gem default.
+    def user_agent
+      @user_agent ||=
+        normalize_user_agent(ENV.fetch(USER_AGENT_ENV_VAR, nil)) ||
+        DEFAULT_USER_AGENT
+    end
+
+    # Set the User-Agent sent with every request.
+    #
+    # Applications embedding this gem should identify themselves and keep the
+    # gem's own token, e.g.
+    #   configure_user_agent("my-crawler/1.4 (+https://example.com) #{DEFAULT_USER_AGENT}")
+    #
+    # Pass nil or a blank string to fall back to W3C_API_USER_AGENT / the gem
+    # default. Rebuilds the connection, so call it before issuing requests.
+    def configure_user_agent(user_agent)
+      @user_agent = normalize_user_agent(user_agent)
+      reset_connection
+      self.user_agent
+    end
+
     # Faraday connection mirroring lutaml-hal's default middleware stack, with a
     # retry layer for the failures lutaml-hal's RateLimiter does not cover: the
     # W3C API signals rate-limiting with HTTP 403, plus transient connection and
     # timeout errors. (lutaml-hal still retries 429 and 5xx.) Owning retries here
     # means every consumer of the client is resilient without its own wrapper.
     def connection
-      @connection ||= Faraday.new(url: API_URL.delete_suffix("/")) do |conn|
+      @connection ||= Faraday.new(
+        url: API_URL.delete_suffix("/"),
+        headers: { "User-Agent" => user_agent },
+      ) do |conn|
         conn.request :retry, retry_options
         conn.use Faraday::FollowRedirects::Middleware
         conn.request :json
@@ -106,8 +144,10 @@ module W3cApi
     # Set rate limiting options
     def configure_rate_limiting(options = {})
       @rate_limiting_options = rate_limiting_options.merge(options)
-      # Reset client to pick up new options
-      @client = nil
+      # Reset the client *and* the register to pick up the new options: the
+      # register keeps the client it was built with, so dropping @client alone
+      # left an already-built register on the old rate-limiting settings.
+      reset_client
     end
 
     # Disable rate limiting
@@ -136,19 +176,19 @@ module W3cApi
     # Set cache options (merged into the current ones)
     def configure_cache(options = {})
       @cache_options = (cache_options || {}).merge(options)
-      reset_register
+      rebuild_register
     end
 
     # Disable caching of realized objects
     def disable_cache
       @cache_options = nil
-      reset_register
+      rebuild_register
     end
 
     # Enable caching of realized objects
     def enable_cache(options = nil)
       @cache_options = options || { adapter: :memory }
-      reset_register
+      rebuild_register
     end
 
     def register
@@ -167,6 +207,30 @@ module W3cApi
       @register
     end
 
+    # Drop the memoized Faraday connection. Memoization runs
+    # register -> client -> connection, so a connection-level change (headers,
+    # middleware) only takes effect once all three are rebuilt.
+    def reset_connection
+      @connection = nil
+      reset_client
+    end
+
+    # Drop the memoized lutaml-hal client. The register holds the client it was
+    # constructed with (and hands it to its cache manager), so it must go too.
+    def reset_client
+      @client = nil
+      rebuild_register
+    end
+
+    # Rebuild the register immediately rather than lazily. Link#realize looks
+    # the register up in lutaml-hal's GlobalRegister, which *raises* when the
+    # name is absent — so leaving it torn down would break `.realize` on every
+    # model fetched before a configure_* call.
+    def rebuild_register
+      reset_register
+      register
+    end
+
     def reset_register
       # Drop the global registration too, otherwise rebuilding the register
       # raises "replacing another one" when it re-registers the same name.
@@ -175,6 +239,17 @@ module W3cApi
     end
 
     private
+
+    # Header values cannot contain CR/LF, and the value can come from an
+    # environment variable or a CLI flag — fold them to spaces rather than let
+    # the adapter raise deep inside a request. Blank becomes nil so the caller
+    # falls back to the environment or the default.
+    def normalize_user_agent(value)
+      return nil if value.nil?
+
+      normalized = value.to_s.gsub(/[\r\n]+/, " ").strip
+      normalized.empty? ? nil : normalized
+    end
 
     # Common pagination parameters (simplified without EndpointParameter)
     def pagination_parameters
