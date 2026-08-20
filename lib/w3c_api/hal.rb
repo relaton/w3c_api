@@ -44,6 +44,40 @@ module W3cApi
 
     API_URL = "https://api.w3.org/"
 
+    # Exceptions the Faraday retry middleware treats as retriable.
+    #
+    # faraday-retry implements `retry_statuses` by raising
+    # Faraday::RetriableResponse internally and rescuing it with a matcher built
+    # from `exceptions:`. Passing `exceptions:` REPLACES faraday-retry's
+    # DEFAULT_EXCEPTIONS, it does not merge with them -- so omitting
+    # Faraday::RetriableResponse silently disables `retry_statuses` *and* lets
+    # the internal raise escape to the caller on the very first matching
+    # response. Always build this list on top of the defaults.
+    RETRY_EXCEPTIONS = (
+      Faraday::Retry::Middleware::DEFAULT_EXCEPTIONS + [Faraday::ConnectionFailed]
+    ).freeze
+
+    # Retry policy for the W3C-specific transient failures: HTTP 403 (how the
+    # W3C API signals rate-limiting) plus connection/timeout errors. The
+    # computed backoff grows 1, 2, 4, 8, 16s, matching rate_limiting_options.
+    #
+    # max_interval sits far above the largest computed backoff (16s) because it
+    # also caps `Retry-After`: faraday-retry's `calculate_sleep_amount` returns
+    # nil -- aborting the retry loop entirely, with zero retries -- when a
+    # response's `Retry-After` exceeds max_interval. Too small a cap turns a
+    # polite server hint into an immediate give-up.
+    DEFAULT_RETRY_OPTIONS = {
+      max: 5,
+      interval: 1.0,
+      backoff_factor: 2,
+      max_interval: 60.0,
+      # Both nested values are frozen too: Hash#freeze is shallow, and
+      # retry_options hands out a shallow dup, so an unfrozen array here would
+      # let a caller corrupt this baseline for the whole process.
+      retry_statuses: [403].freeze,
+      exceptions: RETRY_EXCEPTIONS,
+    }.freeze
+
     def initialize
       # Don't call setup here - it will be called when register is first accessed
     end
@@ -71,20 +105,34 @@ module W3cApi
       end
     end
 
-    # Retry policy for the W3C-specific transient failures (HTTP 403 and
-    # connection/timeout). Grows 1, 2, 4, 8, 16s, matching rate_limiting_options.
+    # Retry policy for the W3C-specific transient failures. See
+    # DEFAULT_RETRY_OPTIONS for why `exceptions` and `max_interval` are what
+    # they are -- both have non-obvious failure modes.
     def retry_options
-      {
-        max: 5,
-        interval: 1.0,
-        backoff_factor: 2,
-        max_interval: 30.0,
-        retry_statuses: [403],
-        exceptions: [
-          Errno::ETIMEDOUT, Timeout::Error,
-          Faraday::TimeoutError, Faraday::ConnectionFailed
-        ],
-      }
+      # dup: DEFAULT_RETRY_OPTIONS is frozen and must stay the pristine baseline.
+      @retry_options ||= DEFAULT_RETRY_OPTIONS.dup
+    end
+
+    # Set retry options (merged into the current ones)
+    #
+    # The retry middleware is baked into the Faraday connection when the
+    # connection is built, and the client is constructed with that connection,
+    # so both memoized objects have to be dropped. Configure before the first
+    # request: a ModelRegister that has already been built keeps the client it
+    # was constructed with (same caveat as configure_rate_limiting).
+    #
+    # There is no separate disable switch -- `configure_retry(max: 0)` turns
+    # retrying off, returning the response as-is on the first attempt.
+    def configure_retry(options = {})
+      @retry_options = retry_options.merge(options)
+      reset_connection
+    end
+
+    # Drop the memoized connection and the client that wraps it, so the next
+    # call rebuilds both with the current options.
+    def reset_connection
+      @connection = nil
+      @client = nil
     end
 
     # Configure rate limiting options

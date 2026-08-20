@@ -74,13 +74,32 @@ that embedded data instead of issuing a new HTTP request (see
 Two cooperating layers, both tuned to grow 1→2→4→8→16s:
 - lutaml-hal's `RateLimiter` (via `rate_limiting_options`) retries **429 and
   5xx**.
-- A Faraday `:retry` middleware in `connection` covers what lutaml-hal does not:
-  the W3C API signals rate-limiting with **HTTP 403**, plus connection/timeout
-  errors.
+- A Faraday `:retry` middleware in `connection` (`DEFAULT_RETRY_OPTIONS`) covers
+  what lutaml-hal does not: the W3C API signals rate-limiting with **HTTP 403**,
+  plus connection/timeout errors.
+
+Two footguns in the Faraday layer, both encoded in constants in `hal.rb` — do
+not "tidy" them away (see issue #23):
+- `exceptions:` **replaces** faraday-retry's `DEFAULT_EXCEPTIONS`, it does not
+  merge. `retry_statuses: [403]` is implemented by raising
+  `Faraday::RetriableResponse` internally and rescuing it via `exceptions:`, so
+  dropping that class disables 403 retries *and* leaks the raise to the caller
+  on the first 403. Hence `RETRY_EXCEPTIONS` is built on top of the defaults.
+- `max_interval` caps `Retry-After` as well as the computed backoff, and a
+  `Retry-After` above it makes faraday-retry stop retrying entirely rather than
+  wait longer. Hence 60s, well above the largest computed backoff (16s).
 
 Owning retries in the client means consumers get resilience without wrapping.
-Tune via `Hal.instance.configure_rate_limiting(...)`; changing options resets
-the memoized client.
+Tune via `Hal.instance.configure_rate_limiting(...)` and
+`Hal.instance.configure_retry(...)`; the former resets the memoized client, the
+latter resets the connection *and* the client (`reset_connection`), since the
+connection is baked into the client at construction. Neither rebuilds an
+already-built register, so configure before the first request. There is no
+`disable_retry` — `configure_retry(max: 0)` is the off switch.
+
+Once retries are exhausted a 403 surfaces as `Lutaml::Hal::Error` (its
+`handle_response` has no 403 branch, so 403 falls through to the generic
+`raise Error`), not as a `Faraday::RetriableResponse`.
 
 ### Caching (`hal.rb`)
 
@@ -102,6 +121,14 @@ request will perform a real HTTP call and record it. `spec_helper.rb` resets the
 `Hal` singleton's register and the lutaml-hal `GlobalRegister` around every
 example to prevent cross-test endpoint-registration bleed — which also gives
 each example a fresh object cache, so caching doesn't mask expected requests.
+
+`spec/w3c_api/hal_spec.rb` is the one spec that opts out of VCR: it drives a
+`Faraday::Adapter::Test` connection and wraps every example in
+`VCR.turned_off`, because the `:faraday` hook injects VCR into *that*
+connection too and would otherwise reject the request as unhandled. It also
+saves and restores the `Hal` singleton's `@retry_options`/`@connection`/
+`@client` in an `around` hook — `reset_register` clears only `@register`, so
+those three otherwise persist for the whole suite process.
 
 ## Conventions
 
