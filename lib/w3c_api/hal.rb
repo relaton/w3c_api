@@ -137,8 +137,10 @@ module W3cApi
       ) do |conn|
         conn.request :retry, retry_options
         conn.use Faraday::FollowRedirects::Middleware
-        conn.request :json
-        conn.response :json, content_type: /\bjson$/
+        # No `response :json`: Faraday's middleware parses with
+        # `::JSON.parse(body, @parser_options || {})` — a positional options
+        # hash json 3.0 rejects, which forced a json < 3 pin on dependent
+        # bundles. Bodies arrive raw; lutaml-hal parses them with yeptris.
         conn.adapter Faraday.default_adapter
       end
     end
