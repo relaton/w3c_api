@@ -31,14 +31,15 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.required_ruby_version = ">= 3.1.0"
 
-  spec.add_dependency "faraday"
-  spec.add_dependency "faraday-follow_redirects"
+  spec.add_dependency "faraday", "~> 2.7"
+  spec.add_dependency "faraday-follow_redirects", "~> 0.5"
   spec.add_dependency "faraday-retry", "~> 2.0"
-  spec.add_dependency "lutaml-hal", "~> 0.2.1"
-  spec.add_dependency "lutaml-model", "~> 0.8.0"
-  spec.add_dependency "nokogiri"
-  spec.add_dependency "rainbow"
-  spec.add_dependency "thor"
+  # 0.2.8 parses JSON bodies itself (yeptris) — the stack depends on it.
+  spec.add_dependency "lutaml-hal", "~> 0.2.8"
+  spec.add_dependency "lutaml-model", "~> 0.8.148"
+  spec.add_dependency "nokogiri", "~> 1.19"
+  spec.add_dependency "rainbow", "~> 3.1"
+  spec.add_dependency "thor", "~> 1.5"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
