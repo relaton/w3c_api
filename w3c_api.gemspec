@@ -37,7 +37,6 @@ Gem::Specification.new do |spec|
   # 0.2.8 parses JSON bodies itself (yeptris) — the stack depends on it.
   spec.add_dependency "lutaml-hal", "~> 0.2.8"
   spec.add_dependency "lutaml-model", "~> 0.8.148"
-  spec.add_dependency "nokogiri", "~> 1.19"
   spec.add_dependency "rainbow", "~> 3.1"
   spec.add_dependency "thor", "~> 1.5"
 
